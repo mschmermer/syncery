@@ -1,0 +1,580 @@
+<ion-view view-title="Buchungen">
+    <ion-content style="background-color: rgb(247,247,247)">
+
+        <div class="row responsive-sm">
+            <div class="col col-33">
+                <div class="syncery-input" id="mounth">
+                    <div style="position: absolute;left: 13px;">{{monat}}</div>
+                    <i style="position: absolute; right: 13px;" class="icon ion-chevron-down positive"></i>
+
+                    <div class="syncery-option" ng-repeat="mount in mounth" ng-click="toggle('{{mount}}')">{{mount}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-33"></div>
+
+
+            <div class="col col-25">
+                <div class="syncery-input" id="mounth">
+                    <div style="position: absolute;left: 13px;">{{monat}}</div>
+                    <i style="position: absolute; right: 13px;" class="icon ion-chevron-down positive"></i>
+
+                    <div class="syncery-option" ng-repeat="mount in mounth" ng-click="toggle('{{mount}}')">{{mount}}
+                    </div>
+                </div>
+            </div>
+            <div class="col col-8">
+                <button class="button button-small button-positive">
+                    <i class="icon ion-chevron-left"></i>
+                </button>
+                <button class="button button-small button-positive">
+                    <i class="icon ion-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="row responsive-sm">
+
+            <div class="col col-33">
+                <table class="syncery-calendar befor">
+                    <thead>
+                    <tr>
+                        <th>
+                            {{day[0]}}
+                        </th>
+                        <th>
+                            {{day[1]}}
+                        </th>
+                        <th>
+                            {{day[2]}}
+                        </th>
+                        <th>
+                            {{day[3]}}
+                        </th>
+                        <th>
+                            {{day[4]}}
+                        </th>
+                        <th>
+                            {{day[5]}}
+                        </th>
+                        <th>
+                            {{day[6]}}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="" data-position="1-1">
+
+                        </td>
+                        <td data-position="1-2">
+
+                        </td>
+                        <td data-position="1-3">
+
+                        </td>
+                        <td data-position="1-4">
+
+                        </td>
+                        <td data-position="1-5">
+
+                        </td>
+                        <td data-position="1-6">
+
+                        </td>
+                        <td data-position="1-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="2-1">
+
+                        </td>
+                        <td data-position="2-2">
+
+                        </td>
+                        <td data-position="2-3">
+
+                        </td>
+                        <td data-position="2-4">
+
+                        </td>
+                        <td data-position="2-5">
+
+                        </td>
+                        <td data-position="2-6">
+
+                        </td>
+                        <td data-position="2-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="3-1">
+
+                        </td>
+                        <td data-position="3-2">
+
+                        </td>
+                        <td data-position="3-3">
+
+                        </td>
+                        <td data-position="3-4">
+
+                        </td>
+                        <td data-position="3-5">
+
+                        </td>
+                        <td data-position="3-6">
+
+                        </td>
+                        <td data-position="3-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="4-1">
+
+                        </td>
+                        <td data-position="4-2">
+
+                        </td>
+                        <td class="" data-position="4-3">
+
+                        </td>
+                        <td class="" data-position="4-4">
+
+
+                        </td>
+                        <td class="" data-position="4-5">
+
+                        </td>
+                        <td data-position="4-6">
+
+                        </td>
+                        <td data-position="4-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="5-1">
+
+                        </td>
+                        <td data-position="5-2">
+
+                        </td>
+                        <td data-position="5-3">
+
+                        </td>
+                        <td data-position="5-4">
+
+                        </td>
+                        <td data-position="5-5">
+
+                        </td>
+                        <td data-position="5-6">
+
+                        </td>
+                        <td data-position="5-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="" data-position="6-1">
+
+                        </td>
+                        <td class="" data-position="6-2">
+
+                        </td>
+                        <td data-position="6-3">
+
+                        </td>
+                        <td class="" data-position="6-4">
+
+                        </td>
+                        <td class="" data-position="6-5">
+
+                        </td>
+                        <td class="" data-position="6-6">
+
+                        </td>
+                        <td class="" data-position="6-7">
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col col-33">
+                <h4>{{monat}}</h4>
+                <table class="syncery-calendar ">
+                    <thead>
+                    <tr>
+                        <th>
+                            {{day[0]}}
+                        </th>
+                        <th>
+                            {{day[1]}}
+                        </th>
+                        <th>
+                            {{day[2]}}
+                        </th>
+                        <th>
+                            {{day[3]}}
+                        </th>
+                        <th>
+                            {{day[4]}}
+                        </th>
+                        <th>
+                            {{day[5]}}
+                        </th>
+                        <th>
+                            {{day[6]}}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="" data-position="1-1">
+
+                        </td>
+                        <td data-position="1-2">
+
+                        </td>
+                        <td data-position="1-3">
+
+                        </td>
+                        <td data-position="1-4">
+
+                        </td>
+                        <td data-position="1-5">
+
+                        </td>
+                        <td data-position="1-6">
+
+                        </td>
+                        <td data-position="1-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="2-1">
+
+                        </td>
+                        <td data-position="2-2">
+
+                        </td>
+                        <td data-position="2-3">
+
+                        </td>
+                        <td data-position="2-4">
+
+                        </td>
+                        <td data-position="2-5">
+
+                        </td>
+                        <td data-position="2-6">
+
+                        </td>
+                        <td data-position="2-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="3-1">
+
+                        </td>
+                        <td data-position="3-2">
+
+                        </td>
+                        <td data-position="3-3">
+
+                        </td>
+                        <td data-position="3-4">
+
+                        </td>
+                        <td data-position="3-5">
+
+                        </td>
+                        <td data-position="3-6">
+
+                        </td>
+                        <td data-position="3-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="4-1">
+
+                        </td>
+                        <td data-position="4-2">
+
+                        </td>
+                        <td class="" data-position="4-3">
+
+                        </td>
+                        <td class="" data-position="4-4">
+
+
+                        </td>
+                        <td class="" data-position="4-5">
+
+                        </td>
+                        <td data-position="4-6">
+
+                        </td>
+                        <td data-position="4-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="5-1">
+
+                        </td>
+                        <td data-position="5-2">
+
+                        </td>
+                        <td data-position="5-3">
+
+                        </td>
+                        <td data-position="5-4">
+
+                        </td>
+                        <td data-position="5-5">
+
+                        </td>
+                        <td data-position="5-6">
+
+                        </td>
+                        <td data-position="5-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="" data-position="6-1">
+
+                        </td>
+                        <td class="" data-position="6-2">
+
+                        </td>
+                        <td data-position="6-3">
+
+                        </td>
+                        <td class="" data-position="6-4">
+
+                        </td>
+                        <td class="" data-position="6-5">
+
+                        </td>
+                        <td class="" data-position="6-6">
+
+                        </td>
+                        <td class="" data-position="6-7">
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col col-33">
+
+                <table class="syncery-calendar after">
+                    <thead>
+                    <tr>
+                        <th>
+                            {{day[0]}}
+                        </th>
+                        <th>
+                            {{day[1]}}
+                        </th>
+                        <th>
+                            {{day[2]}}
+                        </th>
+                        <th>
+                            {{day[3]}}
+                        </th>
+                        <th>
+                            {{day[4]}}
+                        </th>
+                        <th>
+                            {{day[5]}}
+                        </th>
+                        <th>
+                            {{day[6]}}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="" data-position="1-1">
+
+                        </td>
+                        <td data-position="1-2">
+
+                        </td>
+                        <td data-position="1-3">
+
+                        </td>
+                        <td data-position="1-4">
+
+                        </td>
+                        <td data-position="1-5">
+
+                        </td>
+                        <td data-position="1-6">
+
+                        </td>
+                        <td data-position="1-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="2-1">
+
+                        </td>
+                        <td data-position="2-2">
+
+                        </td>
+                        <td data-position="2-3">
+
+                        </td>
+                        <td data-position="2-4">
+
+                        </td>
+                        <td data-position="2-5">
+
+                        </td>
+                        <td data-position="2-6">
+
+                        </td>
+                        <td data-position="2-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="3-1">
+
+                        </td>
+                        <td data-position="3-2">
+
+                        </td>
+                        <td data-position="3-3">
+
+                        </td>
+                        <td data-position="3-4">
+
+                        </td>
+                        <td data-position="3-5">
+
+                        </td>
+                        <td data-position="3-6">
+
+                        </td>
+                        <td data-position="3-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="4-1">
+
+                        </td>
+                        <td data-position="4-2">
+
+                        </td>
+                        <td class="" data-position="4-3">
+
+                        </td>
+                        <td class="" data-position="4-4">
+
+
+                        </td>
+                        <td class="" data-position="4-5">
+
+                        </td>
+                        <td data-position="4-6">
+
+                        </td>
+                        <td data-position="4-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-position="5-1">
+
+                        </td>
+                        <td data-position="5-2">
+
+                        </td>
+                        <td data-position="5-3">
+
+                        </td>
+                        <td data-position="5-4">
+
+                        </td>
+                        <td data-position="5-5">
+
+                        </td>
+                        <td data-position="5-6">
+
+                        </td>
+                        <td data-position="5-7">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="" data-position="6-1">
+
+                        </td>
+                        <td class="" data-position="6-2">
+
+                        </td>
+                        <td data-position="6-3">
+
+                        </td>
+                        <td class="" data-position="6-4">
+
+                        </td>
+                        <td class="" data-position="6-5">
+
+                        </td>
+                        <td class="" data-position="6-6">
+
+                        </td>
+                        <td class="" data-position="6-7">
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="row responsive-sm">
+            <div class="col col-33">
+                <input class="syncery-input" id="search" placeholder="Suche">
+                    <div style="position: absolute;left: 13px;">{{suche}}</div>
+                    <i style="position: absolute; right: 13px;" class="icon ion-search dark"></i>
+
+                    <div class="syncery-option" ng-repeat="search in searching" ng-click="toggle2('{{search}}')">
+                        {{search}}
+                    </div>
+                </input>
+            </div>
+            <div class="col col-33">
+                <button class="button button-medium button-positive">
+                    BUCHUNG VERWERFEN
+                </button>
+            </div>
+            <div class="col col-33">
+                <button class="button button-medium button-calm">
+                    BUCHUNG SICHERN
+                </button>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

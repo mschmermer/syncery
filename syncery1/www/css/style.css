@@ -1,0 +1,9 @@
+/* Empty. Add your own CSS if you like */
+body{
+    background-color: rgb(247, 247, 247);
+}
+
+.item{
+    background-color: rgb(56,86,94);
+    color: white;
+}
