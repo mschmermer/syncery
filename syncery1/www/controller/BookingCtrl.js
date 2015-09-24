@@ -5,7 +5,7 @@
         .controller('BookingCtrl', BookingCtrl);
 
 
-    function BookingCtrl($scope, $location, $ionicPopup, $ionicSideMenuDelegate, ionicMaterialInk, ionicMaterialMotion) {
+    function BookingCtrl($scope, $ionicSideMenuDelegate, ionicMaterialInk, ionicMaterialMotion) {
 
         $scope.$on('$ionicView.enter', function(){
             $ionicSideMenuDelegate.canDragContent(false);
@@ -16,22 +16,21 @@
 
         ionicMaterialInk.displayEffect();
 
+        $scope.month = [];
+        var moments = moment().locale('de');
 
-        $scope.mounth = ['Januar', 'Februar', 'Maerz', 'April', 'Mai', 'Juni','Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-        $scope.day = ['MO', 'DI', 'MI', 'DO', 'FR', 'SA', 'SO'];
+        for(var i=0; i<=11; i++){
+            $scope.month.push(moments.month(i).format('MMMM'));
+        }
+
         $scope.searching = [];
         $scope.input_suche = '';
         kunden = ['Andreas Gallien', 'Marcus Schmermer', 'Anke Schulz', 'Mathias Auge'];
 
-        if(!$scope.dm && !$scope.dj){
-            var d = new Date();
-            $scope.dm = d.getMonth() + 1;
-            $scope.dj = d.getYear();
-            $scope.monat = $scope.mounth[$scope.dm-1];
-            Kalender.init($scope.dm, $scope.dj);
-            Kalender.writeCalendar();
+        if(!$scope.monthnumber && !$scope.year){
+            $scope.monthnumber = moment().month();
+            $scope.year = moment().year();
         }
-
 
         $scope.toggle = function(monat) {
             $selected.find("div.syncery-option").slideUp();
@@ -45,27 +44,15 @@
 
         $scope.onSwipeLeft = function() {
 
-            $scope.dm = $scope.dm+1;
-            $scope.monat = $scope.mounth[$scope.dm-1];
 
-            Kalender.init($scope.dm, $scope.dj);
-            Kalender.writeCalendar();
-
-            console.log($scope.dm+' '+$scope.monat);
         }
 
         $scope.onSwipeRight = function() {
 
-            $scope.dm = $scope.dm-1;
-            $scope.monat = $scope.mounth[$scope.dm-1];
 
-            Kalender.init($scope.dm, $scope.dj);
-            Kalender.writeCalendar();
-
-            console.log($scope.dm+' '+$scope.monat);
         }
 
-        $(document).ready(function () {
+        /*$(document).ready(function () {
 
             $selected = false;
 
@@ -123,6 +110,6 @@
                 });
             });
 
-        })
+        })*/
     }
 })();

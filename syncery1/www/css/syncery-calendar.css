@@ -160,7 +160,7 @@ td.occupied:first-child:before{
 }
 
 /*vorheriger oder nächster Monat*/
-td.other-mounth{
+td.other_month{
     background-color: rgb(251,251,251);
     color: grey;
 }
