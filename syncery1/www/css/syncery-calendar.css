@@ -64,7 +64,25 @@ td.arrival:before {
     width: 0px;
     height: 0px;
     border-top: 40px solid transparent;
-    border-right: 38px solid rgb(255,102,102);
+    border-right: 36px solid rgb(255,102,102);
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    right: 0px;
+}
+
+td.arrival-selected{
+    position: relative;
+    font-weight: bold;
+    border-right: 2px solid blue;
+}
+
+td.arrival-selected:before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-top: 40px solid transparent;
+    border-right: 36px solid blue;
     position: absolute;
     z-index: -1;
     top: 0px;
@@ -82,7 +100,24 @@ td.departure:after {
     width: 0px;
     height: 0px;
     border-bottom: 40px solid transparent;
-    border-left: 38px solid rgb(255,102,102);
+    border-left: 36px solid rgb(255,102,102);
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+}
+
+td.departure-selected{
+    position: relative;
+    font-weight: bold;
+}
+
+td.departure-selected:after {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-bottom: 40px solid transparent;
+    border-left: 36px solid blue;
     position: absolute;
     z-index: -1;
     top: 0px;
@@ -110,6 +145,12 @@ td.occupied{
     background-color: rgb(255,102,102);
     color: white;
     border-right: 2px solid rgb(255,102,102);
+}
+
+td.occupied-selected{
+    background-color: blue;
+    color: white;
+    border-right: 2px solid blue;
 }
 
 

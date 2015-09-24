@@ -18,17 +18,32 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+        <ion-item menu-close href="#/app/search">
+          <i class="icon ion-search"></i>&nbsp;&nbsp;&nbsp;SUCHE
+        </ion-item>
+        <ion-item class="item-divider" style="background-color: white; color: black; text-align: center; line-height: 15px; height: 30px; min-height: 30px;">
+          MEN&Uuml;
         </ion-item>
         <ion-item menu-close href="#/app/search">
-          Search
+          <i class="icon ion-home"></i>&nbsp;&nbsp;&nbsp;HOME
         </ion-item>
-        <ion-item  menu-close href="#/app/browse">
-          <i class="icon ion-calendar"></i>&nbsp;&nbsp;&nbsp;Buchungen
+        <ion-item  menu-close href="#/app/bookings">
+          <i class="icon ion-calendar"></i>&nbsp;&nbsp;&nbsp;BUCHUNGEN
         </ion-item>
         <ion-item style="background-color: rgb(56,86,94); color:white;" menu-close href="#/app/playlists">
-          Playlists
+          <i class="icon ion-calendar"></i>&nbsp;&nbsp;&nbsp;UNTERK&Uuml;NFTE
+        </ion-item>
+        <ion-item style="background-color: rgb(56,86,94); color:white;" menu-close href="#/app/playlists">
+          <i class="icon ion-person-stalker"></i>&nbsp;&nbsp;&nbsp;KUNDEN
+        </ion-item>
+        <ion-item style="background-color: rgb(56,86,94); color:white;" menu-close href="#/app/playlists">
+          <i class="icon ion-stats-bars"></i>&nbsp;&nbsp;&nbsp;REPORTS
+        </ion-item>
+        <ion-item style="background-color: rgb(56,86,94); color:white;" menu-close href="#/app/playlists">
+          <i class="icon ion-gear-a"></i>&nbsp;&nbsp;&nbsp;SETTINGS
+        </ion-item>
+        <ion-item menu-close ng-click="login()">
+          <i class="icon ion-log-in"></i>&nbsp;&nbsp;&nbsp;LOGIN
         </ion-item>
       </ion-list>
     </ion-content>

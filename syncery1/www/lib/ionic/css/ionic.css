@@ -4654,7 +4654,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 .item {
   border-color: #ddd;
   background-color: #fff;
-  color: white;
+  color: #444;
   position: relative;
   z-index: 2;
   display: block;
@@ -4799,7 +4799,7 @@ a.item {
   z-index: 2;
   padding: 16px 49px 16px 16px;
   border: none;
-  background-color: rgb(56,86,94); }
+  background-color: #fff; }
 
 a.item-content {
   display: block;
@@ -5778,7 +5778,7 @@ input, button, select, textarea {
   padding: 7px 10px 7px 0px;
   max-width: 200px;
   width: 35%;
-  color: white;
+  color: #444;
   font-size: 16px; }
 
 .placeholder-icon {

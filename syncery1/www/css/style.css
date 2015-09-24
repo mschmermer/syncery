@@ -3,6 +3,11 @@ body{
     background-color: rgb(247, 247, 247);
 }
 
+.item-complex .item-content, .item-radio .item-content {
+    background-color: rgb(56,86,94);
+    color: white;
+}
+
 .item{
     background-color: rgb(56,86,94);
     color: white;

@@ -5,6 +5,7 @@ var Kalender = {
     Monat: 0,
     Jahr: 0,
     init: function (Monat, Jahr) {
+        this.CalenderData = {};
         if (Jahr < 999)
             Jahr += 1900;
         this.Monat = Monat;
@@ -85,27 +86,40 @@ var Kalender = {
                 Tag1++;
             }
         }
-        this.CalenderData['9-10']['arrival'] = 'true';
-        this.CalenderData['9-11']['occupied'] = 'true';
-        this.CalenderData['9-12']['occupied'] = 'true';
-        this.CalenderData['9-13']['occupied'] = 'true';
-        this.CalenderData['9-14']['occupied'] = 'true';
-        this.CalenderData['9-15']['occupied'] = 'true';
-        this.CalenderData['9-16']['occupied'] = 'true';
-        this.CalenderData['9-17']['occupied'] = 'true';
-        this.CalenderData['9-18']['occupied'] = 'true';
-        this.CalenderData['9-19']['occupied'] = 'true';
-        this.CalenderData['9-20']['departure'] = 'true';
-        this.CalenderData['9-20']['arrival'] = 'true';
-        this.CalenderData['9-21']['occupied'] = 'true';
-        this.CalenderData['9-22']['occupied'] = 'true';
-        this.CalenderData['9-23']['occupied'] = 'true';
-        this.CalenderData['9-24']['occupied'] = 'true';
-        this.CalenderData['9-25']['occupied'] = 'true';
-        this.CalenderData['9-26']['occupied'] = 'true';
-        this.CalenderData['9-27']['departure'] = 'true';
-        //this.CalenderData['9-2']['today'] = 'true';
-        console.log(this.CalenderData);
+
+        if(this.CalenderData['9-10']){
+            this.CalenderData['9-10']['arrival'] = 'true';
+            this.CalenderData['9-11']['occupied'] = 'true';
+            this.CalenderData['9-12']['occupied'] = 'true';
+            this.CalenderData['9-13']['occupied'] = 'true';
+            this.CalenderData['9-14']['occupied'] = 'true';
+            this.CalenderData['9-15']['occupied'] = 'true';
+            this.CalenderData['9-16']['occupied'] = 'true';
+            this.CalenderData['9-17']['occupied'] = 'true';
+            this.CalenderData['9-18']['occupied'] = 'true';
+            this.CalenderData['9-19']['occupied'] = 'true';
+            this.CalenderData['9-20']['departure'] = 'true';
+            this.CalenderData['9-10']['bookingId'] = '1a';
+            this.CalenderData['9-11']['bookingId'] = '1';
+            this.CalenderData['9-12']['bookingId'] = '1';
+            this.CalenderData['9-13']['bookingId'] = '1';
+            this.CalenderData['9-14']['bookingId'] = '1';
+            this.CalenderData['9-15']['bookingId'] = '1';
+            this.CalenderData['9-16']['bookingId'] = '1';
+            this.CalenderData['9-17']['bookingId'] = '1';
+            this.CalenderData['9-18']['bookingId'] = '1';
+            this.CalenderData['9-19']['bookingId'] = '1';
+            this.CalenderData['9-20']['bookingId'] = '1d';
+            this.CalenderData['9-20']['arrival'] = 'true';
+            this.CalenderData['9-21']['occupied'] = 'true';
+            this.CalenderData['9-22']['occupied'] = 'true';
+            this.CalenderData['9-23']['occupied'] = 'true';
+            this.CalenderData['9-24']['occupied'] = 'true';
+            this.CalenderData['9-25']['occupied'] = 'true';
+            this.CalenderData['9-26']['occupied'] = 'true';
+            this.CalenderData['9-27']['departure'] = 'true';
+        }
+
         function berechneLetzterMonatstag(Monat, Jahr) {
             var Stop = 31;
             if (Monat == 4 || Monat == 6 || Monat == 9 || Monat == 11)
@@ -124,9 +138,15 @@ var Kalender = {
     },
     writeCalendar: function () {
         for (var key in this.CalenderData) {
+            //alert(this.CalenderData[key].day);
             var position = $('td[data-position="' + this.CalenderData[key].data_position + '"]');
+            position.removeClass();
             position.text(this.CalenderData[key].day);
             position.attr('data-date', this.Jahr + '-' + key);
+
+            if (this.CalenderData[key].bookingId){
+                position.attr('data-booking-id', this.CalenderData[key].bookingId);
+            }
 
             if (this.CalenderData[key].arrival == 'true') {
                 position.addClass('arrival');

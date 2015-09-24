@@ -20,6 +20,32 @@
     bottom: -3px;
 }
 
+div.syncery-input-search{
+    width: 95%;
+    height: 30px;
+    position: relative;
+    background-color: yellow;
+}
+
+div.syncery-input-search input.syncery-input{
+    position: relative;
+    width: 100%;
+    top: -10px;
+}
+
+.syncery-input-line{
+    background-color: black;
+    height: 3px;
+    width: 100%;
+    position: relative;
+    bottom: 20px;
+}
+
+div.syncery-input-search div.syncery-option{
+    position: relative;
+    bottom: 20px;
+}
+
 div.syncery-option{
     z-index: 99;
     position: relative;
@@ -46,7 +72,7 @@ div.syncery-option:last-child{
 }
 
 .button.button-medium{
-    min-width: 200px;
+    width: 95%;
 }
 
 .button.button-small{
