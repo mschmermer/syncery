@@ -5,52 +5,33 @@
 
         <div class="row responsive-sm">
             <div class="col col-50">
-                <div class="syncery-input" id="mounth">
-                    <div style="position: absolute;left: 13px;">{{monat}}</div>
-                    <i style="position: absolute; right: 13px;" class="icon ion-chevron-down positive"></i>
+                <syncery-dropdown name="'Monat'"
+                                  attribute="month[monthnumber]"
+                                  attributes="month2">
 
-                    <div class="syncery-option" ng-repeat="mount in mounth" ng-click="toggle('{{mount}}')">{{mount}}
-                    </div>
-                </div>
+                </syncery-dropdown>
             </div>
 
 
             <div class="col col-50">
-                <div class="syncery-input" id="mounth">
-                    <div style="position: absolute;left: 13px;">{{monat}}</div>
-                    <i style="position: absolute; right: 13px;" class="icon ion-chevron-down positive"></i>
+                <syncery-dropdown name="'Monat2'"
+                                  attribute="month[monthnumber]"
+                                  attributes="month2">
 
-                    <div class="syncery-option" ng-repeat="mount in mounth" ng-click="toggle('{{mount}}')">{{mount}}
-                    </div>
-                </div>
+                </syncery-dropdown>
             </div>
         </div>
         <div class="row responsive-sm">
-            <ion-slide-box on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()" show-pager="false"
+            <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)" show-pager="false"
                            does-continue="true">
                 <ion-slide>
-                    <div class="card" style="width: 280px; margin-left: auto; margin-right: auto">
-                        <div class="item item-divider">
-                            <h2 style="text-align: center; color: white">{{month[monthnumber]}}</h2>
-                        </div>
-                        <syncery-calendar month="monthnumber" year="year"></syncery-calendar>
-                    </div>
+                    <syncery-calendar month="monthnumber" year="year"></syncery-calendar>
                 </ion-slide>
                 <ion-slide>
-                    <div class="card" style="width: 280px; margin-left: auto; margin-right: auto">
-                        <div class="item item-divider">
-                            <h2 style="text-align: center; color: white">{{month[monthnumber+1]}}</h2>
-                        </div>
-                        <syncery-calendar month="monthnumber+1" year="year"></syncery-calendar>
-                    </div>
+                    <syncery-calendar month="monthnumber1" year="year1"></syncery-calendar>
                 </ion-slide>
                 <ion-slide>
-                    <div class="card" style="width: 280px; margin-left: auto; margin-right: auto">
-                        <div class="item item-divider">
-                            <h2 style="text-align: center; color: white">{{month[monthnumber-1]}}</h2>
-                        </div>
-                        <syncery-calendar month="monthnumber-1" year="year"></syncery-calendar>
-                    </div>
+                    <syncery-calendar month="monthnumber2" year="year2"></syncery-calendar>
                 </ion-slide>
             </ion-slide-box>
         </div>
@@ -67,15 +48,16 @@
                 </div>
             </div>
             <div class="col col-33">
-                <button class="button button-medium button-positive waves-effect waves-button waves-light">
+                <button class="button  button-flat button-medium button-positive waves-effect waves-button waves-light">
                     BUCHUNG VERWERFEN
                 </button>
             </div>
             <div class="col col-33">
-                <button class="button button-medium button-calm waves-effect waves-button waves-light">
+                <button class="button button-flat button-medium button-calm waves-effect waves-button waves-light">
                     BUCHUNG SICHERN
                 </button>
             </div>
+
         </div>
     </ion-content>
 </ion-view>

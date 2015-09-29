@@ -4,11 +4,13 @@ body{
 }
 
 .item-complex .item-content, .item-radio .item-content {
-    background-color: rgb(56,86,94);
+    background-color: rgb(56,68,94);
     color: white;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
 }
 
 .item{
-    background-color: rgb(56,86,94);
+    background-color: rgb(56,68,94);
     color: white;
 }

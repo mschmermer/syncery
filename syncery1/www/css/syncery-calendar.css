@@ -71,13 +71,13 @@ td.arrival:before {
     right: 0px;
 }
 
-td.arrival-selected{
+td.arrival.selected{
     position: relative;
     font-weight: bold;
     border-right: 2px solid blue;
 }
 
-td.arrival-selected:before {
+td.arrival.selected:before {
     content: '';
     width: 0px;
     height: 0px;
@@ -107,12 +107,12 @@ td.departure:after {
     left: 0px;
 }
 
-td.departure-selected{
+td.departure.selected{
     position: relative;
     font-weight: bold;
 }
 
-td.departure-selected:after {
+td.departure.selected:after {
     content: '';
     width: 0px;
     height: 0px;
@@ -147,7 +147,7 @@ td.occupied{
     border-right: 2px solid rgb(255,102,102);
 }
 
-td.occupied-selected{
+td.occupied.selected{
     background-color: blue;
     color: white;
     border-right: 2px solid blue;

@@ -5,7 +5,7 @@
         .controller('BookingCtrl', BookingCtrl);
 
 
-    function BookingCtrl($scope, $ionicSideMenuDelegate, ionicMaterialInk, ionicMaterialMotion) {
+    function BookingCtrl($scope, $ionicSideMenuDelegate, ionicMaterialInk, ionicMaterialMotion, $ionicSlideBoxDelegate) {
 
         $scope.$on('$ionicView.enter', function(){
             $ionicSideMenuDelegate.canDragContent(false);
@@ -14,22 +14,39 @@
             $ionicSideMenuDelegate.canDragContent(true);
         });
 
+        $scope.myActiveSlide = 0;
+
         ionicMaterialInk.displayEffect();
 
-        $scope.month = [];
-        var moments = moment().locale('de');
+        $scope.month = [''];
+        $scope.month2 = [];
 
-        for(var i=0; i<=11; i++){
-            $scope.month.push(moments.month(i).format('MMMM'));
-        }
+        var moments = moment().locale('de');
 
         $scope.searching = [];
         $scope.input_suche = '';
         kunden = ['Andreas Gallien', 'Marcus Schmermer', 'Anke Schulz', 'Mathias Auge'];
 
-        if(!$scope.monthnumber && !$scope.year){
-            $scope.monthnumber = moment().month();
+        if(!$scope.monthnumber){
+            $scope.monthnumber = moment().month()+1;
             $scope.year = moment().year();
+            if($scope.monthnumber==12){
+                $scope.year1=$scope.year+1;
+                $scope.year2=$scope.year;
+            }else if($scope.monthnumber==1){
+                $scope.year1=$scope.year;
+                $scope.year2=$scope.year-1;
+            }else{
+                $scope.year1=$scope.year;
+                $scope.year2=$scope.year;
+            }
+            $scope.monthnumber1 = $scope.monthnumber +1;
+            $scope.monthnumber2 = $scope.monthnumber -1;
+        }
+
+        for(var i=0; i<=11; i++){
+            $scope.month.push(moments.month(i).format('MMMM'));
+            $scope.month2.push(moments.month(i).format('MMMM')+' '+$scope.year);
         }
 
         $scope.toggle = function(monat) {
@@ -42,74 +59,67 @@
             $scope.suche = suche;
         }
 
-        $scope.onSwipeLeft = function() {
 
-
-        }
-
-        $scope.onSwipeRight = function() {
-
-
-        }
-
-        /*$(document).ready(function () {
-
-            $selected = false;
-
-            $('td').on('click', function () {
-                if (!($(this).hasClass('other-mounth'))) {
-                    if ($selected) {
-                        $selected.find("div.selected").remove();
-                        $('tr').find('.occupied-selected').removeClass('occupied-selected').addClass('occupied');;
-                        $('tr').find('.arrival-selected').removeClass('arrival-selected').addClass('arrival');;
-                        $('tr').find('.departure-selected').removeClass('departure-selected').addClass('departure');;
+        $scope.slideChanged = function(index) {
+            switch(index) {
+                case 0:
+                    switch($scope.myActiveSlide) {
+                        case 1:
+                            $scope.monthnumber2=$scope.monthnumber2-3;
+                            if($scope.monthnumber2<=0){
+                                $scope.monthnumber2=$scope.monthnumber2+12;
+                                $scope.year2 = $scope.year2 -1;
+                            }
+                            break;
+                        case 2:;
+                            $scope.monthnumber1=$scope.monthnumber1+3;
+                            if($scope.monthnumber1>12){
+                                $scope.monthnumber1=$scope.monthnumber1-12;
+                                $scope.year1 = $scope.year1 +1;
+                            }
+                            break;
                     }
-                    $selected = $(this);
-                    $selected.append('<div class="selected"></div>');
-                }
-                if (($(this).hasClass('occupied'))) {
-                    id = $(this).attr('data-booking-id');
-                    data = '[data-booking-id="'+id+'"].occupied';
-                    td = $('tr').find(data).removeClass('occupied').addClass('occupied-selected');
-                    data = '[data-booking-id="'+id+'a"].arrival';
-                    td = $('tr').find(data).removeClass('arrival').addClass('arrival-selected');
-                    data = '[data-booking-id="'+id+'d"].departure';
-                    td = $('tr').find(data).removeClass('departure').addClass('departure-selected');
-
-                }
-            })
-
-            $('div.syncery-input').on('click', function () {
-                $selected = $(this);
-                if ($selected && !$selected.find("div.syncery-option").is(':visible')) {
-                    $selected.find("div.syncery-option").slideDown('slow');
-                }
-
-            });
-
-            $('div.syncery-option.ng-binding').on('click', function () {
-                var val = $(this).text();
-                $selected.find("div.syncery-option").slideUp();
-            });
-
-            $('div.syncery-input-search').on('click', function () {
-                $selected = $(this);
-                if ($selected && !$selected.find("div.syncery-option").is(':visible')) {
-                    $selected.find("div.syncery-option").slideDown('slow');
-                }
-                $(".syncery-input").keyup(function(){
-                    $selected.find("div.syncery-option").remove();
-                    var input = $(this).val();
-                    // Do Searching in MYSQL
-                    $.each( kunden, function( key, value ) {
-                        $selected.append('<div style="display: block" class="syncery-option" ng-click="toggle2()">'+value+'</div>');
-                    });
-                    if(input.length == 0){
-                        $selected.find("div.syncery-option").remove();
+                    break;
+                case 1:
+                    switch($scope.myActiveSlide) {
+                        case 0:
+                            $scope.monthnumber2=$scope.monthnumber2+3;
+                            if($scope.monthnumber2>11) {
+                                $scope.monthnumber2 = $scope.monthnumber2 - 12;
+                                $scope.year2 = $scope.year2 + 1;
+                            }
+                            break;
+                        case 2:
+                            $scope.monthnumber=$scope.monthnumber-3;
+                            if($scope.monthnumber<=0) {
+                                $scope.monthnumber = $scope.monthnumber + 12;
+                                $scope.year = $scope.year - 1;
+                            }
+                            break;
+                    };
+                    break;
+                case 2:
+                    switch($scope.myActiveSlide) {
+                        case 1:
+                            $scope.monthnumber=$scope.monthnumber+3;
+                            if($scope.monthnumber>12) {
+                                $scope.monthnumber = $scope.monthnumber - 12;
+                                $scope.year = $scope.year + 1;
+                            }
+                            break;
+                        case 0:
+                            $scope.monthnumber1=$scope.monthnumber1-3;
+                            if($scope.monthnumber1<=0){
+                                $scope.monthnumber1=$scope.monthnumber1+12;
+                                $scope.year1 = $scope.year1 - 1;
+                            }
+                            break;
                     }
-                });
-            });
+                    break;
 
-        })*/
+            }
+            $scope.myActiveSlide = $ionicSlideBoxDelegate.currentIndex();
+
+        };
     }
 })();

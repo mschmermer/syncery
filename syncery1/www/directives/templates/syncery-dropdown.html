@@ -1,0 +1,8 @@
+<div class="syncery-input" id="{{name}}">
+    <div style="position: absolute;left: 13px;"  ng-click="open()">{{attribute}}</div>
+    <i style="position: absolute; right: 13px;" class="icon ion-chevron-down positive"></i>
+
+    <div ng-hide="hide" class="syncery-option" ng-repeat="attribut in attributes" ng-click="select('{{attribut}}')">
+        {{attribut}}
+    </div>
+</div>
