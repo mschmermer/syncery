@@ -7,22 +7,32 @@
             <div class="item">
                 <label class="item item-input">
                     <i class="icon ion-search placeholder-icon"></i>
-                    <input type="search" placeholder="Search">
+                    <input type="search" placeholder="Kunde" ng-model="search" ng-change="searching(search)">
                 </label>
             </div>
         </div>
 
         <div class="list card" id="customer-list">
 
-            <div class="item item-divider">
+            <div class="item item-divider" style="text-align: center; background-color: gray;line-height: 30px;">
                 Kunden
             </div>
 
             <a ng-repeat="(key, value) in tests" class="item">
-                {{tests[key]['id']}}: {{tests[key]['name']}}
+                Kunden-ID: {{tests[key]['id']}}<br>
+                Name: {{tests[key]['name']}}
             </a>
-
         </div>
+
+
+        <table ng-table="tableParams" class="table" show-filter="true">
+            <tr ng-repeat="user in $data">
+                <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+                    {{user.name}}</td>
+                <td title="'Age'" filter="{ age: 'number'}" sortable="'age'">
+                    {{user.age}}</td>
+            </tr>
+        </table>
 
     </ion-content>
 </ion-view>

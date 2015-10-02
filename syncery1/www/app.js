@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', "ngTable"])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
