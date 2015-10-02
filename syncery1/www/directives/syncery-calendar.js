@@ -12,7 +12,7 @@
                     year: '=',
                     onClick: '&'
                 },
-                controller: function ($scope) {
+                controller: function ($scope, $ionicModal) {
 
                     $scope.calendarData = {};
                     $scope.day = [];
@@ -166,7 +166,6 @@
                         }
 
                         if(!td.hasClass('other_month')){
-                            alert(position);
                             td.append('<div class="selected"></div>');
                         }
                         if(td.hasClass('occupied')){

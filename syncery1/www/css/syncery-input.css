@@ -24,13 +24,14 @@ div.syncery-input-search{
     width: 95%;
     height: 30px;
     position: relative;
-    background-color: yellow;
+    margin: 10px;
 }
 
 div.syncery-input-search input.syncery-input{
     position: relative;
     width: 100%;
     top: -10px;
+    padding-left: 10px;
 }
 
 .syncery-input-line{
@@ -78,4 +79,8 @@ div.syncery-option:last-child{
 .button.button-small{
     height: 30px;
     width: 30px;
+}
+
+.item, .item-complex .item-content {
+    background-color: rgb(56,68,94);
 }

@@ -29,6 +29,7 @@
 
         if(!$scope.monthnumber){
             $scope.monthnumber = moment().month()+1;
+            $scope.monthnumber_actual = $scope.monthnumber;
             $scope.year = moment().year();
             if($scope.monthnumber==12){
                 $scope.year1=$scope.year+1;
@@ -63,6 +64,7 @@
         $scope.slideChanged = function(index) {
             switch(index) {
                 case 0:
+                    $scope.monthnumber_actual = $scope.monthnumber;
                     switch($scope.myActiveSlide) {
                         case 1:
                             $scope.monthnumber2=$scope.monthnumber2-3;
@@ -81,6 +83,7 @@
                     }
                     break;
                 case 1:
+                    $scope.monthnumber_actual = $scope.monthnumber1;
                     switch($scope.myActiveSlide) {
                         case 0:
                             $scope.monthnumber2=$scope.monthnumber2+3;
@@ -99,6 +102,7 @@
                     };
                     break;
                 case 2:
+                    $scope.monthnumber_actual = $scope.monthnumber2;
                     switch($scope.myActiveSlide) {
                         case 1:
                             $scope.monthnumber=$scope.monthnumber+3;

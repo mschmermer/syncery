@@ -1,0 +1,28 @@
+<ion-view view-title="Kunden">
+    <ion-content>
+        <div class="list">
+            <div class="item">
+                <syncery-search name="'Kunde'" search_attribute="search"></syncery-search>
+            </div>
+            <div class="item">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="search" placeholder="Search">
+                </label>
+            </div>
+        </div>
+
+        <div class="list card" id="customer-list">
+
+            <div class="item item-divider">
+                Kunden
+            </div>
+
+            <a ng-repeat="(key, value) in tests" class="item">
+                {{tests[key]['id']}}: {{tests[key]['name']}}
+            </a>
+
+        </div>
+
+    </ion-content>
+</ion-view>
