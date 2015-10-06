@@ -1,11 +1,13 @@
 (function () {
 
     angular
-        .module('starter.controllers')
+        .module('syncery')
         .controller('CustomerCtrl', CustomerCtrl);
 
+    CustomerCtrl.$inject = ['LoginFactory'];
 
-    function CustomerCtrl($scope, ionicMaterialInk, ionicMaterialMotion, NgTableParams){
+
+    function CustomerCtrl($scope, ionicMaterialInk, ionicMaterialMotion, NgTableParams, LoginFactory){
 
         $scope.searching = function(search){
             console.log(search);

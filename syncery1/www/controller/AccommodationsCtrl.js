@@ -1,7 +1,7 @@
 (function () {
 
     angular
-        .module('starter.controllers')
+        .module('syncery')
         .controller('AccommodationsCtrl', AccommodationsCtrl);
 
 

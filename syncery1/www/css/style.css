@@ -6,3 +6,7 @@ body{
 .menu .scroll-content {
     background-color: rgb(56,68,94);
 }
+
+.item.item-complex{
+    color: white;
+}

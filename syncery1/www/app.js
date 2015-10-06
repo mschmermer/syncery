@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', "ngTable"])
+angular.module('syncery', ['ionic', 'ionic-material'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
