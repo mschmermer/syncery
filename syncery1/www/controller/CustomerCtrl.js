@@ -7,12 +7,9 @@
 
     function CustomerCtrl($scope, ionicMaterialInk, ionicMaterialMotion, NgTableParams){
 
-        var data = [{name: "Moroni", age: 50}, {name: "Moroni2", age: 51}];
-        $scope.tableParams = new NgTableParams({}, { data: data});
-
         $scope.searching = function(search){
             console.log(search);
-            if(search.length == 0){
+            if(search.length <= 2){
                 $scope.tests = {
 
                 };

@@ -3,9 +3,6 @@ body{
     background-color: rgb(247, 247, 247);
 }
 
-.item-complex .item-content, .item-radio .item-content {
+.menu .scroll-content {
     background-color: rgb(56,68,94);
-    color: white;
-    border-bottom: 1px solid white;
-    border-top: 1px solid white;
 }
