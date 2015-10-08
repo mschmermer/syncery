@@ -1,11 +1,11 @@
-<ion-view view-title="Buchungen">
+<ion-view view-title="{{title['de']}}">
     <ion-content style="background-color: rgb(247,247,247)">
 
         <div my-customer></div>
 
         <div class="row responsive-sm">
             <div class="col col-50">
-                <syncery-dropdown name="'accommodations'"
+                <syncery-dropdown name="'accommodation'"
                                   attribute="accommodations[accommodations_actual]"
                                   attributes="accommodations">
 
@@ -14,13 +14,63 @@
 
 
             <div class="col col-50">
-                <syncery-dropdown name="'Monat2'"
-                                  attribute="month2[monthnumber_actual-1]"
-                                  attributes="month2">
+                <syncery-dropdown name="'Monat'"
+                                  attribute="month[monthnumber_actual-1]+' '+year"
+                                  attributes="month">
 
                 </syncery-dropdown>
             </div>
         </div>
+
+        <div class="row responsive-sm">
+            <div class="col col-50">
+
+                <button class="button button-flat button-medium button-calm waves-effect waves-button waves-light"
+                        ng-click="openPopover($event)">Open Popover
+                </button>
+
+                <script id="my-popover.html" type="text/ng-template">
+                    <ion-popover-view style="background-color: transparent; border: 0px;">
+                        <div class="list list-inset">
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                        </div>
+                    </ion-popover-view>
+                </script>
+            </div>
+            <div class="col col-50">
+                <label class="item item-input item-select calm">
+                    <div class="input-label">
+                        Lightsaber
+                    </div>
+                    <select>
+                        <option>Blue</option>
+                        <option selected>Green</option>
+                        <option>Red</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+
         <div class="row responsive-sm">
             <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)" show-pager="false"
                            does-continue="true">
@@ -49,12 +99,12 @@
             </div>
             <div class="col col-33">
                 <button class="button  button-flat button-medium button-positive waves-effect waves-button waves-light">
-                    BUCHUNG VERWERFEN
+                    {{"change_booking" | translate}}
                 </button>
             </div>
             <div class="col col-33">
                 <button class="button button-flat button-medium button-calm waves-effect waves-button waves-light">
-                    BUCHUNG SICHERN
+                    {{"show_booking" | translate}}
                 </button>
             </div>
 

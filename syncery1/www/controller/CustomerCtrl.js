@@ -4,10 +4,8 @@
         .module('syncery')
         .controller('CustomerCtrl', CustomerCtrl);
 
-    CustomerCtrl.$inject = ['LoginFactory'];
 
-
-    function CustomerCtrl($scope, ionicMaterialInk, ionicMaterialMotion, NgTableParams, LoginFactory){
+    function CustomerCtrl($scope, ionicMaterialInk, ionicMaterialMotion){
 
         $scope.searching = function(search){
             console.log(search);

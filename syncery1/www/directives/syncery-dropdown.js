@@ -17,12 +17,16 @@
 
                 link: function (scope, elem, attrs) {
                     scope.open = function(){
-                        scope.hide=false;
+
+                            scope.hide=false;
+
                     }
 
-                    scope.select = function(month){
-                        scope.attribute = month;
-                        scope.hide=true;
+                    scope.select = function(attribute){
+                        //scope.attribute = attribute;
+
+                            scope.hide=true;
+
                     }
                 }
             }

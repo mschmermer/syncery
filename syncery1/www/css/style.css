@@ -10,3 +10,13 @@ body{
 .item.item-complex{
     color: white;
 }
+
+
+.button.button-medium{
+    width: 95%;
+}
+
+.button.button-small{
+    height: 30px;
+    width: 30px;
+}

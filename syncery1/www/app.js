@@ -1,4 +1,4 @@
-angular.module('syncery', ['ionic', 'ionic-material'])
+angular.module('syncery', ['ionic', 'ionic-material', 'pascalprecht.translate'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -13,7 +13,21 @@ angular.module('syncery', ['ionic', 'ionic-material'])
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .constant({'language': 'de'})
+
+    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language) {
+
+        $translateProvider.translations('en', {
+            change_booking: "chnage booking",
+            show_booking: "show booking"
+        });
+        $translateProvider.translations('de', {
+            change_booking: "Buchung ändern",
+            show_booking: "Buchung anzeigen"
+        });
+        $translateProvider.preferredLanguage(language);
+        $translateProvider.fallbackLanguage(language);
+
         $stateProvider
 
             .state('app', {

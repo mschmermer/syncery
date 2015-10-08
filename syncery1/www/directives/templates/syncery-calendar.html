@@ -1,6 +1,198 @@
+
+
+
 <div class="card" style="width: 280px; margin-left: auto; margin-right: auto">
-    <div class="item item-divider" style="background-color: rgb(56,68,94);">
-        <h2 style="text-align: center; color: white">{{months[month]}} {{year}}</h2>
+
+
+    <style>
+        table.syncery-calendar{
+            text-align: center;
+            border-spacing: 0em;
+            min-width: 280px;
+        }
+
+        table.syncery-calendar.befor{
+            display: none;
+        }
+
+        table.syncery-calendar.after{
+            display: none;
+        }
+
+        table.syncery-calendar tbody tr{
+            display: block;
+            float: left;
+            height: 42px;
+            clear: left;
+            border-bottom: 2px solid rgb(247, 247, 247);
+        }
+
+        table.syncery-calendar thead tr{
+            display: block;
+            float: left;
+        }
+
+
+        table.syncery-calendar thead tr th{
+            width: 40px;
+        }
+
+        table.syncery-calendar thead th{
+            color: grey;
+            font-size: small;
+        }
+
+        tbody tr td{
+            font-size: 16px;
+            line-height: 40px;
+            position: relative;
+            padding: 0px;
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+            background-color: white;
+            border-right: 2px solid rgb(247, 247, 247);
+        }
+
+        tbody tr td:last-child{
+            border-right: 0em;
+        }
+
+        /*Abreise Dreieck*/
+
+        td.arrival{
+            position: relative;
+            font-weight: bold;
+            border-right: 2px solid rgb(255,102,102);
+        }
+
+        td.arrival:before {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-top: 40px solid transparent;
+            border-right: 36px solid rgb(255,102,102);
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            right: 0px;
+        }
+
+        td.arrival.selected{
+            position: relative;
+            font-weight: bold;
+            border-right: 2px solid blue;
+        }
+
+        td.arrival.selected:before {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-top: 40px solid transparent;
+            border-right: 36px solid blue;
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            right: 0px;
+        }
+
+        /* Anreise Dreieck*/
+        td.departure{
+            position: relative;
+            font-weight: bold;
+        }
+
+        td.departure:after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-bottom: 40px solid transparent;
+            border-left: 36px solid rgb(255,102,102);
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            left: 0px;
+        }
+
+        td.departure.selected{
+            position: relative;
+            font-weight: bold;
+        }
+
+        td.departure.selected:after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-bottom: 40px solid transparent;
+            border-left: 36px solid blue;
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            left: 0px;
+        }
+
+        /*Anezeige des aktuellen Tages*/
+        td div.today{
+            border-radius: 25px;
+            background-color: black;
+            height: 30px;
+            width: 30px;
+            color: white;
+            font-weight: bold;
+            z-index: 5;
+            position: absolute;
+            line-height: 30px;
+            top: 5px;
+            left: 5px;
+
+        }
+        /*Anzeige für belegten Tag*/
+
+        td.occupied{
+            background-color: rgb(255,102,102);
+            color: white;
+            border-right: 2px solid rgb(255,102,102);
+        }
+
+        td.occupied.selected{
+            background-color: blue;
+            color: white;
+            border-right: 2px solid blue;
+        }
+
+
+
+        td.occupied:first-child:before{
+            background-color: transparent;
+        }
+
+        /*vorheriger oder nächster Monat*/
+        td.other_month{
+            background-color: rgb(251,251,251);
+            color: grey;
+        }
+
+        /*ausgewählte Zelle*/
+        div.selected{
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border: 2px solid black;
+        }
+        div.item.item-divinder.title{
+            background-color: rgb(56,68,94);
+        }
+        h2.title{
+            text-align: center;
+            color: white
+        }
+    </style>
+
+
+    <div class="item item-divider title" style="background-color: rgb(56,68,94);">
+        <h2 class="title">{{months[month]}} {{year}}</h2>
     </div>
     <table class="syncery-calendar">
         <thead>
@@ -36,188 +228,6 @@
                 {{calendarData[key1][key2]['daynumber']}}
             </td>
         </tr>
-
-        <!--<tr>
-            <td ng-click="select('1-1')" ng-class="calendarData['1-1']['class']"
-                data-booking-id="{{calendarData['1-1']['booking-id']}}" data-position="1-1">
-                {{calendarData['1-1']['daynumber']}}
-            </td>
-            <td ng-click="select('1-2')" ng-class="calendarData['1-2']['class']"
-                data-booking-id="{{calendarData['1-2']['booking-id']}}" data-position="1-2">
-                {{calendarData['1-2']['daynumber']}}
-            </td>
-            <td ng-click="select('1-3')" ng-class="calendarData['1-3']['class']"
-                data-booking-id="{{calendarData['1-3']['booking-id']}}" data-position="1-3">
-                {{calendarData['1-3']['daynumber']}}
-            </td>
-            <td ng-click="select('1-4')" ng-class="calendarData['1-4']['class']"
-                data-booking-id="{{calendarData['1-4']['booking-id']}}" data-position="1-4">
-                {{calendarData['1-4']['daynumber']}}
-            </td>
-            <td ng-click="select('1-5')" ng-class="calendarData['1-5']['class']"
-                data-booking-id="{{calendarData['1-5']['booking-id']}}" data-position="1-5">
-                {{calendarData['1-5']['daynumber']}}
-            </td>
-            <td ng-click="select('1-6')" ng-class="calendarData['1-6']['class']"
-                data-booking-id="{{calendarData['1-6']['booking-id']}}" data-position="1-6">
-                {{calendarData['1-6']['daynumber']}}
-            </td>
-            <td ng-click="select('1-7')" ng-class="calendarData['1-7']['class']"
-                data-booking-id="{{calendarData['1-7']['booking-id']}}" data-position="1-7">
-                {{calendarData['1-7']['daynumber']}}
-            </td>
-        </tr>
-        <tr>
-            <td ng-click="select('2-1')" ng-class="calendarData['2-1']['class']"
-                data-booking-id="{{calendarData['2-1']['booking-id']}}" data-position="2-1">
-                {{calendarData['2-1']['daynumber']}}
-            </td>
-            <td ng-click="select('2-2')" ng-class="calendarData['2-2']['class']"
-                data-booking-id="{{calendarData['2-2']['booking-id']}}" data-position="2-2">
-                {{calendarData['2-2']['daynumber']}}
-            </td>
-            <td ng-click="select('2-3')" ng-class="calendarData['2-3']['class']"
-                data-booking-id="{{calendarData['2-3']['booking-id']}}" data-position="2-3">
-                {{calendarData['2-3']['daynumber']}}
-            </td>
-            <td ng-click="select('2-4')" ng-class="calendarData['2-4']['class']"
-                data-booking-id="{{calendarData['2-4']['booking-id']}}" data-position="2-4">
-                {{calendarData['2-4']['daynumber']}}
-            </td>
-            <td ng-click="select('2-5')" ng-class="calendarData['2-5']['class']"
-                data-booking-id="{{calendarData['2-5']['booking-id']}}" data-position="2-5">
-                {{calendarData['2-5']['daynumber']}}
-            </td>
-            <td ng-click="select('2-6')" ng-class="calendarData['2-6']['class']"
-                data-booking-id="{{calendarData['2-6']['booking-id']}}" data-position="2-6">
-                {{calendarData['2-6']['daynumber']}}
-            </td>
-            <td ng-click="select('2-7')" ng-class="calendarData['2-7']['class']"
-                data-booking-id="{{calendarData['2-7']['booking-id']}}" data-position="2-7">
-                {{calendarData['2-7']['daynumber']}}
-            </td>
-        </tr>
-        <tr>
-            <td ng-click="select('3-1')" ng-class="calendarData['3-1']['class']"
-                data-booking-id="{{calendarData['3-1']['booking-id']}}" data-position="3-1">
-                {{calendarData['3-1']['daynumber']}}
-            </td>
-            <td ng-click="select('3-2')" ng-class="calendarData['3-2']['class']"
-                data-booking-id="{{calendarData['3-2']['booking-id']}}" data-position="3-2">
-                {{calendarData['3-2']['daynumber']}}
-            </td>
-            <td ng-click="select('3-3')" ng-class="calendarData['3-3']['class']"
-                data-booking-id="{{calendarData['3-3']['booking-id']}}" data-position="3-3">
-                {{calendarData['3-3']['daynumber']}}
-            </td>
-            <td ng-click="select('3-4')" ng-class="calendarData['3-4']['class']"
-                data-booking-id="{{calendarData['3-4']['booking-id']}}" data-position="3-4">
-                {{calendarData['3-4']['daynumber']}}
-            </td>
-            <td ng-click="select('3-5')" ng-class="calendarData['3-5']['class']"
-                data-booking-id="{{calendarData['3-5']['booking-id']}}" data-position="3-5">
-                {{calendarData['3-5']['daynumber']}}
-            </td>
-            <td ng-click="select('3-6')" ng-class="calendarData['3-6']['class']"
-                data-booking-id="{{calendarData['3-6']['booking-id']}}" data-position="3-6">
-                {{calendarData['3-6']['daynumber']}}
-            </td>
-            <td ng-click="select('3-7')" ng-class="calendarData['3-7']['class']"
-                data-booking-id="{{calendarData['3-7']['booking-id']}}" data-position="3-7">
-                {{calendarData['3-7']['daynumber']}}
-            </td>
-        </tr>
-        <tr>
-            <td ng-click="select('4-1')" ng-class="calendarData['4-1']['class']"
-                data-booking-id="{{calendarData['4-1']['booking-id']}}" data-position="4-1">
-                {{calendarData['4-1']['daynumber']}}
-            </td>
-            <td ng-click="select('4-2')" ng-class="calendarData['4-2']['class']"
-                data-booking-id="{{calendarData['4-2']['booking-id']}}" data-position="4-2">
-                {{calendarData['4-2']['daynumber']}}
-            </td>
-            <td ng-click="select('4-3')" ng-class="calendarData['4-3']['class']"
-                data-booking-id="{{calendarData['4-3']['booking-id']}}" data-position="4-3">
-                {{calendarData['4-3']['daynumber']}}
-            </td>
-            <td ng-click="select('4-4')" ng-class="calendarData['4-4']['class']"
-                data-booking-id="{{calendarData['4-4']['booking-id']}}" data-position="4-4">
-                {{calendarData['4-4']['daynumber']}}
-            </td>
-            <td ng-click="select('4-5')" ng-class="calendarData['4-5']['class']"
-                data-booking-id="{{calendarData['4-5']['booking-id']}}" data-position="4-5">
-                {{calendarData['4-5']['daynumber']}}
-            </td>
-            <td ng-click="select('4-6')" ng-class="calendarData['4-6']['class']"
-                data-booking-id="{{calendarData['4-6']['booking-id']}}" data-position="4-6">
-                {{calendarData['4-6']['daynumber']}}
-            </td>
-            <td ng-click="select('4-7')" ng-class="calendarData['4-7']['class']"
-                data-booking-id="{{calendarData['4-7']['booking-id']}}" data-position="4-7">
-                {{calendarData['4-7']['daynumber']}}
-            </td>
-        </tr>
-        <tr>
-            <td ng-click="select('5-1')" ng-class="calendarData['5-1']['class']"
-                data-booking-id="{{calendarData['5-1']['booking-id']}}" data-position="5-1">
-                {{calendarData['5-1']['daynumber']}}
-            </td>
-            <td ng-click="select('5-2')" ng-class="calendarData['5-2']['class']"
-                data-booking-id="{{calendarData['5-2']['booking-id']}}" data-position="5-2">
-                {{calendarData['5-2']['daynumber']}}
-            </td>
-            <td ng-click="select('5-3')" ng-class="calendarData['5-3']['class']"
-                data-booking-id="{{calendarData['5-3']['booking-id']}}" data-position="5-3">
-                {{calendarData['5-3']['daynumber']}}
-            </td>
-            <td ng-click="select('5-4')" ng-class="calendarData['5-4']['class']"
-                data-booking-id="{{calendarData['5-4']['booking-id']}}" data-position="5-4">
-                {{calendarData['5-4']['daynumber']}}
-            </td>
-            <td ng-click="select('5-5')" ng-class="calendarData['5-5']['class']"
-                data-booking-id="{{calendarData['5-5']['booking-id']}}" data-position="5-5">
-                {{calendarData['5-5']['daynumber']}}
-            </td>
-            <td ng-click="select('5-6')" ng-class="calendarData['5-6']['class']"
-                data-booking-id="{{calendarData['5-6']['booking-id']}}" data-position="5-6">
-                {{calendarData['5-6']['daynumber']}}
-            </td>
-            <td ng-click="select('5-7')" ng-class="calendarData['5-7']['class']"
-                data-booking-id="{{calendarData['5-7']['booking-id']}}" data-position="5-7">
-                {{calendarData['5-7']['daynumber']}}
-            </td>
-        </tr>
-        <tr>
-            <td ng-click="select('6-1')" ng-class="calendarData['6-1']['class']"
-                data-booking-id="{{calendarData['6-1']['booking-id']}}" data-position="6-1">
-                {{calendarData['6-1']['daynumber']}}
-            </td>
-            <td ng-click="select('6-2')" ng-class="calendarData['6-2']['class']"
-                data-booking-id="{{calendarData['6-2']['booking-id']}}" data-position="6-2">
-                {{calendarData['6-2']['daynumber']}}
-            </td>
-            <td ng-click="select('6-3')" ng-class="calendarData['6-3']['class']"
-                data-booking-id="{{calendarData['6-3']['booking-id']}}" data-position="6-3">
-                {{calendarData['6-3']['daynumber']}}
-            </td>
-            <td ng-click="select('6-4')" ng-class="calendarData['6-4']['class']"
-                data-booking-id="{{calendarData['6-4']['booking-id']}}" data-position="6-4">
-                {{calendarData['6-4']['daynumber']}}
-            </td>
-            <td ng-click="select('6-5')" ng-class="calendarData['6-5']['class']"
-                data-booking-id="{{calendarData['6-5']['booking-id']}}" data-position="6-5">
-                {{calendarData['6-5']['daynumber']}}
-            </td>
-            <td ng-click="select('6-6')" ng-class="calendarData['6-6']['class']" id="test"
-                data-booking-id="{{calendarData['6-6']['booking-id']}}" data-position="6-6">
-                {{calendarData['6-6']['daynumber']}}
-            </td>
-            <td ng-click="select('6-7')" ng-class="calendarData['6-7']['class']"
-                data-booking-id="{{calendarData['6-7']['booking-id']}}"
-                data-position="6-7">
-                {{calendarData['6-7']['daynumber']}}
-            </td>
-        </tr>-->
         </tbody>
     </table>
 </div>

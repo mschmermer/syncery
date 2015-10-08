@@ -5,8 +5,8 @@
         .controller('BookingCtrl', BookingCtrl);
 
 
-    function BookingCtrl($scope, $ionicSideMenuDelegate, ionicMaterialInk, ionicMaterialMotion, $ionicSlideBoxDelegate
-                         ) {
+    function BookingCtrl($scope, $ionicSideMenuDelegate, ionicMaterialInk, ionicMaterialMotion, $ionicSlideBoxDelegate,
+    $ionicPopover, language) {
 
         $scope.$on('$ionicView.enter', function () {
             $ionicSideMenuDelegate.canDragContent(false);
@@ -19,13 +19,20 @@
 
         ionicMaterialInk.displayEffect();
 
-        $scope.month = [''];
+        $scope.language = language;
+
+        $scope.month = [];
         $scope.month2 = [];
 
-        accommodations = ['Unterkunft 1','Unterkunft 2','Unterkunft 3','Unterkunft 4','Unterkunft 5'];
-        accommodations_actual = 0;
+        $scope.accommodations = ['alle Unterkünfte', 'Unterkunft 1','Unterkunft 2','Unterkunft 3','Unterkunft 4','Unterkunft 5'];
+        $scope.accommodations_actual = 0;
 
-        var moments = moment().locale('de');
+        $scope.title = {
+            'de': 'Buchungen',
+            'en' : 'Bookings'
+        }
+
+        var moments = moment().locale(language);
 
         if (!$scope.monthnumber) {
             $scope.monthnumber = moment().month() + 1;
@@ -88,7 +95,7 @@
                     switch ($scope.myActiveSlide) {
                         case 0:
                             $scope.monthnumber2 = $scope.monthnumber2 + 3;
-                            if ($scope.monthnumber2 > 11) {
+                            if ($scope.monthnumber2 > 12) {
                                 $scope.monthnumber2 = $scope.monthnumber2 - 12;
                                 $scope.year2 = $scope.year2 + 1;
                             }
@@ -127,5 +134,37 @@
             $scope.myActiveSlide = $ionicSlideBoxDelegate.currentIndex();
 
         };
+
+
+        $scope.popover = $ionicPopover.fromTemplateUrl('my-popover.html', {
+            scope: $scope
+        });
+
+        // .fromTemplateUrl() method
+        $ionicPopover.fromTemplateUrl('my-popover.html', {
+            scope: $scope
+        }).then(function(popover) {
+            $scope.popover = popover;
+        });
+
+
+        $scope.openPopover = function($event) {
+            $scope.popover.show($event);
+        };
+        $scope.closePopover = function() {
+            $scope.popover.hide();
+        };
+        //Cleanup the popover when we're done with it!
+        $scope.$on('$destroy', function() {
+            $scope.popover.remove();
+        });
+        // Execute action on hide popover
+        $scope.$on('popover.hidden', function() {
+            // Execute action
+        });
+        // Execute action on remove popover
+        $scope.$on('popover.removed', function() {
+            // Execute action
+        });
     }
 })();
