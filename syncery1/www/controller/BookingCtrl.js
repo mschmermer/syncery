@@ -5,8 +5,8 @@
         .controller('BookingCtrl', BookingCtrl);
 
 
-    function BookingCtrl($scope, $ionicSideMenuDelegate, ionicMaterialInk, ionicMaterialMotion, $ionicSlideBoxDelegate,
-                         UserSvc) {
+    function BookingCtrl($scope, $ionicSideMenuDelegate, ionicMaterialInk, ionicMaterialMotion, $ionicSlideBoxDelegate
+                         ) {
 
         $scope.$on('$ionicView.enter', function () {
             $ionicSideMenuDelegate.canDragContent(false);
@@ -22,11 +22,10 @@
         $scope.month = [''];
         $scope.month2 = [];
 
-        var moments = moment().locale('de');
+        accommodations = ['Unterkunft 1','Unterkunft 2','Unterkunft 3','Unterkunft 4','Unterkunft 5'];
+        accommodations_actual = 0;
 
-        $scope.searching = [];
-        $scope.input_suche = '';
-        kunden = ['Andreas Gallien', 'Marcus Schmermer', 'Anke Schulz', 'Mathias Auge'];
+        var moments = moment().locale('de');
 
         if (!$scope.monthnumber) {
             $scope.monthnumber = moment().month() + 1;

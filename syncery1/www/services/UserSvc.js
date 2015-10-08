@@ -7,6 +7,8 @@
 
     function UserSvc($scope){
 
+        $scope = this;
+
         $scope.user = false;
 
         service = {
