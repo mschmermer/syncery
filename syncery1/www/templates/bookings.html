@@ -1,8 +1,5 @@
 <ion-view view-title="{{title['de']}}">
     <ion-content style="background-color: rgb(247,247,247)">
-
-        <div my-customer></div>
-
         <div class="row responsive-sm">
             <div class="col col-50">
                 <syncery-dropdown name="'accommodation'"
@@ -15,8 +12,8 @@
 
             <div class="col col-50">
                 <syncery-dropdown name="'Monat'"
-                                  attribute="month[monthnumber_actual-1]+' '+year"
-                                  attributes="month">
+                                  attribute="date_actual"
+                                  attributes="month2">
 
                 </syncery-dropdown>
             </div>

@@ -5,7 +5,7 @@
         .controller('AccommodationsCtrl', AccommodationsCtrl);
 
 
-    function AccommodationsCtrl($scope, ionicMaterialInk, ionicMaterialMotion){
+    function AccommodationsCtrl($scope){
 
     }
 })();

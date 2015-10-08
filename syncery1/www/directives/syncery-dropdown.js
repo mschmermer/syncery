@@ -4,7 +4,6 @@
         .module('syncery')
         .directive('synceryDropdown', function () {
             return {
-                restrict: 'E',
                 templateUrl: './directives/templates/syncery-dropdown.html',
                 scope: {
                     name: '=',
@@ -17,16 +16,12 @@
 
                 link: function (scope, elem, attrs) {
                     scope.open = function(){
-
                             scope.hide=false;
-
                     }
 
-                    scope.select = function(attribute){
-                        //scope.attribute = attribute;
-
-                            scope.hide=true;
-
+                    scope.select = function(attribute2){
+                        scope.attribute = attribute2;
+                        scope.hide=true;
                     }
                 }
             }

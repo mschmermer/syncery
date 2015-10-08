@@ -170,6 +170,7 @@
                         }
                         if(td.hasClass('occupied')){
                             var id = td.attr('data-booking-id');
+                            scope.booking_id=id;
                             var arrival = angular.element(document.querySelector('td[data-booking-id="'+id+'a"]')).attr('data-position');
                             scope.arrival = arrival;
                             var departure = angular.element(document.querySelector('td[data-booking-id="'+id+'d"]')).attr('data-position');
