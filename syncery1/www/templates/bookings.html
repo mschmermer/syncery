@@ -1,0 +1,110 @@
+<ion-view view-title="{{title['de']}}">
+    <ion-content style="background-color: rgb(247,247,247)">
+        <div class="row responsive-sm">
+            <div class="col col-50">
+                <syncery-dropdown name="'accommodation'"
+                                  attribute="accommodations[accommodations_actual]"
+                                  attributes="accommodations">
+
+                </syncery-dropdown>
+            </div>
+
+
+            <div class="col col-50">
+                <syncery-dropdown name="'Monat'"
+                                  attribute="date_actual"
+                                  attributes="month2">
+
+                </syncery-dropdown>
+            </div>
+        </div>
+
+        <div class="row responsive-sm">
+            <div class="col col-50">
+
+                <button class="button button-flat button-medium button-calm waves-effect waves-button waves-light"
+                        ng-click="openPopover($event)">Open Popover
+                </button>
+
+                <script id="my-popover.html" type="text/ng-template">
+                    <ion-popover-view style="background-color: transparent; border: 0px;">
+                        <div class="list list-inset">
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                            <div class="item">
+                                Raiders of the Lost Ark
+                            </div>
+                        </div>
+                    </ion-popover-view>
+                </script>
+            </div>
+            <div class="col col-50">
+                <label class="item item-input item-select calm">
+                    <div class="input-label">
+                        Lightsaber
+                    </div>
+                    <select>
+                        <option>Blue</option>
+                        <option selected>Green</option>
+                        <option>Red</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+
+        <div class="row responsive-sm">
+            <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)" show-pager="false"
+                           does-continue="true">
+                <ion-slide>
+                    <syncery-calendar month="monthnumber" year="year"></syncery-calendar>
+                </ion-slide>
+                <ion-slide>
+                    <syncery-calendar month="monthnumber1" year="year1"></syncery-calendar>
+                </ion-slide>
+                <ion-slide>
+                    <syncery-calendar month="monthnumber2" year="year2"></syncery-calendar>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+
+        <div class="row responsive-sm">
+            <div class="col col-33">
+                <div class="syncery-input-search">
+                    <input class="syncery-input" id="search" placeholder="Suche" ng-model="input_suche">
+                    </input>
+                    <div class="syncery-input-line"></div>
+                    <div class="syncery-option" ng-repeat="search in searching" ng-click="toggle2('{{search}}')">
+                        {{search}}
+                    </div>
+                </div>
+            </div>
+            <div class="col col-33">
+                <button class="button  button-flat button-medium button-positive waves-effect waves-button waves-light">
+                    {{"change_booking" | translate}}
+                </button>
+            </div>
+            <div class="col col-33">
+                <button class="button button-flat button-medium button-calm waves-effect waves-button waves-light">
+                    {{"show_booking" | translate}}
+                </button>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

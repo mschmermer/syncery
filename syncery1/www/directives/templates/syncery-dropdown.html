@@ -1,0 +1,59 @@
+<div>
+<div class="syncery-input" id="{{name}}" ng-click="open()">
+    {{attribute}}
+    <i style="position: absolute; right: 13px;" class="icon ion-chevron-down positive"></i>
+</div>
+<div ng-hide="hide" class="syncery-option" ng-repeat="attribut in attributes" ng-click="select('{{attribut}}')">
+    {{attribut}}
+</div>
+</div>
+
+<style>
+    .syncery-input {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        min-width: 150px;
+        width: 95%;
+        color: black;
+        line-height: 40px;
+        height: 40px;
+        border: 0px;
+        background-color: white;
+        position: relative;
+        padding-left: 10px;
+    }
+
+    .syncery-input:after {
+        width: 100%;
+        content: '';
+        height: 3px;
+        background-color: black;
+        position: absolute;
+        bottom: -3px;
+        left: 0px;
+    }
+
+    div.syncery-option {
+        z-index: 20;
+        position: relative;
+        width: 95%;
+        top: -7px;
+        height: 40px;
+        border-left: 2px solid rgb(234, 234, 234);
+        border-right: 2px solid rgb(234, 234, 234);
+        background-color: white;
+        padding: 3%;
+    }
+
+    div.syncery-option:hover {
+        background-color: rgb(247, 247, 247);
+    }
+
+    div.syncery-option:first-child {
+        border-top: 2px solid rgb(247, 247, 247);
+    }
+
+    div.syncery-option:last-child {
+        border-bottom: 2px solid rgb(234, 234, 234);
+    }
+</style>
