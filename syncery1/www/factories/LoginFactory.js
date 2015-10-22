@@ -5,25 +5,21 @@
         .factory('LoginFactory', LoginFactory);
 
 
-    function LoginFactory($scope, $ionicPopup, $ionicLoading){
+    function LoginFactory($ionicPopup, $ionicLoading){
+
+        vm = this;
 
         Login = {
             login: login
         };
 
         function login(){
-            $scope.showAlert = function() {
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Fehler beim Login',
-                    template: 'Der Benutzername oder das Passwort stimmen nicht überein.',
-                    buttons: [
-                        {
-                            text: '<b>OK</b>',
-                            type: 'button-dark'}
-                    ]
+            vm.showAlert = function() {
+                var alertPopup = $ionicPopup.show({
+                    templateUrl: '/templates/login.html'
                 });
             };
-            $scope.showAlert();
+            vm.showAlert();
         }
 
         return Login;

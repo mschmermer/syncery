@@ -10,7 +10,7 @@
                 scope: {
                     month: '=',
                     year: '=',
-                    onClick: '&'
+                    booking_id: '='
                 },
                 controller: function ($scope, $ionicModal) {
 

@@ -19,8 +19,8 @@
                             scope.hide=false;
                     }
 
-                    scope.select = function(attribute2){
-                        scope.attribute = attribute2;
+                    scope.select = function(attribute){
+                        scope.attribute = attribute;
                         scope.hide=true;
                     }
                 }

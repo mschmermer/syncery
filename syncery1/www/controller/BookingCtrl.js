@@ -8,6 +8,8 @@
     function BookingCtrl($scope, $ionicSideMenuDelegate, $ionicSlideBoxDelegate,
     $ionicPopover, language) {
 
+        $scope.hideButtonAdd =false;
+
         init();
 
         $scope.toggle = function (monat) {
@@ -35,21 +37,25 @@
 
             $scope.myActiveSlide = 0;
 
+            $scope.booking_id="booking_id";
+
 
             $scope.language = language;
 
             $scope.month = [];
             $scope.month2 = [];
 
-            $scope.accommodations = ['alle Unterk�nfte', 'Unterkunft 1','Unterkunft 2','Unterkunft 3','Unterkunft 4','Unterkunft 5'];
+            $scope.accommodations = ['alle Unterkünfte', 'Unterkunft 1','Unterkunft 2','Unterkunft 3','Unterkunft 4','Unterkunft 5'];
             $scope.accommodations_actual = 0;
+
+            $scope.select = function(){
+                alert('tst');
+            }
 
             $scope.title = {
                 'de': 'Buchungen',
                 'en' : 'Bookings'
             }
-
-            $scope.booking_id='123';
 
             var moments = moment().locale(language);
 
@@ -92,7 +98,6 @@
                             }
                             break;
                         case 2:
-                            ;
                             $scope.monthnumber1 = $scope.monthnumber1 + 3;
                             if ($scope.monthnumber1 > 12) {
                                 $scope.monthnumber1 = $scope.monthnumber1 - 12;

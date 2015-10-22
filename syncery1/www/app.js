@@ -15,19 +15,13 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate'])
 
     .constant({'language': 'de'})
 
-    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language) {
+    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables) {
 
-        $translateProvider.translations('en', {
-            change_booking: "change booking",
-            show_booking: "show booking"
-        });
-        $translateProvider.translations('de', {
-            change_booking: "Buchung ändern",
-            show_booking: "Buchung anzeigen"
-        });
-        $translateProvider.preferredLanguage(language);
-        $translateProvider.fallbackLanguage(language);
-        $translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.translations('en', languageVariables['en']);
+        $translateProvider.translations('de', languageVariables['de']);
+        $translateProvider.preferredLanguage('de');
+        $translateProvider.fallbackLanguage('de');
+        $translateProvider.useSanitizeValueStrategy('escape');
 
         $stateProvider
 
@@ -36,6 +30,17 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate'])
                 abstract: true,
                 templateUrl: 'templates/menu.html',
                 controller: 'AppCtrl'
+            })
+
+            .state('app.login', {
+                url: '/login',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/login.html',
+                        controller: 'LoginCtrl'
+                    }
+                }
+
             })
 
             .state('app.search', {
@@ -56,21 +61,63 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate'])
                     }
                 }
             })
+
             .state('app.accommodations', {
                 url: '/accommodations',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/accommodations.html',
+                        templateUrl: 'templates/accommodation/accommodations.html',
                         controller: 'AccommodationsCtrl'
                     }
                 }
             })
+
+            .state('app.addAccommodation', {
+                url: '/addAccommodation',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/accommodation/addAccommodation.html',
+                        controller: 'AddAccommodationCtrl'
+                    }
+                }
+            })
+
+            .state('app.accommodationDetails', {
+                url: '/accommodationDetails:id',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/accommodation/accommodationDetails.html',
+                        controller: 'AccommodationDetailsCtrl'
+                    }
+                }
+            })
+
             .state('app.customer', {
                 url: '/customer',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/customer.html',
+                        templateUrl: 'templates/customer/customer.html',
                         controller: 'CustomerCtrl'
+                    }
+                }
+            })
+
+            .state('app.addCustomer', {
+                url: '/addCustomer',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/customer/addCustomer.html',
+                        controller: 'AddCustomerCtrl'
+                    }
+                }
+            })
+
+            .state('app.customerDetails', {
+                url: '/customerDetails:id',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/customer/customerDetails.html',
+                        controller: 'CustomerDetailsCtrl'
                     }
                 }
             })

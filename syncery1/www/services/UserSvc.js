@@ -5,11 +5,9 @@
         .service('UserSvc', UserSvc);
 
 
-    function UserSvc($scope){
+    function UserSvc(){
 
-        $scope = this;
-
-        $scope.user = false;
+        this.user = false;
 
         service = {
             setUser: setUser,
@@ -19,15 +17,15 @@
         return service;
 
         function getUser(){
-            return $scope.user;
+            return this.user;
         }
 
         function setUser(user){
-            $scope.user = user;
+            this.user = user;
         }
 
         function logout(){
-            $scope.user = false;
+            this.user = false;
         }
 
     }
