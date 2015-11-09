@@ -1,0 +1,38 @@
+<ion-view view-title="Home">
+    <ion-content>
+        <div class="card">
+
+                <ion-item class="item item-divider">{{ 'testphase_time' | translate:translationData }}</ion-item>
+
+                <syncery-contract-days
+                        remaining="contract_remaining" total="contract_total"    >
+                </syncery-contract-days>
+
+                <button class="button button-last button-positive">{{'extend_contract' | translate}}</button>
+        </div>
+
+        <div class="card">
+            <ion-item class="item item-divider">
+                {{"accommodation_capacity" | translate}}
+            </ion-item>
+            <ion-item>
+                <canvas id="line" class="chart chart-line" chart-data="data"
+                        chart-labels="labels" chart-legend="true" chart-series="series"
+                        chart-click="onClick" >
+                </canvas>
+            </ion-item>
+        </div>
+
+        <div class="list card">
+            <ion-item class="item item-divider">
+                <b>{{"messages" | translate}}</b>
+            </ion-item>
+            <ion-item class="item-text-wrap" ng-click="unpaidBookings()">
+                {{"unpaid_bookings" | translate:translationData}}
+            </ion-item>
+            <ion-item class="item-text-wrap" ng-click="unfinishedBookings()">
+                {{"unfinished_bookings" | translate:translationData}}
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

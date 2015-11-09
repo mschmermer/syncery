@@ -1,0 +1,117 @@
+<ion-header-bar class="bar-dark bar-subheader">
+    <h3 style="text-align: center; color:white; line-height: 28px; font-size: 16px;">{{customer.name}}</h3>
+</ion-header-bar>
+<ion-view view-title="Kunden">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button ng-click="edit(customer.id)"
+                    class="button button-icon icon ion-edit">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content delegate-handle="customerDetails">
+        <div class="list card">
+            <ion-item class="item balanced">
+                <div class="row">
+                    <div class="col">
+                        <b>{{"profit" | translate}}:</b>
+                    </div>
+                    <div class="col col-offset-66">
+                        {{customer.profit}} {{currency}}
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item assertive">
+                <div class="row">
+                    <div class="col">
+                        <b>{{"open_bill" | translate}}:</b>
+                    </div>
+                    <div class="col col-offset-66">
+                        {{customer.open_bill}} {{currency}}
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item" ng-click="showAllBookings('{{customer.id}}')">
+                <div class="row">
+                    <div class="col">
+                        <b>{{"last_booking" | translate}}:</b>
+                    </div>
+                    <div class="col col-offset-66">
+                        {{customer.last_booking}}
+                    </div>
+                </div>
+                <!--<i class="icon ion-calendar" ng-click="showAllBookings('{{customer.id}}')"></i>-->
+            </ion-item>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider item-icon-right" ng-click="showMore('MasterData')"
+                    id="MasterData">
+                {{"master_data" | translate}}
+                <i ng-class="icon['MasterData']"></i>
+            </div>
+            <ion-item ng-hide="hide['MasterData']">
+                <div class="list">
+                    <label class="item item item-stacked-label">
+                        <h2>{{"title" | translate}}</h2>
+
+                        <p>Frau Dr.</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>{{"first_name" | translate}}</h2>
+
+                        <p>Marcus</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>{{"name" | translate}}</h2>
+
+                        <p>Schmermer</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>{{"address" | translate}}</h2>
+
+                        <p>Erieseering 22</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>PLZ</h2>
+
+                        <p>10319</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>{{"city" | translate}}</h2>
+
+                        <p>Berlin</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>{{"country" | translate}}</h2>
+
+                        <p>Deutschland</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>{{"telephone" | translate}}</h2>
+
+                        <p>030 94399851</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>{{"mobile" | translate}}</h2>
+
+                        <p>0151 63 42 68 41</p>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <h2>Email</h2>
+
+                        <p>ma.schmermer@gmail.com</p>
+                    </label>
+                </div>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

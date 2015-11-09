@@ -1,0 +1,53 @@
+(function () {
+
+    angular
+        .module('syncery')
+        .controller('AccommodationDetailsCtrl', AccommodationDetailsCtrl);
+
+
+    function AccommodationDetailsCtrl($scope, UserSvc, LoginFactory,$location,$timeout, $state, $stateParams, AccommodationSvc, $ionicScrollDelegate) {
+        $scope.id = $stateParams.id;
+        $scope.accommodation = {};
+
+        $scope.descriptionClass = 'item';
+        $scope.icon = {
+            MasterData: 'icon ion-chevron-down',
+            Mapping: 'icon ion-chevron-down'
+            };
+        $scope.hide = {
+            MasterData: true,
+            Mapping: true
+        };
+
+        $scope.accommodation = AccommodationSvc.getAccommodationById($scope.id);
+
+        $scope.showMoreDescription = function () {
+
+            if ($scope.descriptionClass.length <= 4) {
+                $scope.descriptionClass += ' item-text-wrap';
+            } else {
+                $scope.descriptionClass = $scope.descriptionClass.substring(0, 4);
+            }
+        }
+
+        $scope.showMore = function (field) {
+            if ($scope.hide[field]) {
+                $scope.hide[field] = false;
+                $scope.icon[field] = 'icon ion-chevron-up';
+            } else {
+                $scope.hide[field] = true;
+                $scope.icon[field] = 'icon ion-chevron-down';
+            }
+            $timeout( function() {
+                $ionicScrollDelegate.resize();
+                $location.hash(field);
+                var delegate = $ionicScrollDelegate.$getByHandle('accommodationDetails');
+                delegate.anchorScroll(true);
+            }, 200);
+        }
+
+        $scope.edit = function(id){
+            alert(id);
+        }
+    }
+})();

@@ -1,29 +1,3 @@
-/* Empty. Add your own CSS if you like */
-/*body{
-    background-color: rgb(247, 247, 247);
-}
-
-
-.item.item-complex{
-    color: white;
-    background-color: transparent;
-}
-
-
-.button.button-medium{
-    width: 95%;
-}
-
-.syncery_menu{
-    background-color: rgb(56,68,94) !important;
-}
-
-.dark {
-  background-color: blue !important;
-  color: #ffffff;
-}
-*/
-
 /* General */
 ion-content{
     background-color: rgb(247, 247, 247);
@@ -44,6 +18,10 @@ ion-header-bar.bar.syncery-header button.button{
 
 ion-list div.list{
     padding-top: 0px;
+}
+
+input{
+    border-bottom: 2px solid black;
 }
 
 /* Settings */

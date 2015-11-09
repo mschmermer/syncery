@@ -1,0 +1,17 @@
+<ion-view view-title="{{'agreement' | translate}}">
+    <ion-content>
+        <div class="card">
+            <ion-item class="item item-divider">
+                {{ 'testphase_time' | translate:translationData }}
+            </ion-item>
+
+            <syncery-contract-days
+                    remaining="contract_remaining" total="contract_total">
+            </syncery-contract-days>
+        </div>
+
+        <syncery-extend-contract number="'1'" payment="'jährlich'" data-method="switchContract">
+
+        </syncery-extend-contract>
+    </ion-content>
+</ion-view>

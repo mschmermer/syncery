@@ -1,0 +1,90 @@
+<ion-view view-title="Account">
+    <ion-content delegate-handle="account">
+
+        <div class="list card">
+            <div class="item item-divider" ng-click="showMore('MasterData')">
+                {{"user_datas" | translate}}
+            </div>
+            <div class="row responsive-sm">
+                <div class="col col-50">
+                    <ion-item>
+                        <img ng-mouseover="imageMouseOver()" ng-mouseout="imageMouseOut()" src="{{user.img_url}}"
+                             width="100%">
+                    </ion-item>
+                </div>
+                <div class="col col-50">
+                    <ion-item>
+                        <label class="item item-input item-stacked-label">
+                            <h2>Benutzername</h2>
+
+                            <p>{{user.username}}</p>
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <h2>Passwort</h2>
+
+                            <p>{{user.password}}</p>
+
+                            <button class="button button-assertive" style="width: 94%; margin: 2%">
+                                {{"change_password" | translate}}
+                            </button>
+                        </label>
+                    </ion-item>
+                </div>
+            </div>
+        </div>
+
+        <div id="MasterData" class="list card">
+            <div class="item item-divider item-icon-right" ng-click="showMore('MasterData')">
+                {{"master_data" | translate}}
+                <i ng-class="icon['MasterData']"></i>
+            </div>
+            <ion-item ng-hide="hide['MasterData']">
+                <div class="list">
+                    <label class="item item item-stacked-label">
+                        <span class="input-label">{{"title" | translate}}</span>
+                        <input type="text" placeholder="{{user.title}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"first_name" | translate}}</span>
+                        <input type="text" placeholder="{{user.first_name}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"name" | translate}}</span>
+                        <input type="text" placeholder="{{user.name}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"address" | translate}}</span>
+                        <input type="text" placeholder="{{user.address}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">PLZ</span>
+                        <input type="text" placeholder="{{user.plz}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"city" | translate}}</span>
+                        <input type="text" placeholder="{{user.city}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"country" | translate}}</span>
+                        <input type="text" placeholder="{{user.country}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"telephone" | translate}}</span>
+                        <input type="text" placeholder="{{user.telephone}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"mobile" | translate}}</span>
+                        <input type="text" placeholder="{{user.mobile}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Email</span>
+                        <input type="text" placeholder="{{user.email}}">
+                    </label>
+                </div>
+                <button class="button button-positive" style="width: 94%; margin: 2%">
+                    {{"data_save" | translate}}
+                </button>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

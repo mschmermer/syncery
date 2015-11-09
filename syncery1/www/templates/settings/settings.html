@@ -1,0 +1,25 @@
+<ion-view view-title="{{'settings' | translate}}">
+    <ion-content>
+        <div class="list">
+            <ion-item class="item item-icon-right settings" href="#/app/settings/general">
+                <b>{{"general" | translate}}</b>
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+            <ion-item class="item item-icon-right settings" href="#/app/settings/account">
+                <b>Account</b>
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+            <ion-item class="item item-icon-right settings" href="#/app/settings/agreement">
+                <b>{{"agreement" | translate}}</b>
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+            <ion-item class="item item-icon-right settings" href="#/app/settings/informations">
+                <b>{{"informations" | translate}}</b>
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+        </div>
+        <button class="button button-assertive button-last icon-left ion-log-out" ng-click="signOff()">
+            {{"sign_off" | translate}}
+        </button>
+    </ion-content>
+</ion-view>

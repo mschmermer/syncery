@@ -1,0 +1,140 @@
+<div class="syncery-extend-contract">
+    <div class="list card">
+        <ion-item class="item item-divider">{{"change_package" | translate}}</ion-item>
+        <div class="row responsive-sm">
+            <div id="options" class="col col-70 options">
+                <div class="quantity">
+                    <p>{{"numbers_accommodations" | translate}}</p>
+
+                    <div class="option" ng-class="number.class" ng-click="chooseNumbers(number.value)"
+                         ng-style="number_style" ng-repeat="number in numbers">
+                        {{number.value}}
+                    </div>
+                </div>
+                <div class="payment_time">
+                    <p>{{"payment" | translate}}</p>
+
+                    <div class="option payment" ng-class="payment.class" ng-click="choosePayment(payment.value)"
+                         ng-style="payment_style" ng-repeat="payment in payments">
+                        {{payment.value}}
+                    </div>
+                </div>
+            </div>
+            <div id="details" class="col col-30">
+                <div class="details">
+                    <i class="icon ion-checkmark"></i>Nur noch eine zentrale Eingabe<br>
+                    <i class="icon ion-checkmark"></i>Immer dabei und aufrufbar<br>
+                    <i class="icon ion-checkmark"></i>Mobile App<br>
+                    <i class="icon ion-checkmark"></i>Email Support
+                </div>
+                <div class="price">
+                    <h2>Ihr Tarif:</h2>
+                    <span class="currency">{{currency}}</span><span class="costs">{{costs}}</span><span
+                        class="payment_time">/{{payment_time_shortly}}</span>
+
+                    <p>monatlich kündbar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        div.quantity{
+            height: 50%;
+            background-color: #000011;
+        }
+
+        #options {
+            background-color: rgb(56, 68, 94);
+            text-align: center;
+            font-size: 120%;
+            color: white;
+            margin-bottom: 0px;
+        }
+
+        #options p {
+            padding: 5%;
+            clear: left;
+        }
+
+        div.option {
+            float: left;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: block;
+        }
+
+        div.option.selected {
+            background-color: rgb(255, 104, 104);;
+            border: 1px solid rgb(255, 104, 104);;
+        }
+
+        div.option.payment:first-child {
+            margin-left: 20%;
+        }
+
+        div.option.payment:last-child {
+            margin-left: 10%;
+            margin-right: 20%;
+        }
+
+        div.circle {
+            background-color: rgb(255, 104, 104);
+            color: white;
+            font-size: 5px;
+        }
+
+        div.details {
+            height: 50%;
+            color: black;
+            padding: 5%;
+            line-height: 200%;
+        }
+
+        #details.col.col-30 {
+            padding: 0px;
+        }
+
+        i.icon.ion-checkmark {
+            color: rgb(0, 153, 204);
+            padding-right: 5%;
+        }
+
+        div.price {
+            background-color: rgb(255, 104, 104);
+            height: 50%;
+            color: white;
+            padding-top: 5%;
+            text-align: center;
+        }
+
+        div.price h2 {
+            color: white;
+            font-size: 150%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        div.price p {
+            color: white;
+            font-size: 80%;
+            padding-top: 10%;
+        }
+
+        span.costs {
+            font-size: 300%;
+        }
+
+        span.currency {
+            font-size: 300%;
+            color: black;
+        }
+
+        span.payment_time {
+            color: black;
+            font-size: 150%;
+        }
+
+
+    </style>
+</div>
+
