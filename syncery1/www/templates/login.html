@@ -1,33 +1,31 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-  <div class="ionic login ">
-    <div class="list">
-      <!--<label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text">
-        <input type="text"><span class="input-label">Benutzername</span><div class="highlight highlight-balanced"></div></label>
-      <label class="item item-input item-md-label" placeholder="Password" highlight-color="balanced" type="password">
-        <input type="password"><span class="input-label">Passwort</span><div class="highlight highlight-balanced"></div></label>-->
-      <label class="item item-input item-floating-label">
-        <span class="input-label">E-Mail</span>
-        <input type="email" placeholder="E-Mail">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Passwort</span>
-        <input type="password" placeholder="Passwort">
-      </label>
-    </div>
-    <div class="padding">
-      <button ng-click="dologin()" class="button button-block button-positive waves-effect waves-button waves-light">Login</button>
-    </div>
-    <div class="button-bar">
-      <button class="button button-small button-outline button-assertive light-bg icon-left ion-social-google waves-effect waves-button waves-light">Google+</button>
-      <button class="button button-small button-outline button-positive light-bg icon-left ion-social-facebook waves-effect waves-button waves-light">Facebook</button>
-    </div>
-  </div>
-  </ion-content>
-</ion-modal-view>
+<ion-view view-title="Login">
+    <ion-nav-bar class="bar syncery-header">
+
+    </ion-nav-bar>
+    <ion-content>
+        <img src="img/syncery-logo.png" class="logo">
+
+        <div class="card">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>E-Mail</b></span>
+                <input type="email" placeholder="E-Mail">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>Passwort</b></span>
+                <input type="password" placeholder="Passwort">
+            </label>
+        </div>
+
+
+        <button ng-click="dologin()"
+                class="button button-last button-positive">Login
+        </button>
+
+        <button class="button button-decide1 button-outline button-assertive icon-left ion-social-google">
+            Google+
+        </button>
+        <button class="button button-decide2 button-outline button-positive icon-left ion-social-facebook">
+            Facebook
+        </button>
+    </ion-content>
+</ion-view>

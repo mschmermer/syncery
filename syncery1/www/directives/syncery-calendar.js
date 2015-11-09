@@ -5,14 +5,15 @@
         .directive('synceryCalendar', function () {
             return {
                 restrict: 'E',
-                replace: true,
+                replace: 'true',
                 templateUrl: './directives/templates/syncery-calendar.html',
                 scope: {
+                    methodToCall: '&method',
                     month: '=',
                     year: '=',
                     booking_id: '='
                 },
-                controller: function ($scope, $ionicModal) {
+                controller: function ($scope) {
 
                     $scope.calendarData = {};
                     $scope.day = [];
@@ -115,7 +116,7 @@
                             calendarData['3']['3']['booking-id'] = '1';
                             calendarData['3']['4']['booking-id'] = '1';
                             calendarData['3']['5']['booking-id'] = '1d';
-                            calendarData['3']['6']['class'] = 'arrival';
+                            calendarData['3']['6']['class'] = 'arrival ';
                             calendarData['3']['7']['class'] = 'occupied';
                             calendarData['4']['1']['class'] = 'occupied';
                             calendarData['4']['2']['class'] = 'occupied';
@@ -189,6 +190,10 @@
                                 }
                             }
                         }
+                        //elem.bind('click', function () {
+                            var func = scope.methodToCall();
+                            func(scope.booking_id);
+                        //});
                     }
                 }
             }

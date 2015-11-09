@@ -1,4 +1,4 @@
-angular.module('syncery', ['ionic', 'pascalprecht.translate'])
+angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -13,17 +13,17 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate'])
         });
     })
 
-    .constant({'language': 'de'})
+    .constant(  {'language': 'de'})
+    .constant(  {'currency': '€'})
 
-    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, $ionicConfigProvider, language, languageVariables) {
+    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables) {
 
         $translateProvider.translations('en', languageVariables['en']);
         $translateProvider.translations('de', languageVariables['de']);
-        $translateProvider.preferredLanguage('de');
-        $translateProvider.fallbackLanguage('de');
+        //$translateProvider.preferredLanguage('de');
+        //$translateProvider.fallbackLanguage('de');
+        //$translateProvider.useCookieStorage();
         $translateProvider.useSanitizeValueStrategy('escape');
-
-        $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
         $stateProvider
 
@@ -50,6 +50,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate'])
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/search.html'
+                    }
+                }
+            })
+
+            .state('app.home', {
+                url: '/home',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/home.html',
+                        controller: 'HomeCtrl'
                     }
                 }
             })
@@ -124,15 +134,43 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate'])
                 }
             })
 
-            .state('app.single', {
-                url: '/playlists/:playlistId',
+            .state('app.settings', {
+                url: '/settings',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/playlist.html',
-                        controller: 'PlaylistCtrl'
+                        templateUrl: 'templates/settings/settings.html',
+                        controller: 'SettingsCtrl'
                     }
                 }
-            });
+            })
+            .state('app.general', {
+                url: '/settings/general',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/general.html',
+                        controller: 'GeneralCtrl'
+                    }
+                }
+            })
+            .state('app.account', {
+                url: '/settings/account',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/account.html',
+                        controller: 'AccountCtrl'
+                    }
+                }
+            })
+            .state('app.agreement', {
+                url: '/settings/agreement',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/agreement.html',
+                        controller: 'AgreementCtrl'
+                    }
+                }
+            })
+        ;
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/bookings');
+        $urlRouterProvider.otherwise('/app/home');
     });

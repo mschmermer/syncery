@@ -5,57 +5,117 @@
         .controller('BookingCtrl', BookingCtrl);
 
 
-    function BookingCtrl($scope, $ionicSideMenuDelegate, $ionicSlideBoxDelegate,
-    $ionicPopover, language) {
-
-        $scope.hideButtonAdd =false;
+    function BookingCtrl($scope, $ionicSlideBoxDelegate,
+                         $ionicPopover, language, $ionicScrollDelegate, $timeout, $location) {
+        $scope.standard_class= 'item item-stacked-label';
+        $scope.hide = {
+            customer: {
+                hide: true,
+                class: $scope.standard_class
+            },
+            date: {
+                hide: true,
+                class: $scope.standard_class
+            },
+            accommodation: {
+                hide: true,
+                class: $scope.standard_class
+            }
+        };
 
         init();
 
-        $scope.toggle = function (monat) {
-            $selected.find("div.syncery-option").slideUp();
-            $scope.monat = monat;
+        $scope.showMore = function (name) {
+            switch (name){
+                case 'accommodation':
+                    if($scope.hide.accommodation.hide){
+                        $scope.hide.accommodation.class+= ' item-text-wrap';
+                        $scope.hide.accommodation.hide=false;
+                    }else{
+                        $scope.hide.accommodation.class= $scope.standard_class;
+                        $scope.hide.accommodation.hide=true;
+                    }
+                    break;
+                case 'date':
+                    if($scope.hide.date.hide){
+                        $scope.hide.date.class+= ' item-text-wrap';
+                        $scope.hide.date.hide=false;
+                    }else{
+                        $scope.hide.date.class= $scope.standard_class;
+                        $scope.hide.date.hide=true;
+                    }
+                    break;
+                case 'customer':
+                    if($scope.hide.customer.hide){
+                        $scope.hide.customer.class+= ' item-text-wrap';
+                        $scope.hide.customer.hide=false;
+                    }else{
+                        $scope.hide.customer.class= $scope.standard_class;
+                        $scope.hide.customer.hide=true;
+                    }
+                    break;
+            }
+
         }
 
-        $scope.toggle2 = function (suche) {
-            $selected.find("div.syncery-option").slideUp();
-            $scope.suche = suche;
+        $scope.clickCalendar = function (id) {
+            if (id) {
+                $scope.booking_id = id;
+                $scope.bookingView = false;
+                $timeout(function () {
+                    $ionicScrollDelegate.resize();
+                    $location.hash('BookingView');
+                    var delegate = $ionicScrollDelegate.$getByHandle('bookings');
+                    delegate.anchorScroll(true);
+                }, 200);
+            } else {
+                $scope.booking_id = false;
+                $scope.bookingView = true;
+                $timeout(function () {
+                    $ionicScrollDelegate.resize();
+                    $ionicScrollDelegate.scrollTop(true);
+                }, 200);
+            }
         }
 
+        $scope.changeBooking = function () {
+            alert('goto change booking for ' + $scope.booking_id);
+        }
 
-        $scope.slideChanged = function (index) {
-            changeSlideNumbers(index);
-        };
+        $scope.showBooking = function () {
+            alert('goto show booking for ' + $scope.booking_id);
+        }
 
-        function init(){
-            $scope.$on('$ionicView.enter', function () {
-                $ionicSideMenuDelegate.canDragContent(false);
-            });
-            $scope.$on('$ionicView.leave', function () {
-                $ionicSideMenuDelegate.canDragContent(true);
-            });
+        $scope.close = function () {
+            $scope.bookingView = true;
+            $timeout(function () {
+                $ionicScrollDelegate.resize();
+                $ionicScrollDelegate.scrollTop(true);
+            }, 200);
+        }
+
+        function init() {
+            /*$scope.$on('$ionicView.enter', function () {
+             $ionicSideMenuDelegate.canDragContent(false);
+             });
+             $scope.$on('$ionicView.leave', function () {
+             $ionicSideMenuDelegate.canDragContent(true);
+             });*/
+
 
             $scope.myActiveSlide = 0;
-
-            $scope.booking_id="booking_id";
-
 
             $scope.language = language;
 
             $scope.month = [];
             $scope.month2 = [];
 
-            $scope.accommodations = ['alle Unterkünfte', 'Unterkunft 1','Unterkunft 2','Unterkunft 3','Unterkunft 4','Unterkunft 5'];
+            $scope.accommodations = ['alle Unterkünfte', 'Unterkunft 1', 'Unterkunft 2', 'Unterkunft 3', 'Unterkunft 4', 'Unterkunft 5'];
             $scope.accommodations_actual = 0;
 
-            $scope.select = function(){
-                alert('tst');
-            }
+            $scope.hideButtonAdd = false;
+            $scope.bookingView = true;
 
-            $scope.title = {
-                'de': 'Buchungen',
-                'en' : 'Bookings'
-            }
 
             var moments = moment().locale(language);
 
@@ -82,13 +142,13 @@
                 $scope.month2.push(moments.month(i).format('MMMM') + ' ' + $scope.year);
             }
 
-            $scope.date_actual=moments.month($scope.monthnumber-1).format('MMMM') + ' ' + $scope.year
+            $scope.date_actual = moments.month($scope.monthnumber - 1).format('MMMM') + ' ' + $scope.year
         }
 
-        function changeSlideNumbers(index){
+        $scope.slideHasChanged = function (index) {
             switch (index) {
                 case 0:
-                    $scope.date_actual=$scope.month[$scope.monthnumber-1] + ' ' + $scope.year;
+                    $scope.date_actual = $scope.month[$scope.monthnumber - 1] + ' ' + $scope.year;
                     switch ($scope.myActiveSlide) {
                         case 1:
                             $scope.monthnumber2 = $scope.monthnumber2 - 3;
@@ -107,7 +167,7 @@
                     }
                     break;
                 case 1:
-                    $scope.date_actual=$scope.month[$scope.monthnumber1-1] + ' ' + $scope.year1;
+                    $scope.date_actual = $scope.month[$scope.monthnumber1 - 1] + ' ' + $scope.year1;
                     switch ($scope.myActiveSlide) {
                         case 0:
                             $scope.monthnumber2 = $scope.monthnumber2 + 3;
@@ -127,7 +187,7 @@
 
                     break;
                 case 2:
-                    $scope.date_actual=$scope.month[$scope.monthnumber2-1] + ' ' + $scope.year2;
+                    $scope.date_actual = $scope.month[$scope.monthnumber2 - 1] + ' ' + $scope.year2;
                     switch ($scope.myActiveSlide) {
                         case 1:
                             $scope.monthnumber = $scope.monthnumber + 3;
@@ -150,36 +210,62 @@
             $scope.myActiveSlide = $ionicSlideBoxDelegate.currentIndex();
         }
 
+        $scope.selectMonth = function (month) {
 
-        $scope.popover = $ionicPopover.fromTemplateUrl('my-popover.html', {
-            scope: $scope
-        });
-
-        // .fromTemplateUrl() method
-        $ionicPopover.fromTemplateUrl('my-popover.html', {
-            scope: $scope
-        }).then(function(popover) {
-            $scope.popover = popover;
-        });
-
-
-        $scope.openPopover = function($event) {
-            $scope.popover.show($event);
-        };
-        $scope.closePopover = function() {
-            $scope.popover.hide();
-        };
-        //Cleanup the popover when we're done with it!
-        $scope.$on('$destroy', function() {
-            $scope.popover.remove();
-        });
-        // Execute action on hide popover
-        $scope.$on('popover.hidden', function() {
-            // Execute action
-        });
-        // Execute action on remove popover
-        $scope.$on('popover.removed', function() {
-            // Execute action
-        });
+            var moments = moment().locale(language);
+            month = month.split(" ");
+            actual_month = parseInt(moments.month(month[0]).format('M'));
+            actual_year = parseInt(month[1]);
+            switch ($scope.myActiveSlide) {
+                case 0:
+                    $scope.monthnumber = actual_month;
+                    $scope.year = actual_year;
+                    $scope.monthnumber1 = actual_month + 1;
+                    $scope.year1 = actual_year;
+                    $scope.monthnumber2 = actual_month - 1;
+                    $scope.year2 = actual_year;
+                    if (actual_month == 12) {
+                        $scope.monthnumber1 = 1;
+                        $scope.year1 = actual_year + 1;
+                    }
+                    if (actual_month == 1) {
+                        $scope.monthnumber2 = 12;
+                        $scope.year2 = actual_year - 1;
+                    }
+                    break;
+                case 1:
+                    $scope.monthnumber = actual_month - 1;
+                    $scope.year = actual_year;
+                    $scope.monthnumber1 = actual_month;
+                    $scope.year1 = actual_year;
+                    $scope.monthnumber2 = actual_month + 1;
+                    $scope.year2 = actual_year;
+                    if (actual_month == 12) {
+                        $scope.monthnumber2 = 1;
+                        $scope.year2 = actual_year + 1;
+                    }
+                    if (actual_month == 1) {
+                        $scope.monthnumber = 12;
+                        $scope.year = actual_year - 1;
+                    }
+                    break;
+                case 2:
+                    $scope.monthnumber = actual_month + 1;
+                    $scope.year = actual_year;
+                    $scope.monthnumber1 = actual_month - 1;
+                    $scope.year1 = actual_year;
+                    $scope.monthnumber2 = actual_month;
+                    $scope.year2 = actual_year;
+                    if (actual_month == 12) {
+                        $scope.monthnumber = 1;
+                        $scope.year = actual_year + 1;
+                    }
+                    if (actual_month == 1) {
+                        $scope.monthnumber1 = 12;
+                        $scope.year1 = actual_year - 1;
+                    }
+                    break;
+            }
+        }
     }
 })();

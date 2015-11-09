@@ -1,10 +1,16 @@
 
 
 
-<div class="card" style="width: 280px; margin-left: auto; margin-right: auto">
+<div class="card syncery-calendar-card">
 
 
     <style>
+        div.syncery-calendar-card{
+            width: 280px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
         table.syncery-calendar{
             text-align: center;
             border-spacing: 0em;
@@ -81,7 +87,7 @@
         td.arrival.selected{
             position: relative;
             font-weight: bold;
-            border-right: 2px solid blue;
+            border-right: 2px solid #39A4FC;
         }
 
         td.arrival.selected:before {
@@ -89,7 +95,7 @@
             width: 0px;
             height: 0px;
             border-top: 40px solid transparent;
-            border-right: 36px solid blue;
+            border-right: 36px solid #39A4FC;
             position: absolute;
             z-index: -1;
             top: 0px;
@@ -124,7 +130,7 @@
             width: 0px;
             height: 0px;
             border-bottom: 40px solid transparent;
-            border-left: 36px solid blue;
+            border-left: 36px solid #39A4FC;
             position: absolute;
             z-index: -1;
             top: 0px;
@@ -146,7 +152,7 @@
             left: 5px;
 
         }
-        /*Anzeige für belegten Tag*/
+        /*Anzeige fï¿½r belegten Tag*/
 
         td.occupied{
             background-color: rgb(255,102,102);
@@ -155,9 +161,9 @@
         }
 
         td.occupied.selected{
-            background-color: blue;
+            background-color: #39A4FC;
             color: white;
-            border-right: 2px solid blue;
+            border-right: 2px solid #39A4FC;
         }
 
 
@@ -166,14 +172,16 @@
             background-color: transparent;
         }
 
-        /*vorheriger oder nächster Monat*/
+        /*vorheriger oder nï¿½chster Monat*/
         td.other_month{
             background-color: rgb(251,251,251);
             color: grey;
         }
 
-        /*ausgewählte Zelle*/
+        /*ausgewÃ¤hlte Zelle*/
         div.selected{
+            z-index: 5;
+            background-color: transparent;
             height: 40px;
             width: 40px;
             position: absolute;
@@ -188,10 +196,14 @@
             text-align: center;
             color: white
         }
+        div.card.syncery-calendar-card div.item.item-divider.title{
+            background-color: rgb(56,68,94);
+        }
+
     </style>
 
 
-    <div class="item item-divider title" style="background-color: rgb(56,68,94);">
+    <div class="item item-divider title">
         <h2 class="title">{{months[month]}} {{year}}</h2>
     </div>
     <table class="syncery-calendar">
