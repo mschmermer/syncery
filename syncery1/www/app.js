@@ -15,13 +15,15 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate'])
 
     .constant({'language': 'de'})
 
-    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables) {
+    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, $ionicConfigProvider, language, languageVariables) {
 
         $translateProvider.translations('en', languageVariables['en']);
         $translateProvider.translations('de', languageVariables['de']);
         $translateProvider.preferredLanguage('de');
         $translateProvider.fallbackLanguage('de');
         $translateProvider.useSanitizeValueStrategy('escape');
+
+        $ionicConfigProvider.backButton.text('').icon('ion-ios7-arrow-left');
 
         $stateProvider
 
