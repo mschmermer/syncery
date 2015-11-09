@@ -14,7 +14,7 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
     })
 
     .constant(  {'language': 'de'})
-    .constant(  {'currency': 'â‚¬'})
+    .constant(  {'currency': '€'})
 
     .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables) {
 
@@ -167,6 +167,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
                     'menuContent': {
                         templateUrl: 'templates/settings/agreement.html',
                         controller: 'AgreementCtrl'
+                    }
+                }
+            })
+
+            .state('app.portals', {
+                url: '/portals',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/portals/portals.html',
+                        controller: 'PortalsCtrl'
                     }
                 }
             })

@@ -1,19 +1,33 @@
-<ion-view  view-title="Kunden hinzufügen">
+<ion-view  view-title="{{'add_accommodation' | translate}}">
     <ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button>
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i> {{"back" | translate }}
         </ion-nav-back-button>
 
         <ion-nav-buttons side="left">
-            <button class="button button-icon button-clear ion-ios-undo" menu-toggle="left"
-                    ng-click="back()">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
             </button>
-            </ion-nav-buttons>
-        </ion-nav-bar>
+        </ion-nav-buttons>
+    </ion-nav-bar>
     <ion-content>
-        <div class="list">
+        <div class="list card">
+            <div class="item item-divider">Unterkunftsdaten eintragen</div>
+            <label class="item item-text-wrap item-input item-stacked-label">
+                <span class="input-label">Beschreibung</span>
+                <input type="text" placeholder="Die Unterkunft hat 3 Zimmer und liegt in der Nähe des Sees.">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Anrede
+                </div>
+                <select>
+                    <option>Herr</option>
+                    <option selected>Frau</option>
+                </select>
+            </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Titel</span>
-                <input type="text" placeholder="Herr">
+                <input type="text" placeholder="Dr.">
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Vorname</span>
@@ -52,8 +66,11 @@
                 <input type="text" placeholder="john@suhr.com">
             </label>
         </div>
-        <button class="button button-flat button-calm">
-            KUNDE SICHERN
+        <button class="button button-last button-positive">
+            Bilder hinzufügen
+        </button>
+        <button class="button button-last button-positive">
+            Unterkunft speichern
         </button>
     </ion-content>
 </ion-view>

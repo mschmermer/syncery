@@ -95,24 +95,35 @@
             </ion-item>
         </div>
 
-        <div class="list card">
+        <div class="card">
             <div id="Mapping" class="item item-divider item-icon-right" ng-click="showMore('Mapping')">
                 Mapping
                 <i ng-class="icon['Mapping']"></i>
             </div>
-                <ion-list can-swipe="true" ng-hide="hide['Mapping']">
-                    <ion-item>
-                        Booking.com
-                        <p>ID: FBKDHFJB637812</p>
-                        <ion-option-button class="button button-dark ion-ios7-heart button-options">
-                            {{"edit" | translate}}
-                        </ion-option-button>
-                        <ion-option-button class="button button-assertive ion-ios7-heart button-options">
-                            {{"delete" | translate}}
-                        </ion-option-button>
-                    </ion-item>
-                </ion-list>
-
-
+            <ion-list can-swipe="true" ng-hide="hide['Mapping']">
+                <ion-item>
+                    Booking.com
+                    <p>ID: FBKDHFJB637812</p>
+                    <ion-option-button class="button button-dark ion-ios7-heart button-options">
+                        {{"edit" | translate}}
+                    </ion-option-button>
+                    <ion-option-button class="button button-assertive ion-ios7-heart button-options">
+                        {{"delete" | translate}}
+                    </ion-option-button>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="card">
+            <div id="accommodation_capacity" class="item item-divider item-icon-right" ng-click="showMore('accommodation_capacity')">
+                Auslastung
+                <i ng-class="icon['accommodation_capacity']"></i>
+            </div>
+            <ion-item ng-hide="hide['accommodation_capacity']">
+                <canvas id="line" class="chart chart-line" chart-data="data"
+                        chart-labels="labels" chart-legend="true" chart-series="series"
+                        chart-click="onClick">
+                </canvas>
+            </ion-item>
+        </div>
     </ion-content>
 </ion-view>

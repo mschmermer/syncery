@@ -1,16 +1,20 @@
-<ion-view  view-title="Kunden hinzufügen">
+<ion-view view-title="Kunden hinzufügen">
     <ion-nav-bar class="bar syncery-header">
         <ion-nav-back-button>
         </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content>
         <div class="list card">
-            <ion-item>
-                <syncery-dropdown name="'title'"
-                                  attribute="'Herr'"
-                                  attributes="['Herr', 'Frau']">
-
-                </syncery-dropdown>
-            </ion-item>
+            <div class="item item-divider">Kundendaten eintragen</div>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Anrede
+                </div>
+                <select>
+                    <option>Herr</option>
+                    <option selected>Frau</option>
+                </select>
+            </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Vorname</span>
                 <input type="text" placeholder="John">

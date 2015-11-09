@@ -18,7 +18,7 @@
         $timeout( function() {
             $location.hash('accommodation_list');
             var delegate = $ionicScrollDelegate.$getByHandle('accommodations');
-            delegate.anchorScroll();
+            delegate.anchorScroll(true);
         }, 200);
 
         $scope.data.showSearch = true;

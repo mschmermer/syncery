@@ -18,36 +18,34 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content delegate-handle="customerDetails">
+        <div class="card">
+            <img width="100%" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+            <img width="100%" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+        </div>
+
         <div class="list card">
-            <ion-item class="item balanced">
+            <ion-item class="item">
                 <div class="row">
                     <div class="col">
+                        <b>{{"payment" | translate}}</b>
+                        <p>5 {{"bookings" | translate}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col two-item-border col-50">
                         <b>{{"profit" | translate}}:</b>
+                        <p>{{customer.profit | currency: '€ '}}</p>
                     </div>
-                    <div class="col col-offset-66">
-                        {{customer.profit}} {{currency}}
-                    </div>
-                </div>
-            </ion-item>
-            <ion-item class="item assertive">
-                <div class="row">
-                    <div class="col">
+                    <div class="col two-item-border col-50">
                         <b>{{"open_bill" | translate}}:</b>
-                    </div>
-                    <div class="col col-offset-66">
-                        {{customer.open_bill}} {{currency}}
+                        <p>{{customer.open_bill | currency: '€ '}}</p>
                     </div>
                 </div>
             </ion-item>
-            <ion-item class="item" ng-click="showAllBookings('{{customer.id}}')">
-                <div class="row">
-                    <div class="col">
+            <ion-item class="item item-icon-left" ng-click="showAllBookings('{{customer.id}}')">
+                <i class="icon ion-calendar"></i>
                         <b>{{"last_booking" | translate}}:</b>
-                    </div>
-                    <div class="col col-offset-66">
                         {{customer.last_booking}}
-                    </div>
-                </div>
                 <!--<i class="icon ion-calendar" ng-click="showAllBookings('{{customer.id}}')"></i>-->
             </ion-item>
         </div>

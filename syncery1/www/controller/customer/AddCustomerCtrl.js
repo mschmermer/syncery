@@ -6,6 +6,5 @@
 
 
     function AddCustomerCtrl($scope, UserSvc, $state) {
-        $scope.titels = ['Herr', 'Frau']
     }
 })();

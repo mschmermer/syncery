@@ -38,6 +38,8 @@ angular.module('syncery')
                 portals_menu: "PORTALE",
                 settings_menu: "EINSTELLUNGEN",
                 menu_menu: "MENÜ",
+                // Unterkunft hinzufügen
+                add_accommodation: "Unterkunft hinzufügen",
                 // Einstellungen
                 settings: "Einstellungen",
                 general: "Allgemein",
@@ -72,7 +74,9 @@ angular.module('syncery')
                 change_package: "Ändern Sie Ihr Paket",
                 numbers_accommodations: "Anzahl Ihrer Ferienwohnungen",
                 annually: "jährlich",
-                monthly: "monatlich"
+                monthly: "monatlich",
+                // Portale
+                portals: "Portale"
             },
             en: {
                 /*Booking*/
@@ -110,6 +114,8 @@ angular.module('syncery')
                 portals_menu: "PORTALS",
                 settings_menu: "SETTINGS",
                 menu_menu: "MENU",
+                // Add accommodation
+                add_accommodation: "Add accommodation",
                 // Settings
                 settings: "Settings",
                 general: "General",
@@ -144,7 +150,9 @@ angular.module('syncery')
                 change_package: "Change your package",
                 numbers_accommodations: "Number of their apartments",
                 monthly: "monthly",
-                annually: "annually"
+                annually: "annually",
+                // Portals
+                portals: "Portals"
             }
         }
     });

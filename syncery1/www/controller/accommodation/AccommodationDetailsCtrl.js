@@ -12,12 +12,21 @@
         $scope.descriptionClass = 'item';
         $scope.icon = {
             MasterData: 'icon ion-chevron-down',
-            Mapping: 'icon ion-chevron-down'
+            Mapping: 'icon ion-chevron-down',
+            accommodation_capacity: 'icon ion-chevron-down'
             };
         $scope.hide = {
             MasterData: true,
-            Mapping: true
+            Mapping: true,
+            accommodation_capacity: true
         };
+
+        $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+        $scope.series = ['Series A', 'Series B'];
+        $scope.data = [
+            [65, 59, 80, 81, 56, 55, 40],
+            [28, 48, 40, 19, 86, 27, 90]
+        ];
 
         $scope.accommodation = AccommodationSvc.getAccommodationById($scope.id);
 

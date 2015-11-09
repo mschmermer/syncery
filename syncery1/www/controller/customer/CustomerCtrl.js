@@ -17,7 +17,7 @@
         $timeout( function() {
             $location.hash('customer_list');
             var delegate = $ionicScrollDelegate.$getByHandle('customer');
-            delegate.anchorScroll();
+            delegate.anchorScroll(true);
         }, 200);
 
         $scope.data.showSearch = true;
