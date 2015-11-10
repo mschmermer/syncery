@@ -18,13 +18,9 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content delegate-handle="customerDetails">
-        <div class="card">
+        <div class="list card">
             <img width="100%" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
             <img width="100%" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
-        </div>
-
-        <div class="list card">
-            <ion-item class="item">
                 <div class="row">
                     <div class="col">
                         <b>{{"payment" | translate}}</b>
@@ -42,11 +38,10 @@
                     </div>
                 </div>
             </ion-item>
-            <ion-item class="item item-icon-left" ng-click="showAllBookings('{{customer.id}}')">
-                <i class="icon ion-calendar"></i>
+            <ion-item class="item item-icon-right" href="#/app/customer/bookings{{customer.id}}">
                         <b>{{"last_booking" | translate}}:</b>
                         {{customer.last_booking}}
-                <!--<i class="icon ion-calendar" ng-click="showAllBookings('{{customer.id}}')"></i>-->
+                <i class="icon ion-chevron-right"></i>
             </ion-item>
         </div>
 

@@ -27,7 +27,7 @@
         <ion-list id="customer_list" can-swipe="listCanSwipe">
             <ion-item class="item customer-list item-avatar" ng-repeat="customer in data.customers
             | filter: data.searchQuery | orderBy:'name'"
-                      href="#/app/customerDetails{{customer.id}}">
+                      href="#/app/customer/details{{customer.id}}">
                 <!--<i class="icon ion-person-stalker"></i>-->
                 <img ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
                 <img ng-if="!customer.avatar" ng-src="img/avatar.jpg">

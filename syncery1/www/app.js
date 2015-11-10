@@ -14,7 +14,7 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
     })
 
     .constant(  {'language': 'de'})
-    .constant(  {'currency': '€'})
+    .constant(  {'currency': 'ï¿½'})
 
     .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables) {
 
@@ -125,7 +125,7 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
             })
 
             .state('app.customerDetails', {
-                url: '/customerDetails:id',
+                url: '/customer/details:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/customer/customerDetails.html',
@@ -133,6 +133,17 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
                     }
                 }
             })
+
+            .state('app.customerBookings', {
+                url: '/customer/bookings:id',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/customer/customerBookings.html',
+                        controller: 'CustomerBookingCtrl'
+                    }
+                }
+            })
+
 
             .state('app.settings', {
                 url: '/settings',

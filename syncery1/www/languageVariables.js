@@ -58,9 +58,16 @@ angular.module('syncery')
                 save_general: "SPEICHERN",
                 yes: "Ja",
                 no: "Nein",
-                // Customer Details
+                // Vetrag
+                invoice_address: "Rechnungsanschrift",
+                change_data: "Daten bearbeiten",
+                invoices: "Rechnungen",
+                // Kunden Details
                 profit: "Gewinn",
                 open_bill: "offene Rechnung",
+                // Kunden Buchungs Übersicht
+                from: "von",
+                to: "bis",
                 // Home
                 testphase_time: "Ihre Testphase endet in {{lastdays}} Tagen.",
                 unpaid_bookings: "Sie haben noch {{unpaid}} unbezahlte Buchungen.",
@@ -134,9 +141,16 @@ angular.module('syncery')
                 save_general: "SAVE",
                 yes: "Yes",
                 no: "No",
+                // Agreement
+                invoice_address: "Invoice address",
+                change_data: "Change data",
+                invoices: "Invoices",
                 // Customer Details
                 profit: "Profit",
                 open_bill: "Open bill",
+                // Customer Bookings Overview
+                from: "from",
+                to: "to",
                 // Home
                 testphase_time: "Your Testphase ends in {{lastdays}} days.",
                 unpaid_bookings: "You have {{unpaid}} unpaid bookings.",

@@ -14,9 +14,14 @@
                 <div class="payment_time">
                     <p>{{"payment" | translate}}</p>
 
-                    <div class="option payment" ng-class="payment.class" ng-click="choosePayment(payment.value)"
-                         ng-style="payment_style" ng-repeat="payment in payments">
-                        {{payment.value}}
+                    <div class="option payment" ng-class="payments['monthly'].class" ng-click="choosePayment('monthly')"
+                         ng-style="payment_style">
+                        {{"monthly" | translate}}
+                    </div>
+
+                    <div class="option payment" ng-class="payments['annually'].class" ng-click="choosePayment('annually')"
+                         ng-style="payment_style">
+                        {{"annually" | translate}}
                     </div>
                 </div>
             </div>
@@ -64,19 +69,13 @@
             border: 1px solid rgb(255, 104, 104);;
         }
 
-        div.option.payment:first-child {
-            margin-left: 20%;
+        div.option.payment{
+            margin-bottom: 5%;
         }
 
-        div.option.payment:last-child {
-            margin-left: 10%;
-            margin-right: 20%;
-        }
-
-        div.circle {
+        div.option.payment.selected {
             background-color: rgb(255, 104, 104);
-            color: white;
-            font-size: 5px;
+            border: 1px solid rgb(255, 104, 104);
         }
 
         div.details {
