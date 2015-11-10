@@ -19,8 +19,8 @@
     </ion-nav-bar>
     <ion-content delegate-handle="customerDetails">
         <div class="list card">
-            <img width="100%" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
-            <img width="100%" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+            <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+            <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
                 <div class="row">
                     <div class="col">
                         <b>{{"payment" | translate}}</b>

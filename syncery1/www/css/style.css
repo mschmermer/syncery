@@ -130,5 +130,6 @@ button.button.button-decide1 {
 /* Customer Details*/
 
 img.customer-avatar{
-
+    padding: 5%;
+    padding-bottom: 0px;
 }
