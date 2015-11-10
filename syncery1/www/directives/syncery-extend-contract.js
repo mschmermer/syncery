@@ -13,31 +13,46 @@
                 },
                 templateUrl: './directives/templates/syncery-extend-contract.html',
                 controller: function ($scope, $translate) {
-                    console.log($scope.payment);
 
                     $scope.currency = '€';
                     $scope.costs = '5';
                     $scope.payment_time_shortly = 'mtl.';
 
-                    $scope.choosePayment = function (payment) {
-                        console.log(payment, $scope.payment);
-                        $scope.payments[payment] = "selected";
-                        $scope.payments[$scope.payment] = "";
-                        $scope.payment = payment;
-                        if($scope.payment = "monthly"){
-                            var number = $scope.number.substring($scope.number.length-2, $scope.number.length);
-                            $scope.costs = number * 5;
-                        }
-                        if($scope.payment = "annually"){
-                            var number = $scope.number.substring($scope.number.length-2, $scope.number.length);
-                            $scope.costs = number * 10 * 5;
-                        }
+
+                    $scope.chooseMonthly = function(){
+                        $scope.payments["monthly"] = "selected";
+                        $scope.payments["annually"] = "";
+                        $scope.payment = "monthly";
+                        var number = $scope.number.substring(2, $scope.number.length);
+                        $scope.costs = number * 5;
+                    }
+
+                    $scope.chooseAnnually = function(){
+                        $scope.payments["annually"] = "selected";
+                        $scope.payments["monthly"] = "";
+                        $scope.payment = "annually";
+                        var number = $scope.number.substring(2, $scope.number.length);
+                        $scope.costs = number * 5 * 10;
                     }
 
                     $scope.chooseNumbers = function (number) {
                         $scope.numbers[number].class = "selected";
                         $scope.numbers[$scope.number].class = "";
                         $scope.number = number;
+
+                        if($scope.number.length > 1){
+                            var number = $scope.number.substring(2, $scope.number.length);
+                        }else{
+                            var number = 1;
+                        }
+
+                        if($scope.payment == "monthly"){
+                            $scope.costs = number * 5;
+                        }
+                        if($scope.payment == "annually"){
+                            $scope.costs = number * 10 * 5;
+                        }
+                        console.log(number, $scope.costs);
                     }
 
                     init();
@@ -77,18 +92,13 @@
                         var width = ($scope.width * 0.25);
                         var margin_left = ($scope.width * 0.50) / 3;
 
+
                         $scope.payment_style = {
                             'height': height + "px",
                             'width': width + "px",
                             'font-size': font_size,
                             'line-height': line_height,
-                            'margin_left': margin_left + "px"
-                        }
-
-                        $scope.circle = {
-                            'height': height + "px",
-                            'width': height + "px",
-                            'border-radius': height + "px"
+                            'margin-left': margin_left + "px",
                         }
                     }
 

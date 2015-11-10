@@ -8,7 +8,8 @@
                         remaining="contract_remaining" total="contract_total"    >
                 </syncery-contract-days>
 
-                <button class="button button-last button-positive">{{'extend_contract' | translate}}</button>
+                <button class="button button-last button-positive"
+                        ng-click="extendContract()">{{'extend_contract' | translate}}</button>
         </div>
 
         <div class="card">

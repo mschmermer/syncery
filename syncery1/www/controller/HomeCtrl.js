@@ -5,7 +5,7 @@
         .controller('HomeCtrl', HomeCtrl);
 
 
-    function HomeCtrl($scope, UserSvc, $state, $translate,language) {
+    function HomeCtrl($scope, UserSvc, $state, $translate,language, $ionicHistory) {
 
         $scope.contract_remaining = 15;
         $scope.contract_total = 30;
@@ -22,6 +22,13 @@
 
         $scope.unpaidBookings = function(){
             alert('to unpaid bookings');
+        }
+
+        $scope.extendContract = function(){
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $state.go('app.agreement');
         }
 
         $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];

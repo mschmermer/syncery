@@ -14,12 +14,12 @@
                 <div class="payment_time">
                     <p>{{"payment" | translate}}</p>
 
-                    <div class="option payment" ng-class="payments['monthly'].class" ng-click="choosePayment('monthly')"
+                    <div class="option payment" ng-class="payments['monthly']" ng-click="chooseMonthly()"
                          ng-style="payment_style">
                         {{"monthly" | translate}}
                     </div>
 
-                    <div class="option payment" ng-class="payments['annually'].class" ng-click="choosePayment('annually')"
+                    <div class="option payment" ng-class="payments['annually']" ng-click="chooseAnnually()"
                          ng-style="payment_style">
                         {{"annually" | translate}}
                     </div>
@@ -53,7 +53,7 @@
         }
 
         #options p {
-            padding: 5%;
+            padding: 10%;
             clear: left;
         }
 
@@ -70,7 +70,7 @@
         }
 
         div.option.payment{
-            margin-bottom: 5%;
+            margin-bottom: 10%;
         }
 
         div.option.payment.selected {
