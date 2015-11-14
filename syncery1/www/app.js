@@ -1,6 +1,6 @@
-angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
+angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova'])
 
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform, $cordovaStatusbar) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -8,13 +8,14 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
 
             }
             if (window.StatusBar) {
-                StatusBar.styleDefault();
+               StatusBar.styleColor('white');
             }
+            //$cordovaStatusbar.styleColor('white');
         });
     })
 
-    .constant(  {'language': 'de'})
-    .constant(  {'currency': '�'})
+    .constant({'language': 'de'})
+    .constant({'currency': '€'})
 
     .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables) {
 

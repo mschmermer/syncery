@@ -23,7 +23,11 @@
                         $scope.payments["monthly"] = "selected";
                         $scope.payments["annually"] = "";
                         $scope.payment = "monthly";
-                        var number = $scope.number.substring(2, $scope.number.length);
+                        if($scope.number.length > 1){
+                            var number = $scope.number.substring(2, $scope.number.length);
+                        }else{
+                            var number = 1;
+                        }
                         $scope.costs = number * 5;
                     }
 
@@ -31,7 +35,11 @@
                         $scope.payments["annually"] = "selected";
                         $scope.payments["monthly"] = "";
                         $scope.payment = "annually";
-                        var number = $scope.number.substring(2, $scope.number.length);
+                        if($scope.number.length > 1){
+                            var number = $scope.number.substring(2, $scope.number.length);
+                        }else{
+                            var number = 1;
+                        }
                         $scope.costs = number * 5 * 10;
                     }
 
@@ -52,7 +60,6 @@
                         if($scope.payment == "annually"){
                             $scope.costs = number * 10 * 5;
                         }
-                        console.log(number, $scope.costs);
                     }
 
                     init();
