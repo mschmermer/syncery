@@ -34,63 +34,49 @@
         </ion-slide-box>
 
         <div class="list card">
-            <div class="item item-divider item-icon-right" ng-click="showMore('MasterData')"
-                 id="MasterData">
+            <div class="item item-divider item-icon-right" ng-click="showMore('MasterDataAcco')"
+                 id="MasterDataAcco">
                 {{"master_data" | translate}}
-                <i ng-class="icon['MasterData']"></i>
+                <i ng-class="icon['MasterDataAcco']"></i>
             </div>
-            <ion-item ng-hide="hide['MasterData']">
-                <div class="list">
-                    <label class="item item item-stacked-label">
-                        <h2>{{"title" | translate}}</h2>
-
-                        <p>Frau Dr.</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"first_name" | translate}}</h2>
-
+            <ion-item ng-hide="hide['MasterDataAcco']">
+                <div class="row ">
+                    <div class="col">
+                        <p>Herr Dr. Prof.</p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col col-50">
                         <p>Marcus</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"name" | translate}}</h2>
-
+                    </div>
+                    <div class="col col-50">
                         <p>Schmermer</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"address" | translate}}</h2>
-
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col col-50">
                         <p>Erieseering 22</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>PLZ</h2>
-
-                        <p>10319</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"city" | translate}}</h2>
-
-                        <p>Berlin</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"country" | translate}}</h2>
-
-                        <p>Deutschland</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"telephone" | translate}}</h2>
-
+                    </div>
+                    <div class="col col-50">
+                        <p>10319 Berlin</p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col">
+                        <b>{{"contact" | translate}}</b></div>
+                </div>
+                <div class="row ">
+                    <div class="col col-50">
                         <p>030 94399851</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"mobile" | translate}}</h2>
-
+                    </div>
+                    <div class="col col-50">
                         <p>0151 63 42 68 41</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>Email</h2>
-
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col">
                         <p>ma.schmermer@gmail.com</p>
-                    </label>
+                    </div>
                 </div>
             </ion-item>
         </div>

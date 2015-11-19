@@ -5,7 +5,7 @@
         .controller('HomeCtrl', HomeCtrl);
 
 
-    function HomeCtrl($scope, UserSvc, $state, $translate,language, $ionicHistory) {
+    function HomeCtrl($scope, $state,language, $ionicHistory) {
 
         $scope.contract_remaining = 15;
         $scope.contract_total = 30;

@@ -5,18 +5,21 @@
         .controller('AccommodationDetailsCtrl', AccommodationDetailsCtrl);
 
 
-    function AccommodationDetailsCtrl($scope, UserSvc, LoginFactory,$location,$timeout, $state, $stateParams, AccommodationSvc, $ionicScrollDelegate) {
+    function AccommodationDetailsCtrl($scope, UserSvc, LoginFactory,$location,$timeout, $state, $stateParams,
+                                      AccommodationSvc, $ionicScrollDelegate, $ionicLoading) {
+
+
         $scope.id = $stateParams.id;
         $scope.accommodation = {};
 
         $scope.descriptionClass = 'item';
         $scope.icon = {
-            MasterData: 'icon ion-chevron-down',
+            MasterDataAcco: 'icon ion-chevron-down',
             Mapping: 'icon ion-chevron-down',
             accommodation_capacity: 'icon ion-chevron-down'
             };
         $scope.hide = {
-            MasterData: true,
+            MasterDataAcco: true,
             Mapping: true,
             accommodation_capacity: true
         };

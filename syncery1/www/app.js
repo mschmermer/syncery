@@ -1,21 +1,36 @@
-angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova'])
+// Ionic syncery App
 
-    .run(function ($ionicPlatform, $cordovaStatusbar) {
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'syncery.controllers' is found in controllers.js
+angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
+
+    .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
 
             }
             if (window.StatusBar) {
-               StatusBar.styleColor('white');
+                // org.apache.cordova.statusbar required
+                StatusBar.overlaysWebView(false);
+                StatusBar.backgroundColorByHexString("#38445e");
+                StatusBar.styleBlackOpaque();
             }
-            //$cordovaStatusbar.styleColor('white');
         });
     })
 
     .constant({'language': 'de'})
-    .constant({'currency': 'â‚¬'})
+    .constant({'currency': '€'})
+
+    .constant('$ionicLoadingConfig', {
+        template: '<ion-spinner class="spinner-positive" icon="bubbles"></ion-spinner>'
+    })
+
 
     .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables) {
 
@@ -39,8 +54,30 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                 url: '/login',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/login.html',
+                        templateUrl: 'templates/login/login.html',
                         controller: 'LoginCtrl'
+                    }
+                }
+
+            })
+
+            .state('app.create', {
+                url: '/login/create',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/login/create.html',
+                        controller: 'CreateCtrl'
+                    }
+                }
+
+            })
+
+            .state('app.forgot', {
+                url: '/login/forgot',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/login/forgot.html',
+                        controller: 'ForgotCtrl'
                     }
                 }
 
@@ -50,7 +87,8 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                 url: '/search',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/search.html'
+                        templateUrl: 'templates/search.html',
+                        controller: 'SearchCtrl'
                     }
                 }
             })
@@ -195,4 +233,5 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/home');
+
     });

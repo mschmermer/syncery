@@ -1,7 +1,7 @@
 <ion-header-bar class="bar-dark bar-subheader">
     <h3 style="text-align: center; color:white; line-height: 28px; font-size: 16px;">{{customer.name}}</h3>
 </ion-header-bar>
-<ion-view view-title="Kunden">
+<ion-view view-title="{{'customer' | translate}}">
     <ion-nav-bar class="bar syncery-header">
         <ion-nav-back-button class="button-clear">
             <i class="ion-chevron-left"></i> {{"back" | translate }}
@@ -21,88 +21,79 @@
         <div class="list card">
             <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
             <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
-                <div class="row">
-                    <div class="col">
-                        <b>{{"payment" | translate}}</b>
-                        <p>5 {{"bookings" | translate}}</p>
-                    </div>
+
+            <div class="row">
+                <div class="col">
+                    <b>{{"payment" | translate}}</b>
+
+                    <p>5 {{"bookings" | translate}}</p>
                 </div>
-                <div class="row">
-                    <div class="col two-item-border col-50">
-                        <b>{{"profit" | translate}}:</b>
-                        <p>{{customer.profit | currency: '€ '}}</p>
-                    </div>
-                    <div class="col two-item-border col-50">
-                        <b>{{"open_bill" | translate}}:</b>
-                        <p>{{customer.open_bill | currency: '€ '}}</p>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col two-item-border col-50">
+                    <b>{{"profit" | translate}}:</b>
+
+                    <p>{{customer.profit | currency: '€ '}}</p>
                 </div>
+                <div class="col two-item-border col-50">
+                    <b>{{"open_bill" | translate}}:</b>
+
+                    <p>{{customer.open_bill | currency: '€ '}}</p>
+                </div>
+            </div>
             </ion-item>
             <ion-item class="item item-icon-right" href="#/app/customer/bookings{{customer.id}}">
-                        <b>{{"last_booking" | translate}}:</b>
-                        {{customer.last_booking}}
+                <b>{{"last_booking" | translate}}:</b>
+                {{customer.last_booking}}
                 <i class="icon ion-chevron-right"></i>
             </ion-item>
         </div>
 
         <div class="list card">
-            <div class="item item-divider item-icon-right" ng-click="showMore('MasterData')"
-                    id="MasterData">
+            <div class="item item-divider item-icon-right" ng-click="showMore('MasterDataCusto')"
+                 id="MasterDataCusto">
                 {{"master_data" | translate}}
-                <i ng-class="icon['MasterData']"></i>
+                <i ng-class="icon['MasterDataCusto']"></i>
             </div>
-            <ion-item ng-hide="hide['MasterData']">
-                <div class="list">
-                    <label class="item item item-stacked-label">
-                        <h2>{{"title" | translate}}</h2>
-
-                        <p>Frau Dr.</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"first_name" | translate}}</h2>
-
+            <ion-item ng-hide="hide['MasterDataCusto']">
+                <div class="row ">
+                    <div class="col">
+                        <p>Herr Dr. Prof.</p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col col-50">
                         <p>Marcus</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"name" | translate}}</h2>
-
+                    </div>
+                    <div class="col col-50">
                         <p>Schmermer</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"address" | translate}}</h2>
-
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col col-50">
                         <p>Erieseering 22</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>PLZ</h2>
-
-                        <p>10319</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"city" | translate}}</h2>
-
-                        <p>Berlin</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"country" | translate}}</h2>
-
-                        <p>Deutschland</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"telephone" | translate}}</h2>
-
+                    </div>
+                    <div class="col col-50">
+                        <p>10319 Berlin</p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col">
+                        <b>{{"contact" | translate}}:</b>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col col-50">
                         <p>030 94399851</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>{{"mobile" | translate}}</h2>
-
+                    </div>
+                    <div class="col col-50">
                         <p>0151 63 42 68 41</p>
-                    </label>
-                    <label class="item item-input item-stacked-label">
-                        <h2>Email</h2>
-
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col">
                         <p>ma.schmermer@gmail.com</p>
-                    </label>
+                    </div>
                 </div>
             </ion-item>
         </div>

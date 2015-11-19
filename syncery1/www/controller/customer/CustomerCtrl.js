@@ -5,12 +5,13 @@
         .controller('CustomerCtrl', CustomerCtrl);
 
 
-    function CustomerCtrl($scope, UserSvc, LoginFactory, $state,$location,$timeout, $ionicScrollDelegate, $timeout, CustomerSvc) {
+    function CustomerCtrl($scope, UserSvc, LoginFactory, $state,$location,$timeout,
+                          $ionicScrollDelegate, $timeout, CustomerSvc, $ionicLoading) {
 
         $scope.listCanSwipe = true;
 
         $scope.data = {};
-        $scope.data.showSearch = false;
+        $scope.data.showSearch = true;
 
         $scope.data.customers = CustomerSvc.getCustomers();
 
@@ -39,5 +40,6 @@
         $scope.edit = function (id) {
             alert(id);
         }
+
     }
 })();

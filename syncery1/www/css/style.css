@@ -24,6 +24,18 @@ input{
     border-bottom: 2px solid black;
 }
 
+i.icon.ion-chevron-right{
+    color: rgb(207, 207, 207);
+}
+
+#search-box{
+    height: 50px;
+}
+
+/* Search */
+
+
+
 /* Settings */
 
 ion-item.settings {
@@ -67,8 +79,21 @@ img.logo{
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-top: 5%;
+    margin-top: 15%;
     margin-bottom: 5%;
+}
+
+div.item.forget-password{
+    background-color: rgb(247, 247, 247);
+    border: 0px;
+    font-size: 70%;
+    text-align: center;
+    height: 4%;
+    padding: 0px;
+}
+
+div.item.forget-password span.create-account{
+    text-align: right;
 }
 
 /*  */
@@ -113,10 +138,18 @@ button.button.button-decide1 {
 
 .item-avatar a h2{
     font-weight: bold;
+    line-height: 150%;
 }
 
-.item-avatar a img{
+/*.item-avatar a img {
     margin-top: 3%;
+}*/
+
+div.row.row-customer{
+    padding: 0px;
+}
+div.col.col-50.col-customer{
+    padding: 0px;
 }
 
 .item-avatar a div.row div.col.col-50:first-child{

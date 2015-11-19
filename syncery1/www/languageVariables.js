@@ -62,9 +62,12 @@ angular.module('syncery')
                 invoice_address: "Rechnungsanschrift",
                 change_data: "Daten bearbeiten",
                 invoices: "Rechnungen",
+                // Kundenübersicht
+                customers: "Kunden",
                 // Kunden Details
                 profit: "Gewinn",
                 open_bill: "offene Rechnung",
+                contact: "Kontakt",
                 // Kunden Buchungs Übersicht
                 from: "von",
                 to: "bis",
@@ -83,7 +86,17 @@ angular.module('syncery')
                 annually: "jährlich",
                 monthly: "monatlich",
                 // Portale
-                portals: "Portale"
+                portals: "Portale",
+                // login
+                forgot_password: "Haben Sie Ihr Passwort vergessen?",
+                dont_account: "Haben Sie keinen Account?",
+                create_account: "Account erstellen",
+                password: "Passwort",
+                repeat_password: "Passwort wiederholen",
+                repeat_mail: "E-Mail wiederholen",
+                account_data: "Accountdaten",
+                request_password: "Neues Passwort anfordern",
+                forgot: "Passwort vergessen?"
             },
             en: {
                 /*Booking*/
@@ -145,9 +158,12 @@ angular.module('syncery')
                 invoice_address: "Invoice address",
                 change_data: "Change data",
                 invoices: "Invoices",
+                // Customer Overview
+                customers: "Customers",
                 // Customer Details
                 profit: "Profit",
                 open_bill: "Open bill",
+                contact: "Contact",
                 // Customer Bookings Overview
                 from: "from",
                 to: "to",
@@ -166,7 +182,18 @@ angular.module('syncery')
                 monthly: "monthly",
                 annually: "annually",
                 // Portals
-                portals: "Portals"
+                portals: "Portals",
+                // login
+                forgot_password: "Forgot your Password?",
+                dont_account: "You don't have an account?",
+                create_account: "Create account",
+                password: "password",
+                repeat_password: "Repeat password",
+                repeat_mail: "Repeat E-Mail",
+                account_data: "Account data",
+                // forgot password
+                request_password: "request a new password",
+                forgot: "Forgot password?"
             }
         }
     });

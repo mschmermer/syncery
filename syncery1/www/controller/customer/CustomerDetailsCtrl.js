@@ -6,17 +6,24 @@
 
 
     function CustomerDetailsCtrl($scope, UserSvc, LoginFactory, $state, $timeout,$location,
-                                 $stateParams, CustomerSvc,$ionicScrollDelegate, currency) {
+                                 $stateParams, CustomerSvc,$ionicScrollDelegate, currency, $ionicLoading) {
+
         $scope.id = $stateParams.id;
         $scope.currency = currency;
         $scope.customer = CustomerSvc.getCustomersById($scope.id);
 
         $scope.icon = {
-            MasterData: 'icon ion-chevron-down'
+            MasterDataCusto: 'icon ion-chevron-down'
         };
         $scope.hide = {
-            MasterData: true
+            MasterDataCusto: true
         };
+
+
+        $scope.$on('$ionicView.unloaded', function () {
+            //$ionicLoading.hide();
+            console.log('2');
+        });
 
         $scope.showMore = function (field) {
             if ($scope.hide[field]) {

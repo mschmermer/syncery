@@ -5,11 +5,12 @@
         .controller('AccommodationsCtrl', AccommodationsCtrl);
 
 
-    function AccommodationsCtrl($scope, $timeout,$location, $ionicScrollDelegate, $state, AccommodationSvc) {
+    function AccommodationsCtrl($scope, $timeout,$location, $ionicScrollDelegate, $state, AccommodationSvc,
+                                $ionicLoading) {
         $scope.listCanSwipe = true;
 
         $scope.data = {};
-        $scope.data.showSearch = false;
+        $scope.data.showSearch = true;
         $scope.data.searchQuery = '';
 
 
@@ -43,5 +44,6 @@
         $scope.edit = function (id) {
             alert(id);
         }
+
     }
 })();
