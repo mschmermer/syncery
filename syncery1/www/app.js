@@ -6,7 +6,7 @@
 // 'syncery.controllers' is found in controllers.js
 angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
 
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform, $ionicLoading,$rootScope) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -21,11 +21,19 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
                 StatusBar.backgroundColorByHexString("#38445e");
                 StatusBar.styleBlackOpaque();
             }
+
+            $rootScope.$on('$ionicView.beforeLeave', function(){
+                $ionicLoading.show();
+            });
+
+            $rootScope.$on('$ionicView.afterEnter', function(){
+                $ionicLoading.hide();
+            })
         });
     })
 
     .constant({'language': 'de'})
-    .constant({'currency': '€'})
+    .constant({'currency': 'â‚¬'})
 
     .constant('$ionicLoadingConfig', {
         template: '<ion-spinner class="spinner-positive" icon="bubbles"></ion-spinner>'

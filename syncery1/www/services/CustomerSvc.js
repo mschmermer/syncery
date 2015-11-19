@@ -42,12 +42,6 @@
                 if(a.name > b.name) return 1;
                 return 0;
             });*/
-            console.log('1');
-            $timeout(function() {
-                console.log('2');
-            },200000);
-
-            console.log('3');
             return vm.customers;
         }
 
