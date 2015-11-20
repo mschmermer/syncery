@@ -6,7 +6,7 @@
 
 
     function CustomerCtrl($scope, UserSvc, LoginFactory, $state,$location,$timeout,
-                          $ionicScrollDelegate, $timeout, CustomerSvc, $ionicLoading) {
+                          $ionicScrollDelegate, $timeout, CustomerSvc) {
 
         $scope.listCanSwipe = true;
 

@@ -1,5 +1,6 @@
 <ion-header-bar class="bar-dark bar-subheader">
-    <h3 style="text-align: center; color:white; line-height: 28px; font-size: 16px;">{{customer.name}}</h3>
+    <h3>{{customer.first_name}}
+        {{customer.name}}</h3>
 </ion-header-bar>
 <ion-view view-title="{{'customer' | translate}}">
     <ion-nav-bar class="bar syncery-header">
@@ -19,44 +20,81 @@
     </ion-nav-bar>
     <ion-content delegate-handle="customerDetails">
         <div class="list card">
-            <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
-            <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+            <div class="item item-divider item-icon-right">
+                {{"master_data" | translate}}
+            </div>
+            <div class="row ">
+                <div class="col col-50">
+                    <ion-item style="padding: 15%" class="item-text-wrap">
+                        Herr Dr. Prof.<br>
+                        Marcus Schmermer<br>
+                        Erieseering 22<br>
+                        10319 Berlin<br>
+                        Deutschland
+                    </ion-item>
 
-            <div class="row">
-                <div class="col">
-                    <b>{{"payment" | translate}}</b>
-
-                    <p>5 {{"bookings" | translate}}</p>
+                </div>
+                <div class="col col-50">
+                    <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+                    <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
                 </div>
             </div>
-            <div class="row">
-                <div class="col two-item-border col-50">
-                    <b>{{"profit" | translate}}:</b>
-
-                    <p>{{customer.profit | currency: '€ '}}</p>
-                </div>
-                <div class="col two-item-border col-50">
-                    <b>{{"open_bill" | translate}}:</b>
-
-                    <p>{{customer.open_bill | currency: '€ '}}</p>
-                </div>
-            </div>
-            </ion-item>
-            <ion-item class="item item-icon-right" href="#/app/customer/bookings{{customer.id}}">
-                <b>{{"last_booking" | translate}}:</b>
-                {{customer.last_booking}}
-                <i class="icon ion-chevron-right"></i>
-            </ion-item>
         </div>
 
-        <div class="list card">
-            <div class="item item-divider item-icon-right" ng-click="showMore('MasterDataCusto')"
-                 id="MasterDataCusto">
-                {{"master_data" | translate}}
-                <i ng-class="icon['MasterDataCusto']"></i>
+        <!--<img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+        <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+
+        <div class="row">
+            <div class="col">
+                <b>{{"payment" | translate}}</b>
+
+                <p>5 {{"bookings" | translate}}</p>
             </div>
-            <ion-item ng-hide="hide['MasterDataCusto']">
-                <div class="row ">
+        </div>
+        <div class="row">
+            <div class="col two-item-border col-50">
+                <b>{{"profit" | translate}}:</b>
+
+                <p>{{customer.profit | currency: '€ '}}</p>
+            </div>
+            <div class="col two-item-border col-50">
+                <b>{{"open_bill" | translate}}:</b>
+
+                <p>{{customer.open_bill | currency: '€ '}}</p>
+            </div>
+        </div>
+        </ion-item>
+        <ion-item class="item item-icon-right" href="#/app/customer/bookings{{customer.id}}">
+            <b>{{"last_booking" | translate}}:</b>
+            {{customer.last_booking}}
+            <i class="icon ion-chevron-right"></i>
+        </ion-item>
+    </div>-->
+
+
+        <div class="list card">
+            <div class="item item-divider item-icon-right" ng-click="showMore('contact')"
+                 id="MasterDataCusto">
+                {{"contact" | translate}}
+                <i ng-class="icon['contact']"></i>
+            </div>
+            <ion-list ng-hide="hide['contact']">
+                <ion-item>
+                    <h2>E-Mail</h2>
+
+                    <a href="mailto:ma.schmermer@googlemail.com">ma.schmermer@googlemail.com</a>
+                </ion-item>
+                <ion-item>
+                    <h2>{{'telephone' | translate}}</h2>
+
+                    <a href="tel:030 94399851">030 94399851</a>
+                </ion-item>
+                <ion-item>
+                    <h2>{{'mobile' | translate}}</h2>
+
+                    <a href="tel:0151 63 42 68 41">0151 63 42 68 41</a>
+                </ion-item>
+                <!--<div class="row ">
                     <div class="col">
                         <p>Herr Dr. Prof.</p>
                     </div>
@@ -94,8 +132,55 @@
                     <div class="col">
                         <p>ma.schmermer@gmail.com</p>
                     </div>
+                </div>-->
+            </ion-list>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider item-icon-right" ng-click="showMore('bookings')"
+                 id="bookings">
+                {{"bookings" | translate}}
+                <i ng-class="icon['bookings']"></i>
+            </div>
+            <ion-list ng-hide="hide['bookings']">
+                <div class="row">
+                    <div class="col col-66">
+                        <ion-item class="decide">{{"bookings" | translate}}:</ion-item>
+                    </div>
+                    <div class="col col-33">
+                        <ion-item class="decide">5</ion-item>
+                    </div>
                 </div>
-            </ion-item>
+                <div class="row">
+                    <div class="col col-66">
+                        <ion-item class="decide">{{"open_bill" | translate}}:</ion-item>
+                    </div>
+                    <div class="col col-33">
+                        <ion-item ng-if="customer.profit>0" class="decide green">{{customer.open_bill | currency: '€
+                            '}}
+                        </ion-item>
+                        <ion-item ng-if="customer.profit<0" class="decide red">{{customer.open_bill | currency: '€ '}}
+                        </ion-item>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-66">
+                        <ion-item class="decide">{{"profit" | translate}}:</ion-item>
+                    </div>
+                    <div class="col col-33">
+                        <ion-item ng-if="customer.profit>0" class="decide green">{{customer.profit | currency: '€ '}}
+                        </ion-item>
+                        <ion-item ng-if="customer.profit<0" class="decide red">{{customer.profit | currency: '€ '}}
+                        </ion-item>
+                    </div>
+                </div>
+                <ion-item class="item item-icon-right" href="#/app/customer/bookings{{customer.id}}">
+                    <b>{{"last_booking" | translate}}:</b>
+                    {{customer.last_booking}}
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+            </ion-list>
         </div>
     </ion-content>
 </ion-view>

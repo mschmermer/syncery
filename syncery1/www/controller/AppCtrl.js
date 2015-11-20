@@ -10,9 +10,9 @@
         $translate.use(language);
 
 
-        if(!UserSvc.isLogged()){
+        /*if(!UserSvc.isLogged()){
             $state.go('app.login');
-        }
+        }*/
 
     }
 })();

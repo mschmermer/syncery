@@ -4,7 +4,7 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
+angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova'])
 
     .run(function ($ionicPlatform, $ionicLoading,$rootScope) {
         $ionicPlatform.ready(function () {
@@ -13,8 +13,8 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js'])
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
-
             }
+
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
                 StatusBar.overlaysWebView(false);

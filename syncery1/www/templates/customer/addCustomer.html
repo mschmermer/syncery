@@ -1,59 +1,63 @@
-<ion-view view-title="Kunden hinzufügen">
+<ion-view view-title="{{'add_customer' | translate}}">
     <ion-nav-bar class="bar syncery-header">
         <ion-nav-back-button>
         </ion-nav-back-button>
     </ion-nav-bar>
     <ion-content>
         <div class="list card">
-            <div class="item item-divider">Kundendaten eintragen</div>
+            <div class="item item-divider">{{"enter_customer_data" | translate}}</div>
             <label class="item item-input item-select">
                 <div class="input-label">
-                    Anrede
+                    <b>{{'gender' | translate}}</b>
                 </div>
                 <select>
                     <option>Herr</option>
                     <option selected>Frau</option>
                 </select>
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Vorname</span>
-                <input type="text" placeholder="John">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'title' | translate}}</b></span>
+                <input type="text" placeholder="{{'title' | translate}}">
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Nachname</span>
-                <input type="text" placeholder="Suhr">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'first_name' | translate}}</b></span>
+                <input type="text" placeholder="{{'first_name' | translate}}">
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Adresse</span>
-                <input type="text" placeholder="Musterstraße 8">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'name' | translate}}</b></span>
+                <input type="text" placeholder="{{'name' | translate}}">
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">PLZ</span>
-                <input type="text" placeholder="10319">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'address' | translate}}</b></span>
+                <input type="text" placeholder="{{'address' | translate}}">
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Stadt</span>
-                <input type="text" placeholder="Berlin">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>PLZ</b></span>
+                <input type="text" placeholder="PLZ">
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Land</span>
-                <input type="text" placeholder="Deutschland">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'city' | translate}}</b></span>
+                <input type="text" placeholder="{{'city' | translate}}">
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Telefon</span>
-                <input type="text" placeholder="030 944 12  345">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'country' | translate}}</b></span>
+                <input type="text" placeholder="{{'country' | translate}}">
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Mobil Telefon</span>
-                <input type="text" placeholder="0171 123 456 78">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'telephone' | translate}}</b></span>
+                <input type="text" placeholder="{{'telephone' | translate}}">
             </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Email</span>
-                <input type="text" placeholder="john@suhr.com">
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'mobile' | translate}}</b></span>
+                <input type="text" placeholder="{{'mobile' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>E-Mail</b></span>
+                <input type="text" placeholder="E-Mail">
             </label>
         </div>
         <button class="button button-last button-positive">
-            KUNDE SICHERN
+            {{"save_customer" | translate}}
         </button>
     </ion-content>
 </ion-view>

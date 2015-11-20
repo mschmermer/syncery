@@ -166,3 +166,20 @@ img.customer-avatar{
     padding: 5%;
     padding-bottom: 0px;
 }
+
+ion-header-bar.bar-dark.bar-subheader h3{
+    text-align: center; color:white; line-height: 28px; font-size: 16px;
+}
+
+ion-item.decide{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+ion-item.decide.red{
+    color: darkred;
+}
+
+ion-item.decide.green{
+    color: darkgreen;
+}

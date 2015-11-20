@@ -5,7 +5,7 @@
         .controller('AddAccommodationCtrl', AddAccommodationCtrl);
 
 
-    function AddAccommodationCtrl($scope, UserSvc, $state) {
+    function AddAccommodationCtrl($scope, UserSvc, $state, $cordovaFileTransfer, $cordovaCamera, $cordovaImagePicker) {
         $scope.back = function(){
             $state.go('app.accommodations');
         }
@@ -25,6 +25,35 @@
                 // constant progress updates
             });
         }
+
+        $scope.data = { "ImageURI" :  "Select Image" };
+
+        function UploadPicture(imageURI) {
+
+            $scope.data.ImageURI =  imageURI;
+            alert($scope.data.ImageURI );
+        }
+
+        console.log($cordovaImagePicker);
+
+
+        $scope.ShowPictures = function(){
+            var options = {
+                maximumImagesCount: 10,
+                width: 800,
+                height: 800,
+                quality: 80
+            };
+
+            $cordovaImagePicker.getPictures(options)
+                .then(function (results) {
+                    for (var i = 0; i < results.length; i++) {
+                        console.log('Image URI: ' + results[i]);
+                    }
+                }, function(error) {
+                    // error getting photos
+                });
+        };
 
     }
 })();

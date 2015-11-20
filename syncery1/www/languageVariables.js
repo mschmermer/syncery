@@ -40,6 +40,11 @@ angular.module('syncery')
                 menu_menu: "MENÜ",
                 // Unterkunft hinzufügen
                 add_accommodation: "Unterkunft hinzufügen",
+                gender: "Geschlecht",
+                title: "Titel",
+                enter_accommodation_data: "Unterkunftsdaten eintragen",
+                add_picture: "Bild hinzufügen",
+                save_accommodation: "Unterkunft speichern",
                 // Einstellungen
                 settings: "Einstellungen",
                 general: "Allgemein",
@@ -71,6 +76,10 @@ angular.module('syncery')
                 // Kunden Buchungs Übersicht
                 from: "von",
                 to: "bis",
+                // Kunde hinzufügen
+                enter_customer_data: "Kundendaten eintragen",
+                save_customer: "Kunde speichern",
+                add_customer: "Kunde hinzufügen",
                 // Home
                 testphase_time: "Ihre Testphase endet in {{lastdays}} Tagen.",
                 unpaid_bookings: "Sie haben noch {{unpaid}} unbezahlte Buchungen.",
@@ -136,6 +145,11 @@ angular.module('syncery')
                 menu_menu: "MENU",
                 // Add accommodation
                 add_accommodation: "Add accommodation",
+                gender: "Gender",
+                title: "Title",
+                enter_accommodation_data: "Enter accommodationdata",
+                add_picture: "Add Picture",
+                save_accommodation: "Save Accommodation",
                 // Settings
                 settings: "Settings",
                 general: "General",
@@ -167,6 +181,10 @@ angular.module('syncery')
                 // Customer Bookings Overview
                 from: "from",
                 to: "to",
+                // Add Customer
+                enter_customer_data: "Enter customer-data",
+                add_cutomer: "Add customer",
+                save_customer: "Save Cutomer",
                 // Home
                 testphase_time: "Your Testphase ends in {{lastdays}} days.",
                 unpaid_bookings: "You have {{unpaid}} unpaid bookings.",

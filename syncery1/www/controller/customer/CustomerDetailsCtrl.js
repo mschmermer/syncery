@@ -6,17 +6,19 @@
 
 
     function CustomerDetailsCtrl($scope, UserSvc, LoginFactory, $state, $timeout,$location,
-                                 $stateParams, CustomerSvc,$ionicScrollDelegate, currency, $ionicLoading) {
+                                 $stateParams, CustomerSvc,$ionicScrollDelegate, currency) {
 
         $scope.id = $stateParams.id;
         $scope.currency = currency;
         $scope.customer = CustomerSvc.getCustomersById($scope.id);
 
         $scope.icon = {
-            MasterDataCusto: 'icon ion-chevron-down'
+            contact: 'icon ion-chevron-down',
+            bookings: 'icon ion-chevron-down'
         };
         $scope.hide = {
-            MasterDataCusto: true
+            contact: true,
+            bookings: true
         };
 
 
