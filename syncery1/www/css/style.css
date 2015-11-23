@@ -183,3 +183,11 @@ ion-item.decide.red{
 ion-item.decide.green{
     color: darkgreen;
 }
+
+ion-item.item-text-wrap.padding10{
+    padding: 10%;
+}
+
+div.item.item-divider.item-icon-right.center{
+    text-align: center;
+}

@@ -49,6 +49,7 @@
                 .then(function (results) {
                     for (var i = 0; i < results.length; i++) {
                         console.log('Image URI: ' + results[i]);
+                        alert('Image URI: ' + results[i]);
                     }
                 }, function(error) {
                     // error getting photos

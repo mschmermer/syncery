@@ -20,23 +20,23 @@
     </ion-nav-bar>
     <ion-content delegate-handle="customerDetails">
         <div class="list card">
-            <div class="item item-divider item-icon-right">
-                {{"master_data" | translate}}
+            <div class="item item-divider item-icon-right center">
+                <!--{{"master_data" | translate}}-->
+                {{customer.title}}
+                {{customer.first_name}}
+                {{customer.name}}
             </div>
             <div class="row ">
                 <div class="col col-50">
-                    <ion-item style="padding: 15%" class="item-text-wrap">
-                        Herr Dr. Prof.<br>
-                        Marcus Schmermer<br>
+                    <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+                    <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+                </div>
+                <div class="col col-50">
+                    <ion-item class="item-text-wrap padding10">
                         Erieseering 22<br>
                         10319 Berlin<br>
                         Deutschland
                     </ion-item>
-
-                </div>
-                <div class="col col-50">
-                    <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
-                    <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
                 </div>
             </div>
         </div>
@@ -144,34 +144,33 @@
             </div>
             <ion-list ng-hide="hide['bookings']">
                 <div class="row">
-                    <div class="col col-66">
-                        <ion-item class="decide">{{"bookings" | translate}}:</ion-item>
+                    <div class="col col-50">
+                        <ion-item class=" item item-text-wrap decide">{{"bookings" | translate}}:</ion-item>
                     </div>
-                    <div class="col col-33">
-                        <ion-item class="decide">5</ion-item>
+                    <div class="col col-50">
+                        <ion-item class="item item-text-wrap  decide">5</ion-item>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col col-66">
-                        <ion-item class="decide">{{"open_bill" | translate}}:</ion-item>
+                    <div class="col col-50">
+                        <ion-item class="item item-text-wrap decide">{{"open_bill" | translate}}:</ion-item>
                     </div>
-                    <div class="col col-33">
-                        <ion-item ng-if="customer.profit>0" class="decide green">{{customer.open_bill | currency: '€
-                            '}}
+                    <div class="col col-50">
+                        <ion-item ng-if="customer.open_bill>0" class="item-text-wrap decide green">{{customer.open_bill | number: 2}} €
                         </ion-item>
-                        <ion-item ng-if="customer.profit<0" class="decide red">{{customer.open_bill | currency: '€ '}}
+                        <ion-item ng-if="customer.open_bill<0" class="item-text-wrap decide red">{{customer.open_bill | number: 2}} €
                         </ion-item>
 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col col-66">
-                        <ion-item class="decide">{{"profit" | translate}}:</ion-item>
+                    <div class="col col-50">
+                        <ion-item class="item item-text-wrap  decide">{{"profit" | translate}}:</ion-item>
                     </div>
-                    <div class="col col-33">
-                        <ion-item ng-if="customer.profit>0" class="decide green">{{customer.profit | currency: '€ '}}
+                    <div class="col col-50">
+                        <ion-item ng-if="customer.profit>0" class="item item-text-wrap decide green">{{customer.profit | number: 2}} €
                         </ion-item>
-                        <ion-item ng-if="customer.profit<0" class="decide red">{{customer.profit | currency: '€ '}}
+                        <ion-item ng-if="customer.profit<0" class="item item-text-wrap decide red">{{customer.profit | number: 2}} €
                         </ion-item>
                     </div>
                 </div>
