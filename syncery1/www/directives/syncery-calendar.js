@@ -13,10 +13,18 @@
                     year: '=',
                     booking_id: '='
                 },
-                controller: function ($scope) {
+                controller: function ($scope, $timeout) {
 
                     $scope.calendarData = {};
                     $scope.day = [];
+
+                    var i = 1;
+
+                    while(!angular.element(document.querySelector('table#calendar'+i))){
+                        console.log(angular.element(document.querySelector('table#calendar'+i)));
+                        $scope.calendarid = 'calendar'+i;
+                        i++;
+                    }
                     //set locale to German
                     var moments = moment().locale('de');
 
@@ -137,6 +145,11 @@
                     }
 
                     $scope.calendarData = $scope.initCalendarData($scope.month, $scope.year);
+                    $timeout( function() {
+                        if(!angular.element(document.querySelector('div.today'))){
+                            angular.element(document.querySelector('td.today')).append('<div class="today">'+$scope.today+'</div>');
+                        }
+                    }, 5);
 
                 },
                 link: function (scope, elem, attrs) {

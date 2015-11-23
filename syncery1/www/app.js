@@ -229,6 +229,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                 }
             })
 
+            .state('app.informations', {
+                url: '/settings/informations',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/informations.html',
+                        controller: 'InformationsCtrl'
+                    }
+                }
+            })
+
             .state('app.portals', {
                 url: '/portals',
                 views: {
