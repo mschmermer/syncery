@@ -6,15 +6,16 @@
 
     <style>
         div.syncery-calendar-card{
-            width: 280px;
+            width: 292px;
             margin-left: auto;
-            margin-right: auto
+            margin-right: auto;
         }
 
         table.syncery-calendar{
             text-align: center;
-            border-spacing: 0em;
-            min-width: 280px;
+            border-spacing: 0px;
+            border-collapse: inherit;
+            min-width: 292px;
         }
 
         table.syncery-calendar.befor{
@@ -29,7 +30,7 @@
             display: block;
             float: left;
             height: 42px;
-            clear: left;
+
             border-bottom: 2px solid rgb(247, 247, 247);
         }
 
@@ -40,7 +41,7 @@
 
 
         table.syncery-calendar thead tr th{
-            width: 40px;
+            width: 42px;
         }
 
         table.syncery-calendar thead th{
@@ -53,7 +54,7 @@
             line-height: 40px;
             position: relative;
             padding: 0px;
-            width: 40px;
+            width: 42px;
             height: 40px;
             z-index: 1;
             background-color: white;
@@ -61,7 +62,8 @@
         }
 
         tbody tr td:last-child{
-            border-right: 0em;
+            width: 40px;
+            border-right: 0px;
         }
 
         /*Abreise Dreieck*/
@@ -179,8 +181,8 @@
         }
 
         /*ausgewählte Zelle*/
-        div.selected{
-            z-index: 5;
+        table.syncery-calendar div.selected{
+            z-index: 1;
             background-color: transparent;
             height: 40px;
             width: 40px;

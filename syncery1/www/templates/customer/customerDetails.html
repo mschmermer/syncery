@@ -74,25 +74,28 @@
 
         <div class="list card">
             <div class="item item-divider item-icon-right" ng-click="showMore('contact')"
-                 id="MasterDataCusto">
+                 id="contact">
                 {{"contact" | translate}}
                 <i ng-class="icon['contact']"></i>
             </div>
             <ion-list ng-hide="hide['contact']">
-                <ion-item>
+                <ion-item class="item-icon-left" href="mailto:ma.schmermer@googlemail.com">
+                    <i class="icon ion-ios-email-outline"></i>
                     <h2>E-Mail</h2>
 
-                    <a href="mailto:ma.schmermer@googlemail.com">ma.schmermer@googlemail.com</a>
+                    ma.schmermer@googlemail.com
                 </ion-item>
-                <ion-item>
+                <ion-item class="item-icon-left" href="tel:030 94399851">
+                    <i class="icon ion-ios-telephone-outline"></i>
                     <h2>{{'telephone' | translate}}</h2>
 
-                    <a href="tel:030 94399851">030 94399851</a>
+                    030 94399851
                 </ion-item>
-                <ion-item>
+                <ion-item class="item-icon-left" href="tel:0151 63 42 68 41">
+                    <i class="icon ion-ios-telephone-outline"></i>
                     <h2>{{'mobile' | translate}}</h2>
 
-                    <a href="tel:0151 63 42 68 41">0151 63 42 68 41</a>
+                    0151 63 42 68 41
                 </ion-item>
                 <!--<div class="row ">
                     <div class="col">

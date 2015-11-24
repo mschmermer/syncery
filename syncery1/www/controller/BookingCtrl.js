@@ -110,7 +110,7 @@
             $scope.month = [];
             $scope.month2 = [];
 
-            $scope.accommodations = ['alle Unterkünfte', 'Unterkunft 1', 'Unterkunft 2', 'Unterkunft 3', 'Unterkunft 4', 'Unterkunft 5'];
+            $scope.accommodations = ['Unterkunft 1', 'Unterkunft 2', 'Unterkunft 3', 'Unterkunft 4', 'Unterkunft 5'];
             $scope.accommodations_actual = 0;
 
             $scope.hideButtonAdd = false;

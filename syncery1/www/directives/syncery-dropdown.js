@@ -19,7 +19,11 @@
 
                 link: function (scope, elem, attrs) {
                     scope.open = function () {
-                        scope.hide = false;
+                        if(scope.hide){
+                            scope.hide = false;
+                        }else{
+                            scope.hide = true;
+                        }
                     }
 
                     scope.select = function (attribute) {

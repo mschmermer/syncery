@@ -22,11 +22,6 @@
         };
 
 
-        $scope.$on('$ionicView.unloaded', function () {
-            //$ionicLoading.hide();
-            console.log('2');
-        });
-
         $scope.showMore = function (field) {
             if ($scope.hide[field]) {
                 $scope.hide[field] = false;

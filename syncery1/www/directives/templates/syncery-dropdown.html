@@ -1,7 +1,7 @@
 <div>
     <div class="syncery-input item item-icon-right" id="{{name}}" ng-click="open()">
         {{attribute}}
-        <i class="icon ion-chevron-down positive"></i>
+        <i class="icon ion-chevron-down positive small"></i>
     </div>
     <div ng-hide="hide" class="syncery-option" ng-repeat="attribut in attributes" ng-click="select('{{attribut}}')">
         {{attribut}}
@@ -9,13 +9,13 @@
 
     <style>
         .syncery-input {
-            margin-bottom: 10px;
-            margin-top: 10px;
+            margin: 5%;
+            margin-bottom: 0px;
             overflow: hidden;
             text-overflow: ellipsis;
             -o-text-overflow: ellipsis;
             white-space: nowrap;
-            width: 95%;
+            width: 90%;
             color: black;
             height: 40px;
             line-height: 10px;
@@ -38,8 +38,9 @@
         div.syncery-option {
             z-index: 20;
             position: relative;
-            width: 95%;
-            top: -10px;
+            width: 90%;
+            top: 0px;
+            left:0px;
             height: 40px;
             border-left: 2px solid rgb(234, 234, 234);
             border-right: 2px solid rgb(234, 234, 234);
@@ -57,6 +58,10 @@
 
         div.syncery-option:last-child {
             border-bottom: 2px solid rgb(234, 234, 234);
+        }
+
+        i.icon.ion-chevron-down.positive.small{
+            font-size: 150%;
         }
     </style>
 </div>

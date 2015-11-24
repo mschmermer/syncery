@@ -18,13 +18,15 @@
                     $scope.calendarData = {};
                     $scope.day = [];
 
-                    var i = 1;
+                    var cid = 0;
 
-                    while(!angular.element(document.querySelector('table#calendar'+i))){
-                        console.log(angular.element(document.querySelector('table#calendar'+i)));
-                        $scope.calendarid = 'calendar'+i;
-                        i++;
-                    }
+                    $timeout( function() {
+                        do{
+                            cid++;
+                        }while(!(angular.element(document.querySelector('#calendar'+cid)).length === 0));
+                        $scope.calendarid = 'calendar'+cid;
+                    },2);
+
                     //set locale to German
                     var moments = moment().locale('de');
 
@@ -109,7 +111,7 @@
                             calendarData['2']['6']['class'] = 'occupied';
                             calendarData['2']['7']['class'] = 'occupied';
                             calendarData['3']['1']['class'] = 'occupied';
-                            calendarData['3']['2']['class'] = 'occupied 3-2';
+                            calendarData['3']['2']['class'] = 'occupied';
                             calendarData['3']['3']['class'] = 'occupied';
                             calendarData['3']['4']['class'] = 'occupied';
                             calendarData['3']['5']['class'] = 'departure';
@@ -124,6 +126,7 @@
                             calendarData['3']['3']['booking-id'] = '1';
                             calendarData['3']['4']['booking-id'] = '1';
                             calendarData['3']['5']['booking-id'] = '1d';
+                            calendarData['3']['5']['class'] = 'departure';
                             calendarData['3']['6']['class'] = 'arrival ';
                             calendarData['3']['7']['class'] = 'occupied';
                             calendarData['4']['1']['class'] = 'occupied';
@@ -160,9 +163,24 @@
                         scope.calendarData = scope.initCalendarData(newMonth, scope.year);
                     });
 
+                    /*elem.bind('click', function(element){
+                        if(element.srcElement.attributes['data-position']){
+                            var position = element.srcElement.attributes['data-position'].value;
+                            var booking_id = element.srcElement.attributes['data-booking-id'].value;
+
+                            angular.element(document.querySelector('table#'+scope.calendarid+' div.selected')).remove();
+                            var td = angular.element(document.querySelector('table#'+scope.calendarid+' td[data-position="'+position+'"]'));
+
+                            if(!td.hasClass('other_month')){
+                                td.append('<div class="selected"></div>');
+                            }
+                        }
+                    });*/
+
                     scope.select = function (position) {
-                        angular.element(document.querySelector('div.selected')).remove();
-                        var td = angular.element(document.querySelector('td[data-position="'+position+'"]'));
+                        scope.booking_id = false;
+                        angular.element(document.querySelector('table#'+scope.calendarid+' div.selected')).remove();
+                        var td = angular.element(document.querySelector('table#'+scope.calendarid+' td[data-position="'+position+'"]'));
 
                         if(scope.arrival && scope.departure){
                             for (var col = scope.arrival.charAt(0); col <= 6; col++) {
@@ -170,7 +188,7 @@
                                     for (var row = 1; row <= 7; row++) {
                                         if((row >= scope.arrival.charAt(2) && col < scope.departure.charAt(0)) ||
                                             (row <= scope.departure.charAt(2) && col == scope.departure.charAt(0))){
-                                            scope.calendarData[col][row]['class'] = scope.calendarData[col][row]['class'].substr(0, scope.calendarData[col][row]['class'].length-9);
+                                            scope.calendarData[col][row]['class'] = scope.calendarData[col][row]['class'].replace('selected', '');
                                         }
                                     }
                                 }
@@ -182,9 +200,9 @@
                         if(!td.hasClass('other_month')){
                             td.append('<div class="selected"></div>');
                         }
-                        if(td.hasClass('occupied')){
+                        if(td.hasClass('occupied') || td.hasClass('arrival')){
                             var id = td.attr('data-booking-id');
-                            scope.booking_id=id;
+                            scope.booking_id=id.charAt(0);
                             var arrival = angular.element(document.querySelector('td[data-booking-id="'+id+'a"]')).attr('data-position');
                             scope.arrival = arrival;
                             var departure = angular.element(document.querySelector('td[data-booking-id="'+id+'d"]')).attr('data-position');
