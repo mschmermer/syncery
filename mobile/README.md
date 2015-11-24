@@ -1,1 +1,0 @@
-# syncery-app
