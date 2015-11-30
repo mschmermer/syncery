@@ -2,12 +2,12 @@
 
     angular
         .module('syncery')
-        .controller('PortalsCtrl', PortalsCtrl);
+        .controller('AddPortalCtrl', AddPortalCtrl);
 
 
-    function PortalsCtrl($scope, UserSvc, $state,$timeout, $location,$ionicScrollDelegate ) {
+    function AddPortalCtrl($scope, UserSvc, $state,$timeout, $location,$ionicScrollDelegate ) {
         $scope.addPortal = function(){
-            $state.go('app.addPortal');
+            $state.go();
         }
 
         $scope.data = {};
@@ -25,8 +25,8 @@
 
         $scope.cancel = function () {
             $timeout( function() {
-                $location.hash('portal_list');
-                var delegate = $ionicScrollDelegate.$getByHandle('portals');
+                $location.hash('add_portal_list');
+                var delegate = $ionicScrollDelegate.$getByHandle('addPortal');
                 delegate.anchorScroll(true);
             }, 200);
             $scope.data.searchQuery = '';

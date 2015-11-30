@@ -1,4 +1,4 @@
-<ion-view view-title="{{'portals' | translate}}">
+<ion-view view-title="{{'add_portal' | translate}}">
     <ion-nav-bar class="bar syncery-header">
         <ion-nav-back-button>
         </ion-nav-back-button>
@@ -13,7 +13,7 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="portals">
+    <ion-content delegate-handle="addPortal">
         <div id="search-box" class="item item-input-inset">
             <div class="item-input-wrapper">
                 <i class="icon ion-ios7-search placeholder-icon"></i>
@@ -24,18 +24,26 @@
                 {{"cancel" | translate}}
             </button>
         </div>
-        <ion-list id="portal_list" can-swipe="listCanSwipe">
-            <ion-item class="item item-thumbnail-left">
-                <img src="">
-                <h2>{{portal.name}}</h2>
-                <ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
+        <ion-list id="add_portal_list"> <!--can-swipe="listCanSwipe">-->
+            <ion-item class="item center" href="#">
+                <h2>Portal 1</h2>
+                <!--<ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
                                    ng-click="edit(portal.id)">
                     {{"edit" | translate}}
                 </ion-option-button>
                 <ion-option-button class="button button-assertive ion-ios7-heart button-options"
                                    ng-click="delete(portal.id)">
                     {{"delete" | translate}}
-                </ion-option-button>
+                </ion-option-button>-->
+            </ion-item>
+            <ion-item class="item center" href="#">
+                <h2>Portal 2</h2>
+            </ion-item>
+            <ion-item class="item center" href="#">
+                <h2>Portal 3</h2>
+            </ion-item>
+            <ion-item class="item center" href="#">
+                <h2>Portal 4</h2>
             </ion-item>
         </ion-list>
     </ion-content>

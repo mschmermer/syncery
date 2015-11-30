@@ -79,8 +79,8 @@ img.logo{
     margin-left: auto;
     margin-right: auto;
     display: block;
+    margin: 5%;
     margin-top: 15%;
-    margin-bottom: 5%;
 }
 
 div.item.forget-password{
@@ -189,5 +189,11 @@ ion-item.item-text-wrap.padding10{
 }
 
 div.item.item-divider.item-icon-right.center{
+    text-align: center;
+}
+
+/* Portale */
+
+ion-item.item.center{
     text-align: center;
 }

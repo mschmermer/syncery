@@ -96,6 +96,7 @@ angular.module('syncery')
                 monthly: "monatlich",
                 // Portale
                 portals: "Portale",
+                add_portal: "Portal hinzufügen",
                 // login
                 forgot_password: "Haben Sie Ihr Passwort vergessen?",
                 dont_account: "Haben Sie keinen Account?",
@@ -201,6 +202,7 @@ angular.module('syncery')
                 annually: "annually",
                 // Portals
                 portals: "Portals",
+                add_portal: "Add portal",
                 // login
                 forgot_password: "Forgot your Password?",
                 dont_account: "You don't have an account?",

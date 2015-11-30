@@ -248,6 +248,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                     }
                 }
             })
+
+            .state('app.addPortal', {
+                url: '/portals/add',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/portals/addPortal.html',
+                        controller: 'AddPortalCtrl'
+                    }
+                }
+            })
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/home');

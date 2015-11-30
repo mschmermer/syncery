@@ -1,4 +1,18 @@
 <ion-view view-title="{{'bookings' | translate}}">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="left">
+            <button style="color: white" class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button ng-click="addBooking()"
+                    class="button button-icon icon ion-android-add-circle">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
     <ion-content delegate-handle="bookings" style="background-color: rgb(247,247,247)">
         <div class="row responsive-sm">
             <div class="col col-50">
