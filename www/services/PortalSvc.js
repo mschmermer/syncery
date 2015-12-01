@@ -16,8 +16,23 @@
             {id: 5, name: 'Hotel.de'},
         ];
 
+        vm.configPortals = [
+            {   id: 1,
+                portal_id: 3,
+                portal_name: 'Ferienwohnungen.com',
+                mail: 'ma.schmermer@gmail.com',
+                password: 1234,
+                key: 'fsd678dsfgs',
+                sync_id: 67}
+        ];
+
         service = {
             getPortals: getPortals,
+            getPortalById: getPortalById,
+            getPortalnameById: getPortalnameById,
+            savePortal: savePortal,
+            getConfigPortals: getConfigPortals,
+            deletePortal: deletePortal
         };
         return service;
 
@@ -25,6 +40,46 @@
             return vm.portals;
         }
 
+        function getPortalById(id) {
+            var portal = vm.portals.filter(function (obj) {
+                return obj.id == id;
+            });
+            return portal[0];
+        }
 
+        function getPortalnameById(id) {
+            var portal = vm.portals.filter(function (obj) {
+                return obj.id == id;
+            });
+            return portal[0].name;
+        }
+
+        function savePortal(portal){
+            portal['id']=vm.configPortals.length+1;
+            vm.configPortals.push(portal);
+            console.log(vm.configPortals);
+        }
+
+        function deletePortal(id){
+            function findIndexInData(data, property, value) {
+                var result = -1;
+                data.some(function (item, i) {
+                    if (item[property] === value) {
+                        result = i;
+                        return true;
+                    }
+                });
+                return result;
+            }
+
+            var index = findIndexInData(vm.configPortals, 'id', id);
+
+            vm.configPortals.splice(index, 1);
+            return index;
+        }
+
+        function getConfigPortals(){
+            return vm.configPortals;
+        }
     }
 })();

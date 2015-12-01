@@ -1,4 +1,12 @@
 {
   "name": "Syncery",
-  "app_id": "795df598"
+  "app_id": "795df598",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

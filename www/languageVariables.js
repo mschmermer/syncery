@@ -11,6 +11,8 @@ angular.module('syncery')
                 show_booking: "Buchung anzeigen",
                 payment: "Zahlung",
                 date: "Datum",
+                /*Buchung hinzufügen */
+                add_booking: "Buchung hinzufügen",
                 /* Unterkünfte*/
                 back: "Zurück",
                 last_booking: "letzte Buchung",
@@ -96,7 +98,11 @@ angular.module('syncery')
                 monthly: "monatlich",
                 // Portale
                 portals: "Portale",
+                portal_data: "Portaldaten",
                 add_portal: "Portal hinzufügen",
+                key: "Schlüssel",
+                save: "Speichern",
+                validation_error: "Bitte eingabe überprüfen.",
                 // login
                 forgot_password: "Haben Sie Ihr Passwort vergessen?",
                 dont_account: "Haben Sie keinen Account?",
@@ -117,6 +123,8 @@ angular.module('syncery')
                 show_booking: "show booking",
                 payment: "Payment",
                 date: "Date",
+                /*Add Booking */
+                add_booking: "Add booking",
                 /* Accommodations */
                 back: "Back",
                 last_booking: "Last booking",
@@ -202,7 +210,11 @@ angular.module('syncery')
                 annually: "annually",
                 // Portals
                 portals: "Portals",
+                portal_data: "Portaldata",
                 add_portal: "Add portal",
+                key: "Key",
+                save: "Save",
+                validation_error: "Please check your input.",
                 // login
                 forgot_password: "Forgot your Password?",
                 dont_account: "You don't have an account?",

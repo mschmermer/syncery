@@ -2,12 +2,12 @@
 
     angular
         .module('syncery')
-        .controller('PortalsCtrl', PortalsCtrl);
+        .controller('SelectPortalCtrl', SelectPortalCtrl);
 
 
-    function PortalsCtrl($scope, UserSvc, PortalSvc, $state,$timeout, $location,$ionicScrollDelegate ) {
+    function SelectPortalCtrl($scope, UserSvc, PortalSvc, $state,$timeout, $location,$ionicScrollDelegate ) {
         $scope.addPortal = function(){
-            $state.go('app.selectPortal');
+            $state.go();
         }
 
         $scope.data = {};
@@ -15,9 +15,7 @@
         $scope.data.searchQuery = '';
         $scope.listCanSwipe = true;
 
-        $scope.portals = PortalSvc.getConfigPortals();
-
-        console.log($scope.portals);
+        $scope.portals = PortalSvc.getPortals();
 
         $timeout( function() {
             $location.hash('portal_list');
@@ -29,15 +27,11 @@
 
         $scope.cancel = function () {
             $timeout( function() {
-                $location.hash('portal_list');
-                var delegate = $ionicScrollDelegate.$getByHandle('portals');
+                $location.hash('add_portal_list');
+                var delegate = $ionicScrollDelegate.$getByHandle('addPortal');
                 delegate.anchorScroll(true);
             }, 200);
             $scope.data.searchQuery = '';
-        }
-
-        $scope.delete = function(id){
-            PortalSvc.deletePortal(id);
         }
     }
 })();

@@ -25,7 +25,7 @@
             </button>
         </div>
         <ion-list id="customer_list" can-swipe="listCanSwipe">
-            <ion-item class="item customer-list item-avatar item-icon-right" ng-repeat="customer in data.customers
+            <ion-item class="item list-item item-remove-animate customer-list item-avatar item-icon-right" ng-repeat="customer in data.customers
             | filter: data.searchQuery | orderBy:'name'"
                       href="#/app/customer/details{{customer.id}}">
                 <!--<i class="icon ion-person-stalker"></i>-->

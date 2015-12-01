@@ -6,8 +6,8 @@
 
 
     function BookingCtrl($scope, $ionicSlideBoxDelegate,
-                         $ionicPopover, language, $ionicScrollDelegate, $timeout, $location) {
-        $scope.standard_class= 'item item-stacked-label';
+                         $ionicPopover, language, $ionicScrollDelegate, $timeout, $location, $state) {
+        $scope.standard_class = 'item item-stacked-label';
         $scope.hide = {
             customer: {
                 hide: true,
@@ -26,32 +26,32 @@
         init();
 
         $scope.showMore = function (name) {
-            switch (name){
+            switch (name) {
                 case 'accommodation':
-                    if($scope.hide.accommodation.hide){
-                        $scope.hide.accommodation.class+= ' item-text-wrap';
-                        $scope.hide.accommodation.hide=false;
-                    }else{
-                        $scope.hide.accommodation.class= $scope.standard_class;
-                        $scope.hide.accommodation.hide=true;
+                    if ($scope.hide.accommodation.hide) {
+                        $scope.hide.accommodation.class += ' item-text-wrap';
+                        $scope.hide.accommodation.hide = false;
+                    } else {
+                        $scope.hide.accommodation.class = $scope.standard_class;
+                        $scope.hide.accommodation.hide = true;
                     }
                     break;
                 case 'date':
-                    if($scope.hide.date.hide){
-                        $scope.hide.date.class+= ' item-text-wrap';
-                        $scope.hide.date.hide=false;
-                    }else{
-                        $scope.hide.date.class= $scope.standard_class;
-                        $scope.hide.date.hide=true;
+                    if ($scope.hide.date.hide) {
+                        $scope.hide.date.class += ' item-text-wrap';
+                        $scope.hide.date.hide = false;
+                    } else {
+                        $scope.hide.date.class = $scope.standard_class;
+                        $scope.hide.date.hide = true;
                     }
                     break;
                 case 'customer':
-                    if($scope.hide.customer.hide){
-                        $scope.hide.customer.class+= ' item-text-wrap';
-                        $scope.hide.customer.hide=false;
-                    }else{
-                        $scope.hide.customer.class= $scope.standard_class;
-                        $scope.hide.customer.hide=true;
+                    if ($scope.hide.customer.hide) {
+                        $scope.hide.customer.class += ' item-text-wrap';
+                        $scope.hide.customer.hide = false;
+                    } else {
+                        $scope.hide.customer.class = $scope.standard_class;
+                        $scope.hide.customer.hide = true;
                     }
                     break;
             }
@@ -92,6 +92,10 @@
                 $ionicScrollDelegate.resize();
                 $ionicScrollDelegate.scrollTop(true);
             }, 200);
+        }
+
+        $scope.addBooking = function(){
+            $state.go('app.addBooking');
         }
 
         function init() {

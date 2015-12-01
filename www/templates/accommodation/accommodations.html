@@ -26,7 +26,7 @@
     </div>
 
     <ion-list id="accommodation_list" can-swipe="listCanSwipe">
-      <ion-item class="item item-thumbnail-left item-icon-right" ng-repeat="accommodation in data.accommodations | filter: data.searchQuery"
+      <ion-item class="item list-item item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="accommodation in data.accommodations | filter: data.searchQuery"
                 href="#/app/accommodationDetails{{accommodation.id}}">
         <img ng-if="accommodation.thumbnail" ng-src="{{accommodation.thumbnail}}">
         <img ng-if="!accommodation.thumbnail" ng-src="img/nohouse.png">

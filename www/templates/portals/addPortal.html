@@ -1,50 +1,35 @@
-<ion-view view-title="{{'add_portal' | translate}}">
-    <ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button>
-        </ion-nav-back-button>
-
-        <ion-nav-buttons side="left">
-            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-            </button>
-        </ion-nav-buttons>
-        <ion-nav-buttons side="right">
-            <button ng-click="addPortal()"
-                    class="button button-icon icon ion-android-add-circle">
-            </button>
-        </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-content delegate-handle="addPortal">
-        <div id="search-box" class="item item-input-inset">
-            <div class="item-input-wrapper">
-                <i class="icon ion-ios7-search placeholder-icon"></i>
-                <input type="search" placeholder="{{'search' | translate}}" ng-model="data.searchQuery">
-                <i class="clear-search icon ion-ios7-close-empty" ng-click="clearSearch()"></i>
-            </div>
-            <button class="button button-clear" ng-click="cancel()">
-                {{"cancel" | translate}}
-            </button>
+<ion-view view-title="{{portal.name}}">
+    <ion-content has-footer="true" delegate-handle="addPortal">
+        <div class="card">
+            <div class="item item-divider">{{"portal_data" | translate}}</div>
+            <label class="item item-input item-floating-label item-floating-label-icon">
+                <i class="icon ion-ios-email placeholder-icon left"></i>
+                <i class="icon ion-close-circled placeholder-icon right" ng-hide="hide.mail"></i>
+                <span class="input-label"><b>Email</b></span>
+                <input type="text" placeholder="Email" ng-model="input.mail">
+            </label>
+            <label class="item item-input item-floating-label item-floating-label-icon">
+                <i class="icon ion-locked placeholder-icon left"></i>
+                <i class="icon ion-close-circled placeholder-icon right" ng-hide="hide.password"></i>
+                <span class="input-label"><b>{{'password' | translate}}</b></span>
+                <input type="password" placeholder="{{'password' | translate}}" ng-model="input.password">
+            </label>
+            <label class="item item-input item-floating-label item-floating-label-icon">
+                <i class="icon ion-key placeholder-icon left"></i>
+                <i class="icon ion-close-circled placeholder-icon right" ng-hide="hide.key"></i>
+                <span class="input-label"><b>{{'key' | translate}}</b></span>
+                <input type="text" placeholder="{{'key' | translate}}" ng-model="input.key">
+            </label>
+            <label class="item item-input item-floating-label item-floating-label-icon">
+                <i class="icon ion-pound placeholder-icon left"></i>
+                <i class="icon ion-close-circled placeholder-icon right" ng-hide="hide.sync_id"></i>
+                <span class="input-label"><b>{{'Sync-ID' | translate}}</b></span>
+                <input type="number" placeholder="{{'Sync-ID' | translate}}" ng-model="input.sync_id">
+            </label>
         </div>
-        <ion-list id="add_portal_list"> <!--can-swipe="listCanSwipe">-->
-            <ion-item class="item center" href="#">
-                <h2>Portal 1</h2>
-                <!--<ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
-                                   ng-click="edit(portal.id)">
-                    {{"edit" | translate}}
-                </ion-option-button>
-                <ion-option-button class="button button-assertive ion-ios7-heart button-options"
-                                   ng-click="delete(portal.id)">
-                    {{"delete" | translate}}
-                </ion-option-button>-->
-            </ion-item>
-            <ion-item class="item center" href="#">
-                <h2>Portal 2</h2>
-            </ion-item>
-            <ion-item class="item center" href="#">
-                <h2>Portal 3</h2>
-            </ion-item>
-            <ion-item class="item center" href="#">
-                <h2>Portal 4</h2>
-            </ion-item>
-        </ion-list>
+        <button class="button button-last button-positive" ng-click="save()">{{'save' | translate}}</button>
     </ion-content>
+    <!--<ion-footer-bar>
+        <div class="validation-error">{{'validation_error' | translate}}</div>
+    </ion-footer-bar>-->
 </ion-view>

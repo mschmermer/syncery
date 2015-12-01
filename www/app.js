@@ -36,7 +36,7 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
     .constant({'currency': '€'})
 
     .constant('$ionicLoadingConfig', {
-        template: '<ion-spinner class="spinner-positive" icon="bubbles"></ion-spinner>'
+        template: '<ion-spinner class="spinner light" icon="bubbles"></ion-spinner>'
     })
 
 
@@ -115,8 +115,18 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                 url: '/bookings',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/bookings.html',
+                        templateUrl: 'templates/booking/bookings.html',
                         controller: 'BookingCtrl'
+                    }
+                }
+            })
+
+            .state('app.addBooking', {
+                url: '/bookings/add',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/booking/addBookings.html',
+                        controller: 'AddBookingCtrl'
                     }
                 }
             })
@@ -249,8 +259,18 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                 }
             })
 
+            .state('app.selectPortal', {
+                url: '/portals/select',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/portals/selectPortal.html',
+                        controller: 'SelectPortalCtrl'
+                    }
+                }
+            })
+
             .state('app.addPortal', {
-                url: '/portals/add',
+                url: '/portals/add:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/portals/addPortal.html',

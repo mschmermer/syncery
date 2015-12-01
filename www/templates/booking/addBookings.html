@@ -1,0 +1,71 @@
+<ion-view view-title="{{'add_booking' | translate}}">
+    <ion-content delegate-handle="addBookings">
+        <div class="list card">
+            <div class="item item-divider">{{"master_data" | translate}}</div>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    <b>{{'gender' | translate}}</b>
+                </div>
+                <select>
+                    <option>Herr</option>
+                    <option selected>Frau</option>
+                </select>
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'title' | translate}}</b></span>
+                <input type="text" placeholder="{{'title' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'first_name' | translate}}</b></span>
+                <input type="text" placeholder="{{'first_name' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'name' | translate}}</b></span>
+                <input type="text" placeholder="{{'name' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'address' | translate}}</b></span>
+                <input type="text" placeholder="{{'address' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>PLZ</b></span>
+                <input type="text" placeholder="PLZ">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'city' | translate}}</b></span>
+                <input type="text" placeholder="{{'city' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'country' | translate}}</b></span>
+                <input type="text" placeholder="{{'country' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'telephone' | translate}}</b></span>
+                <input type="text" placeholder="{{'telephone' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'mobile' | translate}}</b></span>
+                <input type="text" placeholder="{{'mobile' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>E-Mail</b></span>
+                <input type="text" placeholder="E-Mail">
+            </label>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">{{"master_data" | translate}}</div>
+            <ion-item>
+                <div class="row">
+                    <div class="col col-50">{{"accommodation" | translate}}</div>
+                    <div class="col col-50">
+                        <syncery-dropdown name="'accommodation'"
+                                          attribute="accommodations[accommodations_actual]"
+                                          attributes="accommodations">
+                        </syncery-dropdown>
+                    </div>
+                </div>
+            </ion-item>
+
+        </div>
+    </ion-content>
+</ion-view>
