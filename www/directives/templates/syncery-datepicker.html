@@ -1,0 +1,30 @@
+<div class="syncery-datepicker">
+    <div class="row">
+        <div class="col col-50">
+            <ion-item class="name">
+                <b>{{name}}:</b>
+            </ion-item>
+        </div>
+        <div class="col col-50">
+            <ion-item class="item-icon-right item-text-wrap date">
+                    {{day}}//{{month}}//{{year}}
+                <i class="icon ion-calendar"></i>
+            </ion-item>
+        </div>
+    </div>
+    <style>
+        div.syncery-datepicker ion-item.name{
+            font-size: 100%;
+        }
+
+        div.syncery-datepicker ion-item.item-icon-right.date{
+            background-color: rgb(247, 247, 247);
+            border-bottom: 2px black solid;
+            line-height: 80%;
+            font-size: 100%;
+        }
+        div.syncery-datepicker ion-item.item-icon-right.date i.icon.ion-calendar{
+            color: rgb(91, 188, 220);
+        }
+    </style>
+</div>

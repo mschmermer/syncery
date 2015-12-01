@@ -13,6 +13,7 @@ angular.module('syncery')
                 date: "Datum",
                 /*Buchung hinzufügen */
                 add_booking: "Buchung hinzufügen",
+                arrival_date: "Anreisedatum",
                 /* Unterkünfte*/
                 back: "Zurück",
                 last_booking: "letzte Buchung",
@@ -125,6 +126,7 @@ angular.module('syncery')
                 date: "Date",
                 /*Add Booking */
                 add_booking: "Add booking",
+                arrival_date: "Arrivaldate",
                 /* Accommodations */
                 back: "Back",
                 last_booking: "Last booking",

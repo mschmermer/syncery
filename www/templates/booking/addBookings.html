@@ -1,6 +1,30 @@
 <ion-view view-title="{{'add_booking' | translate}}">
     <ion-content delegate-handle="addBookings">
         <div class="list card">
+            <div class="item item-divider">{{"travel_data" | translate}}</div>
+            <ion-item>
+                <syncery-dropdown name="'accommodation'"
+                                  attribute="accommodations[accommodations_actual]"
+                                  attributes="accommodations">
+                </syncery-dropdown>
+            </ion-item>
+            <syncery-datepicker name="'arrival_date' | translate" day="1" month="11" year="2015">
+
+            </syncery-datepicker>
+
+
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'arrival_date' | translate}}</b></span>
+                <input type="text" placeholder="{{'arrival_date' | translate}}"
+                       ng-click="showCalendar('{{'arrival_date' | translate}}')">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'depart' | translate}}</b></span>
+                <input type="text" placeholder="{{'depart' | translate}}">
+            </label>
+        </div>
+
+        <div class="list card">
             <div class="item item-divider">{{"master_data" | translate}}</div>
             <label class="item item-input item-select">
                 <div class="input-label">
@@ -51,21 +75,6 @@
                 <span class="input-label"><b>E-Mail</b></span>
                 <input type="text" placeholder="E-Mail">
             </label>
-        </div>
-        <div class="list card">
-            <div class="item item-divider">{{"master_data" | translate}}</div>
-            <ion-item>
-                <div class="row">
-                    <div class="col col-50">{{"accommodation" | translate}}</div>
-                    <div class="col col-50">
-                        <syncery-dropdown name="'accommodation'"
-                                          attribute="accommodations[accommodations_actual]"
-                                          attributes="accommodations">
-                        </syncery-dropdown>
-                    </div>
-                </div>
-            </ion-item>
-
         </div>
     </ion-content>
 </ion-view>

@@ -28,10 +28,6 @@ input{
     border-bottom: 2px solid black;
 }
 
-i.icon.ion-chevron-right{
-    color: rgb(207, 207, 207);
-}
-
 #search-box{
     height: 50px;
 }
@@ -224,18 +220,6 @@ ion-item.item.center{
     padding-left: 40px !important;
 }
 
-div.validation-error{
-    background-color: rgba(255,102,102, 0.7);
-    color: white;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    padding-top: inherit;
-    height: 100%;
-    text-align: center;
-    border-radius: 5px;
-}
-
 .loading{
     background-color: rgba(255,102,102, 0.7) !important;
 }
@@ -257,4 +241,9 @@ div.validation-error{
     /* override to make sure it's not inherited from other styles */
     -webkit-animation-duration:0;
     animation-duration:0;
+}
+
+/* Buchung hinzufügen */
+.date-picker div.popup{
+    width: 312px;
 }
