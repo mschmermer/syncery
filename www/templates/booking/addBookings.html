@@ -4,77 +4,133 @@
             <div class="item item-divider">{{"travel_data" | translate}}</div>
             <ion-item>
                 <syncery-dropdown name="'accommodation'"
-                                  attribute="accommodations[accommodations_actual]"
+                                  attribute="accommodations[0]"
                                   attributes="accommodations">
                 </syncery-dropdown>
             </ion-item>
-            <syncery-datepicker name="'arrival_date' | translate" day="1" month="11" year="2015">
+            <ion-item style="padding: 0;">
+                <syncery-datepicker name="'arrival_date' | translate" data-method="selectDate">
 
-            </syncery-datepicker>
+                </syncery-datepicker>
+            </ion-item>
+            <ion-item style="padding: 0;">
+                <syncery-datepicker name="'departure_date' | translate" data-method="selectDate">
 
-
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'arrival_date' | translate}}</b></span>
-                <input type="text" placeholder="{{'arrival_date' | translate}}"
-                       ng-click="showCalendar('{{'arrival_date' | translate}}')">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'depart' | translate}}</b></span>
-                <input type="text" placeholder="{{'depart' | translate}}">
-            </label>
+                </syncery-datepicker>
+            </ion-item>
+            <ion-item>
+                <syncery-dropdown name="'adult'"
+                                  attribute="'Anzahl der Erwachsenen'"
+                                  attributes="['1 Erwachsener', '2 Erwachsene', '3 Erwachsene']">
+                </syncery-dropdown>
+            </ion-item>
+            <ion-item>
+                <syncery-dropdown name="'children'"
+                                  attribute="'Anzahl der Kinder'"
+                                  attributes="['1 Kind', '2 Kinder', '3 Kinder']">
+                </syncery-dropdown>
+            </ion-item>
+            <ion-item>
+                <syncery-dropdown name="'animals'"
+                                  attribute="'Haustiere'"
+                                  attributes="['Hund', 'Katze', 'Nagetier']">
+                </syncery-dropdown>
+            </ion-item>
         </div>
 
         <div class="list card">
             <div class="item item-divider">{{"master_data" | translate}}</div>
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    <b>{{'gender' | translate}}</b>
-                </div>
-                <select>
-                    <option>Herr</option>
-                    <option selected>Frau</option>
-                </select>
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'title' | translate}}</b></span>
-                <input type="text" placeholder="{{'title' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'first_name' | translate}}</b></span>
-                <input type="text" placeholder="{{'first_name' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'name' | translate}}</b></span>
-                <input type="text" placeholder="{{'name' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'address' | translate}}</b></span>
-                <input type="text" placeholder="{{'address' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>PLZ</b></span>
-                <input type="text" placeholder="PLZ">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'city' | translate}}</b></span>
-                <input type="text" placeholder="{{'city' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'country' | translate}}</b></span>
-                <input type="text" placeholder="{{'country' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'telephone' | translate}}</b></span>
-                <input type="text" placeholder="{{'telephone' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'mobile' | translate}}</b></span>
-                <input type="text" placeholder="{{'mobile' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>E-Mail</b></span>
-                <input type="text" placeholder="E-Mail">
-            </label>
+            <ion-item>
+                <syncery-dropdown name="'gender'"
+                                  attribute="'Anrede'"
+                                  attributes="['Herr', 'Frau']">
+                </syncery-dropdown>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'Titel'" type="'text'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'first_name' | translate" type="'text'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'name' | translate" type="'text'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'address' | translate" type="'text'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'PLZ'" type="'number'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'city' | translate" type="'text'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'country' | translate" type="'text'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'telephone' | translate" type="'number'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'mobile' | translate" type="'number'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'E-Mail'" type="'mail'">
+
+                </syncery-input>
+            </ion-item>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider">{{"payment_data" | translate}}</div>
+
+            <ion-item>
+                <syncery-input title="'deposit' | translate" type="'money'">
+
+                </syncery-input>
+                <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
+
+                </syncery-datepicker>
+                <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
+                </syncery-datepicker>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'final_payment' | translate" type="'money'">
+
+                </syncery-input>
+                <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
+
+                </syncery-datepicker>
+                <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
+                </syncery-datepicker>
+            </ion-item>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider">Extras</div>
+
+            <ion-item>
+                <syncery-input title="'notes'" type="'textarea'">
+                </syncery-input>
+            </ion-item>
+
         </div>
     </ion-content>
 </ion-view>

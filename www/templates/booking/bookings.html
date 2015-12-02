@@ -14,17 +14,16 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content delegate-handle="bookings" style="background-color: rgb(247,247,247)">
-        <div class="row responsive-sm">
-            <div class="col col-50">
+        <div class="list card">
+            <div class="item item-divider">{{"selection" | translate}}</div>
+            <ion-item>
                 <syncery-dropdown name="'accommodation'"
                                   attribute="accommodations[accommodations_actual]"
                                   attributes="accommodations">
 
                 </syncery-dropdown>
-            </div>
-
-
-            <div class="col col-50">
+            </ion-item>
+            <ion-item>
                 <syncery-dropdown
                         data-method="selectMonth"
                         name="'Monat'"
@@ -32,7 +31,7 @@
                         attributes="month2">
 
                 </syncery-dropdown>
-            </div>
+            </ion-item>
         </div>
 
 
@@ -73,14 +72,14 @@
 
             <div class="row">
                 <div class="col two-item-border col-50">
-                    <label ng-click="showMore('customer')"  ng-class="hide.customer.class">
+                    <label ng-click="showMore('customer')" ng-class="hide.customer.class">
                         <h2>{{"customer" | translate}}</h2>
 
                         <p>Test Kunde asdsad sa das das das fds fedg fh twh whtr tze j etz</p>
                     </label>
                 </div>
                 <div class="col two-item-border col-50">
-                    <label ng-click="showMore('date')"  ng-class="hide.date.class">
+                    <label ng-click="showMore('date')" ng-class="hide.date.class">
                         <h2>{{"date" | translate}}</h2>
 
                         <p>01.12.15 - 30.01.15</p>

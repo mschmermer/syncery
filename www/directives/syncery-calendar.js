@@ -31,7 +31,7 @@
                     var moments = moment().locale('de');
 
                     $scope.months = [''];
-                    $scope.today = moment().format('DD');
+                    $scope.today = moment().format('D');
 
                     for(var i=0; i<=11; i++){
                         $scope.months.push(moments.month(i).format('MMMM'));
@@ -181,6 +181,7 @@
                         scope.booking_id = false;
                         angular.element(document.querySelector('table#'+scope.calendarid+' div.selected')).remove();
                         var td = angular.element(document.querySelector('table#'+scope.calendarid+' td[data-position="'+position+'"]'));
+                        scope.selected_day = parseInt(td.html());
 
                         if(scope.arrival && scope.departure){
                             for (var col = scope.arrival.charAt(0); col <= 6; col++) {
@@ -223,7 +224,7 @@
                         }
                         //elem.bind('click', function () {
                             var func = scope.methodToCall();
-                            func(scope.booking_id);
+                            func({booking_id: scope.booking_id, day: scope.selected_day, month: scope.month, year: scope.year});
                         //});
                     }
                 }

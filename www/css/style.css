@@ -247,3 +247,21 @@ ion-item.item.center{
 .date-picker div.popup{
     width: 312px;
 }
+
+.date-picker div.popup div.popup-head{
+    background-color: rgb(56,68,94);
+    border-bottom: 2px solid red;
+}
+
+.date-picker div.popup div.popup-body{
+    padding: 2px;
+}
+
+.date-picker div.popup div.popup-head h3{
+    color: white;
+}
+
+.date-picker div.popup div.popup-body button{
+    width: 48%;
+    margin: 1%;
+}
