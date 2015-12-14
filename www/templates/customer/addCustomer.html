@@ -6,55 +6,56 @@
     <ion-content>
         <div class="list card">
             <div class="item item-divider">{{"enter_customer_data" | translate}}</div>
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    <b>{{'gender' | translate}}</b>
-                </div>
-                <select>
-                    <option>Herr</option>
-                    <option selected>Frau</option>
-                </select>
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'title' | translate}}</b></span>
-                <input type="text" placeholder="{{'title' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'first_name' | translate}}</b></span>
-                <input type="text" placeholder="{{'first_name' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'name' | translate}}</b></span>
-                <input type="text" placeholder="{{'name' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'address' | translate}}</b></span>
-                <input type="text" placeholder="{{'address' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>PLZ</b></span>
-                <input type="text" placeholder="PLZ">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'city' | translate}}</b></span>
-                <input type="text" placeholder="{{'city' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'country' | translate}}</b></span>
-                <input type="text" placeholder="{{'country' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'telephone' | translate}}</b></span>
-                <input type="text" placeholder="{{'telephone' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'mobile' | translate}}</b></span>
-                <input type="text" placeholder="{{'mobile' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>E-Mail</b></span>
-                <input type="text" placeholder="E-Mail">
-            </label>
+            <ion-item>
+                <syncery-dropdown name="'gender'"
+                                  attribute="'Anrede'"
+                                  attributes="['Herr', 'Frau']">
+                </syncery-dropdown>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'title' | translate" type="'text'">
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'first_name' | translate" type="'text'">
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'name' | translate" type="'text'">
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'adress' | translate" type="'text'">
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'PLZ'" type="'plz'">
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'city' | translate" type="'text'">
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'country' | translate" type="'text'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'telephone' | translate" type="'tel'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'mobile' | translate" type="'tel'">
+
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'E-Mail'" type="'mail'">
+
+                </syncery-input>
+            </ion-item>
         </div>
         <button class="button button-last button-positive">
             {{"save_customer" | translate}}

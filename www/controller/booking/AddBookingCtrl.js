@@ -9,8 +9,15 @@
 
         $scope.accommodations = ['Unterkunft1', 'Unterkunft2', 'Unterkunft3', 'Unterkunft4'];
 
-        $scope.selectDate = function(date){
+        $scope.data = {};
+
+        $scope.selectDate = function (date) {
             console.log(date);
+        }
+
+        $scope.input = function (input) {
+            $scope.data[input['name']] = input['value'];
+            console.log($scope.data);
         }
 
     }

@@ -4,7 +4,7 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova'])
+angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'ion-alpha-scroll'])
 
     .run(function ($ionicPlatform, $ionicLoading,$rootScope) {
         $ionicPlatform.ready(function () {
@@ -158,6 +158,20 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                         templateUrl: 'templates/accommodation/accommodationDetails.html',
                         controller: 'AccommodationDetailsCtrl'
                     }
+                }
+            })
+
+            .state('app.accommodationMapping', {
+                url: '/accommodationMapping',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/accommodation/accommodationMapping.html',
+                        controller: 'AccommodationMappingCtrl',
+                    }
+                },
+                params: {
+                    'acc_id': null,
+                    'portal_id': null,
                 }
             })
 

@@ -87,9 +87,10 @@
                 <i ng-class="icon['Mapping']"></i>
             </div>
             <ion-list can-swipe="true" ng-hide="hide['Mapping']">
-                <ion-item>
-                    Booking.com
-                    <p>ID: FBKDHFJB637812</p>
+                    <button class="button button-positive button-last" ng-click="addMapping(accommodation.id)">{{'add_mapping' | translate}}</button>
+                <ion-item ng-repeat="mapping in mappings">
+                    <b>{{mapping.portal_name}}</b>
+                    <p>ID: {{mapping.sync_id}}</p>
                     <ion-option-button class="button button-dark ion-ios7-heart button-options">
                         {{"edit" | translate}}
                     </ion-option-button>

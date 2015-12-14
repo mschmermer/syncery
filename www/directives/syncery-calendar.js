@@ -98,24 +98,24 @@
                                 }
 
                                 if(moment([year, month, (day-1)], "YYYY-MM-DD").isSame(moment(), 'day')){
-                                    calendarData[col][row]['class'] = calendarData[col][row]['class'] = ' today';
+                                    calendarData[col][row]['class'] = calendarData[col][row]['class'] + ' today';
                                 }
                             }
                         }
 
                         if (calendarData['2']['2']) {
-                            calendarData['2']['2']['class'] = 'arrival';
-                            calendarData['2']['3']['class'] = 'occupied';
-                            calendarData['2']['4']['class'] = 'occupied';
-                            calendarData['2']['5']['class'] = 'occupied';
-                            calendarData['2']['6']['class'] = 'occupied';
-                            calendarData['2']['7']['class'] = 'occupied';
-                            calendarData['3']['1']['class'] = 'occupied';
-                            calendarData['3']['2']['class'] = 'occupied';
-                            calendarData['3']['3']['class'] = 'occupied';
-                            calendarData['3']['4']['class'] = 'occupied';
-                            calendarData['3']['5']['class'] = 'departure';
-                            calendarData['2']['2']['booking-id'] = '1a';
+                            calendarData['2']['2']['class'] += ' arrival';
+                            calendarData['2']['3']['class'] += ' occupied';
+                            calendarData['2']['4']['class'] += ' occupied';
+                            calendarData['2']['5']['class'] += ' occupied';
+                            calendarData['2']['6']['class'] += ' occupied';
+                            calendarData['2']['7']['class'] += ' occupied';
+                            calendarData['3']['1']['class'] += ' occupied';
+                            calendarData['3']['2']['class'] += ' occupied';
+                            calendarData['3']['3']['class'] += ' occupied';
+                            calendarData['3']['4']['class'] += ' occupied';
+                            calendarData['3']['5']['class'] += ' departure';
+                            calendarData['2']['2']['booking-id'] = '1';
                             calendarData['2']['3']['booking-id'] = '1';
                             calendarData['2']['4']['booking-id'] = '1';
                             calendarData['2']['5']['booking-id'] = '1';
@@ -125,42 +125,44 @@
                             calendarData['3']['2']['booking-id'] = '1';
                             calendarData['3']['3']['booking-id'] = '1';
                             calendarData['3']['4']['booking-id'] = '1';
-                            calendarData['3']['5']['booking-id'] = '1d';
-                            calendarData['3']['5']['class'] = 'departure';
-                            calendarData['3']['6']['class'] = 'arrival ';
-                            calendarData['3']['7']['class'] = 'occupied';
-                            calendarData['4']['1']['class'] = 'occupied';
-                            calendarData['4']['2']['class'] = 'occupied';
-                            calendarData['4']['3']['class'] = 'occupied';
-                            calendarData['4']['4']['class'] = 'occupied';
-                            calendarData['4']['5']['class'] = 'occupied';
-                            calendarData['4']['6']['class'] = 'departure';
-                            calendarData['3']['6']['booking-id'] = '2a';
+                            calendarData['3']['5']['booking-id'] = '1';
+                            calendarData['3']['5']['class'] += ' departure';
+                            calendarData['3']['6']['class'] += ' arrival ';
+                            calendarData['3']['7']['class'] += ' occupied';
+                            calendarData['4']['1']['class'] += ' occupied';
+                            calendarData['4']['2']['class'] += ' occupied';
+                            calendarData['4']['3']['class'] += ' occupied';
+                            calendarData['4']['4']['class'] += ' occupied';
+                            calendarData['4']['5']['class'] += ' occupied';
+                            calendarData['4']['6']['class'] += ' departure';
+                            calendarData['3']['6']['booking-id'] = '2';
                             calendarData['3']['7']['booking-id'] = '2';
                             calendarData['4']['1']['booking-id'] = '2';
                             calendarData['4']['2']['booking-id'] = '2';
                             calendarData['4']['3']['booking-id'] = '2';
                             calendarData['4']['4']['booking-id'] = '2';
                             calendarData['4']['5']['booking-id'] = '2';
-                            calendarData['4']['6']['booking-id'] = '2d';
+                            calendarData['4']['6']['booking-id'] = '2';
                         }
                         return calendarData;
                     }
 
                     $scope.calendarData = $scope.initCalendarData($scope.month, $scope.year);
-                    $timeout( function() {
-                        if(!angular.element(document.querySelector('div.today'))){
-                            angular.element(document.querySelector('td.today')).append('<div class="today">'+$scope.today+'</div>');
+                    /*$timeout( function() {
+                        if(!angular.element(document.querySelector('table#'+$scope.calendarid+' td.today'))){
+                            angular.element(document.querySelector('table#'+$scope.calendarid+' td.today')).append('<div class="today">'+$scope.today+'</div>');
                         }
-                    }, 5);
+                        console.log($scope.calendarid);
+                    }, 4);*/
 
                 },
                 link: function (scope, elem, attrs) {
 
                     scope.$watch('month', function(newMonth, oldMonth) {
+                        scope.calendarData = scope.initCalendarData(newMonth, scope.year);
                         angular.element(document.querySelector('div.today')).remove();
                         angular.element(document.querySelector('td.today')).append('<div class="today">'+scope.today+'</div>');
-                        scope.calendarData = scope.initCalendarData(newMonth, scope.year);
+                        angular.element(document.querySelector('table#'+scope.calendarid+' div.selected')).remove();
                     });
 
                     /*elem.bind('click', function(element){

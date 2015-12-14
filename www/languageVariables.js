@@ -22,6 +22,7 @@ angular.module('syncery')
                 payment_date: "Gezahlt am",
                 deposit: "Anzahlung",
                 final_payment: "Restzahlung",
+                notes: 'Notizen',
                 /* Unterkünfte*/
                 back: "Zurück",
                 last_booking: "letzte Buchung",
@@ -49,6 +50,7 @@ angular.module('syncery')
                 portals_menu: "PORTALE",
                 settings_menu: "EINSTELLUNGEN",
                 menu_menu: "MENÜ",
+                add_mapping: "Mapping hinzufügen",
                 // Unterkunft hinzufügen
                 add_accommodation: "Unterkunft hinzufügen",
                 gender: "Geschlecht",
@@ -143,6 +145,7 @@ angular.module('syncery')
                 payment_date: "Paid on",
                 deposit: "Deposit",
                 final_payment: "Final payment",
+                notes: 'Notes',
                 /* Accommodations */
                 back: "Back",
                 last_booking: "Last booking",
@@ -170,6 +173,7 @@ angular.module('syncery')
                 portals_menu: "PORTALS",
                 settings_menu: "SETTINGS",
                 menu_menu: "MENU",
+                add_mapping: "Add Mapping",
                 // Add accommodation
                 add_accommodation: "Add accommodation",
                 gender: "Gender",

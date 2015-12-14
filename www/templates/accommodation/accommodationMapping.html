@@ -1,0 +1,33 @@
+<ion-view view-title="{{'add_mapping' | translate}}">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-divider">{{"mapping_data" | translate}}</div>
+            <ion-item>
+                <syncery-dropdown name="'portal'"
+                                  attribute="'select_portal'"
+                                  attributes="portals"
+                                  data-method="selectPortal">
+                </syncery-dropdown>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'sync_id' | translate" type="'text'" input="mapping.sync_id">
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'password' | translate" type="'text'" input="mapping.password">
+                </syncery-input>
+            </ion-item>
+            <button class="button button-positive button-last">{{'save_mapping' | translate}}</button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -17,33 +17,70 @@
                     $scope.input_hide = false;
                     $scope.money_hide = true;
                     $scope.textarea_hide = true;
+                    $scope.change = function () {}
 
-                    switch($scope.type) {
+                    switch ($scope.type) {
                         case 'text':
-                            $scope.pattern='.*';
+                            $scope.typ = 'text';
+                            $scope.pattern = '.*';
                             break;
                         case 'number':
-                            $scope.pattern='[0-9]{1,7}';
+                            $scope.typ = 'number';
+                            $scope.pattern = '[0-9]*';
+                            break;
+                        case 'plz':
+                            $scope.typ = 'number';
+                            $scope.pattern = '[0-9]*';
+                            $scope.max = 999999;
+                            break;
+                        case 'tel':
+                            $scope.typ = 'number';
+                            $scope.pattern = '[0-9]*';
                             break;
                         case 'mail':
-                            $scope.pattern='[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_]' +
-                                '[-a-z0-9_]*(\.[-a-z0-9_]+)*\.' +
-                                '(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|' +
-                                '[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?';
+                            $scope.typ = 'email';
                             break;
                         case 'money':
-                            $scope.money_hide=false;
-                            $scope.pattern='[+-]?[0-9]{1,3}(?:,?[0-9])*(?:\.[0-9]{1,2})';
+                            $scope.typ = 'text';
+                            $scope.money_hide = false;
+                            $scope.pattern = '.*';
+                            $scope.money = '';
                             $scope.class_form = 'item-icon-right';
+                            $scope.maxlenght = 21;
+                            $scope.change = function () {
+
+
+                                if(accounting.formatMoney(($scope.money/100), "", 2, ".", ",") != $scope.input.substr(0, $scope.input.length - 1)
+                                && $scope.money!=''){
+                                    $scope.money = $scope.money.substr(0, $scope.money.length - 1);
+                                    $scope.input = accounting.formatMoney(($scope.money/100), "", 2, ".", ",");
+                                    if($scope.money==''){
+                                        $scope.input='';
+                                    }
+                                    return;
+                                }
+
+                                if(isNaN(parseInt($scope.input.slice(-1)))){
+                                    $scope.money = $scope.money;
+                                    $scope.input = $scope.input.substr(0, $scope.input.length - 1);
+                                    return;
+                                }else{
+                                    $scope.money = $scope.money+''+$scope.input.slice(-1);
+                                }
+
+                                $scope.input = accounting.formatMoney(($scope.money/100), "", 2, ".", ",");
+
+
+                            }
                             break;
                         case 'textarea':
-                            $scope.class='textarea';
-                            $scope.input_hide=true;
-                            $scope.textarea_hide=false;
-                            $scope.pattern='.*';
+                            $scope.class = 'textarea';
+                            $scope.input_hide = true;
+                            $scope.textarea_hide = false;
+                            $scope.pattern = '.*';
                             break;
                         default:
-                            $scope.pattern='.*';
+                            $scope.pattern = '.*';
                             break;
                     }
 

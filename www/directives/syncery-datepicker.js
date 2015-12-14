@@ -32,9 +32,9 @@
 
                     $scope.showCalendar = function (name) {
                         $scope.clickCalendar = function(select){
-                            $scope.day = select.day;
-                            $scope.month = select.month;
-                            $scope.year = select.year;
+                            $scope.day2 = select.day;
+                            $scope.month2 = select.month;
+                            $scope.year2 = select.year;
                         }
 
                         $scope.back = function(){
@@ -67,14 +67,19 @@
                             title: name,
                             scope: $scope,
                             buttons: [
-                                {text: 'Cancel'},
+                                {text: 'Cancel',},
                                 {
                                     text: '<b>Save</b>',
                                     type: 'button-positive',
                                     onTap: function (e) {
-                                        if ($scope.day == '--') {
+                                        if ($scope.day2 == '--') {
                                             e.preventDefault();
                                         } else {
+
+                                            $scope.day = $scope.day2;
+                                            $scope.month = $scope.month2;
+                                            $scope.year = $scope.year2;
+
                                             var func = $scope.methodToCall();
                                             func({name: $scope.name, day: $scope.day, month: $scope.month, year: $scope.year});
                                             return true;

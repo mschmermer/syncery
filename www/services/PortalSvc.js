@@ -30,6 +30,7 @@
             getPortals: getPortals,
             getPortalById: getPortalById,
             getPortalnameById: getPortalnameById,
+            getPortalByName: getPortalByName,
             savePortal: savePortal,
             getConfigPortals: getConfigPortals,
             deletePortal: deletePortal
@@ -52,6 +53,13 @@
                 return obj.id == id;
             });
             return portal[0].name;
+        }
+
+        function getPortalByName(name) {
+            var portal_id = vm.portals.filter(function (obj) {
+                return obj.name == name;
+            });
+            return portal_id[0];
         }
 
         function savePortal(portal){

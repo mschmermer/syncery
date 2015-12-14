@@ -58,9 +58,9 @@
 
         }
 
-        $scope.clickCalendar = function (id) {
-            if (id) {
-                $scope.booking_id = id;
+        $scope.clickCalendar = function (day) {
+            if (day.booking_id) {
+                $scope.booking_id = day.booking_id;
                 $scope.bookingView = false;
                 $timeout(function () {
                     $ionicScrollDelegate.resize();
@@ -69,6 +69,7 @@
                     delegate.anchorScroll(true);
                 }, 200);
             } else {
+                console.log(day);
                 $scope.booking_id = false;
                 $scope.bookingView = true;
                 $timeout(function () {
@@ -127,18 +128,20 @@
                 $scope.monthnumber = moment().month() + 1;
                 $scope.monthnumber_actual = $scope.monthnumber;
                 $scope.year = moment().year();
+                $scope.monthnumber1 = $scope.monthnumber + 1;
+                $scope.monthnumber2 = $scope.monthnumber - 1;
                 if ($scope.monthnumber == 12) {
+                    $scope.monthnumber1 = 1;
                     $scope.year1 = $scope.year + 1;
                     $scope.year2 = $scope.year;
                 } else if ($scope.monthnumber == 1) {
                     $scope.year1 = $scope.year;
+                    $scope.monthnumber1 = 12;
                     $scope.year2 = $scope.year - 1;
                 } else {
                     $scope.year1 = $scope.year;
                     $scope.year2 = $scope.year;
                 }
-                $scope.monthnumber1 = $scope.monthnumber + 1;
-                $scope.monthnumber2 = $scope.monthnumber - 1;
             }
 
             for (var i = 0; i <= 11; i++) {
@@ -146,7 +149,7 @@
                 $scope.month2.push(moments.month(i).format('MMMM') + ' ' + $scope.year);
             }
 
-            $scope.date_actual = moments.month($scope.monthnumber - 1).format('MMMM') + ' ' + $scope.year
+            $scope.date_actual = moments.month($scope.monthnumber - 1).format('MMMM') + ' ' + $scope.year;
         }
 
         $scope.slideHasChanged = function (index) {

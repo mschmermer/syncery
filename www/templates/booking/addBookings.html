@@ -1,7 +1,7 @@
 <ion-view view-title="{{'add_booking' | translate}}">
     <ion-content delegate-handle="addBookings">
         <div class="list card">
-            <div class="item item-divider">{{"travel_data" | translate}}</div>
+            <div class="item item-divider" style="background-color: white; color: grey; text-transform: uppercase;">{{"travel_data" | translate}}</div>
             <ion-item>
                 <syncery-dropdown name="'accommodation'"
                                   attribute="accommodations[0]"
@@ -67,7 +67,7 @@
                 </syncery-input>
             </ion-item>
             <ion-item>
-                <syncery-input title="'PLZ'" type="'number'">
+                <syncery-input title="'PLZ'" type="'plz'">
 
                 </syncery-input>
             </ion-item>
@@ -82,12 +82,12 @@
                 </syncery-input>
             </ion-item>
             <ion-item>
-                <syncery-input title="'telephone' | translate" type="'number'">
+                <syncery-input title="'telephone' | translate" type="'tel'">
 
                 </syncery-input>
             </ion-item>
             <ion-item>
-                <syncery-input title="'mobile' | translate" type="'number'">
+                <syncery-input title="'mobile' | translate" type="'tel'">
 
                 </syncery-input>
             </ion-item>
@@ -125,12 +125,22 @@
 
         <div class="list card">
             <div class="item item-divider">Extras</div>
-
+            <ion-item>
+                <syncery-checkbox selected="true" name="'Bettwäche'" data-method="input">
+                </syncery-checkbox>
+            </ion-item>
+            <ion-item>
+                <syncery-checkbox selected="false" name="'Handtücher'" data-method="input">
+                </syncery-checkbox>
+            </ion-item>
+            <ion-item>
+                <syncery-checkbox selected="false" name="'Endreinigung'" data-method="input">
+                </syncery-checkbox>
+            </ion-item>
             <ion-item>
                 <syncery-input title="'notes'" type="'textarea'">
                 </syncery-input>
             </ion-item>
-
         </div>
     </ion-content>
 </ion-view>
