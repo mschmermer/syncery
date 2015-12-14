@@ -1,0 +1,35 @@
+<div class="contract-days">
+    <div class="remaining" ng-style="remaining_width">{{remaining}} {{"days" | translate}}</div>
+    <div class="total" ng-style="total_width">{{total}} {{"days" | translate}}</div>
+</div>
+<style>
+div.contract-days{
+    line-height: 300%;
+    color: white;
+    text-align: right;
+    margin: 2%;
+    height: 40px;
+}
+
+div.contract-days div.remaining{
+    background-color: rgb(56,68,94);
+    float: left;
+    display: block;
+    padding-left: 2%;
+    padding-right: 2%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+div.contract-days div.total{
+    background-color: rgb(255,104,104);
+    float: right;
+    padding-left: 2%;
+    padding-right: 2%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style>

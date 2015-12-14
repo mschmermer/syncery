@@ -1,0 +1,49 @@
+<ion-view view-title="{{'accommodations' | translate}}">
+  <ion-nav-bar class="bar syncery-header">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button ng-click="addAccommodation()"
+              class="button button-icon icon ion-android-add-circle">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content delegate-handle="accommodations">
+    <div id="search-box" class="item item-input-inset" ng-show="data.showSearch">
+      <div class="item-input-wrapper">
+        <i class="icon ion-ios7-search placeholder-icon"></i>
+        <input type="search" placeholder="{{'search' | translate}}" ng-model="data.searchQuery">
+        <i class="clear-search icon ion-ios7-close-empty" ng-click="clearSearch()"></i>
+      </div>
+      <button class="button button-clear" ng-click="cancel()">
+        {{"cancel" | translate}}
+      </button>
+    </div>
+
+    <ion-list id="accommodation_list" can-swipe="listCanSwipe">
+      <ion-item class="item item-thumbnail-left item-icon-right" ng-repeat="accommodation in data.accommodations | filter: data.searchQuery"
+                href="#/app/accommodationDetails{{accommodation.id}}">
+        <img ng-if="accommodation.thumbnail" ng-src="{{accommodation.thumbnail}}">
+        <img ng-if="!accommodation.thumbnail" ng-src="img/nohouse.png">
+        <h2>{{accommodation.name}}</h2>
+        <p>{{"last_booking" | translate}}: 12.3.15</p>
+        <p>{{"next_booking" | translate}}: 15.11.15</p>
+        <ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
+                           ng-click="edit(accommodation.id)">
+          {{"edit" | translate}}
+        </ion-option-button>
+        <ion-option-button class="button button-assertive ion-ios7-heart button-options"
+                           ng-click="delete(accommodation.id)">
+          {{"delete" | translate}}
+        </ion-option-button>
+        <i class="icon icon-small ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
