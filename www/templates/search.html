@@ -1,10 +1,9 @@
-<ion-view view-title="{{'search' | translate}}">
+<ion-view view-title="{{'search' | translate}}" hide-nav-bar="hide_navbar">
     <ion-content>
         <div id="search-box" style="height: 50px" class="item item-input-inset" ng-show="data.showSearch">
             <div class="item-input-wrapper">
                 <i class="icon ion-ios7-search placeholder-icon"></i>
-                <input type="search" placeholder="{{'search' | translate}}" ng-model="data.searchQuery">
-                <i class="clear-search icon ion-ios7-close-empty" ng-click="clearSearch()"></i>
+                <input type="search" placeholder="{{'search' | translate}}" ng-model="data.searchQuery" ng-click="search()">
             </div>
             <button class="button button-clear" ng-click="cancel()">
                 {{"cancel" | translate}}

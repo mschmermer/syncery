@@ -2,7 +2,9 @@
     <ion-content>
         <div class="card">
 
-                <ion-item class="item item-divider">{{ 'testphase_time' | translate:translationData }}</ion-item>
+                <ion-item class="item item-divider"
+                        style="background-color: white; color: grey;
+                        font-variant: small-caps;">{{ 'testphase_time' | translate:translationData }}</ion-item>
 
                 <syncery-contract-days
                         remaining="contract_remaining" total="contract_total"    >
