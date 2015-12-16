@@ -34,11 +34,11 @@
         }
 
         $scope.delete = function (id) {
-            alert(id);
+            CustomerSvc.deleteCustomer(id);
         }
 
         $scope.edit = function (id) {
-            alert(id);
+            $state.go('app.addCustomer', {'id': id});
         }
 
     }

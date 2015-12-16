@@ -5,6 +5,13 @@
         .controller('AddCustomerCtrl', AddCustomerCtrl);
 
 
-    function AddCustomerCtrl($scope, UserSvc, $state) {
+    function AddCustomerCtrl($scope, $stateParams, CustomerSvc) {
+
+        $scope.id = $stateParams.id;
+
+        $scope.customer = CustomerSvc.getCustomersById($scope.id);
+
+        console.log($scope.customer);
+
     }
 })();

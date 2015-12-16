@@ -192,6 +192,9 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                         templateUrl: 'templates/customer/addCustomer.html',
                         controller: 'AddCustomerCtrl'
                     }
+                },
+                params: {
+                    'id': null,
                 }
             })
 

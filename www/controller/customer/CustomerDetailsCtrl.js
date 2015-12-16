@@ -39,7 +39,7 @@
         }
 
         $scope.edit = function(id){
-            alert(id);
+            $state.go('app.addCustomer', {'id': id});
         }
 
         $scope.showAllBookings = function(id){

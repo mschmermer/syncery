@@ -224,5 +224,23 @@
             });
             return accommodation[0];
         }
+
+        function deleteAccommodation(id){
+            function findIndexInData(data, property, value) {
+                var result = -1;
+                data.some(function (item, i) {
+                    if (item[property] === value) {
+                        result = i;
+                        return true;
+                    }
+                });
+                return result;
+            }
+
+            var index = findIndexInData(vm.accommodations, 'id', id);
+
+            vm.accommodations.splice(index, 1);
+            return index;
+        }
     }
 })();
