@@ -5,10 +5,16 @@
         .controller('AddAccommodationCtrl', AddAccommodationCtrl);
 
 
-    function AddAccommodationCtrl($scope, UserSvc, $state, $cordovaFileTransfer, $cordovaCamera, $cordovaImagePicker) {
+    function AddAccommodationCtrl($scope, AccommodationSvc, $state, $cordovaFileTransfer, $stateParams, $cordovaImagePicker) {
         $scope.back = function(){
             $state.go('app.accommodations');
         }
+
+        $scope.id = $stateParams.id;
+
+        $scope.accommodation = AccommodationSvc.getAccommodationById($scope.id);
+
+        console.log($scope.accommodation);
 
         $scope.upload = function() {
             var options = {
@@ -33,8 +39,6 @@
             $scope.data.ImageURI =  imageURI;
             alert($scope.data.ImageURI );
         }
-
-        console.log($cordovaImagePicker);
 
 
         $scope.ShowPictures = function(){

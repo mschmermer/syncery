@@ -206,7 +206,8 @@
         service = {
             addAccommodations: addAccommodations,
             getAccommodations: getAccommodations,
-            getAccommodationById: getAccommodationById
+            getAccommodationById: getAccommodationById,
+            deleteAccommodation: deleteAccommodation
         };
         return service;
 

@@ -4,7 +4,7 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'ion-alpha-scroll'])
+angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'jett.ionic.filter.bar', 'jett.ionic.scroll.sista'])
 
     .run(function ($ionicPlatform, $ionicLoading,$rootScope) {
         $ionicPlatform.ready(function () {
@@ -40,14 +40,13 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
     })
 
 
-    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables) {
+    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables, $ionicFilterBarConfigProvider) {
 
         $translateProvider.translations('en', languageVariables['en']);
         $translateProvider.translations('de', languageVariables['de']);
-        //$translateProvider.preferredLanguage('de');
-        //$translateProvider.fallbackLanguage('de');
-        //$translateProvider.useCookieStorage();
         $translateProvider.useSanitizeValueStrategy('escape');
+
+        $ionicFilterBarConfigProvider.theme('royal');
 
         $stateProvider
 
@@ -148,6 +147,9 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                         templateUrl: 'templates/accommodation/addAccommodation.html',
                         controller: 'AddAccommodationCtrl'
                     }
+                },
+                params: {
+                    'id': null,
                 }
             })
 

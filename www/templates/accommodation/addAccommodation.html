@@ -13,7 +13,11 @@
         <div class="list card">
             <div class="item item-divider">{{"enter_accommodation_data" | translate}}</div>
             <ion-item>
-                <syncery-input title="'description' | translate" type="'textarea'">
+                <syncery-input title="'name' | translate" type="'text'" input="accommodation.name">
+                </syncery-input>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'description' | translate" type="'textarea'" input="accommodation.description">
                 </syncery-input>
             </ion-item>
             <ion-item>
