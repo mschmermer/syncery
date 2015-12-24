@@ -32,6 +32,16 @@ div.item#search-box{
     height: 50px;
 }
 
+ion-item.item.item-divider{
+     background-color: white; color: grey;
+     font-variant: small-caps;
+ }
+
+div.item.item-divider{
+    background-color: white; color: grey;
+    font-variant: small-caps;
+}
+
 
 /* Search */
 

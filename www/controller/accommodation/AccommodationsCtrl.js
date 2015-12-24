@@ -6,10 +6,17 @@
 
 
     function AccommodationsCtrl($scope, $timeout,$location, $ionicScrollDelegate, $state, AccommodationSvc,
-                                $ionicFilterBar) {
+                                $ionicFilterBar, $translate) {
         $scope.listCanSwipe = true;
 
         $scope.data = {};
+
+        $scope.text={};
+
+        $translate('cancel')
+            .then(function (translatedValue) {
+                $scope.text['cancel'] = translatedValue;
+            });
 
         $scope.data.accommodations = AccommodationSvc.getAccommodations();
 
@@ -20,28 +27,16 @@
                     update: function (filteredItems) {
                         $scope.data.accommodations = filteredItems;
                     },
-                    filterProperties: 'name'
+                    filterProperties: 'name',
+                    cancelText: $scope.text['cancel'],
                 });
             }
         }
 
-        $timeout( function() {
-            $location.hash('accommodation_list');
-            var delegate = $ionicScrollDelegate.$getByHandle('accommodations');
-            delegate.anchorScroll(true);
-        }, 200);
 
 
         $scope.addAccommodation = function () {
             $state.go('app.addAccommodation');
-        }
-        $scope.cancel = function () {
-            $timeout( function() {
-                $location.hash('accommodation_list');
-                var delegate = $ionicScrollDelegate.$getByHandle('accommodations');
-                delegate.anchorScroll(true);
-            }, 200);
-            $scope.data.searchQuery = '';
         }
 
         $scope.delete = function (id) {

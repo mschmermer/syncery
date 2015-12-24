@@ -1,0 +1,248 @@
+
+
+
+<div class="card syncery-calendar-card">
+
+
+    <style>
+        div.syncery-calendar-card{
+            width: 292px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table.syncery-calendar{
+            text-align: center;
+            border-spacing: 0px;
+            border-collapse: inherit;
+            min-width: 292px;
+        }
+
+        table.syncery-calendar.befor{
+            display: none;
+        }
+
+        table.syncery-calendar.after{
+            display: none;
+        }
+
+        table.syncery-calendar tbody tr{
+            display: block;
+            float: left;
+            height: 42px;
+
+            border-bottom: 2px solid rgb(247, 247, 247);
+        }
+
+        table.syncery-calendar thead tr{
+            display: block;
+            float: left;
+        }
+
+
+        table.syncery-calendar thead tr th{
+            width: 42px;
+        }
+
+        table.syncery-calendar thead th{
+            color: grey;
+            font-size: small;
+        }
+
+        tbody tr td{
+            font-size: 16px;
+            line-height: 40px;
+            position: relative;
+            padding: 0px;
+            width: 42px;
+            height: 40px;
+            z-index: 1;
+            background-color: white;
+            border-right: 2px solid rgb(247, 247, 247);
+        }
+
+        tbody tr td:last-child{
+            width: 40px;
+            border-right: 0px;
+        }
+
+        /*Abreise Dreieck*/
+
+        td.arrival{
+            position: relative;
+            font-weight: bold;
+            border-right: 2px solid rgb(255,102,102);
+        }
+
+        td.arrival:before {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-top: 40px solid transparent;
+            border-right: 36px solid rgb(255,102,102);
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            right: 0px;
+        }
+
+        td.arrival.selected{
+            position: relative;
+            font-weight: bold;
+            border-right: 2px solid #39A4FC;
+        }
+
+        td.arrival.selected:before {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-top: 40px solid transparent;
+            border-right: 36px solid #39A4FC;
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            right: 0px;
+        }
+
+        /* Anreise Dreieck*/
+        td.departure{
+            position: relative;
+            font-weight: bold;
+        }
+
+        td.departure:after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-bottom: 40px solid transparent;
+            border-left: 36px solid rgb(255,102,102);
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            left: 0px;
+        }
+
+        td.departure.selected{
+            position: relative;
+            font-weight: bold;
+        }
+
+        td.departure.selected:after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-bottom: 40px solid transparent;
+            border-left: 36px solid #39A4FC;
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            left: 0px;
+        }
+
+        /*Anezeige des aktuellen Tages*/
+        td div.today{
+            border-radius: 25px;
+            background-color: black;
+            height: 30px;
+            width: 30px;
+            color: white;
+            font-weight: bold;
+            z-index: 5;
+            position: absolute;
+            line-height: 30px;
+            top: 5px;
+            left: 5px;
+
+        }
+        /*Anzeige f�r belegten Tag*/
+
+        td.occupied{
+            background-color: rgb(255,102,102);
+            color: white;
+            border-right: 2px solid rgb(255,102,102);
+        }
+
+        td.occupied.selected{
+            background-color: #39A4FC;
+            color: white;
+            border-right: 2px solid #39A4FC;
+        }
+
+
+
+        td.occupied:first-child:before{
+            background-color: transparent;
+        }
+
+        /*vorheriger oder n�chster Monat*/
+        td.other_month{
+            background-color: rgb(251,251,251);
+            color: grey;
+        }
+
+        /*ausgewählte Zelle*/
+        table.syncery-calendar div.selected{
+            z-index: 1;
+            background-color: transparent;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border: 2px solid black;
+        }
+        div.item.item-divinder.title{
+            background-color: rgb(56,68,94);
+        }
+        h2.title{
+            text-align: center;
+            color: white
+        }
+        div.card.syncery-calendar-card div.item.item-divider.title{
+            background-color: rgb(56,68,94);
+            border-bottom: 2px solid red;
+        }
+
+    </style>
+
+
+    <div class="item item-divider title">
+        <h2 class="title">{{months[month]}} {{year}}</h2>
+    </div>
+    <table class="syncery-calendar" id="{{calendarid}}">
+        <thead>
+        <tr>
+            <th>
+                {{day[0]}}
+            </th>
+            <th>
+                {{day[1]}}
+            </th>
+            <th>
+                {{day[2]}}
+            </th>
+            <th>
+                {{day[3]}}
+            </th>
+            <th>
+                {{day[4]}}
+            </th>
+            <th>
+                {{day[5]}}
+            </th>
+            <th>
+                {{day[6]}}
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="(key1, value1) in calendarData">
+            <td ng-click="select(calendarData[key1][key2]['data_position'])" ng-class="calendarData[key1][key2]['class']"
+                data-position="{{calendarData[key1][key2]['data_position']}}" data-booking-id="{{calendarData[key1][key2]['booking-id']}}"
+                ng-repeat="(key2, value2) in calendarData[key1]">
+                {{calendarData[key1][key2]['daynumber']}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,19 @@
+<ion-view view-title="{{'add_portal' | translate}}">
+    <ion-content delegate-handle="addPortal">
+        <div id="search-box" class="item item-input-inset">
+            <div class="item-input-wrapper">
+                <i class="icon ion-ios7-search placeholder-icon"></i>
+                <input type="search" placeholder="{{'search' | translate}}" ng-model="data.searchQuery">
+                <i class="clear-search icon ion-ios7-close-empty" ng-click="clearSearch()"></i>
+            </div>
+            <button class="button button-clear" ng-click="cancel()">
+                {{"cancel" | translate}}
+            </button>
+        </div>
+        <ion-list id="add_portal_list"> <!--can-swipe="listCanSwipe">-->
+            <ion-item ng-repeat="portal in portals" class="item center" href="#/app/portals/add{{portal.id}}">
+                <h2>{{portal.name}}</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

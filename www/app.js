@@ -40,13 +40,15 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
     })
 
 
-    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language, languageVariables, $ionicFilterBarConfigProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language,
+                      languageVariables, $ionicFilterBarConfigProvider) {
 
         $translateProvider.translations('en', languageVariables['en']);
         $translateProvider.translations('de', languageVariables['de']);
         $translateProvider.useSanitizeValueStrategy('escape');
 
         $ionicFilterBarConfigProvider.theme('royal');
+        $ionicFilterBarConfigProvider.placeholder(languageVariables['de']['search']);
 
         $stateProvider
 

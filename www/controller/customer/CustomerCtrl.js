@@ -6,15 +6,19 @@
 
 
     function CustomerCtrl($scope, $state,$location,$timeout,
-                          $ionicScrollDelegate, $ionicFilterBar, CustomerSvc) {
+                          $ionicScrollDelegate, $ionicFilterBar, CustomerSvc, $translate) {
 
         $scope.listCanSwipe = true;
 
-        $ionicScrollDelegate.$getByHandle('customer').getScrollPosition();
-
         $scope.data = {};
         $scope.data.showSearch = true;
-        var open = 0;
+
+        $scope.text={};
+
+        $translate('cancel')
+            .then(function (translatedValue) {
+                $scope.text['cancel'] = translatedValue;
+            });
 
         $scope.getScrollPosition = function(){
             if($ionicScrollDelegate.$getByHandle('customer').getScrollPosition().top < 0){
@@ -23,19 +27,13 @@
                     update: function (filteredItems) {
                         $scope.data.customers = filteredItems;
                     },
-                    filterProperties: ['name','first_name']
+                    filterProperties: ['name'],
+                    cancelText: $scope.text['cancel'],
                 });
             }
-            open = 1;
         }
 
         $scope.data.customers = CustomerSvc.getCustomers();
-
-        $timeout( function() {
-            $location.hash('customer_list');
-            var delegate = $ionicScrollDelegate.$getByHandle('customer');
-            delegate.anchorScroll(true);
-        }, 200);
 
         $scope.addCutomer = function () {
             $state.go('app.addCustomer');

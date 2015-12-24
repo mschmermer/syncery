@@ -1,0 +1,78 @@
+<ion-view view-title="{{'agreement' | translate}}">
+    <ion-content delegate-handle="agreement">
+        <div class="card">
+            <ion-item class="item item-divider">
+                {{ 'testphase_time' | translate:translationData }}
+            </ion-item>
+
+            <syncery-contract-days
+                    remaining="contract_remaining" total="contract_total">
+            </syncery-contract-days>
+        </div>
+
+        <syncery-extend-contract number="'1'" payment="'monthly'" data-method="switchContract">
+        </syncery-extend-contract>
+
+        <div id="invoice_address" class="list card">
+            <div class="item item-divider item-icon-right" ng-click="showMore('invoice_address')">
+                {{"invoice_address" | translate}}
+                <i ng-class="icon['invoice_address']"></i>
+            </div>
+            <ion-item ng-hide="hide['invoice_address']">
+                <div class="list">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Anrede
+                        </div>
+                        <select>
+                            <option>Herr</option>
+                            <option selected>Frau</option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"first_name" | translate}}</span>
+                        <input type="text" placeholder="{{user.first_name}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"name" | translate}}</span>
+                        <input type="text" placeholder="{{user.name}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"address" | translate}}</span>
+                        <input type="text" placeholder="{{user.address}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">PLZ</span>
+                        <input type="text" placeholder="{{user.plz}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"city" | translate}}</span>
+                        <input type="text" placeholder="{{user.city}}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">{{"country" | translate}}</span>
+                        <input type="text" placeholder="{{user.country}}">
+                    </label>
+                </div>
+                <button class="button button-last button-assertive">
+                    {{"change_data" | translate}}
+                </button>
+            </ion-item>
+        </div>
+
+        <div id="invoices" class="list card">
+            <div class="item item-divider item-icon-right" ng-click="showMore('invoices')">
+                {{"invoices" | translate}}
+                <i ng-class="icon['invoices']"></i>
+            </div>
+            <ion-item class="item item-icon-left" ng-hide="hide['invoices']"
+                    href="#">
+                <i class="icon ion-document"></i> Rechnung von Oktober 2015 als PDF
+            </ion-item>
+            <ion-item class="item item-icon-left" ng-hide="hide['invoices']"
+                      href="#">
+                <i class="icon ion-document"></i> Rechnung von September 2015
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

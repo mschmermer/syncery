@@ -1,0 +1,41 @@
+<ion-view view-title="{{'create_account' | translate}}">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">{{"account_data" | translate}}</div>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{"first_name" | translate}}</b></span>
+                <input type="email" placeholder="{{'first_name' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{"name" | translate}}</b></span>
+                <input type="email" placeholder="{{'name' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>E-Mail</b></span>
+                <input type="email" placeholder="E-Mail">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'repeat_mail' | translate}}</b></span>
+                <input type="password" placeholder="{{'repeat_mail' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'password' | translate}}</b></span>
+                <input type="password" placeholder="{{'password' | translate}}">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label"><b>{{'repeat_password' | translate}}</b></span>
+                <input type="password" placeholder="{{'repeat_password' | translate}}">
+            </label>
+        </div>
+
+
+        <button ng-click="create()"
+                class="button button-last button-positive">{{"create_account" | translate}}
+        </button>
+    </ion-content>
+</ion-view>

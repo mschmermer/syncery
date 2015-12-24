@@ -1,0 +1,96 @@
+<ion-view view-title="{{'general' | translate}}">
+    <ion-content>
+        <div class="list card">
+            <ion-item class="item item-divider">
+                {{"nationality" | translate}}
+            </ion-item>
+            <ion-item>
+                <div class="row">
+                    <div class="col col-50">{{"timezone" | translate}}</div>
+                    <div class="col col-50">
+                        <syncery-dropdown name="'zeitzone'"
+                                          attribute="'Berlin'"
+                                          attributes="['Berlin', 'Bangkok']">
+
+                        </syncery-dropdown>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="row">
+                    <div class="col col-50">{{"currency" | translate}}</div>
+                    <div class="col col-50">
+                        <syncery-dropdown name="'zeitzone'"
+                                          attribute="'€'"
+                                          attributes="['€', '$']">
+
+                        </syncery-dropdown>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="row">
+                    <div class="col col-30">{{"language" | translate}}</div>
+                    <div class="col col-70">
+                        <syncery-toggle data-method="switchLanguage"
+                                        selected="languageSelected"
+                                        attributes="languages">
+
+                        </syncery-toggle>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item item-divider">
+                {{"notifications" | translate}}
+            </ion-item>
+            <ion-item>
+                <div class="row">
+                    <div class="col col-50">fasffg</div>
+                    <div class="col col-50">
+                        <syncery-toggle name="'not1'"
+                                        selected="'1'"
+                                        attributes="decision">
+                        </syncery-toggle>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="row">
+                    <div class="col col-50">fdgdfsg</div>
+                    <div class="col col-50">
+                        <syncery-toggle name="'not2'"
+                                        selected="'2'"
+                                        attributes="decision">
+
+                        </syncery-toggle>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="row">
+                    <div class="col col-50">dfsgdfg</div>
+                    <div class="col col-50">
+                        <syncery-toggle name="'not3'"
+                                        selected="'1'"
+                                        attributes="decision">
+
+                        </syncery-toggle>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item>
+                <div class="row">
+                    <div class="col col-50">dgsdfg</div>
+                    <div class="col col-50">
+                        <syncery-toggle name="'not4'"
+                                        selected="'1'"
+                                        attributes="decision">
+
+                        </syncery-toggle>
+                    </div>
+                </div>
+            </ion-item>
+            <button  class="button button-last button-positive" ng-click="save()">{{"save_general" | translate}}</button>
+        </div>
+    </ion-content>
+</ion-view>
