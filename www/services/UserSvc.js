@@ -25,6 +25,18 @@
             language: 'de'
         };
 
+        vm.profiles = [
+            {   id: 1,
+                first_name: 'Max',
+                name: 'Mustermann'},
+            {   id: 2,
+                first_name: 'Andrea',
+                name: 'Anderst'},
+            {   id: 3,
+                first_name: 'Bert',
+                name: 'Butta'},
+        ]
+
         service = {
             setUser: setUser,
             getUser: getUser,
@@ -32,7 +44,8 @@
             setLanguage: setLanguage,
             logout: logout,
             isLogged: isLogged,
-            setLogged: setLogged
+            setLogged: setLogged,
+            getProfiles: getProfiles
         };
         return service;
 
@@ -62,6 +75,10 @@
 
         function setLogged(){
             vm.login=true;
+        }
+
+        function getProfiles(){
+            return vm.profiles;
         }
 
     }

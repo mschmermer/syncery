@@ -24,6 +24,11 @@ ion-list div.list{
     padding-top: 0px;
 }
 
+span.badge{
+    border-radius: 4px;
+    right: 10px;
+}
+
 input{
     border-bottom: 2px solid black;
 }
@@ -33,13 +38,27 @@ div.item#search-box{
 }
 
 ion-item.item.item-divider{
-     background-color: white; color: grey;
+     /*background-color: white; color: grey;*/
+    font-variant: small-caps;
+ }
+
+ion-item.item-divider.divider-input{
+    padding-top: 20px;
+}
+
+div.item.item-divider{
+     /*background-color: white; color: grey;*/
      font-variant: small-caps;
  }
 
-div.item.item-divider{
-    background-color: white; color: grey;
-    font-variant: small-caps;
+div.item.item-divider.divider-input{
+    /*background-color: white; color: grey;*/
+    padding-top: 20px;
+}
+
+div.status-bar{
+    height: 20px;
+    /*background-color: rgb(56,68,94);*/
 }
 
 
@@ -70,6 +89,14 @@ img.logo-menu{
 ion-item.item.side-menu a{
     background-color: rgb(56,68,94);
     color: white;
+}
+
+ion-item.item.side-menu.side-menu-profiles a{
+    border-left: 10px solid rgb(56,68,94);
+}
+
+ion-item.item.side-menu{
+    border: 0px;
 }
 
 ion-content.side-menu{

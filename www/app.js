@@ -4,7 +4,7 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'jett.ionic.filter.bar', 'jett.ionic.scroll.sista'])
+angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'jett.ionic.filter.bar'])
 
     .run(function ($ionicPlatform, $ionicLoading,$rootScope) {
         $ionicPlatform.ready(function () {

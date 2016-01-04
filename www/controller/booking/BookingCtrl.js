@@ -136,7 +136,7 @@
                     $scope.year2 = $scope.year;
                 } else if ($scope.monthnumber == 1) {
                     $scope.year1 = $scope.year;
-                    $scope.monthnumber1 = 12;
+                    $scope.monthnumber2 = 12;
                     $scope.year2 = $scope.year - 1;
                 } else {
                     $scope.year1 = $scope.year;

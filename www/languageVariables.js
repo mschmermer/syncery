@@ -43,6 +43,7 @@ angular.module('syncery')
                 country: "Land",
                 telephone: "Telefon",
                 mobile: "Mobil Telefon",
+                // Menü
                 search_menu: "SUCHE",
                 bookings_menu: "BUCHUNGEN",
                 accommodations_menu: "UNTERKÜNFTE",
@@ -50,10 +51,12 @@ angular.module('syncery')
                 portals_menu: "PORTALE",
                 settings_menu: "EINSTELLUNGEN",
                 menu_menu: "MENÜ",
+                add_menu: "Profil hinzufügen",
                 add_mapping: "Mapping hinzufügen",
                 // Unterkunft hinzufügen
+                required: "Pflichtfeld",
                 add_accommodation: "Unterkunft hinzufügen",
-                gender: "Geschlecht",
+                gender: "Anrede",
                 title: "Titel",
                 enter_accommodation_data: "Unterkunftsdaten eintragen",
                 add_picture: "Bild hinzufügen",
@@ -86,6 +89,7 @@ angular.module('syncery')
                 profit: "Gewinn",
                 open_bill: "offene Rechnung",
                 contact: "Kontakt",
+                contact_data: "Kontaktdaten",
                 // Kunden Buchungs Übersicht
                 from: "von",
                 to: "bis",
@@ -174,7 +178,9 @@ angular.module('syncery')
                 settings_menu: "SETTINGS",
                 menu_menu: "MENU",
                 add_mapping: "Add Mapping",
+                add_menu: "Add Profil",
                 // Add accommodation
+                required: "required",
                 add_accommodation: "Add accommodation",
                 gender: "Gender",
                 title: "Title",
@@ -209,6 +215,7 @@ angular.module('syncery')
                 profit: "Profit",
                 open_bill: "Open bill",
                 contact: "Contact",
+                contact_data: "Contact Data",
                 // Customer Bookings Overview
                 from: "from",
                 to: "to",
