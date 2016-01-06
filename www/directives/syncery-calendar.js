@@ -31,17 +31,10 @@
 
                             if (!td.hasClass('other_month')) {
                                 td.append('<div class="selected"></div>');
-                                //$scope.calendarClass = BookingSvc.selectReservation($scope.month, booking_id, position, $scope.calendarClass);
-                                //console.log(calendarClass);
                                 BookingSvc.selectReservation($scope.month, booking_id, position);
-                                /*$templateRequest("./directives/templates/syncery-calendar.html").then(function(html){
-                                    var template = angular.element(html);
-                                    //$element.append(template);
-                                    $compile(template)($scope);
-                                });*/
+                                var func = $scope.methodToCall();
+                                func({booking_id: booking_id, day: selected_day, month: $scope.month, year: $scope.year});
                             }
-                            var func = $scope.methodToCall();
-                            func({booking_id: booking_id, day: selected_day, month: $scope.month, year: $scope.year});
                         }
                     });
 

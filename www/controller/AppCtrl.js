@@ -20,6 +20,12 @@
 
         $scope.data.open_bookings = 5;
 
+        $scope.menu_class = {};
+        $scope.menu_class.dashboard = 'selected';
+        $scope.menu_class.selected = "dashboard";
+
+
+
         $scope.user_selector = function(){
             if($scope.data.open){
                 $scope.data.open = false;
@@ -30,7 +36,12 @@
                 $scope.data.hide_user_selector=false;
                 $scope.data.classes['arrow']='ion-ios-arrow-up';
             }
-            console.log($scope.data);
+        }
+
+        $scope.changeView = function(view){
+            $scope.menu_class[$scope.menu_class.selected] = "";
+            $scope.menu_class[view] = "selected";
+            $scope.menu_class.selected = view;
         }
 
 

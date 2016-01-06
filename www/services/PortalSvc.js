@@ -103,5 +103,6 @@
         function getConfigPortals(){
             return vm.configPortals;
         }
+
     }
 })();

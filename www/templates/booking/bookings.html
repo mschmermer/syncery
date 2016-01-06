@@ -9,12 +9,12 @@
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
             <button ng-click="addBooking()"
-                    class="button button-icon icon ion-android-add-circle">
+                    class="button button-icon icon ion-ios-plus-outline">
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content delegate-handle="bookings" style="background-color: rgb(247,247,247)">
-        <div class="list card">
+        <!--<div class="list card">
             <div class="item item-divider">{{"selection" | translate}}</div>
             <ion-item>
                 <syncery-dropdown name="'accommodation'"
@@ -32,8 +32,20 @@
 
                 </syncery-dropdown>
             </ion-item>
+        </div>-->
+        <div class="list">
+            <div class="item item-divider divider-input">{{"selection" | translate}}</div>
+            <label class="item item-input item-icon-right" ng-click="select('accommodations')">
+                <span class="input-label">{{'accommodation' | translate}}</span>
+                <p>{{selector.accommodations.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('month')">
+                <span class="input-label">{{'month' | translate}}</span>
+                <p>{{selector.month.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
         </div>
-
 
         <div>
             <ion-slide-box id="slidebox" active-slide="myActiveSlide" on-slide-changed="slideHasChanged($index)" show-pager="false"

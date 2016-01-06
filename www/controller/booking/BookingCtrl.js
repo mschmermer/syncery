@@ -5,7 +5,7 @@
         .controller('BookingCtrl', BookingCtrl);
 
 
-    function BookingCtrl($scope, $ionicSlideBoxDelegate,
+    function BookingCtrl($scope, $ionicSlideBoxDelegate, $ionicModal,
                          $ionicPopover, language, $ionicScrollDelegate, $timeout, $location, $state) {
         $scope.standard_class = 'item item-stacked-label';
         $scope.hide = {
@@ -107,6 +107,13 @@
              $ionicSideMenuDelegate.canDragContent(true);
              });*/
 
+            $scope.selector={};
+            $scope.selector['accommodations'] = {
+                items: ['Unterkunft 1', 'Unterkunft 2', 'Unterkunft 3', 'Unterkunft 4', 'Unterkunft 5'],
+                name: 'accommodations',
+                selected: 'Unterkunft 1'
+            };
+
 
             $scope.myActiveSlide = 0;
 
@@ -150,6 +157,26 @@
             }
 
             $scope.date_actual = moments.month($scope.monthnumber - 1).format('MMMM') + ' ' + $scope.year;
+
+            $scope.selector['month'] = {
+                items: $scope.month2,
+                name: 'month',
+                selected: $scope.date_actual
+            };
+        }
+
+        $ionicModal.fromTemplateUrl('templates/selector.html', {
+            scope: $scope,
+            animation: 'fade-in'
+        }).then(function(modal) {
+            $scope.modal = modal
+        })
+
+
+        $scope.select = function (name) {
+            $scope.modal_data = $scope.selector[name];
+            $scope.modal.show();
+            //$state.go('app.selector', {'selector': $scope.selector['gender'], 'view': 'addCustomer'});
         }
 
         $scope.slideHasChanged = function (index) {

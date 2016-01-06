@@ -8,9 +8,9 @@
         </button>
     </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content>
+    <ion-content overflow-scroll="false">
         <div class="item item-divider divider-input">{{"enter_customer_data" | translate}}</div>
-        <label class="item item-input item-icon-right" ng-click="test('gender')">
+        <label class="item item-input item-icon-right" ng-click="select('gender')">
             <span class="input-label">{{'gender' | translate}}</span>
             <p>{{selector.gender.selected}}</p>
             <i class="icon ion-ios-arrow-right"></i>

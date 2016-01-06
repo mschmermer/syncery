@@ -13,11 +13,13 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
 
 
 
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
 
     <!-- your app's js -->
     <script src="app.js"></script>
@@ -82,6 +84,7 @@
     <script src="lib/accounting/accounting.min.js"></script>
     <link rel="stylesheet" href="lib/ionic-filter-bar/dist/ionic.filter.bar.css">
     <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
+
   </head>
 
   <body ng-app="syncery">

@@ -23,6 +23,9 @@ angular.module('syncery')
                 deposit: "Anzahlung",
                 final_payment: "Restzahlung",
                 notes: 'Notizen',
+                adult: 'Erwachsene',
+                children: 'Kinder',
+                animals: "Tiere",
                 /* Unterkünfte*/
                 back: "Zurück",
                 last_booking: "letzte Buchung",
@@ -111,6 +114,7 @@ angular.module('syncery')
                 numbers_accommodations: "Anzahl Ihrer Ferienwohnungen",
                 annually: "jährlich",
                 monthly: "monatlich",
+                month: "Monat",
                 // Portale
                 portals: "Portale",
                 portal_data: "Portaldaten",
@@ -150,6 +154,9 @@ angular.module('syncery')
                 deposit: "Deposit",
                 final_payment: "Final payment",
                 notes: 'Notes',
+                adult: 'Adult',
+                children: 'Children',
+                animals: "Animals",
                 /* Accommodations */
                 back: "Back",
                 last_booking: "Last booking",
@@ -236,6 +243,7 @@ angular.module('syncery')
                 change_package: "Change your package",
                 numbers_accommodations: "Number of their apartments",
                 monthly: "monthly",
+                month: "month",
                 annually: "annually",
                 // Portals
                 portals: "Portals",

@@ -26,8 +26,8 @@
                     }
 
                     $scope.date = {
-                        month: 12,
-                        year: 2015,
+                        month: 1,
+                        year: 2016,
                     };
 
                     $scope.showCalendar = function (name) {
@@ -35,6 +35,7 @@
                             $scope.day2 = select.day;
                             $scope.month2 = select.month;
                             $scope.year2 = select.year;
+                            $scope.booking_id = select.booking_id;
                         }
 
                         $scope.back = function(){
@@ -72,10 +73,10 @@
                                     text: '<b>Save</b>',
                                     type: 'button-positive',
                                     onTap: function (e) {
-                                        if ($scope.day2 == '--') {
+                                        if ($scope.day2 == '--' || $scope.booking_id != '') {
                                             e.preventDefault();
                                         } else {
-
+                                            console.log($scope.booking_id);
                                             $scope.day = $scope.day2;
                                             $scope.month = $scope.month2;
                                             $scope.year = $scope.year2;

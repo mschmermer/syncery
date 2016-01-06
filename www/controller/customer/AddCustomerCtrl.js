@@ -32,9 +32,8 @@
         })
 
 
-        $scope.test = function (name) {
-            $scope.modal.title = name;
-            $scope.modal.items = $scope.selector[name].items;
+        $scope.select = function (name) {
+            $scope.modal_data = $scope.selector[name];
             $scope.modal.show();
             //$state.go('app.selector', {'selector': $scope.selector['gender'], 'view': 'addCustomer'});
         }

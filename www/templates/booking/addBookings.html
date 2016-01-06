@@ -1,8 +1,155 @@
 <ion-view view-title="{{'add_booking' | translate}}">
-    <ion-content delegate-handle="addBookings">
-        <div class="list card">
-            <div class="item item-divider">{{"travel_data" | translate}}</div>
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        </ion-nav-back-button>
+        <ion-nav-buttons side="right">
+            <button ng-click="save()"
+                    class="button button-icon icon ion-android-done">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content delegate-handle="addBookings" overflow-scroll="false">
+        <div class="list">
+            <div class="item item-divider divider-input">{{"travel_data" | translate}}</div>
+            <label class="item item-input item-icon-right" ng-click="select('accommodations')">
+                <span class="input-label">{{'accommodation' | translate}}</span>
+                <p>{{selector.accommodations.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
             <ion-item>
+                <syncery-datepicker name="'arrival_date' | translate" data-method="selectDate">
+
+                </syncery-datepicker>
+            </ion-item>
+            <ion-item>
+                <syncery-datepicker name="'departure_date' | translate" data-method="selectDate">
+
+                </syncery-datepicker>
+            </ion-item>
+            <label class="item item-input item-icon-right" ng-click="select('adult')">
+                <span class="input-label">{{'adult' | translate}}</span>
+                <p>{{selector.adult.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('children')">
+                <span class="input-label">{{'children' | translate}}</span>
+                <p>{{selector.children.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('animals')">
+                <span class="input-label">{{'animals' | translate}}</span>
+                <p>{{selector.animals.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('channel')">
+                <span class="input-label">{{'Channel' | translate}}</span>
+                <p>{{selector.channel.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('status')">
+                <span class="input-label">{{'Status' | translate}}</span>
+                <p>{{selector.status.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <div class="item item-divider divider-input">{{"master_data" | translate}}</div>
+            <label class="item item-input item-icon-right" ng-click="select('gender')">
+                <span class="input-label">{{'gender' | translate}}</span>
+                <p>{{selector.gender.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'title' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'first_name' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'name' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'address' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'address' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">PLZ</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'city' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'country' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Firma</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <div class="item item-divider divider-input">{{"contact_data" | translate}}</div>
+            <label class="item item-input">
+                <span class="input-label">{{'telephone' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'mobile' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">E-Mail</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Fax</span>
+                <input type="text" placeholder="{{'required' | translate}}">
+            </label>
+            <div class="item item-divider divider-input">{{"payment_data" | translate}}</div>
+            <ion-item>
+                <syncery-input title="'deposit' | translate" type="'money'">
+
+                </syncery-input>
+                <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
+
+                </syncery-datepicker>
+                <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
+                </syncery-datepicker>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'final_payment' | translate" type="'money'">
+
+                </syncery-input>
+                <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
+
+                </syncery-datepicker>
+                <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
+                </syncery-datepicker>
+            </ion-item>
+            <div class="item item-divider divider-input">Extras</div>
+            <ion-item>
+                <syncery-checkbox selected="true" name="'Bettwäche'" data-method="input">
+                </syncery-checkbox>
+            </ion-item>
+            <ion-item>
+                <syncery-checkbox selected="false" name="'Handtücher'" data-method="input">
+                </syncery-checkbox>
+            </ion-item>
+            <ion-item>
+                <syncery-checkbox selected="false" name="'Endreinigung'" data-method="input">
+                </syncery-checkbox>
+            </ion-item>
+            <ion-item>
+                <syncery-input title="'notes'" type="'textarea'">
+                </syncery-input>
+            </ion-item>
+            <!--<ion-item>
                 <syncery-dropdown name="'accommodation'"
                                   attribute="accommodations[0]"
                                   attributes="accommodations">
@@ -140,7 +287,7 @@
             <ion-item>
                 <syncery-input title="'notes'" type="'textarea'">
                 </syncery-input>
-            </ion-item>
+            </ion-item>-->
         </div>
     </ion-content>
 </ion-view>

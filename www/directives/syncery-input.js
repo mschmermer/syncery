@@ -25,16 +25,16 @@
                             $scope.pattern = '.*';
                             break;
                         case 'number':
-                            $scope.typ = 'number';
+                            $scope.typ = 'tel';
                             $scope.pattern = '[0-9]*';
                             break;
                         case 'plz':
-                            $scope.typ = 'number';
+                            $scope.typ = 'tel';
                             $scope.pattern = '[0-9]*';
                             $scope.max = 999999;
                             break;
                         case 'tel':
-                            $scope.typ = 'number';
+                            $scope.typ = 'tel';
                             $scope.pattern = '[0-9]*';
                             break;
                         case 'mail':

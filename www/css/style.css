@@ -72,9 +72,9 @@ ion-item.settings {
     text-align: center;
 }
 
-ion-item.settings:first-child {
+/*ion-item.settings:first-child {
     margin-top: 15%;
-}
+}*/
 
 
 /*Menu*/
@@ -88,6 +88,11 @@ img.logo-menu{
 
 ion-item.item.side-menu a{
     background-color: rgb(56,68,94);
+    color: white;
+}
+
+ion-item.item.side-menu.selected a{
+    background-color: rgb(255,102,102);
     color: white;
 }
 

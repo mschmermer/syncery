@@ -30,34 +30,36 @@
                     {{profil.first_name}}<br>
                     {{profil.name}}
                 </ion-item>
-                <ion-item ng-hide="data.hide_user_selector"
-                          class="item item-icon-left side-menu side-menu-profiles" href="#">
-                    <i class="icon ion-ios-plus-outline"></i>
-                    {{"add_menu" | translate}}
-                </ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close href="#/app/search">
+                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.search"
+                          ng-click=changeView('search') href="#/app/search">
                     <i class="icon ion-ios-search"></i>{{"search_menu" | translate}}
                 </ion-item>
                 <!--<ion-item class="item-divider" style="height: 3%;">
                   {{"menu_menu" | translate}}
                 </ion-item>-->
-                <ion-item class="item item-icon-left side-menu" menu-close href="#/app/home">
+                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.dashboard"
+                          ng-click=changeView('daschboard') href="#/app/home">
                     <i class="icon ion-ios-speedometer-outline"></i>DASHBOARD
                 </ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close href="#/app/bookings">
+                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.booking"
+                          ng-click=changeView('booking') href="#/app/bookings">
                     <i class="icon ion-ios-calendar-outline"></i>{{"bookings_menu" | translate}}
                     <span class="badge badge-assertive">{{data.open_bookings}}</span>
                 </ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close href="#/app/accommodations">
+                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.accommodations"
+                          ng-click=changeView('accommodations') href="#/app/accommodations">
                     <i class="icon ion-ios-home-outline"></i>{{"accommodations_menu" | translate}}
                 </ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close href="#/app/customer">
+                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.customers"
+                          ng-click=changeView('customers') href="#/app/customer">
                     <i class="icon ion-ios-people-outline"></i>{{"customer_menu" | translate}}
                 </ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close href="#/app/portals">
+                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.portals"
+                          ng-click=changeView('portals') href="#/app/portals">
                     <i class="icon ion-android-sync"></i>{{"portals_menu" | translate}}
                 </ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close href="#/app/settings">
+                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.settings"
+                          ng-click=changeView('settings') href="#/app/settings">
                     <i class="icon ion-ios-gear-outline"></i>{{"settings_menu" | translate}}
                 </ion-item>
             </ion-list>

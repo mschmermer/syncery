@@ -4,10 +4,11 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'jett.ionic.filter.bar'])
+angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'jett.ionic.filter.bar', 'ionic.service.core', 'ionic.service.analytics'])
 
-    .run(function ($ionicPlatform, $ionicLoading,$rootScope) {
+    .run(function ($ionicPlatform, $ionicLoading,$rootScope, $ionicAnalytics) {
         $ionicPlatform.ready(function () {
+            $ionicAnalytics.register();
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
