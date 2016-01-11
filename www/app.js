@@ -6,9 +6,9 @@
 // 'syncery.controllers' is found in controllers.js
 angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'jett.ionic.filter.bar', 'ionic.service.core', 'ionic.service.analytics'])
 
-    .run(function ($ionicPlatform, $ionicLoading,$rootScope, $ionicAnalytics) {
+    .run(function ($ionicPlatform, $ionicLoading,$rootScope){ //, $ionicAnalytics) {
         $ionicPlatform.ready(function () {
-            $ionicAnalytics.register();
+            //$ionicAnalytics.register();
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -18,7 +18,7 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
 
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
-                StatusBar.overlaysWebView(false);
+                StatusBar.overlaysWebView(true);
                 StatusBar.backgroundColorByHexString("#38445e");
                 StatusBar.styleBlackOpaque();
             }
@@ -33,16 +33,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
         });
     })
 
-    .constant({'language': 'de'})
-    .constant({'currency': '€'})
+        .constant({'language': 'de'})
+            .constant({'currency': '€'})
 
-    .constant('$ionicLoadingConfig', {
-        template: '<ion-spinner class="spinner light" icon="bubbles"></ion-spinner>'
-    })
+            .constant('$ionicLoadingConfig', {
+                template: '<ion-spinner class="spinner light" icon="bubbles"></ion-spinner>'
+            })
 
 
-    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language,
-                      languageVariables, $ionicFilterBarConfigProvider) {
+            .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language,
+                              languageVariables, $ionicFilterBarConfigProvider) {
 
         $translateProvider.translations('en', languageVariables['en']);
         $translateProvider.translations('de', languageVariables['de']);
@@ -114,12 +114,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
             })
 
             .state('app.bookings', {
-                url: '/bookings',
+                url: '/bookings:tab_id',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/booking/bookings.html',
                         controller: 'BookingCtrl'
                     }
+                },
+                params: {
+                    'tab_id': null,
+                    'filter': null,
                 }
             })
 
@@ -243,11 +247,38 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                 }
             })
             .state('app.account', {
-                url: '/settings/account',
+                url: '/settings/accountData',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/settings/account.html',
-                        controller: 'AccountCtrl'
+                        templateUrl: 'templates/settings/account/accountData.html',
+                        controller: 'AccountDataCtrl'
+                    }
+                }
+            })
+            .state('app.passwordChange', {
+                url: '/settings/passwordChange',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/account/passwordChange.html',
+                        controller: 'AccountDataCtrl'
+                    }
+                }
+            })
+            .state('app.invoiceAdress', {
+                url: '/settings/invoiceAdress',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/account/invoiceAddress.html',
+                        controller: 'InvoiceAdressCtrl'
+                    }
+                }
+            })
+            .state('app.invoices', {
+                url: '/settings/invoices',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/account/invoices.html',
+                        controller: 'InvoicesCtrl'
                     }
                 }
             })
@@ -267,6 +298,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                     'menuContent': {
                         templateUrl: 'templates/settings/informations.html',
                         controller: 'InformationsCtrl'
+                    }
+                }
+            })
+
+            .state('app.inviteUser', {
+                url: '/settings/inviteUser',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/account/inviteUser.html',
+                        controller: 'InviteUserCtrl'
                     }
                 }
             })
@@ -300,6 +341,7 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                     }
                 }
             })
+
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/home');

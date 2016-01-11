@@ -21,8 +21,6 @@
                 <syncery-datepicker name="'arrival_date' | translate" data-method="selectDate">
 
                 </syncery-datepicker>
-            </ion-item>
-            <ion-item>
                 <syncery-datepicker name="'departure_date' | translate" data-method="selectDate">
 
                 </syncery-datepicker>
@@ -112,20 +110,24 @@
                 <input type="text" placeholder="{{'required' | translate}}">
             </label>
             <div class="item item-divider divider-input">{{"payment_data" | translate}}</div>
+                <label class="item item-input item-icon-right">
+                    <span class="input-label">{{"deposit" | translate}}</span>
+                    <input type="number">
+                    <i class="icon ion-social-euro-outline"></i>
+                </label>
             <ion-item>
-                <syncery-input title="'deposit' | translate" type="'money'">
-
-                </syncery-input>
                 <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
 
                 </syncery-datepicker>
                 <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
                 </syncery-datepicker>
             </ion-item>
+            <label class="item item-input item-icon-right">
+                <span class="input-label">{{"final_payment" | translate}}</span>
+                <input type="number">
+                <i class="icon ion-social-euro-outline"></i>
+            </label>
             <ion-item>
-                <syncery-input title="'final_payment' | translate" type="'money'">
-
-                </syncery-input>
                 <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
 
                 </syncery-datepicker>
@@ -133,161 +135,17 @@
                 </syncery-datepicker>
             </ion-item>
             <div class="item item-divider divider-input">Extras</div>
-            <ion-item>
-                <syncery-checkbox selected="true" name="'Bettwäche'" data-method="input">
-                </syncery-checkbox>
-            </ion-item>
-            <ion-item>
-                <syncery-checkbox selected="false" name="'Handtücher'" data-method="input">
-                </syncery-checkbox>
-            </ion-item>
-            <ion-item>
-                <syncery-checkbox selected="false" name="'Endreinigung'" data-method="input">
-                </syncery-checkbox>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'notes'" type="'textarea'">
-                </syncery-input>
-            </ion-item>
-            <!--<ion-item>
-                <syncery-dropdown name="'accommodation'"
-                                  attribute="accommodations[0]"
-                                  attributes="accommodations">
-                </syncery-dropdown>
-            </ion-item>
-            <ion-item style="padding: 0;">
-                <syncery-datepicker name="'arrival_date' | translate" data-method="selectDate">
+            <ion-list>
 
-                </syncery-datepicker>
-            </ion-item>
-            <ion-item style="padding: 0;">
-                <syncery-datepicker name="'departure_date' | translate" data-method="selectDate">
+                <ion-checkbox ng-model="extra.blue">Bettwäche</ion-checkbox>
+                <ion-checkbox ng-model="filter.yellow">Handtücher</ion-checkbox>
+                <ion-checkbox ng-model="filter.pink">Endreinigung</ion-checkbox>
 
-                </syncery-datepicker>
-            </ion-item>
-            <ion-item>
-                <syncery-dropdown name="'adult'"
-                                  attribute="'Anzahl der Erwachsenen'"
-                                  attributes="['1 Erwachsener', '2 Erwachsene', '3 Erwachsene']">
-                </syncery-dropdown>
-            </ion-item>
-            <ion-item>
-                <syncery-dropdown name="'children'"
-                                  attribute="'Anzahl der Kinder'"
-                                  attributes="['1 Kind', '2 Kinder', '3 Kinder']">
-                </syncery-dropdown>
-            </ion-item>
-            <ion-item>
-                <syncery-dropdown name="'animals'"
-                                  attribute="'Haustiere'"
-                                  attributes="['Hund', 'Katze', 'Nagetier']">
-                </syncery-dropdown>
-            </ion-item>
-        </div>
-
-        <div class="list card">
-            <div class="item item-divider">{{"master_data" | translate}}</div>
-            <ion-item>
-                <syncery-dropdown name="'gender'"
-                                  attribute="'Anrede'"
-                                  attributes="['Herr', 'Frau']">
-                </syncery-dropdown>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'Titel'" type="'text'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'first_name' | translate" type="'text'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'name' | translate" type="'text'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'address' | translate" type="'text'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'PLZ'" type="'plz'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'city' | translate" type="'text'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'country' | translate" type="'text'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'telephone' | translate" type="'tel'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'mobile' | translate" type="'tel'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'E-Mail'" type="'mail'">
-
-                </syncery-input>
-            </ion-item>
-        </div>
-
-        <div class="list card">
-            <div class="item item-divider">{{"payment_data" | translate}}</div>
-
-            <ion-item>
-                <syncery-input title="'deposit' | translate" type="'money'">
-
-                </syncery-input>
-                <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
-
-                </syncery-datepicker>
-                <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
-                </syncery-datepicker>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'final_payment' | translate" type="'money'">
-
-                </syncery-input>
-                <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
-
-                </syncery-datepicker>
-                <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
-                </syncery-datepicker>
-            </ion-item>
-        </div>
-
-        <div class="list card">
-            <div class="item item-divider">Extras</div>
-            <ion-item>
-                <syncery-checkbox selected="true" name="'Bettwäche'" data-method="input">
-                </syncery-checkbox>
-            </ion-item>
-            <ion-item>
-                <syncery-checkbox selected="false" name="'Handtücher'" data-method="input">
-                </syncery-checkbox>
-            </ion-item>
-            <ion-item>
-                <syncery-checkbox selected="false" name="'Endreinigung'" data-method="input">
-                </syncery-checkbox>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'notes'" type="'textarea'">
-                </syncery-input>
-            </ion-item>-->
+            </ion-list>
+            <label class="item item-input">
+                <span class="input-label">{{'notes' | translate}}</span>
+                <textarea rows="4" cols="5" ng-model="formData.message"></textarea>
+            </label>
         </div>
     </ion-content>
 </ion-view>

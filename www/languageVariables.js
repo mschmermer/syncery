@@ -12,6 +12,8 @@ angular.module('syncery')
                 payment: "Zahlung",
                 date: "Datum",
                 selection: "Auswahl",
+                open: "offen",
+                unpaid: "unbezahlt",
                 /*Buchung hinzufügen */
                 add_booking: "Buchung hinzufügen",
                 travel_data: "Reisedaten",
@@ -67,9 +69,14 @@ angular.module('syncery')
                 // Einstellungen
                 settings: "Einstellungen",
                 general: "Allgemein",
-                agreement: "Vertrag",
+                agreement: "Abonnement",
+                help: "Hilfe",
                 sign_off: "abmelden",
                 informations: "Informationen",
+                invite_user: "User einladen",
+                old_pw: "Altes Passwort",
+                new_pw: "Neues passwort",
+                pw_repeat: "Passwort wiederholen",
                 // Allgemein
                 timezone: 'Zeitzone',
                 currency: 'Währung',
@@ -143,6 +150,8 @@ angular.module('syncery')
                 payment: "Payment",
                 date: "Date",
                 selection: "Selection",
+                open: "open",
+                unpaid: "unpaid",
                 /*Add Booking */
                 add_booking: "Add booking",
                 travel_data: "Traveldata",
@@ -198,8 +207,13 @@ angular.module('syncery')
                 settings: "Settings",
                 general: "General",
                 agreement: "Agreement",
+                help: "Help",
                 sign_off: "sign off",
                 informations: "Informations",
+                invite_user: "invite user",
+                old_pw: "Old password",
+                new_pw: "new password",
+                pw_repeat: "Repeat password",
                 //General
                 timezone: 'Timezone',
                 currency: 'Currency',

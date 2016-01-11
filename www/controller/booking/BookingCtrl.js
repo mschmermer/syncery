@@ -5,8 +5,9 @@
         .controller('BookingCtrl', BookingCtrl);
 
 
-    function BookingCtrl($scope, $ionicSlideBoxDelegate, $ionicModal,
-                         $ionicPopover, language, $ionicScrollDelegate, $timeout, $location, $state) {
+    function BookingCtrl($scope, $ionicSlideBoxDelegate, $ionicModal, $ionicTabsDelegate,
+                         language, $ionicScrollDelegate, $timeout, $location, $state,
+                         $stateParams) {
         $scope.standard_class = 'item item-stacked-label';
         $scope.hide = {
             customer: {
@@ -24,6 +25,45 @@
         };
 
         init();
+
+        $scope.$watch('selector.month.selected', function (newvalue) {
+            $scope.selectMonth(newvalue);
+        });
+
+        $scope.$on('$ionicView.enter', function(){
+            $scope.tab_id = parseInt($stateParams.tab_id);
+            $ionicTabsDelegate.$getByHandle('bookingView').select($scope.tab_id);
+            if($stateParams.filter){
+                $scope.filter($stateParams.filter);
+            }
+        });
+
+        $scope.filter_class={};
+        $scope.filter_class.date="button-assertive";
+        $scope.filter_class.open="button-royal";
+        $scope.filter_class.unpaid="button-royal";
+
+        $scope.filter = function(filter){
+            switch (filter) {
+                case "date":
+                    $scope.filter_class.date = "button-assertive";
+                    $scope.filter_class.open = "button-royal";
+                    $scope.filter_class.unpaid = "button-royal";
+                    break;
+                case "open":
+                    $scope.filter_class.date = "button-royal";
+                    $scope.filter_class.open = "button-assertive";
+                    $scope.filter_class.unpaid = "button-royal";
+                    break;
+                case "unpaid":
+                    $scope.filter_class.date = "button-royal";
+                    $scope.filter_class.open = "button-royal";
+                    $scope.filter_class.unpaid = "button-assertive";
+                    break;
+            }
+
+        }
+
 
         $scope.showMore = function (name) {
             switch (name) {
@@ -100,12 +140,6 @@
         }
 
         function init() {
-            /*$scope.$on('$ionicView.enter', function () {
-             $ionicSideMenuDelegate.canDragContent(false);
-             });
-             $scope.$on('$ionicView.leave', function () {
-             $ionicSideMenuDelegate.canDragContent(true);
-             });*/
 
             $scope.selector={};
             $scope.selector['accommodations'] = {
@@ -117,13 +151,25 @@
 
             $scope.myActiveSlide = 0;
 
-            $scope.language = language;
+            $scope.hideCal1 = true;
+            $scope.hideCal2 = true;
+            $scope.jumper = 0;
+            $scope.col = "col-100";
+
+
+            if(window.innerWidth>=605){
+                $scope.hideCal1 = false;
+                $scope.col = "col-50";
+                $scope.jumper = 1;
+            }
+            if(window.innerWidth>=910){
+                $scope.hideCal2 = false;
+                $scope.col = "col-33";
+                $scope.jumper = 2;
+            }
 
             $scope.month = [];
             $scope.month2 = [];
-
-            $scope.accommodations = ['Unterkunft 1', 'Unterkunft 2', 'Unterkunft 3', 'Unterkunft 4', 'Unterkunft 5'];
-            $scope.accommodations_actual = 0;
 
             $scope.hideButtonAdd = false;
             $scope.bookingView = true;
@@ -183,6 +229,7 @@
             switch (index) {
                 case 0:
                     $scope.date_actual = $scope.month[$scope.monthnumber - 1] + ' ' + $scope.year;
+                    $scope.selector.month.selected = $scope.date_actual;
                     switch ($scope.myActiveSlide) {
                         case 1:
                             $scope.monthnumber2 = $scope.monthnumber2 - 3;
@@ -202,6 +249,7 @@
                     break;
                 case 1:
                     $scope.date_actual = $scope.month[$scope.monthnumber1 - 1] + ' ' + $scope.year1;
+                    $scope.selector.month.selected = $scope.date_actual;
                     switch ($scope.myActiveSlide) {
                         case 0:
                             $scope.monthnumber2 = $scope.monthnumber2 + 3;
@@ -222,6 +270,7 @@
                     break;
                 case 2:
                     $scope.date_actual = $scope.month[$scope.monthnumber2 - 1] + ' ' + $scope.year2;
+                    $scope.selector.month.selected = $scope.date_actual;
                     switch ($scope.myActiveSlide) {
                         case 1:
                             $scope.monthnumber = $scope.monthnumber + 3;

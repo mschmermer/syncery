@@ -26,7 +26,7 @@
                                 }
                             }
 
-                            angular.element(document.querySelector('table#' + $scope.calendarid + ' div.selected')).remove();
+                            angular.element(document.querySelector('div.selected')).remove();
                             var td = angular.element(document.querySelector('table#' + $scope.calendarid + ' td[data-position="' + position + '"]'));
 
                             if (!td.hasClass('other_month')) {

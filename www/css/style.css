@@ -60,7 +60,9 @@ div.status-bar{
     height: 20px;
     /*background-color: rgb(56,68,94);*/
 }
-
+.tabs-striped.tabs-color-light .tab-item.tab-item-active{
+    border-top: 4px solid red;
+}
 
 /* Search */
 
@@ -131,7 +133,7 @@ div.item.forget-password{
     border: 0px;
     font-size: 70%;
     text-align: center;
-    height: 4%;
+
     padding: 0px;
 }
 

@@ -18,25 +18,16 @@
         </ion-header-bar>
         <ion-content class="side-menu">
             <ion-list class="side-menu">
-                <ion-item class="item item-avatar item-icon-right side-menu" href="#" ng-click="user_selector()">
+                <ion-item class="item item-avatar item-icon-right side-menu" href="#" >
                     <img ng-src="img/avatar.jpg">
                     {{data.user.first_name}}<br>
                     {{data.user.name}}
-                    <i class="icon" ng-class="data.classes.arrow"></i>
-                </ion-item>
-                <ion-item ng-repeat="profil in data.profiles" ng-hide="data.hide_user_selector"
-                          class="item item-avatar item-icon-right side-menu side-menu-profiles" href="#">
-                    <img ng-src="img/avatar.jpg">
-                    {{profil.first_name}}<br>
-                    {{profil.name}}
+                    <i class="icon ion-ios-gear-outline" ng-click="settings()"></i>
                 </ion-item>
                 <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.search"
                           ng-click=changeView('search') href="#/app/search">
                     <i class="icon ion-ios-search"></i>{{"search_menu" | translate}}
                 </ion-item>
-                <!--<ion-item class="item-divider" style="height: 3%;">
-                  {{"menu_menu" | translate}}
-                </ion-item>-->
                 <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.dashboard"
                           ng-click=changeView('daschboard') href="#/app/home">
                     <i class="icon ion-ios-speedometer-outline"></i>DASHBOARD
@@ -58,10 +49,10 @@
                           ng-click=changeView('portals') href="#/app/portals">
                     <i class="icon ion-android-sync"></i>{{"portals_menu" | translate}}
                 </ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.settings"
+                <!--<ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.settings"
                           ng-click=changeView('settings') href="#/app/settings">
                     <i class="icon ion-ios-gear-outline"></i>{{"settings_menu" | translate}}
-                </ion-item>
+                </ion-item>-->
             </ion-list>
         </ion-content>
     </ion-side-menu>

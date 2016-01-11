@@ -1,0 +1,43 @@
+<ion-view view-title="{{'invite_user' | translate}}">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        </ion-nav-back-button>
+        <ion-nav-buttons side="right">
+            <button ng-click="save()"
+                    class="button button-icon icon ion-ios-paperplane-outline">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-list>
+            <label class="item item-input">
+                <span class="input-label">Name</span>
+                <input type="text">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">E-Mail</span>
+                <input type="text">
+            </label>
+            <li class="item item-toggle">
+                Admin
+                <label class="toggle toggle-royal">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Admin 2
+                <label class="toggle toggle-royal">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
