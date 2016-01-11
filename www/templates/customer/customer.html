@@ -29,8 +29,8 @@
                       ng-repeat="customer in data.customers | orderBy:'name'"
                       href="#/app/customer/details{{customer.id}}">
                 <!--<i class="icon ion-person-stalker"></i>-->
-                <img ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
-                <img ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+                <img ng-if="customer.avatar" src="img/{{customer.avatar}}">
+                <img ng-if="!customer.avatar" src="img/avatar.jpg">
 
                 <h2>{{customer.first_name}} {{customer.name}}</h2>
                 <div class="row row-customer">

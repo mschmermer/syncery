@@ -312,6 +312,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                 }
             })
 
+            .state('app.allInvitedUser', {
+                url: '/settings/allInvitedUser',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/account/allInvitedUser.html',
+                        controller: 'AllInvitedUserCtrl'
+                    }
+                }
+            })
+
             .state('app.portals', {
                 url: '/portals',
                 views: {

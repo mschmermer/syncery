@@ -222,7 +222,6 @@
         $scope.select = function (name) {
             $scope.modal_data = $scope.selector[name];
             $scope.modal.show();
-            //$state.go('app.selector', {'selector': $scope.selector['gender'], 'view': 'addCustomer'});
         }
 
         $scope.slideHasChanged = function (index) {
