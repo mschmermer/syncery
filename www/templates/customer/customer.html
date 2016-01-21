@@ -13,7 +13,7 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content scroll-sista="header" delegate-handle="customer" on-scroll="getScrollPosition()">
+    <ion-content delegate-handle="customer" on-scroll="getScrollPosition()" overflow-scroll="false">
         <!--<div id="search-box" class="item item-input-inset" ng-show="data.showSearch">
             <div class="item-input-wrapper">
                 <i class="icon ion-ios7-search placeholder-icon"></i>
@@ -29,8 +29,8 @@
                       ng-repeat="customer in data.customers | orderBy:'name'"
                       href="#/app/customer/details{{customer.id}}">
                 <!--<i class="icon ion-person-stalker"></i>-->
-                <img ng-if="customer.avatar" src="img/{{customer.avatar}}">
-                <img ng-if="!customer.avatar" src="img/avatar.jpg">
+                <img ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+                <img ng-if="!customer.avatar" ng-src="img/avatar.jpg">
 
                 <h2>{{customer.first_name}} {{customer.name}}</h2>
                 <div class="row row-customer">

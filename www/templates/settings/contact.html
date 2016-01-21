@@ -1,0 +1,27 @@
+<ion-view view-title="{{'contact' | translate}}">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        </ion-nav-back-button>
+        <ion-nav-buttons side="right">
+            <button ng-click="send()"
+                    class="button button-icon icon ion-ios-paperplane-outline">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <label class="item item-input">
+            <span class="input-label">{{'regard' | translate}}</span>
+            <input type="text" placeholder="{{'required' | translate}}">
+        </label>
+        <label class="item item-input item-icon-right" ng-click="select('category')">
+            <span class="input-label">{{'category' | translate}}</span>
+            <p>{{selector.category.selected}}</p>
+            <i class="icon ion-ios-arrow-right"></i>
+        </label>
+        <label class="item item-input">
+
+            <textarea rows="12" cols="5" ng-model="formData.message"></textarea>
+        </label>
+    </ion-content>
+</ion-view>

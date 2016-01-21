@@ -5,10 +5,16 @@
         .controller('AddAccommodationCtrl', AddAccommodationCtrl);
 
 
-    function AddAccommodationCtrl($scope, UserSvc, $state, $cordovaFileTransfer, $cordovaCamera, $cordovaImagePicker) {
+    function AddAccommodationCtrl($scope, AccommodationSvc, $state, $cordovaFileTransfer, $stateParams, $cordovaImagePicker, $ionicModal) {
         $scope.back = function(){
             $state.go('app.accommodations');
         }
+
+        $scope.id = $stateParams.id;
+
+        $scope.accommodation = AccommodationSvc.getAccommodationById($scope.id);
+
+        console.log($scope.accommodation);
 
         $scope.upload = function() {
             var options = {
@@ -34,8 +40,6 @@
             alert($scope.data.ImageURI );
         }
 
-        console.log($cordovaImagePicker);
-
 
         $scope.ShowPictures = function(){
             var options = {
@@ -55,6 +59,29 @@
                     // error getting photos
                 });
         };
+
+        // Select for Dropdown
+
+        $scope.selector={};
+        $scope.selector['gender'] = {
+            items: ['Herr','Frau'],
+            name: 'gender',
+            selected: 'Herr'
+        };
+
+        $ionicModal.fromTemplateUrl('templates/selector.html', {
+            scope: $scope,
+            animation: 'fade-in'
+        }).then(function(modal) {
+            $scope.modal = modal
+        })
+
+
+        $scope.select = function (name) {
+            $scope.modal_data = $scope.selector[name];
+            $scope.modal.show();
+            //$state.go('app.selector', {'selector': $scope.selector['gender'], 'view': 'addCustomer'});
+        }
 
     }
 })();

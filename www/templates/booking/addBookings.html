@@ -50,7 +50,12 @@
                 <p>{{selector.status.selected}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
             </label>
-            <div class="item item-divider divider-input">{{"master_data" | translate}}</div>
+            <label class="item item-input item-icon-right" ng-click="searchCustomer()">
+                <span class="input-label">{{'customer' | translate}}</span>
+                <p>{{customer.first_name}} {{customer.name}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <!--<div class="item item-divider divider-input">{{"master_data" | translate}}</div>
             <label class="item item-input item-icon-right" ng-click="select('gender')">
                 <span class="input-label">{{'gender' | translate}}</span>
                 <p>{{selector.gender.selected}}</p>
@@ -108,12 +113,12 @@
             <label class="item item-input">
                 <span class="input-label">Fax</span>
                 <input type="text" placeholder="{{'required' | translate}}">
-            </label>
+            </label>-->
             <div class="item item-divider divider-input">{{"payment_data" | translate}}</div>
                 <label class="item item-input item-icon-right">
                     <span class="input-label">{{"deposit" | translate}}</span>
-                    <input type="number">
-                    <i class="icon ion-social-euro-outline"></i>
+                    <input type="tel" ng-change="changeMoney('deposit')" ng-model="data.deposit" maxlength="21">
+                    <i class="icon ion-social-euro" style="font-size: 15px;"></i>
                 </label>
             <ion-item>
                 <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
@@ -124,8 +129,8 @@
             </ion-item>
             <label class="item item-input item-icon-right">
                 <span class="input-label">{{"final_payment" | translate}}</span>
-                <input type="number">
-                <i class="icon ion-social-euro-outline"></i>
+                <input type="tel" ng-change="changeMoney('final_payment')" ng-model="data.final_payment" maxlength="21">
+                <i class="icon ion-social-euro" style="font-size: 15px;"></i>
             </label>
             <ion-item>
                 <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
@@ -137,9 +142,9 @@
             <div class="item item-divider divider-input">Extras</div>
             <ion-list>
 
-                <ion-checkbox ng-model="extra.blue">Bettwäche</ion-checkbox>
-                <ion-checkbox ng-model="filter.yellow">Handtücher</ion-checkbox>
-                <ion-checkbox ng-model="filter.pink">Endreinigung</ion-checkbox>
+                <ion-checkbox ng-model="extra.bedding">Bettwäche</ion-checkbox>
+                <ion-checkbox ng-model="extra.towels">Handtücher</ion-checkbox>
+                <ion-checkbox ng-model="extra.cleaning">Endreinigung</ion-checkbox>
 
             </ion-list>
             <label class="item item-input">

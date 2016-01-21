@@ -9,12 +9,12 @@
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
             <button ng-click="addCutomer()"
-                    class="button button-icon icon ion-android-add-circle">
+                    class="button button-icon icon ion-ios-plus-outline">
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="customer">
-        <div id="search-box" class="item item-input-inset" ng-show="data.showSearch">
+    <ion-content scroll-sista="header" delegate-handle="customer" on-scroll="getScrollPosition()">
+        <!--<div id="search-box" class="item item-input-inset" ng-show="data.showSearch">
             <div class="item-input-wrapper">
                 <i class="icon ion-ios7-search placeholder-icon"></i>
                 <input type="search" placeholder="{{'search' | translate}}" ng-model="data.searchQuery">
@@ -23,10 +23,10 @@
             <button class="button button-clear" ng-click="cancel()">
                 {{"cancel" | translate}}
             </button>
-        </div>
+        </div>-->
         <ion-list id="customer_list" can-swipe="listCanSwipe">
-            <ion-item class="item customer-list item-avatar item-icon-right" ng-repeat="customer in data.customers
-            | filter: data.searchQuery | orderBy:'name'"
+            <ion-item class="item list-item item-remove-animate customer-list item-avatar item-icon-right"
+                      ng-repeat="customer in data.customers | orderBy:'name'"
                       href="#/app/customer/details{{customer.id}}">
                 <!--<i class="icon ion-person-stalker"></i>-->
                 <img ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
@@ -49,7 +49,7 @@
                                    ng-click="delete(customer.id)">
                     {{"delete" | translate}}
                 </ion-option-button>
-                <i class="icon icon-small ion-chevron-right"></i>
+                <i class="icon icon-small ion-ios-arrow-right"></i>
             </ion-item>
         </ion-list>
         <!--<ion-alpha-scroll id="customer_list" can-swipe="listCanSwipe" ng-model="data.customers" key="name">

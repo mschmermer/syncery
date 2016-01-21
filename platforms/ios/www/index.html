@@ -5,19 +5,21 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+
 
 
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
 
     <!-- your app's js -->
     <script src="app.js"></script>
@@ -30,21 +32,27 @@
     <script src="services/UserSvc.js"></script>
     <script src="services/CustomerSvc.js"></script>
     <script src="services/AccommodationSvc.js"></script>
+    <script src="services/PortalSvc.js"></script>
+    <script src="services/MappingSvc.js"></script>
+    <script src="services/BookingSvc.js"></script>
 
     <!-- Directives -->
     <script src="directives/syncery-calendar.js"></script>
-    <script src="directives/syncery-calendar2.js"></script>
     <script src="directives/syncery-dropdown.js"></script>
     <script src="directives/syncery-search.js"></script>
     <script src="directives/syncery-toggle.js"></script>
     <script src="directives/syncery-contract-days.js"></script>
     <script src="directives/syncery-extend-contract.js"></script>
+    <script src="directives/syncery-datepicker.js"></script>
+    <script src="directives/syncery-input.js"></script>
+    <script src="directives/syncery-checkbox.js"></script>
 
     <!-- Controller -->
     <script src="controller/SearchCtrl.js"></script>
     <script src="controller/HomeCtrl.js"></script>
     <script src="controller/AppCtrl.js"></script>
-    <script src="controller/BookingCtrl.js"></script>
+    <script src="controller/booking/BookingCtrl.js"></script>
+    <script src="controller/booking/AddBookingCtrl.js"></script>
     <script src="controller/login/LoginCtrl.js"></script>
     <script src="controller/login/CreateCtrl.js"></script>
     <script src="controller/login/ForgotCtrl.js"></script>
@@ -55,21 +63,36 @@
     <script src="controller/accommodation/AccommodationsCtrl.js"></script>
     <script src="controller/accommodation/AddAccommodationCtrl.js"></script>
     <script src="controller/accommodation/AccommodationDetailsCtrl.js"></script>
+    <script src="controller/accommodation/AccommodationMappingCtrl.js"></script>
+      <script src="controller/accommodation/AccommodationMasterDataCtrl.js"></script>
     <script src="controller/settings/SettingsCtrl.js"></script>
     <script src="controller/settings/GeneralCtrl.js"></script>
-    <script src="controller/settings/AccountCtrl.js"></script>
+      <script src="controller/settings/FaqCtrl.js"></script>
+    <script src="controller/settings/account/AccountDataCtrl.js"></script>
+      <script src="controller/settings/account/PasswordChangeCtrl.js"></script>
+      <script src="controller/settings/account/InvoiceAddressCtrl.js"></script>
+      <script src="controller/settings/account/InvoicesCtrl.js"></script>
+      <script src="controller/settings/account/InviteUser.js"></script>
+      <script src="controller/settings/account/AllInvitedUser.js"></script>
     <script src="controller/settings/AgreementCtrl.js"></script>
     <script src="controller/settings/InformationsCtrl.js"></script>
     <script src="controller/portals/PortalsCtrl.js"></script>
+    <script src="controller/portals/SelectPortalCtrl.js"></script>
+    <script src="controller/portals/AddPortalCtrl.js"></script>
+    <script src="controller/SelectorCtrl.js"></script>
 
     <!-- Plugins-->
     <script src="lib/moment/min/moment-with-locales.min.js"></script>
+      <script src="lib/moment-timezone/builds/moment-timezone-with-data.js"></script>
     <script src="lib/angular-translate/angular-translate.min.js"></script>
     <script src="lib/Chart.js/Chart.min.js"></script>
     <script src="lib/angular-chart.js/dist/angular-chart.min.js"></script>
     <link rel="stylesheet" href="lib/angular-chart.js/dist/angular-chart.min.css">
-    <link rel="stylesheet" href="lib/font-awesome-4.4.0/css/font-awesome.min.css">
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/accounting/accounting.min.js"></script>
+    <link rel="stylesheet" href="lib/ionic-filter-bar/dist/ionic.filter.bar.css">
+    <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
+
   </head>
 
   <body ng-app="syncery" class="platform-ios platform-cordova platform-webview">

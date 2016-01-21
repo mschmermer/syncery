@@ -13,8 +13,12 @@
                     attributes: '=',
                     attribute: '='
                 },
-                controller: function ($scope) {
+                controller: function ($scope, $element, $ionicScrollDelegate) {
                     $scope.hide = true;
+
+                    $element.on('click', function(){
+                        $ionicScrollDelegate.resize();
+                    });
                 },
 
                 link: function (scope, elem, attrs) {

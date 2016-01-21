@@ -13,7 +13,7 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="portals">
+    <ion-content delegate-handle="portals" class="slideInBothWays">
         <div id="search-box" class="item item-input-inset">
             <div class="item-input-wrapper">
                 <i class="icon ion-ios7-search placeholder-icon"></i>
@@ -24,24 +24,17 @@
                 {{"cancel" | translate}}
             </button>
         </div>
-        <ion-list id="portal_list" can-swipe="listCanSwipe">
-            <ion-item class="item item-thumbnail-left">
-                <img src="">
-                <h2>FeWo-Direkt</h2>
-                <ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
-                                   ng-click="edit(accommodation.id)">
-                    {{"edit" | translate}}
-                </ion-option-button>
+        <ion-list ng-if="portals" id="portal_list" can-swipe="listCanSwipe">
+            <ion-item ng-repeat="portal in portals | filter: data.searchQuery | orderBy:'portal_name'"
+                      class="item list-item item-remove-animate item-icon-left"
+                    href="">
+                <i class="icon ion-android-sync"></i>
+                <h2>{{portal.portal_name}}</h2>
                 <ion-option-button class="button button-assertive ion-ios7-heart button-options"
-                                   ng-click="delete(accommodation.id)">
+                                   ng-click="delete(portal.id)">
                     {{"delete" | translate}}
                 </ion-option-button>
             </ion-item>
-            <ion-item class="item item-thumbnail-left">test</ion-item>
-            <ion-item class="item item-thumbnail-left">test</ion-item>
-            <ion-item class="item item-thumbnail-left">test</ion-item>
-            <ion-item class="item item-thumbnail-left">test</ion-item>
-            <ion-item class="item item-thumbnail-left">test</ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

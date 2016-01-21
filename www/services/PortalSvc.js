@@ -47,6 +47,7 @@
             getPortalByName: getPortalByName,
             savePortal: savePortal,
             getConfigPortals: getConfigPortals,
+            getConfigPortalsById: getConfigPortalsById,
             deletePortal: deletePortal
         };
         return service;
@@ -77,6 +78,7 @@
         }
 
         function savePortal(portal){
+            vm.deletePortal(portal.id);
             portal['id']=vm.configPortals.length+1;
             vm.configPortals.push(portal);
             console.log(vm.configPortals);
@@ -94,7 +96,7 @@
                 return result;
             }
 
-            var index = findIndexInData(vm.configPortals, 'id', id);
+            var index = findIndexInData(vm.configPortals, 'portal_id', id);
 
             vm.configPortals.splice(index, 1);
             return index;
@@ -102,6 +104,13 @@
 
         function getConfigPortals(){
             return vm.configPortals;
+        }
+
+        function getConfigPortalsById(id) {
+            var portal = vm.configPortals.filter(function (obj) {
+                return obj.id == id;
+            });
+            return portal[0];
         }
 
     }

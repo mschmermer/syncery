@@ -28,7 +28,8 @@
         service = {
             addCustomers: addCustomers,
             getCustomers: getCustomers,
-            getCustomersById: getCustomersById
+            getCustomersById: getCustomersById,
+            deleteCustomer: deleteCustomer
         };
         return service;
 
@@ -50,6 +51,24 @@
                 return obj.id == id;
             });
             return customers[0];
+        }
+
+        function deleteCustomer(id){
+            function findIndexInData(data, property, value) {
+                var result = -1;
+                data.some(function (item, i) {
+                    if (item[property] === value) {
+                        result = i;
+                        return true;
+                    }
+                });
+                return result;
+            }
+
+            var index = findIndexInData(vm.customers, 'id', id);
+
+            vm.customers.splice(index, 1);
+            return index;
         }
     }
 })();

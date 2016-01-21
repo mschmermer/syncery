@@ -1,33 +1,25 @@
 <ion-view view-title="{{portal.name}}">
     <ion-content has-footer="true" delegate-handle="addPortal">
-        <div class="card">
-            <div class="item item-divider">{{"portal_data" | translate}}</div>
-            <label class="item item-input item-floating-label item-floating-label-icon">
-                <i class="icon ion-ios-email placeholder-icon left"></i>
-                <i class="icon ion-close-circled placeholder-icon right" ng-hide="hide.mail"></i>
-                <span class="input-label"><b>Email</b></span>
-                <input type="text" placeholder="Email" ng-model="input.mail">
+        <div class="list">
+            <div class="item item-divider divider-input">{{"portal_data" | translate}}</div>
+            <label class="item item-input">
+                <span class="input-label">{{'E-Mail' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}" ng-model="input.mail">
             </label>
-            <label class="item item-input item-floating-label item-floating-label-icon">
-                <i class="icon ion-locked placeholder-icon left"></i>
-                <i class="icon ion-close-circled placeholder-icon right" ng-hide="hide.password"></i>
-                <span class="input-label"><b>{{'password' | translate}}</b></span>
-                <input type="password" placeholder="{{'password' | translate}}" ng-model="input.password">
+            <label class="item item-input">
+                <span class="input-label">{{'password' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}" ng-model="input.password">
             </label>
-            <label class="item item-input item-floating-label item-floating-label-icon">
-                <i class="icon ion-key placeholder-icon left"></i>
-                <i class="icon ion-close-circled placeholder-icon right" ng-hide="hide.key"></i>
-                <span class="input-label"><b>{{'key' | translate}}</b></span>
-                <input type="text" placeholder="{{'key' | translate}}" ng-model="input.key">
+            <label class="item item-input">
+                <span class="input-label">{{'key' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}" ng-model="input.key">
             </label>
-            <label class="item item-input item-floating-label item-floating-label-icon">
-                <i class="icon ion-pound placeholder-icon left"></i>
-                <i class="icon ion-close-circled placeholder-icon right" ng-hide="hide.sync_id"></i>
-                <span class="input-label"><b>{{'Sync-ID' | translate}}</b></span>
-                <input type="number" placeholder="{{'Sync-ID' | translate}}" ng-model="input.sync_id">
+            <label class="item item-input">
+                <span class="input-label">{{'Sync-ID' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}" ng-model="input.sync_id">
             </label>
         </div>
-        <button class="button button-last button-positive" ng-click="save()">{{'save' | translate}}</button>
+        <button class="button button-full button-positive" ng-click="save()">{{'save' | translate}}</button>
     </ion-content>
     <!--<ion-footer-bar>
         <div class="validation-error">{{'validation_error' | translate}}</div>

@@ -139,6 +139,32 @@
             left: 0px;
         }
 
+        td.departure.arrival.dselected:after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-bottom: 40px solid transparent;
+            border-left: 36px solid #39A4FC;
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            left: 0px;
+        }
+        td.arrival.departure.aselected:before {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border-top: 40px solid transparent;
+            border-right: 36px solid #39A4FC;
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            right: 0px;
+        }
+        td.arrival.departure.aselected {
+            border-right: 2px solid #39A4FC;
+        }
+
         /*Anezeige des aktuellen Tages*/
         td div.today{
             border-radius: 25px;
@@ -167,7 +193,6 @@
             color: white;
             border-right: 2px solid #39A4FC;
         }
-
 
 
         td.occupied:first-child:before{
@@ -200,6 +225,7 @@
         }
         div.card.syncery-calendar-card div.item.item-divider.title{
             background-color: rgb(56,68,94);
+            border-bottom: 2px solid red;
         }
 
     </style>
@@ -235,11 +261,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="(key1, value1) in calendarData">
-            <td ng-click="select(calendarData[key1][key2]['data_position'])" ng-class="calendarData[key1][key2]['class']"
-                data-position="{{calendarData[key1][key2]['data_position']}}" data-booking-id="{{calendarData[key1][key2]['booking-id']}}"
-                ng-repeat="(key2, value2) in calendarData[key1]">
-                {{calendarData[key1][key2]['daynumber']}}
+        <tr ng-repeat="(key1, value1) in calendarData['positions']">
+            <td ng-class="calendarData['values'][calendarData['positions'][key1][key2]['date']]['class']"
+                data-position="{{calendarData['values'][calendarData['positions'][key1][key2]['date']]['data_position']}}"
+                data-booking-id="{{calendarData['values'][calendarData['positions'][key1][key2]['date']]['booking-id']}}"
+                ng-repeat="(key2, value2) in calendarData['positions'][key1]" data-date="{{calendarData['positions'][key1][key2]['date']}}">
+                {{calendarData['positions'][key1][key2]['daynumber']}}
             </td>
         </tr>
         </tbody>

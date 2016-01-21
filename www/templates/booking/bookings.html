@@ -13,8 +13,8 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-pane>
-        <ion-tabs class="tabs-striped tabs-background-royal tabs-color-light" delegate-handle="bookingView">
+    <ion-pane >
+        <ion-tabs class="tabs-striped tabs-background-royal tabs-color-light" delegate-handle="bookingtabs">
 
             <!-- Tab 1 -->
             <ion-tab title="Kalender">
@@ -39,7 +39,7 @@
                                            does-continue="true">
                                 <ion-slide>
                                     <div class="row">
-                                        <div class="col" ng-hide="hideCal2" ng-class="col">
+                                        <div class="col" ng-if="hideCal2" ng-class="col">
                                             <syncery-calendar data-method="clickCalendar" month="monthnumber2" year="year2"
                                                               booking_id="booking_id"></syncery-calendar>
                                         </div>
@@ -47,7 +47,7 @@
                                             <syncery-calendar data-method="clickCalendar" month="monthnumber" year="year"
                                                           booking_id="booking_id"></syncery-calendar>
                                         </div>
-                                        <div class="col" ng-hide="hideCal1" ng-class="col">
+                                        <div class="col" ng-if="hideCal1" ng-class="col">
                                             <syncery-calendar data-method="clickCalendar" month="monthnumber1" year="year1"
                                                           booking_id="booking_id"></syncery-calendar>
                                         </div>
@@ -55,7 +55,7 @@
                                 </ion-slide>
                                 <ion-slide>
                                     <div class="row">
-                                        <div class="col" ng-hide="hideCal2" ng-class="col">
+                                        <div class="col" ng-if="hideCal2" ng-class="col">
                                             <syncery-calendar data-method="clickCalendar" month="monthnumber" year="year"
                                                               booking_id="booking_id"></syncery-calendar>
                                         </div>
@@ -63,7 +63,7 @@
                                             <syncery-calendar data-method="clickCalendar" month="monthnumber1" year="year1"
                                                               booking_id="booking_id"></syncery-calendar>
                                         </div>
-                                        <div class="col" ng-hide="hideCal1" ng-class="col">
+                                        <div class="col" ng-if="hideCal1" ng-class="col">
                                             <syncery-calendar data-method="clickCalendar" month="monthnumber2" year="year2"
                                                               booking_id="booking_id"></syncery-calendar>
                                         </div>
@@ -72,7 +72,7 @@
                                 <ion-slide>
                                     <ion-slide>
                                         <div class="row">
-                                            <div class="col" ng-hide="hideCal2" ng-class="col">
+                                            <div class="col" ng-if="hideCal2" ng-class="col">
                                                 <syncery-calendar data-method="clickCalendar" month="monthnumber1" year="year1"
                                                                   booking_id="booking_id"></syncery-calendar>
                                             </div>
@@ -80,7 +80,7 @@
                                                 <syncery-calendar data-method="clickCalendar" month="monthnumber2" year="year2"
                                                                   booking_id="booking_id"></syncery-calendar>
                                             </div>
-                                            <div class="col" ng-hide="hideCal1" ng-class="col">
+                                            <div class="col" ng-if="hideCal1" ng-class="col">
                                                 <syncery-calendar data-method="clickCalendar" month="monthnumber" year="year"
                                                                   booking_id="booking_id"></syncery-calendar>
                                             </div>
@@ -162,13 +162,15 @@
             <ion-tab title="Liste" >
                 <ion-nav-view name="listtab">
                     <ion-content>
-                        <div class="button-bar">
-                            <a class="button button-small button-outline"
-                            ng-click="filter('date')" ng-class="filter_class.date">{{'date' | translate}}</a>
-                            <a class="button button-small button-outline"
-                               ng-click="filter('open')" ng-class="filter_class.open">{{'open' | translate}}</a>
-                            <a class="button button-small button-outline"
-                               ng-click="filter('unpaid')" ng-class="filter_class.unpaid">{{'unpaid' | translate}}</a>
+                        <div class="bar bar-header" style="height: 45px">
+                            <div class="button-bar">
+                                <a class="button button-small"
+                                    ng-click="filter('date')" ng-class="filter_class.date">{{'date' | translate}}</a>
+                                <a class="button button-small"
+                                    ng-click="filter('open')" ng-class="filter_class.open">{{'open' | translate}}</a>
+                                <a class="button button-small"
+                                    ng-click="filter('unpaid')" ng-class="filter_class.unpaid">{{'unpaid' | translate}}</a>
+                            </div>
                         </div>
                         <ion-list>
                             <ion-item ng-repeat="booking in bookings">

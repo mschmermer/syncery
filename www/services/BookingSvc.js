@@ -8,56 +8,56 @@
     function BookingSvc() {
         var vm = this;
         vm.reservationData = {
-            12: {
-                "2015-12-7": {
+            1: {
+                "2016-1-7": {
                     class: 'arrival', 'booking-id': 1
                 },
-                '2015-12-8': {
+                '2016-1-8': {
                     class: 'occupied', 'booking-id': 1
                 },
-                '2015-12-9': {
+                '2016-1-9': {
                     class: 'occupied', 'booking-id': 1
                 },
-                '2015-12-10': {
+                '2016-1-10': {
                     class: 'occupied', 'booking-id': 1
                 },
-                '2015-12-11': {
+                '2016-1-11': {
                     class: 'departure arrival', 'booking-id': '1 2'
                 },
-                '2015-12-12': {
+                '2016-1-12': {
                     class: 'occupied', 'booking-id': 2
                 },
-                '2015-12-13': {
+                '2016-1-13': {
                     class: 'occupied', 'booking-id': 2
                 },
-                '2015-12-14': {
+                '2016-1-14': {
                     class: 'occupied', 'booking-id': 2
                 },
-                '2015-12-15': {
+                '2016-1-15': {
                     class: 'occupied', 'booking-id': 2
                 },
-                '2015-12-16': {
+                '2016-1-16': {
                     class: 'departure', 'booking-id': 2
                 },
-                '2015-12-21': {
+                '2016-1-21': {
                     class: 'arrival', 'booking-id': 3
                 },
-                '2015-12-22': {
+                '2016-1-22': {
                     class: 'occupied', 'booking-id': 3
                 },
-                '2015-12-23': {
+                '2016-1-23': {
                     class: 'occupied', 'booking-id': 3
                 },
-                '2015-12-24': {
+                '2016-1-24': {
                     class: 'departure', 'booking-id': 3
                 },
-                '2015-12-26': {
+                '2016-1-26': {
                     class: 'arrival', 'booking-id': 4
                 },
-                '2015-12-27': {
+                '2016-1-27': {
                     class: 'occupied', 'booking-id': 4
                 },
-                '2015-12-28': {
+                '2016-1-28': {
                     class: 'departure', 'booking-id': 4
                 },
             }

@@ -5,15 +5,19 @@
         .controller('PortalsCtrl', PortalsCtrl);
 
 
-    function PortalsCtrl($scope, UserSvc, $state,$timeout, $location,$ionicScrollDelegate ) {
+    function PortalsCtrl($scope, UserSvc, PortalSvc, $state,$timeout, $location,$ionicScrollDelegate ) {
         $scope.addPortal = function(){
-            alert('add Portal');
+            $state.go('app.selectPortal');
         }
 
         $scope.data = {};
         $scope.data.showSearch = false;
         $scope.data.searchQuery = '';
         $scope.listCanSwipe = true;
+
+        $scope.portals = PortalSvc.getConfigPortals();
+
+        console.log($scope.portals);
 
         $timeout( function() {
             $location.hash('portal_list');
@@ -30,6 +34,10 @@
                 delegate.anchorScroll(true);
             }, 200);
             $scope.data.searchQuery = '';
+        }
+
+        $scope.delete = function(id){
+            PortalSvc.deletePortal(id);
         }
     }
 })();

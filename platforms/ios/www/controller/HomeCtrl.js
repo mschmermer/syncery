@@ -5,7 +5,7 @@
         .controller('HomeCtrl', HomeCtrl);
 
 
-    function HomeCtrl($scope, $state,language, $ionicHistory) {
+    function HomeCtrl($scope, $state, $ionicHistory) {
 
         $scope.contract_remaining = 15;
         $scope.contract_total = 30;
@@ -17,11 +17,17 @@
         };
 
         $scope.unfinishedBookings = function(){
-            alert('to unfinished bookings')
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $state.go('app.bookings', {tab_id: 1, filter: 'open'});
         }
 
         $scope.unpaidBookings = function(){
-            alert('to unpaid bookings');
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $state.go('app.bookings', {tab_id: 1, filter: 'unpaid'});
         }
 
         $scope.extendContract = function(){

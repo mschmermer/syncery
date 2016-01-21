@@ -8,11 +8,14 @@
     function AddPortalCtrl($scope, PortalSvc, $stateParams, $ionicLoading, $ionicHistory) {
         $scope.portal = PortalSvc.getPortalById($stateParams.id);
         $scope.input ={};
-        $scope.hide ={
-            mail:true,
-            password:true,
-            key:true,
-            sync_id:true
+        $scope.config_portal = PortalSvc.getConfigPortalsById($stateParams.id);
+        if($scope.config_portal){
+            console.log($scope.config_portal);
+            $scope.input.name = $scope.config_portal.portal_name;
+            $scope.input.mail = $scope.config_portal.mail;
+            $scope.input.key = $scope.config_portal.key;
+            $scope.input.password = $scope.config_portal.password;
+            $scope.input.sync_id = $scope.config_portal.sync_id;
         }
 
         $scope.save = function(){
@@ -33,13 +36,6 @@
                     noBackdrop: true,
                     duration: 1000,
                 });
-
-                $scope.hide ={
-                    mail:($scope.input.mail) ? true : false,
-                    password:($scope.input.password) ? true : false,
-                    key:($scope.input.key) ? true : false,
-                    sync_id:($scope.input.sync_id) ? true : false
-                }
             }
         }
     }

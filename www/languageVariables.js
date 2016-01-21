@@ -90,6 +90,10 @@ angular.module('syncery')
                 save_general: "SPEICHERN",
                 yes: "Ja",
                 no: "Nein",
+                //Kontakt
+                category: 'Kategorie',
+                regard: 'Betreff',
+                select_category: "Wähle eine Kategorie aus",
                 // Vetrag
                 invoice_address: "Rechnungsanschrift",
                 change_data: "Daten bearbeiten",
@@ -228,6 +232,10 @@ angular.module('syncery')
                 save_general: "SAVE",
                 yes: "Yes",
                 no: "No",
+                //contact
+                category: 'Category',
+                regard: 'Regard',
+                select_category: "Select a category.",
                 // Agreement
                 invoice_address: "Invoice address",
                 change_data: "Change data",

@@ -10,24 +10,22 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>
-        <div class="list card">
-            <div class="item item-divider">{{"mapping_data" | translate}}</div>
-            <ion-item>
-                <syncery-dropdown name="'portal'"
-                                  attribute="'select_portal'"
-                                  attributes="portals"
-                                  data-method="selectPortal">
-                </syncery-dropdown>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'sync_id' | translate" type="'text'" input="mapping.sync_id">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'password' | translate" type="'text'" input="mapping.password">
-                </syncery-input>
-            </ion-item>
-            <button class="button button-positive button-last">{{'save_mapping' | translate}}</button>
+        <div class="list">
+            <div class="item item-divider input-divider">{{"mapping_data" | translate}}</div>
+            <label class="item item-input item-icon-right" ng-click="select('portals')">
+                <span class="input-label">{{'portals' | translate}}</span>
+                <p>{{selector.portals.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'sync_id' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}" ng-model="mapping.sync_id">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{'password' | translate}}</span>
+                <input type="password" placeholder="{{'required' | translate}}" ng-model="mapping.password">
+            </label>
+            <button class="button button-positive button-full">{{'save_mapping' | translate}}</button>
         </div>
     </ion-content>
 </ion-view>

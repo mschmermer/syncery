@@ -5,11 +5,12 @@
         .controller('AddBookingCtrl', AddBookingCtrl);
 
 
-    function AddBookingCtrl($scope, PortalSvc, $ionicModal) {
+    function AddBookingCtrl($scope, $ionicModal, $state) {
 
         $scope.accommodations = ['Unterkunft1', 'Unterkunft2', 'Unterkunft3', 'Unterkunft4'];
 
         $scope.data = {};
+        $scope.modal_data = {};
 
         $scope.selectDate = function (date) {
             console.log(date);
@@ -70,14 +71,47 @@
             animation: 'fade-in'
         }).then(function(modal) {
             $scope.modal = modal
-        })
-
+        });
 
         $scope.select = function (name) {
             $scope.modal_data = $scope.selector[name];
             $scope.modal.show();
-            //$state.go('app.selector', {'selector': $scope.selector['gender'], 'view': 'addCustomer'});
         }
+
+        $scope.searchCustomer = function(){
+            $state.go('app.searchCustomer');
+        }
+
+        $scope.data.deposit = '';
+        $scope.data.final_payment = '';
+        $scope.data.money = {};
+
+        $scope.changeMoney = function(field){
+            if(!$scope.data.money[field]){
+                $scope.data.money[field] = "";
+            }
+            if(accounting.formatMoney(($scope.data.money[field]/100), "", 2, ".", ",") != $scope.data[field].substr(0, $scope.data[field].length - 1)
+                && $scope.data.money[field]!=''){
+                $scope.data.money[field] = $scope.data.money[field].substr(0, $scope.data.money[field].length - 1);
+                $scope.data[field] = accounting.formatMoney(($scope.data.money[field]/100), "", 2, ".", ",");
+                if($scope.data.money[field]==''){
+                    $scope.data[field]='';
+                }
+                return;
+            }
+
+            if(isNaN(parseInt($scope.data[field].slice(-1)))){
+                $scope.data.money[field] = $scope.data.money[field];
+                $scope.data[field] = $scope.data[field].substr(0, $scope.data[field].length - 1);
+                return;
+            }else{
+                $scope.data.money[field] = $scope.data.money[field]+''+$scope.data[field].slice(-1);
+            }
+
+            $scope.data[field] = accounting.formatMoney(($scope.data.money[field]/100), "", 2, ".", ",");
+        }
+
+
 
     }
 })();

@@ -1,96 +1,67 @@
 <ion-view view-title="{{'general' | translate}}">
+    ion-nav-bar class="bar syncery-header">
+    <ion-nav-back-button class="button-clear">
+        <i class="ion-chevron-left"></i> {{"back" | translate }}
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+        <button ng-click="save()"
+                class="button button-icon icon ion-android-done">
+        </button>
+    </ion-nav-buttons>
+    </ion-nav-bar>
     <ion-content>
-        <div class="list card">
-            <ion-item class="item item-divider">
-                {{"nationality" | translate}}
-            </ion-item>
-            <ion-item>
-                <div class="row">
-                    <div class="col col-50">{{"timezone" | translate}}</div>
-                    <div class="col col-50">
-                        <syncery-dropdown name="'zeitzone'"
-                                          attribute="'Berlin'"
-                                          attributes="['Berlin', 'Bangkok']">
-
-                        </syncery-dropdown>
-                    </div>
-                </div>
-            </ion-item>
-            <ion-item>
-                <div class="row">
-                    <div class="col col-50">{{"currency" | translate}}</div>
-                    <div class="col col-50">
-                        <syncery-dropdown name="'zeitzone'"
-                                          attribute="'€'"
-                                          attributes="['€', '$']">
-
-                        </syncery-dropdown>
-                    </div>
-                </div>
-            </ion-item>
-            <ion-item>
-                <div class="row">
-                    <div class="col col-30">{{"language" | translate}}</div>
-                    <div class="col col-70">
-                        <syncery-toggle data-method="switchLanguage"
-                                        selected="languageSelected"
-                                        attributes="languages">
-
-                        </syncery-toggle>
-                    </div>
-                </div>
-            </ion-item>
-            <ion-item class="item item-divider">
+        <div class="list">
+            <div class="item item-divider divider-input">{{"nationality" | translate}}</div>
+            <label class="item item-input item-icon-right" ng-click="select('timezone1')">
+                <span class="input-label">{{'timezone' | translate}} 1</span>
+                <p>{{selector.timezone1.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('timezone2')">
+                <span class="input-label">{{'timezone' | translate}} 2</span>
+                <p>{{selector.timezone2.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('currency')">
+                <span class="input-label">{{'currency' | translate}}</span>
+                <p>{{selector.currency.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('language')">
+                <span class="input-label">{{'language' | translate}}</span>
+                <p>{{selector.language.selected}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <ion-item class="item item-divider divider-input">
                 {{"notifications" | translate}}
             </ion-item>
-            <ion-item>
-                <div class="row">
-                    <div class="col col-50">fasffg</div>
-                    <div class="col col-50">
-                        <syncery-toggle name="'not1'"
-                                        selected="'1'"
-                                        attributes="decision">
-                        </syncery-toggle>
+            <li class="item item-toggle">
+                test
+                <label class="toggle toggle-royal">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
                     </div>
-                </div>
-            </ion-item>
-            <ion-item>
-                <div class="row">
-                    <div class="col col-50">fdgdfsg</div>
-                    <div class="col col-50">
-                        <syncery-toggle name="'not2'"
-                                        selected="'2'"
-                                        attributes="decision">
-
-                        </syncery-toggle>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                test1
+                <label class="toggle toggle-royal">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
                     </div>
-                </div>
-            </ion-item>
-            <ion-item>
-                <div class="row">
-                    <div class="col col-50">dfsgdfg</div>
-                    <div class="col col-50">
-                        <syncery-toggle name="'not3'"
-                                        selected="'1'"
-                                        attributes="decision">
-
-                        </syncery-toggle>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                test2
+                <label class="toggle toggle-royal">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
                     </div>
-                </div>
-            </ion-item>
-            <ion-item>
-                <div class="row">
-                    <div class="col col-50">dgsdfg</div>
-                    <div class="col col-50">
-                        <syncery-toggle name="'not4'"
-                                        selected="'1'"
-                                        attributes="decision">
-
-                        </syncery-toggle>
-                    </div>
-                </div>
-            </ion-item>
-            <button  class="button button-last button-positive" ng-click="save()">{{"save_general" | translate}}</button>
+                </label>
+            </li>
         </div>
     </ion-content>
 </ion-view>

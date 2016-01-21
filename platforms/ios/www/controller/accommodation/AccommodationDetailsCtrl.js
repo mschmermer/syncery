@@ -5,8 +5,8 @@
         .controller('AccommodationDetailsCtrl', AccommodationDetailsCtrl);
 
 
-    function AccommodationDetailsCtrl($scope, UserSvc, LoginFactory,$location,$timeout, $state, $stateParams,
-                                      AccommodationSvc, $ionicScrollDelegate, $ionicLoading) {
+    function AccommodationDetailsCtrl($scope,$location,$timeout, $state, $stateParams,
+                                      AccommodationSvc, $ionicScrollDelegate, MappingSvc) {
 
 
         $scope.id = $stateParams.id;
@@ -32,6 +32,8 @@
         ];
 
         $scope.accommodation = AccommodationSvc.getAccommodationById($scope.id);
+
+        $scope.mappings = MappingSvc.getMapping($scope.id);
 
         $scope.showMoreDescription = function () {
 
@@ -60,6 +62,10 @@
 
         $scope.edit = function(id){
             alert(id);
+        }
+
+        $scope.addMapping = function(){
+            $state.go('app.accommodationMapping', {acc_id: $scope.id});
         }
     }
 })();

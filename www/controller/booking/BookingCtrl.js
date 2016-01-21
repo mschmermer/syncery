@@ -32,7 +32,9 @@
 
         $scope.$on('$ionicView.enter', function(){
             $scope.tab_id = parseInt($stateParams.tab_id);
-            $ionicTabsDelegate.$getByHandle('bookingView').select($scope.tab_id);
+            if($scope.tab_id){
+                $ionicTabsDelegate.$getByHandle('bookingtabs').select($scope.tab_id);
+            }
             if($stateParams.filter){
                 $scope.filter($stateParams.filter);
             }
@@ -40,24 +42,24 @@
 
         $scope.filter_class={};
         $scope.filter_class.date="button-assertive";
-        $scope.filter_class.open="button-royal";
-        $scope.filter_class.unpaid="button-royal";
+        $scope.filter_class.open="button-royal button-outline";
+        $scope.filter_class.unpaid="button-royal button-outline";
 
         $scope.filter = function(filter){
             switch (filter) {
                 case "date":
                     $scope.filter_class.date = "button-assertive";
-                    $scope.filter_class.open = "button-royal";
-                    $scope.filter_class.unpaid = "button-royal";
+                    $scope.filter_class.open = "button-royal button-outline";
+                    $scope.filter_class.unpaid = "button-royal button-outline";
                     break;
                 case "open":
-                    $scope.filter_class.date = "button-royal";
+                    $scope.filter_class.date = "button-royal button-outline";
                     $scope.filter_class.open = "button-assertive";
-                    $scope.filter_class.unpaid = "button-royal";
+                    $scope.filter_class.unpaid = "button-royal button-outline";
                     break;
                 case "unpaid":
-                    $scope.filter_class.date = "button-royal";
-                    $scope.filter_class.open = "button-royal";
+                    $scope.filter_class.date = "button-royal button-outline";
+                    $scope.filter_class.open = "button-royal button-outline";
                     $scope.filter_class.unpaid = "button-assertive";
                     break;
             }
@@ -151,19 +153,19 @@
 
             $scope.myActiveSlide = 0;
 
-            $scope.hideCal1 = true;
-            $scope.hideCal2 = true;
+            $scope.hideCal1 = false;
+            $scope.hideCal2 = false;
             $scope.jumper = 0;
             $scope.col = "col-100";
 
 
             if(window.innerWidth>=605){
-                $scope.hideCal1 = false;
+                $scope.hideCal1 = true;
                 $scope.col = "col-50";
                 $scope.jumper = 1;
             }
             if(window.innerWidth>=910){
-                $scope.hideCal2 = false;
+                $scope.hideCal2 = true;
                 $scope.col = "col-33";
                 $scope.jumper = 2;
             }

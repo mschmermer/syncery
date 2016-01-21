@@ -5,23 +5,79 @@
         .controller('GeneralCtrl', GeneralCtrl);
 
 
-    function GeneralCtrl($scope, UserSvc, LoginFactory, $state, $stateParams, CustomerSvc, $translate, language) {
-        $scope.id = 1;
-        $scope.languages = ['de', 'en'];
-        $scope.languageSelected = ($scope.languages.indexOf(UserSvc.getLanguage()))+1;
-        console.log($scope.languageSelected);
-        $scope.language = language;
+    function GeneralCtrl($scope, UserSvc, $ionicModal, $translate, language) {
+        $scope.data = {};
 
-        $scope.decision = ['on', 'off'];
+        $scope.selector={};
 
-        $scope.switchLanguage = function (id) {
-            if(id == '1'){
-                $scope.language = 'de';
+        var timezones_moment = moment.tz.names();
+        var timezones = {};
+
+        for(var i in timezones_moment){
+            zone = timezones_moment[i].split('/');
+            if(zone.length == 1){
+                if(!timezones['others']){
+                    timezones['others']=[];
+                }
+                timezones['others'].push(zone[1]);
+            }else if(zone.length == 2){
+                if(!timezones[zone[0]]){
+                    timezones[zone[0]]=[];
+                }
+                timezones[zone[0]].push(zone[1]);
+            }else{
+                if(!timezones[zone[1]]){
+                    timezones[zone[1]]=[];
+                }
+                timezones[zone[1]].push(zone[2]);
             }
-            if(id == '2'){
-                $scope.language = 'en';
-            }
+
+        }
+
+        $scope.$watch('selector.timezone1.selected', function (newvalue) {
+            $scope.selector.timezone2.items = timezones[$scope.selector['timezone1'].selected];
+        });
+
+        $scope.$watch('selector.language.selected', function (newvalue) {
+
+        });
+
+        $scope.selector['timezone1'] = {
+            items: Object.keys(timezones),
+            name: 'timezone',
+            selected: 'Europe'
         };
+
+        $scope.selector['timezone2'] = {
+            items: timezones[$scope.selector['timezone1'].selected],
+            name: 'timezone',
+            selected: 'Berlin'
+        };
+
+        $scope.selector['currency'] = {
+            items: ['€','$'],
+            name: 'currency',
+            selected: '€'
+        };
+
+        $scope.selector['language'] = {
+            items: ['DE','EN'],
+            name: 'language',
+            selected: 'DE'
+        };
+
+        $ionicModal.fromTemplateUrl('templates/selector.html', {
+            scope: $scope,
+            animation: 'fade-in'
+        }).then(function(modal) {
+            $scope.modal = modal
+        })
+
+
+        $scope.select = function (name) {
+            $scope.modal_data = $scope.selector[name];
+            $scope.modal.show();
+        }
 
         $scope.save = function(){
             language = $scope.language;

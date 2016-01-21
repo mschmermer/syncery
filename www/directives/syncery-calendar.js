@@ -77,7 +77,12 @@
 
                         // get number for last day
                         var lastDayForThisMounth = moment([year, month], "YYYY-MM").daysInMonth();
-                        var lastDayForLastMounth = moment([year, month - 1], "YYYY-MM").daysInMonth();
+                        if(month > 1){
+                            var lastDayForLastMounth = moment([year, month - 1], "YYYY-MM").daysInMonth();
+                        }else{
+                            var lastDayForLastMounth = moment([year-1, 12], "YYYY-MM").daysInMonth();
+                        }
+
                         var firstIsoweekdayForThisMounth = moment([year, month, 01], "YYYY-MM-DD").isoWeekday();
                         if (firstIsoweekdayForThisMounth == 0) {
                             firstIsoweekdayForThisMounth = 7;
@@ -98,7 +103,7 @@
                                     if ($scope.month > 1) {
                                         var date = year + '-' + (month - 1) + '-' + (lastDayForLastMounth - (firstIsoweekdayForThisMounth - row - 1));
                                     } else {
-                                        var date = (year - 1) + '-12-' + lastDayForLastMounth - (firstIsoweekdayForThisMounth - row - 1);
+                                        var date = (year - 1) + '-12-' + (lastDayForLastMounth - (firstIsoweekdayForThisMounth - row - 1));
                                     }
 
                                     calendarData['positions'][col][row] = {
@@ -160,6 +165,7 @@
                                 }
                             }
                         }
+                        console.log($scope.month, $scope.year, calendarData);
 
                         return calendarData;
                     }

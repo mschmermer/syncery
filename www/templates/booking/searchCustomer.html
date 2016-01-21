@@ -1,0 +1,30 @@
+<ion-view view-title="{{'customers' | translate}}">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="left">
+            <button style="color: white" class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button ng-click="addCutomer()"
+                    class="button button-icon icon ion-ios-plus-outline">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content delegate-handle="customer" on-scroll="getScrollPosition()" overflow-scroll="false">
+        <ion-list id="customer_list" can-swipe="listCanSwipe">
+            <ion-item class="item list-item item-remove-animate customer-list item-avatar item-icon-right"
+                      ng-repeat="customer in data.customers | orderBy:'name'"
+                      href="#/app/bookings/add{{customer.id}}">
+                <!--<i class="icon ion-person-stalker"></i>-->
+                <img ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+                <img ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+
+                <h2>{{customer.first_name}} {{customer.name}}</h2>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

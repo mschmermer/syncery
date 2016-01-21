@@ -1,5 +1,9 @@
 /* General */
 ion-content{
+     background-color: rgb(247, 247, 247);
+ }
+
+ion-footer-bar.bar.bar-footer{
     background-color: rgb(247, 247, 247);
 }
 
@@ -20,16 +24,44 @@ ion-list div.list{
     padding-top: 0px;
 }
 
+span.badge{
+    border-radius: 4px;
+    right: 10px;
+}
+
 input{
     border-bottom: 2px solid black;
 }
 
-i.icon.ion-chevron-right{
-    color: rgb(207, 207, 207);
+div.item#search-box{
+    height: 50px;
 }
 
-#search-box{
-    height: 50px;
+ion-item.item.item-divider.divider-input{
+     /*background-color: white; color: grey;*/
+    font-variant: small-caps;
+ }
+
+ion-item.item-divider.divider-input{
+    padding-top: 20px;
+}
+
+div.item.item-divider{
+     /*background-color: white; color: grey;*/
+     font-variant: small-caps;
+ }
+
+div.item.item-divider.divider-input{
+    /*background-color: white; color: grey;*/
+    padding-top: 20px;
+}
+
+div.status-bar{
+    height: 20px;
+    /*background-color: rgb(56,68,94);*/
+}
+.tabs-striped.tabs-color-light .tab-item.tab-item-active{
+    border-top: 4px solid red;
 }
 
 /* Search */
@@ -42,9 +74,9 @@ ion-item.settings {
     text-align: center;
 }
 
-ion-item.settings:first-child {
+/*ion-item.settings:first-child {
     margin-top: 15%;
-}
+}*/
 
 
 /*Menu*/
@@ -61,13 +93,26 @@ ion-item.item.side-menu a{
     color: white;
 }
 
+ion-item.item.side-menu.selected a{
+    background-color: rgb(255,102,102);
+    color: white;
+}
+
+ion-item.item.side-menu.side-menu-profiles a{
+    border-left: 10px solid rgb(56,68,94);
+}
+
+ion-item.item.side-menu{
+    border: 0px;
+}
+
 ion-content.side-menu{
     background-color: rgb(56,68,94);
 }
 
 ion-header-bar.bar.side-menu{
     background-color: rgb(56,68,94);
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid rgb(255,102,102);
 }
 
 ion-list.list{
@@ -79,8 +124,8 @@ img.logo{
     margin-left: auto;
     margin-right: auto;
     display: block;
+    margin: 5%;
     margin-top: 15%;
-    margin-bottom: 5%;
 }
 
 div.item.forget-password{
@@ -88,7 +133,7 @@ div.item.forget-password{
     border: 0px;
     font-size: 70%;
     text-align: center;
-    height: 4%;
+
     padding: 0px;
 }
 
@@ -190,4 +235,78 @@ ion-item.item-text-wrap.padding10{
 
 div.item.item-divider.item-icon-right.center{
     text-align: center;
+}
+
+/* Portals */
+
+ion-item.item.center{
+    text-align: center;
+}
+
+/* add Portals*/
+
+.item-floating-label .placeholder-icon.left {
+    padding-right: 18px;
+    position: absolute;
+    bottom: 12px;
+    left: 17px;
+}
+
+.item-floating-label-icon .placeholder-icon.right {
+    color: red;
+    padding-left: 18px;
+    position: absolute;
+    bottom: 9px;
+    right: 17px;
+}
+
+.item-floating-label-icon {
+    padding-right: 40px !important;
+    padding-left: 40px !important;
+}
+
+.loading{
+    background-color: rgba(255,102,102, 0.7) !important;
+}
+
+.spinner.light svg {
+    stroke: #fff !important;
+    fill: #fff !important;
+}
+
+.list-item.ng-enter {
+    -webkit-animation: fadeInLeft 1s;
+    animation: fadeInLeft 1s;
+}
+
+.list-item.ng-enter-stagger {
+    -webkit-animation-delay:200ms;
+    animation-delay:200ms;
+
+    /* override to make sure it's not inherited from other styles */
+    -webkit-animation-duration:0;
+    animation-duration:0;
+}
+
+/* Buchung hinzufügen */
+.date-picker div.popup{
+    width: 312px;
+}
+
+.date-picker div.popup div.popup-head{
+    background-color: rgb(56,68,94);
+    border-bottom: 2px solid red;
+}
+
+.date-picker div.popup div.popup-body{
+    padding: 2px;
+}
+
+.date-picker div.popup div.popup-head h3{
+    color: white;
+}
+
+.date-picker div.popup div.popup-body button{
+    width: 48%;
+    margin: 1%;
 }
