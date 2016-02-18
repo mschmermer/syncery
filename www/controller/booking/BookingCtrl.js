@@ -7,7 +7,7 @@
 
     function BookingCtrl($scope, $ionicSlideBoxDelegate, $ionicModal, $ionicTabsDelegate,
                          language, $ionicScrollDelegate, $timeout, $location, $state,
-                         $stateParams) {
+                         $stateParams, UserSvc) {
         $scope.standard_class = 'item item-stacked-label';
         $scope.hide = {
             customer: {
@@ -23,6 +23,8 @@
                 class: $scope.standard_class
             }
         };
+
+        $scope.beginning = UserSvc.getWeekBeginning();
 
         init();
 
@@ -245,6 +247,8 @@
                                 $scope.monthnumber1 = $scope.monthnumber1 - 12;
                                 $scope.year1 = $scope.year1 + 1;
                             }
+
+
                             break;
                     }
                     break;

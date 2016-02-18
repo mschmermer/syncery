@@ -14,22 +14,37 @@
             <div class="item item-divider divider-input">{{"nationality" | translate}}</div>
             <label class="item item-input item-icon-right" ng-click="select('timezone1')">
                 <span class="input-label">{{'timezone' | translate}} 1</span>
-                <p>{{selector.timezone1.selected}}</p>
+                <p>{{selector.timezone1.selected | translate}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
             </label>
             <label class="item item-input item-icon-right" ng-click="select('timezone2')">
                 <span class="input-label">{{'timezone' | translate}} 2</span>
-                <p>{{selector.timezone2.selected}}</p>
+                <p>{{selector.timezone2.selected | translate}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
             </label>
             <label class="item item-input item-icon-right" ng-click="select('currency')">
                 <span class="input-label">{{'currency' | translate}}</span>
-                <p>{{selector.currency.selected}}</p>
+                <p>{{selector.currency.selected | translate}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
             </label>
             <label class="item item-input item-icon-right" ng-click="select('language')">
                 <span class="input-label">{{'language' | translate}}</span>
-                <p>{{selector.language.selected}}</p>
+                <p>{{selector.language.selected | translate}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('date_format')">
+                <span class="input-label">{{'date_format' | translate}}</span>
+                <p>{{selector.date_format.selected | translate}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('week_beginning')">
+                <span class="input-label">{{'week_beginning' | translate}}</span>
+                <p>{{selector.week_beginning.selected | translate}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </label>
+            <label class="item item-input item-icon-right" ng-click="select('number_format')">
+                <span class="input-label">{{'number_format' | translate}}</span>
+                <p>{{selector.number_format.selected | translate}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
             </label>
             <ion-item class="item item-divider divider-input">

@@ -11,9 +11,10 @@
                     methodToCall: '&method',
                     month: '=',
                     year: '=',
-                    booking_id: '='
+                    booking_id: '=',
+                    beginning: '='
                 },
-                controller: function ($scope, $timeout, BookingSvc, $element) {
+                controller: function ($scope, $timeout, BookingSvc, $element, UserSvc) {
 
                     $element.bind('click', function (element) {
                         if (element.srcElement.attributes['data-position']) {
@@ -38,7 +39,7 @@
                         }
                     });
 
-                    $scope.initCalendarData = function (month, year) {
+                    $scope.initCalendarData = function (month, year, beginning) {
 
                         $scope.day = [];
 
@@ -52,7 +53,7 @@
                         }, 2);
 
                         //set locale to German
-                        var moments = moment().locale('de');
+                        var moments = moment().locale(UserSvc.getLanguage());
 
                         $scope.months = [''];
                         $scope.today = moment().format('D');
@@ -62,10 +63,15 @@
                         }
 
                         // set Weekdays
+                        if(beginning == 'sunday'){
+                            $scope.day.push(moments.isoWeekday(0).format('dd').toUpperCase());
+                        }
                         for (var i = 1; i <= 6; i++) {
                             $scope.day.push(moments.isoWeekday(i).format('dd').toUpperCase());
                         }
-                        $scope.day.push(moments.isoWeekday(0).format('dd').toUpperCase());
+                        if(beginning == 'monday'){
+                            $scope.day.push(moments.isoWeekday(0).format('dd').toUpperCase());
+                        }
 
                         calendarData = {};
 
@@ -84,8 +90,11 @@
                         }
 
                         var firstIsoweekdayForThisMounth = moment([year, month, 01], "YYYY-MM-DD").isoWeekday();
-                        if (firstIsoweekdayForThisMounth == 0) {
+                        if (firstIsoweekdayForThisMounth == 0 && beginning == 'monday') {
                             firstIsoweekdayForThisMounth = 7;
+                        }
+                        if (firstIsoweekdayForThisMounth == 1 && beginning == 'sunday') {
+                            firstIsoweekdayForThisMounth = 2;
                         }
 
                         var day = 1;
@@ -165,19 +174,28 @@
                                 }
                             }
                         }
-                        console.log($scope.month, $scope.year, calendarData);
-
                         return calendarData;
                     }
 
-                    $scope.calendarData = $scope.initCalendarData($scope.month, $scope.year);
+                    $scope.calendarData = $scope.initCalendarData($scope.month, $scope.year, $scope.beginning);
 
                 },
 
                 link: function (scope, elem, BookingSvc) {
 
                     scope.$watch('month', function (newMonth, oldMonth) {
-                        scope.calendarData = scope.initCalendarData(newMonth, scope.year);
+                        scope.calendarData = scope.initCalendarData(newMonth, scope.year, scope.beginning);
+                        angular.element(document.querySelector('div.today')).remove();
+                        var position = angular.element(document.querySelector('td.today')).attr('data-position');
+                        var booking_id = angular.element(document.querySelector('td.today')).attr('data-booking-id');
+                        var date = angular.element(document.querySelector('td.today')).attr('data-date');
+                        angular.element(document.querySelector('td.today')).append('<div class="today" data-position="' + position + '" ' +
+                            ' data-date="' + date + '" data-booking-id="' + booking_id + '">' + scope.today + '</div>');
+                        angular.element(document.querySelector('table#' + scope.calendarid + ' div.selected')).remove();
+                    });
+
+                    scope.$watch('beginning', function (newMonth, oldMonth) {
+                        scope.calendarData = scope.initCalendarData(scope.month, scope.year, newMonth);
                         angular.element(document.querySelector('div.today')).remove();
                         var position = angular.element(document.querySelector('td.today')).attr('data-position');
                         var booking_id = angular.element(document.querySelector('td.today')).attr('data-booking-id');

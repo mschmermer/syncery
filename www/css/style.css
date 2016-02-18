@@ -40,8 +40,8 @@ div.item#search-box{
 }
 
 ion-item.item.item-divider.divider-input{
-     /*background-color: white; color: grey;*/
-    font-variant: small-caps;
+     /*background-color: white; color: grey;
+    font-variant: small-caps;*/
  }
 
 ion-item.item-divider.divider-input{
@@ -49,8 +49,8 @@ ion-item.item-divider.divider-input{
 }
 
 div.item.item-divider{
-     /*background-color: white; color: grey;*/
-     font-variant: small-caps;
+     /*background-color: white; color: grey;
+     font-variant: small-caps;*/
  }
 
 div.item.item-divider.divider-input{

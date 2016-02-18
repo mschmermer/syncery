@@ -39,7 +39,15 @@
         });
 
         $scope.$watch('selector.language.selected', function (newvalue) {
+            switch (newvalue){
+                case 'german': $translate.use('de'); break;
+                case 'english': $translate.use('en'); break;
+            }
+        });
 
+        $scope.$watch('selector.week_beginning.selected', function (newvalue) {
+            UserSvc.setWeekBeginning(newvalue);
+            console.log(UserSvc.getWeekBeginning());
         });
 
         $scope.selector['timezone1'] = {
@@ -61,9 +69,27 @@
         };
 
         $scope.selector['language'] = {
-            items: ['DE','EN'],
+            items: ['german','english'],
             name: 'language',
-            selected: 'DE'
+            selected: 'german'
+        };
+
+        $scope.selector['date_format'] = {
+            items: ['dd/mm/yyyy','yyyy/mm/dd'],
+            name: 'date_format',
+            selected: 'dd/mm/yyyy'
+        };
+
+        $scope.selector['week_beginning'] = {
+            items: ['monday','sunday'],
+            name: 'week_beginning',
+            selected: UserSvc.getWeekBeginning()
+        };
+
+        $scope.selector['number_format'] = {
+            items: ['0.000,00','0,000.00'],
+            name: 'number_format',
+            selected: '0.000,00'
         };
 
         $ionicModal.fromTemplateUrl('templates/selector.html', {

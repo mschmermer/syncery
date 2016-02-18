@@ -48,5 +48,10 @@
             $state.go('app.addCustomer');
         }
 
+        $scope.selectCustomer = function(id){
+            alert(id);
+
+        }
+
     }
 })();
