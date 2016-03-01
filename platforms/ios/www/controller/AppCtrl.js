@@ -23,6 +23,12 @@
             $scope.menu_class[$scope.menu_class.selected] = "";
             $scope.menu_class[view] = "selected";
             $scope.menu_class.selected = view;
+            if(view == 'search'){
+                $ionicHistory.nextViewOptions({
+                    disableBack: true
+                });
+                $state.go('app.search');
+            }
         }
 
         $scope.settings = function(){

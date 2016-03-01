@@ -1,3 +1,5 @@
+
+
 /* General */
 ion-content{
      background-color: rgb(247, 247, 247);
@@ -38,8 +40,8 @@ div.item#search-box{
 }
 
 ion-item.item.item-divider.divider-input{
-     /*background-color: white; color: grey;*/
-    font-variant: small-caps;
+     /*background-color: white; color: grey;
+    font-variant: small-caps;*/
  }
 
 ion-item.item-divider.divider-input{
@@ -47,8 +49,8 @@ ion-item.item-divider.divider-input{
 }
 
 div.item.item-divider{
-     /*background-color: white; color: grey;*/
-     font-variant: small-caps;
+     /*background-color: white; color: grey;
+     font-variant: small-caps;*/
  }
 
 div.item.item-divider.divider-input{
@@ -84,7 +86,7 @@ img.logo-menu{
     margin-left: auto;
     margin-right: auto;
     display: block;
-    height: 50%;
+    height: 85%;
     margin-top: 3%;
 }
 
@@ -124,8 +126,9 @@ img.logo{
     margin-left: auto;
     margin-right: auto;
     display: block;
+    max-height: 100px;
     margin: 5%;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 div.item.forget-password{

@@ -9,113 +9,179 @@
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
             <button ng-click="addBooking()"
-                    class="button button-icon icon ion-android-add-circle">
+                    class="button button-icon icon ion-ios-plus-outline">
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="bookings" style="background-color: rgb(247,247,247)">
-        <div class="list card">
-            <div class="item item-divider">{{"selection" | translate}}</div>
-            <ion-item>
-                <syncery-dropdown name="'accommodation'"
-                                  attribute="accommodations[accommodations_actual]"
-                                  attributes="accommodations">
+    <ion-pane >
+        <ion-tabs class="tabs-striped tabs-background-royal tabs-color-light" delegate-handle="bookingtabs">
 
-                </syncery-dropdown>
-            </ion-item>
-            <ion-item>
-                <syncery-dropdown
-                        data-method="selectMonth"
-                        name="'Monat'"
-                        attribute="date_actual"
-                        attributes="month2">
+            <!-- Tab 1 -->
+            <ion-tab title="Kalender">
+                <ion-view name="calendartab">
+                    <ion-content delegate-handle="bookings">
+                        <div class="list">
+                            <div class="item item-divider divider-input">{{"selection" | translate}}</div>
+                            <label class="item item-input item-icon-right" ng-click="select('accommodations')">
+                                <span class="input-label">{{'accommodation' | translate}}</span>
+                                <p>{{selector.accommodations.selected}}</p>
+                                <i class="icon ion-ios-arrow-right"></i>
+                            </label>
+                            <label class="item item-input item-icon-right" ng-click="select('month')">
+                                <span class="input-label">{{'month' | translate}}</span>
+                                <p>{{selector.month.selected}}</p>
+                                <i class="icon ion-ios-arrow-right"></i>
+                            </label>
+                        </div>
+                        <div>
+                            <ion-slide-box id="slidebox" active-slide="myActiveSlide" on-slide-changed="slideHasChanged($index)" show-pager="false"
+                                           does-continue="true">
+                                <ion-slide>
+                                    <div class="row">
+                                        <div class="col" ng-if="hideCal2" ng-class="col">
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber-1" year="year"
+                                                              booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                        </div>
+                                        <div class="col" ng-class="col">
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber" year="year"
+                                                          booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                        </div>
+                                        <div class="col" ng-if="hideCal1" ng-class="col">
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber+1" year="year"
+                                                          booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                        </div>
+                                    </div>
+                                </ion-slide>
+                                <ion-slide>
+                                    <div class="row">
+                                        <div class="col" ng-if="hideCal2" ng-class="col">
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber1-1" year="year1"
+                                                              booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                        </div>
+                                        <div class="col" ng-class="col">
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber1" year="year1"
+                                                              booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                        </div>
+                                        <div class="col" ng-if="hideCal1" ng-class="col">
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber1+1" year="year1"
+                                                              booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                        </div>
+                                    </div>
+                                </ion-slide>
+                                <ion-slide>
+                                    <ion-slide>
+                                        <div class="row">
+                                            <div class="col" ng-if="hideCal2" ng-class="col">
+                                                <syncery-calendar data-method="clickCalendar" month="monthnumber2-1" year="year2"
+                                                                  booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                            </div>
+                                            <div class="col" ng-class="col">
+                                                <syncery-calendar data-method="clickCalendar" month="monthnumber2" year="year2"
+                                                                  booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                            </div>
+                                            <div class="col" ng-if="hideCal1" ng-class="col">
+                                                <syncery-calendar data-method="clickCalendar" month="monthnumber2+1" year="year2"
+                                                                  booking_id="booking_id" beginning="beginning"></syncery-calendar>
+                                            </div>
+                                        </div>
+                                    </ion-slide>
+                                </ion-slide>
+                            </ion-slide-box>
+                        </div>
 
-                </syncery-dropdown>
-            </ion-item>
-        </div>
+                        <div id="BookingView" ng-hide="bookingView" class="list card">
+
+                            <ion-item class="item item-icon-right item-divider">
+                                {{"booking" | translate}}
+                                <i class="icon ion-close" ng-click="close()"></i>
+                            </ion-item>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label ng-click="showMore('accommodation')" ng-class="hide.accommodation.class">
+                                        <h2>{{"accommodation" | translate}}</h2>
+
+                                        <p>Test Haus dasdz agsuifjsdkhf ijehwifhwejkrjfkhreuigfreghergker gre </p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col two-item-border col-50">
+                                    <label ng-click="showMore('customer')" ng-class="hide.customer.class">
+                                        <h2>{{"customer" | translate}}</h2>
+
+                                        <p>Test Kunde asdsad sa das das das fds fedg fh twh whtr tze j etz</p>
+                                    </label>
+                                </div>
+                                <div class="col two-item-border col-50">
+                                    <label ng-click="showMore('date')" ng-class="hide.date.class">
+                                        <h2>{{"date" | translate}}</h2>
+
+                                        <p>01.12.15 - 30.01.15</p>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col two-item-border col-50">
+                                    <label class="item item item-stacked-label">
+                                        <h2>{{"payment" | translate}}</h2>
+
+                                        <p style="color: #fd971f;">unbezahlt</p>
+                                    </label>
+                                </div>
+                                <div class="col two-item-border col-50">
+                                    <label class="item item item-stacked-label">
+                                        <h2>Status:</h2>
+
+                                        <p style="color: green;">reserviert</p>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row responsive-sm">
+                                <div class="col col-50">
+                                    <button class="button button-last button-positive" ng-click="showBooking()">
+                                        {{"show_booking" | translate}}
+                                    </button>
+                                </div>
+                                <div class="col col-50">
+                                    <button class="button button-last button-positive" ng-click="changeBooking()">
+                                        {{"change_booking" | translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-content>
+
+                </ion-view>
+            </ion-tab>
 
 
-        <div>
-            <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideHasChanged($index)" show-pager="false"
-                           does-continue="true">
-                <ion-slide>
-                    <syncery-calendar data-method="clickCalendar" month="monthnumber" year="year"
-                                      booking_id="booking_id"></syncery-calendar>
-                </ion-slide>
-                <ion-slide>
-                    <syncery-calendar data-method="clickCalendar" month="monthnumber1" year="year1"
-                                      booking_id="booking_id"></syncery-calendar>
-                </ion-slide>
-                <ion-slide>
-                    <syncery-calendar data-method="clickCalendar" month="monthnumber2" year="year2"
-                                      booking_id="booking_id"></syncery-calendar>
-                </ion-slide>
-            </ion-slide-box>
-        </div>
+            <!-- Tab 2 -->
+            <ion-tab title="Liste" >
+                <ion-nav-view name="listtab">
+                    <ion-content>
+                        <div class="bar bar-header" style="height: 45px">
+                            <div class="button-bar">
+                                <a class="button button-small"
+                                    ng-click="filter('date')" ng-class="filter_class.date">{{'date' | translate}}</a>
+                                <a class="button button-small"
+                                    ng-click="filter('open')" ng-class="filter_class.open">{{'open' | translate}}</a>
+                                <a class="button button-small"
+                                    ng-click="filter('unpaid')" ng-class="filter_class.unpaid">{{'unpaid' | translate}}</a>
+                            </div>
+                        </div>
+                        <ion-list>
+                            <ion-item ng-repeat="booking in bookings">
+                                <h2>{{booking.accommodation}}</h2>
+                                <p>von: {{booking.arrival}}</p>
+                                <p>bis: {{booking.departure}}</p>
+                            </ion-item>
+                        </ion-list>
+                    </ion-content>
+                </ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
 
-        <div id="BookingView" ng-hide="bookingView" class="list card">
-
-            <ion-item class="item item-icon-right item-divider">
-                {{"booking" | translate}}
-                <i class="icon ion-close" ng-click="close()"></i>
-            </ion-item>
-
-            <div class="row">
-                <div class="col">
-                    <label ng-click="showMore('accommodation')" ng-class="hide.accommodation.class">
-                        <h2>{{"accommodation" | translate}}</h2>
-
-                        <p>Test Haus dasdz agsuifjsdkhf ijehwifhwejkrjfkhreuigfreghergker gre </p>
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col two-item-border col-50">
-                    <label ng-click="showMore('customer')" ng-class="hide.customer.class">
-                        <h2>{{"customer" | translate}}</h2>
-
-                        <p>Test Kunde asdsad sa das das das fds fedg fh twh whtr tze j etz</p>
-                    </label>
-                </div>
-                <div class="col two-item-border col-50">
-                    <label ng-click="showMore('date')" ng-class="hide.date.class">
-                        <h2>{{"date" | translate}}</h2>
-
-                        <p>01.12.15 - 30.01.15</p>
-                    </label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col two-item-border col-50">
-                    <label class="item item item-stacked-label">
-                        <h2>{{"payment" | translate}}</h2>
-
-                        <p style="color: #fd971f;">unbezahlt</p>
-                    </label>
-                </div>
-                <div class="col two-item-border col-50">
-                    <label class="item item item-stacked-label">
-                        <h2>Status:</h2>
-
-                        <p style="color: green;">reserviert</p>
-                    </label>
-                </div>
-            </div>
-            <div class="row responsive-sm">
-                <div class="col col-50">
-                    <button class="button button-last button-positive" ng-click="showBooking()">
-                        {{"show_booking" | translate}}
-                    </button>
-                </div>
-                <div class="col col-50">
-                    <button class="button button-last button-positive" ng-click="changeBooking()">
-                        {{"change_booking" | translate}}
-                    </button>
-                </div>
-            </div>
-
-
-        </div>
-    </ion-content>
+    </ion-pane>
 </ion-view>

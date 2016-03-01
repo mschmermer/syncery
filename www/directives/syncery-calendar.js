@@ -41,6 +41,16 @@
 
                     $scope.initCalendarData = function (month, year, beginning) {
 
+                        if(month < 0){
+                            month+=12;
+                            year-=1;
+                        }
+                        if(month > 12){
+                            month-=12;
+                            year+=1;
+                        }
+
+
                         $scope.day = [];
 
                         var cid = 0;
@@ -52,7 +62,7 @@
                             $scope.calendarid = 'calendar' + cid;
                         }, 2);
 
-                        //set locale to German
+                        //set locale
                         var moments = moment().locale(UserSvc.getLanguage());
 
                         $scope.months = [''];
@@ -174,18 +184,21 @@
                                 }
                             }
                         }
+                        if(month == 1 && year == 2016){
+                            console.log(calendarData);
+                        }
                         return calendarData;
                     }
-
+                    //console.log($scope.month, $scope.year, $scope.beginning);
                     $scope.calendarData = $scope.initCalendarData($scope.month, $scope.year, $scope.beginning);
 
                 },
 
-                link: function (scope, elem, BookingSvc) {
+                link: function (scope, timeout) {
 
-                    scope.$watch('month', function (newMonth, oldMonth) {
+                    scope.$watch('month', function (newMonth) {
+                        angular.element(document.querySelector('div.today')).remove();
                         scope.calendarData = scope.initCalendarData(newMonth, scope.year, scope.beginning);
-                        angular.element(document.querySelector('div.today')).remove();
                         var position = angular.element(document.querySelector('td.today')).attr('data-position');
                         var booking_id = angular.element(document.querySelector('td.today')).attr('data-booking-id');
                         var date = angular.element(document.querySelector('td.today')).attr('data-date');
@@ -194,90 +207,6 @@
                         angular.element(document.querySelector('table#' + scope.calendarid + ' div.selected')).remove();
                     });
 
-                    scope.$watch('beginning', function (newMonth, oldMonth) {
-                        scope.calendarData = scope.initCalendarData(scope.month, scope.year, newMonth);
-                        angular.element(document.querySelector('div.today')).remove();
-                        var position = angular.element(document.querySelector('td.today')).attr('data-position');
-                        var booking_id = angular.element(document.querySelector('td.today')).attr('data-booking-id');
-                        var date = angular.element(document.querySelector('td.today')).attr('data-date');
-                        angular.element(document.querySelector('td.today')).append('<div class="today" data-position="' + position + '" ' +
-                            ' data-date="' + date + '" data-booking-id="' + booking_id + '">' + scope.today + '</div>');
-                        angular.element(document.querySelector('table#' + scope.calendarid + ' div.selected')).remove();
-                    });
-
-
-
-                    /*elem.bind('click', function (element) {
-                     if (element.srcElement.attributes['data-position']) {
-                     var position = element.srcElement.attributes['data-position'].value;
-                     var date = element.srcElement.attributes['data-date'].value;
-                     var selected_day = element.toElement.innerText;
-
-                     angular.element(document.querySelector('table#' + scope.calendarid + ' div.selected')).remove();
-                     var td = angular.element(document.querySelector('table#' + scope.calendarid + ' td[data-position="' + position + '"]'));
-
-                     if (!td.hasClass('other_month')) {
-                     td.append('<div class="selected"></div>');
-                     if (element.srcElement.attributes['data-booking-id']) {
-                     var booking_id = element.srcElement.attributes['data-booking-id'].value;
-                     $compile(element.contents())(scope);
-                     }
-                     }
-                     var func = scope.methodToCall();
-                     func({booking_id: booking_id, day: selected_day, month: scope.month, year: scope.year});
-                     }
-                     });
-
-                     /*scope.select = function (position) {
-                     scope.booking_id = false;
-                     angular.element(document.querySelector('table#'+scope.calendarid+' div.selected')).remove();
-                     var td = angular.element(document.querySelector('table#'+scope.calendarid+' td[data-position="'+position+'"]'));
-                     scope.selected_day = parseInt(td.html());
-
-                     if(scope.arrival && scope.departure){
-                     for (var col = scope.arrival.charAt(0); col <= 6; col++) {
-                     if(col <= scope.departure.charAt(0)){
-                     for (var row = 1; row <= 7; row++) {
-                     if((row >= scope.arrival.charAt(2) && col < scope.departure.charAt(0)) ||
-                     (row <= scope.departure.charAt(2) && col == scope.departure.charAt(0))){
-                     scope.calendarData[col][row]['class'] = scope.calendarData[col][row]['class'].replace('selected', '');
-                     }
-                     }
-                     }
-                     }
-                     scope.arrival = false;
-                     scope.departure = false;
-                     }
-
-                     if(!td.hasClass('other_month')){
-                     td.append('<div class="selected"></div>');
-                     }
-                     if(td.hasClass('occupied') || td.hasClass('arrival')){
-                     var id = td.attr('data-booking-id');
-                     scope.booking_id=id.charAt(0);
-                     var arrival = angular.element(document.querySelector('td[data-booking-id="'+id+'a"]')).attr('data-position');
-                     scope.arrival = arrival;
-                     var departure = angular.element(document.querySelector('td[data-booking-id="'+id+'d"]')).attr('data-position');
-                     scope.departure = departure;
-                     scope.calendarData[arrival.charAt(0)][arrival.charAt(2)]['class'] += ' selected';
-                     scope.calendarData[departure.charAt(0)][departure.charAt(2)]['class'] += ' selected';
-
-                     for (var col = arrival.charAt(0); col <= 6; col++) {
-                     if(col <= departure.charAt(0)){
-                     for (var row = 1; row <= 7; row++) {
-                     if((row > arrival.charAt(2) && col < departure.charAt(0)) ||
-                     (row < departure.charAt(2) && col == departure.charAt(0))){
-                     scope.calendarData[col][row]['class'] += ' selected';
-                     }
-                     }
-                     }
-                     }
-                     }
-                     //elem.bind('click', function () {
-                     var func = scope.methodToCall();
-                     func({booking_id: scope.booking_id, day: scope.selected_day, month: scope.month, year: scope.year});
-                     //});
-                     }*/
                 }
             }
         }

@@ -33,14 +33,13 @@
                                 <i class="icon ion-ios-arrow-right"></i>
                             </label>
                         </div>
-{{beginning}}
                         <div>
                             <ion-slide-box id="slidebox" active-slide="myActiveSlide" on-slide-changed="slideHasChanged($index)" show-pager="false"
                                            does-continue="true">
                                 <ion-slide>
                                     <div class="row">
                                         <div class="col" ng-if="hideCal2" ng-class="col">
-                                            <syncery-calendar data-method="clickCalendar" month="monthnumber2" year="year2"
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber-1" year="year"
                                                               booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                         </div>
                                         <div class="col" ng-class="col">
@@ -48,7 +47,7 @@
                                                           booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                         </div>
                                         <div class="col" ng-if="hideCal1" ng-class="col">
-                                            <syncery-calendar data-method="clickCalendar" month="monthnumber1" year="year1"
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber+1" year="year"
                                                           booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                         </div>
                                     </div>
@@ -56,7 +55,7 @@
                                 <ion-slide>
                                     <div class="row">
                                         <div class="col" ng-if="hideCal2" ng-class="col">
-                                            <syncery-calendar data-method="clickCalendar" month="monthnumber" year="year"
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber1-1" year="year1"
                                                               booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                         </div>
                                         <div class="col" ng-class="col">
@@ -64,7 +63,7 @@
                                                               booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                         </div>
                                         <div class="col" ng-if="hideCal1" ng-class="col">
-                                            <syncery-calendar data-method="clickCalendar" month="monthnumber2" year="year2"
+                                            <syncery-calendar data-method="clickCalendar" month="monthnumber1+1" year="year1"
                                                               booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                         </div>
                                     </div>
@@ -73,7 +72,7 @@
                                     <ion-slide>
                                         <div class="row">
                                             <div class="col" ng-if="hideCal2" ng-class="col">
-                                                <syncery-calendar data-method="clickCalendar" month="monthnumber1" year="year1"
+                                                <syncery-calendar data-method="clickCalendar" month="monthnumber2-1" year="year2"
                                                                   booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                             </div>
                                             <div class="col" ng-class="col">
@@ -81,7 +80,7 @@
                                                                   booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                             </div>
                                             <div class="col" ng-if="hideCal1" ng-class="col">
-                                                <syncery-calendar data-method="clickCalendar" month="monthnumber" year="year"
+                                                <syncery-calendar data-method="clickCalendar" month="monthnumber2+1" year="year2"
                                                                   booking_id="booking_id" beginning="beginning"></syncery-calendar>
                                             </div>
                                         </div>

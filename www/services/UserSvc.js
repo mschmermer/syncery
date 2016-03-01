@@ -23,7 +23,7 @@
             username: 'ma.schmermer',
             password: '********',
             language: 'de',
-            settings: {beginng: 'sunday'}
+            settings: {beginng: 'monday'}
         };
 
         vm.profiles = [

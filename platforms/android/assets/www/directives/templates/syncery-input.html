@@ -1,14 +1,15 @@
 <div class="syncery-input {{form1.input.$valid}}" ng-class="class">
     <form name="form1" ng-class="class_form">
-        <input ng-hide="input_hide" ng-class="class" type="text" class="{{form1.input.$valid}}" name="input" placeholder="{{title}}"
+        <!--<input ng-hide="input_hide" ng-class="class" type="{{type}}" class="{{form1.input.$valid}}" name="input" placeholder="{{title}}"
                ng-pattern="pattern" ng-model="input">
         <input ng-hide="tel_hide" ng-class="class" type="text" class="{{form1.tel.$valid}}" name="tel" placeholder="{{title}}"
-               ng-pattern="pattern" ng-model="input">
-        <input ng-hide="money_hide" ng-class="class" type="tel" class="{{form1.money.$valid}}" name="money"
-               ng-pattern="pattern" ng-model="input" ng-change="change()">
+               ng-pattern="pattern" ng-model="input">-->
+        <input ng-hide="input_hide" ng-class="class" type="{{typ}}" class="{{form1.input.$valid}}" name="input"
+               maxlength="{{maxlenght}}" ng-pattern="pattern" ng-model="input" ng-change="change()"
+               placeholder="{{title}}" max="{{max}}">
         <i ng-hide="money_hide" class="icon ion-social-euro {{form1.money.$valid}}"></i>
         <textarea ng-hide="textarea_hide" maxlength="300"
-                placeholder="{{'notes' | translate}}">{{input}}</textarea>
+                placeholder="{{title}}">{{input}}</textarea>
     </form>
 
     <style>
@@ -61,7 +62,7 @@
         }
 
         .syncery-input.false {
-            border-bottom: 2px solid rgb(153, 0, 51);
+            border-bottom: 4px solid rgb(153, 0, 51);
         }
 
         div.syncery-input i.icon.ion-social-euro.false {

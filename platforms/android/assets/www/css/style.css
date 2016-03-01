@@ -1,3 +1,5 @@
+
+
 /* General */
 ion-content{
      background-color: rgb(247, 247, 247);
@@ -24,12 +26,44 @@ ion-list div.list{
     padding-top: 0px;
 }
 
+span.badge{
+    border-radius: 4px;
+    right: 10px;
+}
+
 input{
     border-bottom: 2px solid black;
 }
 
-#search-box{
+div.item#search-box{
     height: 50px;
+}
+
+ion-item.item.item-divider.divider-input{
+     /*background-color: white; color: grey;
+    font-variant: small-caps;*/
+ }
+
+ion-item.item-divider.divider-input{
+    padding-top: 20px;
+}
+
+div.item.item-divider{
+     /*background-color: white; color: grey;
+     font-variant: small-caps;*/
+ }
+
+div.item.item-divider.divider-input{
+    /*background-color: white; color: grey;*/
+    padding-top: 20px;
+}
+
+div.status-bar{
+    height: 20px;
+    /*background-color: rgb(56,68,94);*/
+}
+.tabs-striped.tabs-color-light .tab-item.tab-item-active{
+    border-top: 4px solid red;
 }
 
 /* Search */
@@ -42,9 +76,9 @@ ion-item.settings {
     text-align: center;
 }
 
-ion-item.settings:first-child {
+/*ion-item.settings:first-child {
     margin-top: 15%;
-}
+}*/
 
 
 /*Menu*/
@@ -52,13 +86,26 @@ img.logo-menu{
     margin-left: auto;
     margin-right: auto;
     display: block;
-    height: 50%;
+    height: 85%;
     margin-top: 3%;
 }
 
 ion-item.item.side-menu a{
     background-color: rgb(56,68,94);
     color: white;
+}
+
+ion-item.item.side-menu.selected a{
+    background-color: rgb(255,102,102);
+    color: white;
+}
+
+ion-item.item.side-menu.side-menu-profiles a{
+    border-left: 10px solid rgb(56,68,94);
+}
+
+ion-item.item.side-menu{
+    border: 0px;
 }
 
 ion-content.side-menu{
@@ -79,8 +126,9 @@ img.logo{
     margin-left: auto;
     margin-right: auto;
     display: block;
+    max-height: 100px;
     margin: 5%;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 div.item.forget-password{
@@ -88,7 +136,7 @@ div.item.forget-password{
     border: 0px;
     font-size: 70%;
     text-align: center;
-    height: 4%;
+
     padding: 0px;
 }
 

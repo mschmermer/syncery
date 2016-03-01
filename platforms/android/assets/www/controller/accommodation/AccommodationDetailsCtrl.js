@@ -5,8 +5,8 @@
         .controller('AccommodationDetailsCtrl', AccommodationDetailsCtrl);
 
 
-    function AccommodationDetailsCtrl($scope, UserSvc, LoginFactory,$location,$timeout, $state, $stateParams,
-                                      AccommodationSvc, $ionicScrollDelegate, $ionicLoading) {
+    function AccommodationDetailsCtrl($scope,$location,$timeout, $state, $stateParams,
+                                      AccommodationSvc, $ionicScrollDelegate, MappingSvc) {
 
 
         $scope.id = $stateParams.id;
@@ -14,9 +14,9 @@
 
         $scope.descriptionClass = 'item';
         $scope.icon = {
-            MasterDataAcco: 'icon ion-chevron-down',
-            Mapping: 'icon ion-chevron-down',
-            accommodation_capacity: 'icon ion-chevron-down'
+            MasterDataAcco: 'icon ion-ios-arrow-down',
+            Mapping: 'icon ion-ios-arrow-down',
+            accommodation_capacity: 'icon ion-ios-arrow-down'
             };
         $scope.hide = {
             MasterDataAcco: true,
@@ -33,6 +33,8 @@
 
         $scope.accommodation = AccommodationSvc.getAccommodationById($scope.id);
 
+        $scope.mappings = MappingSvc.getMapping($scope.id);
+
         $scope.showMoreDescription = function () {
 
             if ($scope.descriptionClass.length <= 4) {
@@ -45,10 +47,10 @@
         $scope.showMore = function (field) {
             if ($scope.hide[field]) {
                 $scope.hide[field] = false;
-                $scope.icon[field] = 'icon ion-chevron-up';
+                $scope.icon[field] = 'icon ion-ios-arrow-up';
             } else {
                 $scope.hide[field] = true;
-                $scope.icon[field] = 'icon ion-chevron-down';
+                $scope.icon[field] = 'icon ion-ios-arrow-down';
             }
             $timeout( function() {
                 $ionicScrollDelegate.resize();
@@ -60,6 +62,10 @@
 
         $scope.edit = function(id){
             alert(id);
+        }
+
+        $scope.addMapping = function(){
+            $state.go('app.accommodationMapping', {acc_id: $scope.id});
         }
     }
 })();

@@ -1,6 +1,3 @@
-<ion-header-bar class="bar-dark bar-subheader">
-    <h3 style="text-align: center; color:white; line-height: 28px; font-size: 16px;">{{accommodation.name}}</h3>
-</ion-header-bar>
 <ion-view view-title="{{'accommodation' | translate}}">
     <ion-nav-bar class="bar syncery-header">
         <ion-nav-back-button class="button-clear">
@@ -20,7 +17,7 @@
     <ion-content delegate-handle="accommodationDetails">
         <div class="list card">
             <div class="item item-divider">
-                {{"description" | translate}}
+                {{accommodation.name}}
             </div>
             <ion-item ng-class="descriptionClass" ng-click="showMoreDescription()">
                 {{accommodation.description}}
@@ -34,51 +31,36 @@
         </ion-slide-box>
 
         <div class="list card">
-            <div class="item item-divider item-icon-right" ng-click="showMore('MasterDataAcco')"
-                 id="MasterDataAcco">
-                {{"master_data" | translate}}
-                <i ng-class="icon['MasterDataAcco']"></i>
+            <div class="item item-divider item-icon-right" ng-click="showMore('contact')"
+                 id="contact">
+                {{"contact" | translate}}
+                <i ng-class="icon['contact']"></i>
             </div>
-            <ion-item ng-hide="hide['MasterDataAcco']">
-                <div class="row ">
-                    <div class="col">
-                        <p>Herr Dr. Prof.</p>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col col-50">
-                        <p>Marcus</p>
-                    </div>
-                    <div class="col col-50">
-                        <p>Schmermer</p>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col col-50">
-                        <p>Erieseering 22</p>
-                    </div>
-                    <div class="col col-50">
-                        <p>10319 Berlin</p>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col">
-                        <b>{{"contact" | translate}}</b></div>
-                </div>
-                <div class="row ">
-                    <div class="col col-50">
-                        <p>030 94399851</p>
-                    </div>
-                    <div class="col col-50">
-                        <p>0151 63 42 68 41</p>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col">
-                        <p>ma.schmermer@gmail.com</p>
-                    </div>
-                </div>
-            </ion-item>
+            <ion-list ng-hide="hide['contact']">
+                <ion-item class="item-icon-left" href="mailto:ma.schmermer@googlemail.com">
+                    <i class="icon ion-ios-email-outline"></i>
+                    <h2>E-Mail</h2>
+
+                    ma.schmermer@googlemail.com
+                </ion-item>
+                <ion-item class="item-icon-left" href="tel:030 94399851">
+                    <i class="icon ion-ios-telephone-outline"></i>
+                    <h2>{{'telephone' | translate}}</h2>
+
+                    030 94399851
+                </ion-item>
+                <ion-item class="item-icon-left" href="tel:0151 63 42 68 41">
+                    <i class="icon ion-ios-telephone-outline"></i>
+                    <h2>{{'mobile' | translate}}</h2>
+
+                    0151 63 42 68 41
+                </ion-item>
+                <ion-item class="item-icon-left item-icon-right" href="#/accomodation/accomodationMasterData">
+                    <i class="icon ion-ios-bookmarks-outline"></i>
+                    {{'master_data' | translate}}
+                    <i class="icon ion-ios-arrow-right"></i>
+                </ion-item>
+            </ion-list>
         </div>
 
         <div class="card">
@@ -87,9 +69,10 @@
                 <i ng-class="icon['Mapping']"></i>
             </div>
             <ion-list can-swipe="true" ng-hide="hide['Mapping']">
-                <ion-item>
-                    Booking.com
-                    <p>ID: FBKDHFJB637812</p>
+                    <button class="button button-positive button-last" ng-click="addMapping(accommodation.id)">{{'add_mapping' | translate}}</button>
+                <ion-item ng-repeat="mapping in mappings">
+                    <b>{{mapping.portal_name}}</b>
+                    <p>ID: {{mapping.sync_id}}</p>
                     <ion-option-button class="button button-dark ion-ios7-heart button-options">
                         {{"edit" | translate}}
                     </ion-option-button>

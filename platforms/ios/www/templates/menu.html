@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
     <ion-side-menu-content>
-        <ion-nav-bar class="syncery-header" style="height: 90px">
+        <ion-nav-bar class="syncery-header" >
             <ion-nav-back-button class="button-clear">
                 <i class="ion-chevron-left" style="color: white"></i> {{"back" | translate }}
             </ion-nav-back-button>
@@ -25,11 +25,11 @@
                     <i class="icon ion-ios-gear-outline" ng-click="settings()"></i>
                 </ion-item>
                 <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.search"
-                          ng-click=changeView('search') href="#/app/search">
-                    <i class="icon ion-ios-search"></i>{{"search_menu" | translate}}
+                          ng-click=changeView('search') >
+                    <i class="icon ion-ios-search"></i>{{'search_menu' | translate}}
                 </ion-item>
                 <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.dashboard"
-                          ng-click=changeView('daschboard') href="#/app/home">
+                          ng-click=changeView('dashboard') href="#/app/home">
                     <i class="icon ion-ios-speedometer-outline"></i>DASHBOARD
                 </ion-item>
                 <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.booking"

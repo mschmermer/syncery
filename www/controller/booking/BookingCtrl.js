@@ -113,7 +113,6 @@
                     delegate.anchorScroll(true);
                 }, 200);
             } else {
-                console.log(day);
                 $scope.booking_id = false;
                 $scope.bookingView = true;
                 $timeout(function () {
@@ -157,19 +156,19 @@
 
             $scope.hideCal1 = false;
             $scope.hideCal2 = false;
-            $scope.jumper = 0;
+            $scope.jumper = 1;
             $scope.col = "col-100";
 
 
             if(window.innerWidth>=605){
                 $scope.hideCal1 = true;
                 $scope.col = "col-50";
-                $scope.jumper = 1;
+                $scope.jumper = 2;
             }
             if(window.innerWidth>=910){
                 $scope.hideCal2 = true;
                 $scope.col = "col-33";
-                $scope.jumper = 2;
+                $scope.jumper = 3;
             }
 
             $scope.month = [];
@@ -185,19 +184,26 @@
                 $scope.monthnumber = moment().month() + 1;
                 $scope.monthnumber_actual = $scope.monthnumber;
                 $scope.year = moment().year();
-                $scope.monthnumber1 = $scope.monthnumber + 1;
-                $scope.monthnumber2 = $scope.monthnumber - 1;
-                if ($scope.monthnumber == 12) {
-                    $scope.monthnumber1 = 1;
-                    $scope.year1 = $scope.year + 1;
-                    $scope.year2 = $scope.year;
-                } else if ($scope.monthnumber == 1) {
-                    $scope.year1 = $scope.year;
-                    $scope.monthnumber2 = 12;
-                    $scope.year2 = $scope.year - 1;
-                } else {
-                    $scope.year1 = $scope.year;
-                    $scope.year2 = $scope.year;
+                $scope.monthnumber1 = $scope.monthnumber + $scope.jumper;
+                $scope.monthnumber2 = $scope.monthnumber - $scope.jumper;
+                $scope.year1 = $scope.year;
+                $scope.year2 = $scope.year;
+
+                if($scope.monthnumber1 < 0){
+                    $scope.monthnumber1+= 12;
+                    $scope.year1-=1;
+                }
+                if($scope.monthnumber1 > 12){
+                    $scope.monthnumber1-= 12;
+                    $scope.year1+=1;
+                }
+                if($scope.monthnumber2 < 0){
+                    $scope.monthnumber2+= 12;
+                    $scope.year2-=1;
+                }
+                if($scope.monthnumber2 > 12){
+                    $scope.monthnumber2-= 12;
+                    $scope.year2+=1;
                 }
             }
 
@@ -231,65 +237,64 @@
         $scope.slideHasChanged = function (index) {
             switch (index) {
                 case 0:
-                    $scope.date_actual = $scope.month[$scope.monthnumber - 1] + ' ' + $scope.year;
-                    $scope.selector.month.selected = $scope.date_actual;
                     switch ($scope.myActiveSlide) {
                         case 1:
-                            $scope.monthnumber2 = $scope.monthnumber2 - 3;
+                            $scope.monthnumber2 = $scope.monthnumber2 - 3  * $scope.jumper;
                             if ($scope.monthnumber2 <= 0) {
                                 $scope.monthnumber2 = $scope.monthnumber2 + 12;
                                 $scope.year2 = $scope.year2 - 1;
                             }
+
+                            $scope.date_actual = $scope.month[$scope.monthnumber-1] + ' ' + $scope.year1;
+                            $scope.selector.month.selected = $scope.date_actual;
+
                             break;
                         case 2:
-                            $scope.monthnumber1 = $scope.monthnumber1 + 3;
+                            $scope.monthnumber1 = $scope.monthnumber1 + 3  * $scope.jumper;
                             if ($scope.monthnumber1 > 12) {
                                 $scope.monthnumber1 = $scope.monthnumber1 - 12;
                                 $scope.year1 = $scope.year1 + 1;
                             }
 
-
+                            $scope.date_actual = $scope.month[$scope.monthnumber-1] + ' ' + $scope.year1;
+                            $scope.selector.month.selected = $scope.date_actual;
                             break;
                     }
                     break;
                 case 1:
-                    $scope.date_actual = $scope.month[$scope.monthnumber1 - 1] + ' ' + $scope.year1;
-                    $scope.selector.month.selected = $scope.date_actual;
                     switch ($scope.myActiveSlide) {
                         case 0:
-                            $scope.monthnumber2 = $scope.monthnumber2 + 3;
+                            $scope.monthnumber2 = $scope.monthnumber2 + 3 * $scope.jumper;
                             if ($scope.monthnumber2 > 12) {
                                 $scope.monthnumber2 = $scope.monthnumber2 - 12;
                                 $scope.year2 = $scope.year2 + 1;
                             }
+                            $scope.date_actual = $scope.month[$scope.monthnumber1-1] + ' ' + $scope.year1;
+                            $scope.selector.month.selected = $scope.date_actual;
                             break;
                         case 2:
-                            $scope.monthnumber = $scope.monthnumber - 3;
+                            $scope.monthnumber = $scope.monthnumber - 3 * $scope.jumper;
                             if ($scope.monthnumber <= 0) {
                                 $scope.monthnumber = $scope.monthnumber + 12;
                                 $scope.year = $scope.year - 1;
                             }
+                            $scope.date_actual = $scope.month[$scope.monthnumber1 -1] + ' ' + $scope.year1;
+                            $scope.selector.month.selected = $scope.date_actual;
                             break;
                     }
 
                     break;
                 case 2:
-                    $scope.date_actual = $scope.month[$scope.monthnumber2 - 1] + ' ' + $scope.year2;
-                    $scope.selector.month.selected = $scope.date_actual;
                     switch ($scope.myActiveSlide) {
                         case 1:
-                            $scope.monthnumber = $scope.monthnumber + 3;
-                            if ($scope.monthnumber > 12) {
-                                $scope.monthnumber = $scope.monthnumber - 12;
-                                $scope.year = $scope.year + 1;
-                            }
+
+                            $scope.date_actual = $scope.month[$scope.monthnumber2 - 1] + ' ' + $scope.year1;
+                            $scope.selector.month.selected = $scope.date_actual;
                             break;
                         case 0:
-                            $scope.monthnumber1 = $scope.monthnumber1 - 3;
-                            if ($scope.monthnumber1 <= 0) {
-                                $scope.monthnumber1 = $scope.monthnumber1 + 12;
-                                $scope.year1 = $scope.year1 - 1;
-                            }
+
+                            $scope.date_actual = $scope.month[$scope.monthnumber2 -1] + ' ' + $scope.year1;
+                            $scope.selector.month.selected = $scope.date_actual;
                             break;
                     }
                     break;
@@ -299,7 +304,7 @@
         }
 
         $scope.selectMonth = function (month) {
-
+            console.log($scope.monthnumber2, $scope.monthnumber, $scope.monthnumber1);
             var moments = moment().locale(language);
             month = month.split(" ");
             actual_month = parseInt(moments.month(month[0]).format('M'));
@@ -308,52 +313,77 @@
                 case 0:
                     $scope.monthnumber = actual_month;
                     $scope.year = actual_year;
-                    $scope.monthnumber1 = actual_month + 1;
+                    $scope.monthnumber1 = actual_month + 1* $scope.jumper;
                     $scope.year1 = actual_year;
-                    $scope.monthnumber2 = actual_month - 1;
+                    $scope.monthnumber2 = actual_month - 1* $scope.jumper;
                     $scope.year2 = actual_year;
-                    if (actual_month == 12) {
-                        $scope.monthnumber1 = 1;
-                        $scope.year1 = actual_year + 1;
+                    if($scope.monthnumber2 <= 0){
+                        $scope.monthnumber2+=12;
+                        $scope.year2-=1;
                     }
-                    if (actual_month == 1) {
-                        $scope.monthnumber2 = 12;
-                        $scope.year2 = actual_year - 1;
+                    if($scope.monthnumber2 > 12){
+                        $scope.monthnumber2-=12;
+                        $scope.year2+=1;
+                    }
+                    if($scope.monthnumber1 <= 0){
+                        $scope.monthnumber1+=12;
+                        $scope.year1-=1;
+                    }
+                    if($scope.monthnumber1 > 12){
+                        $scope.monthnumber1-=12;
+                        $scope.year1+=1;
                     }
                     break;
                 case 1:
-                    $scope.monthnumber = actual_month - 1;
+                    $scope.monthnumber = actual_month - 1* $scope.jumper;
                     $scope.year = actual_year;
                     $scope.monthnumber1 = actual_month;
                     $scope.year1 = actual_year;
-                    $scope.monthnumber2 = actual_month + 1;
+                    $scope.monthnumber2 = actual_month + 1* $scope.jumper;
                     $scope.year2 = actual_year;
-                    if (actual_month == 12) {
-                        $scope.monthnumber2 = 1;
-                        $scope.year2 = actual_year + 1;
+                    if($scope.monthnumber2 <= 0){
+                        $scope.monthnumber2+=12;
+                        $scope.year2-=1;
                     }
-                    if (actual_month == 1) {
-                        $scope.monthnumber = 12;
-                        $scope.year = actual_year - 1;
+                    if($scope.monthnumber2 > 12){
+                        $scope.monthnumber2-=12;
+                        $scope.year2+=1;
+                    }
+                    if($scope.monthnumber <= 0){
+                        $scope.monthnumber+=12;
+                        $scope.year-=1;
+                    }
+                    if($scope.monthnumber > 12){
+                        $scope.monthnumber-=12;
+                        $scope.year+=1;
                     }
                     break;
                 case 2:
-                    $scope.monthnumber = actual_month + 1;
+                    $scope.monthnumber = actual_month + 1* $scope.jumper;
                     $scope.year = actual_year;
-                    $scope.monthnumber1 = actual_month - 1;
+                    $scope.monthnumber1 = actual_month - 1* $scope.jumper;
                     $scope.year1 = actual_year;
                     $scope.monthnumber2 = actual_month;
                     $scope.year2 = actual_year;
-                    if (actual_month == 12) {
-                        $scope.monthnumber = 1;
-                        $scope.year = actual_year + 1;
+                    if($scope.monthnumber <= 0){
+                        $scope.monthnumber+=12;
+                        $scope.year-=1;
                     }
-                    if (actual_month == 1) {
-                        $scope.monthnumber1 = 12;
-                        $scope.year1 = actual_year - 1;
+                    if($scope.monthnumber > 12){
+                        $scope.monthnumber-=12;
+                        $scope.year+=1;
+                    }
+                    if($scope.monthnumber1 <= 0){
+                        $scope.monthnumber1+=12;
+                        $scope.year1-=1;
+                    }
+                    if($scope.monthnumber1 > 12){
+                        $scope.monthnumber1-=12;
+                        $scope.year1+=1;
                     }
                     break;
             }
+            console.log($scope.monthnumber2, $scope.year2, $scope.monthnumber, $scope.year, $scope.monthnumber1, $scope.year1);
         }
     }
 })();

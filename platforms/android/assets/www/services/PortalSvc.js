@@ -18,6 +18,20 @@
 
         vm.configPortals = [
             {   id: 1,
+                portal_id: 1,
+                portal_name: 'booking.com',
+                mail: 'ma.schmermer@gmail.com',
+                password: 1234,
+                key: 'fsd678dsfgs',
+                sync_id: 67},
+            {   id: 2,
+                portal_id: 2,
+                portal_name: 'rbnb',
+                mail: 'ma.schmermer@gmail.com',
+                password: 1234,
+                key: 'fsd678dsfgs',
+                sync_id: 67},
+            {   id: 3,
                 portal_id: 3,
                 portal_name: 'Ferienwohnungen.com',
                 mail: 'ma.schmermer@gmail.com',
@@ -30,8 +44,10 @@
             getPortals: getPortals,
             getPortalById: getPortalById,
             getPortalnameById: getPortalnameById,
+            getPortalByName: getPortalByName,
             savePortal: savePortal,
             getConfigPortals: getConfigPortals,
+            getConfigPortalsById: getConfigPortalsById,
             deletePortal: deletePortal
         };
         return service;
@@ -54,7 +70,15 @@
             return portal[0].name;
         }
 
+        function getPortalByName(name) {
+            var portal_id = vm.portals.filter(function (obj) {
+                return obj.name == name;
+            });
+            return portal_id[0];
+        }
+
         function savePortal(portal){
+            vm.deletePortal(portal.id);
             portal['id']=vm.configPortals.length+1;
             vm.configPortals.push(portal);
             console.log(vm.configPortals);
@@ -72,7 +96,7 @@
                 return result;
             }
 
-            var index = findIndexInData(vm.configPortals, 'id', id);
+            var index = findIndexInData(vm.configPortals, 'portal_id', id);
 
             vm.configPortals.splice(index, 1);
             return index;
@@ -81,5 +105,13 @@
         function getConfigPortals(){
             return vm.configPortals;
         }
+
+        function getConfigPortalsById(id) {
+            var portal = vm.configPortals.filter(function (obj) {
+                return obj.id == id;
+            });
+            return portal[0];
+        }
+
     }
 })();

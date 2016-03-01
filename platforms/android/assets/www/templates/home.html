@@ -1,8 +1,9 @@
-<ion-view view-title="Home">
+<ion-view view-title="Dashboard">
     <ion-content>
         <div class="card">
 
-                <ion-item class="item item-divider">{{ 'testphase_time' | translate:translationData }}</ion-item>
+                <ion-item class="item item-divider"
+                        style="">{{ 'testphase_time' | translate:translationData }}</ion-item>
 
                 <syncery-contract-days
                         remaining="contract_remaining" total="contract_total"    >

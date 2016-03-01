@@ -4,7 +4,8 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCordova', 'jett.ionic.filter.bar', 'ionic.service.core', 'ionic.service.analytics'])
+angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.translate', 'chart.js', 'ngCordova',
+    'jett.ionic.filter.bar', 'ionic.service.core', 'ionic.service.analytics'])
 
     .run(function ($ionicPlatform, $ionicLoading,$rootScope){ //, $ionicAnalytics) {
         $ionicPlatform.ready(function () {
@@ -16,22 +17,21 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                 cordova.plugins.Keyboard.disableScroll(true);
             }
 
-            //ionic.Platform.fullScreen(true);
-
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
+                StatusBar.show();
                 StatusBar.overlaysWebView(false);
                 StatusBar.backgroundColorByHexString("#38445e");
-                //StatusBar.styleBlackOpaque();
+                StatusBar.styleBlackOpaque();
             }
 
-            $rootScope.$on('$ionicView.beforeLeave', function(){
+            /*$rootScope.$on('$ionicView.beforeLeave', function(){
                 $ionicLoading.show();
             });
 
             $rootScope.$on('$ionicView.afterEnter', function(){
                 $ionicLoading.hide();
-            })
+            })*/
         });
     })
 
@@ -130,11 +130,25 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
             })
 
             .state('app.addBooking', {
-                url: '/bookings/add',
+                url: '/bookings/add:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/booking/addBookings.html',
                         controller: 'AddBookingCtrl'
+                    }
+                },
+                params: {
+                    'id': null,
+                    'customer_id': null
+                }
+            })
+
+            .state('app.searchCustomer', {
+                url: '/bookings/add/search',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/booking/searchCustomer.html',
+                        controller: 'SearchCustomerCtrl'
                     }
                 }
             })
@@ -320,6 +334,16 @@ angular.module('syncery', ['ionic', 'pascalprecht.translate', 'chart.js', 'ngCor
                     'menuContent': {
                         templateUrl: 'templates/settings/faq.html',
                         controller: 'FaqCtrl'
+                    }
+                }
+            })
+
+            .state('app.contact', {
+                url: '/settings/contact',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/contact.html',
+                        controller: 'ContactCtrl'
                     }
                 }
             })

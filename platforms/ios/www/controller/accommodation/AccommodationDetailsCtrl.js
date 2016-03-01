@@ -14,9 +14,9 @@
 
         $scope.descriptionClass = 'item';
         $scope.icon = {
-            MasterDataAcco: 'icon ion-chevron-down',
-            Mapping: 'icon ion-chevron-down',
-            accommodation_capacity: 'icon ion-chevron-down'
+            MasterDataAcco: 'icon ion-ios-arrow-down',
+            Mapping: 'icon ion-ios-arrow-down',
+            accommodation_capacity: 'icon ion-ios-arrow-down'
             };
         $scope.hide = {
             MasterDataAcco: true,
@@ -47,10 +47,10 @@
         $scope.showMore = function (field) {
             if ($scope.hide[field]) {
                 $scope.hide[field] = false;
-                $scope.icon[field] = 'icon ion-chevron-up';
+                $scope.icon[field] = 'icon ion-ios-arrow-up';
             } else {
                 $scope.hide[field] = true;
-                $scope.icon[field] = 'icon ion-chevron-down';
+                $scope.icon[field] = 'icon ion-ios-arrow-down';
             }
             $timeout( function() {
                 $ionicScrollDelegate.resize();

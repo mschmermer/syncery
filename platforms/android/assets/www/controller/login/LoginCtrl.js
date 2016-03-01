@@ -5,7 +5,7 @@
         .controller('LoginCtrl', LoginCtrl);
 
 
-    function LoginCtrl($scope, UserSvc, LoginFactory, $state, $ionicSideMenuDelegate, $ionicHistory, $ionicLoading) {
+    function LoginCtrl($scope, UserSvc, LoginFactory, $state, $ionicSideMenuDelegate, $ionicHistory, $ionicNavBarDelegate) {
 
         $scope.$on('$ionicView.enter', function () {
             $ionicSideMenuDelegate.canDragContent(false);

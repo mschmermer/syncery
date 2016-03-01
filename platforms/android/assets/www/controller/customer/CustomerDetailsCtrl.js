@@ -13,8 +13,8 @@
         $scope.customer = CustomerSvc.getCustomersById($scope.id);
 
         $scope.icon = {
-            contact: 'icon ion-chevron-down',
-            bookings: 'icon ion-chevron-down'
+            contact: 'icon ion-ios-arrow-down',
+            bookings: 'icon ion-ios-arrow-down'
         };
         $scope.hide = {
             contact: true,
@@ -25,10 +25,10 @@
         $scope.showMore = function (field) {
             if ($scope.hide[field]) {
                 $scope.hide[field] = false;
-                $scope.icon[field] = 'icon ion-chevron-up';
+                $scope.icon[field] = 'icon ion-ios-arrow-up';
             } else {
                 $scope.hide[field] = true;
-                $scope.icon[field] = 'icon ion-chevron-down';
+                $scope.icon[field] = 'icon ion-ios-arrow-down';
             }
             $timeout( function() {
                 $ionicScrollDelegate.resize();
@@ -39,7 +39,7 @@
         }
 
         $scope.edit = function(id){
-            alert(id);
+            $state.go('app.addCustomer', {'id': id});
         }
 
         $scope.showAllBookings = function(id){

@@ -6,43 +6,45 @@
 
 
     function AccommodationsCtrl($scope, $timeout,$location, $ionicScrollDelegate, $state, AccommodationSvc,
-                                $ionicLoading) {
+                                $ionicFilterBar, $translate) {
         $scope.listCanSwipe = true;
 
         $scope.data = {};
-        $scope.data.showSearch = true;
-        $scope.data.searchQuery = '';
 
+        $scope.text={};
+
+        $translate('cancel')
+            .then(function (translatedValue) {
+                $scope.text['cancel'] = translatedValue;
+            });
 
         $scope.data.accommodations = AccommodationSvc.getAccommodations();
 
-        $timeout( function() {
-            $location.hash('accommodation_list');
-            var delegate = $ionicScrollDelegate.$getByHandle('accommodations');
-            delegate.anchorScroll(true);
-        }, 200);
+        $scope.getScrollPosition = function(){
+            if($ionicScrollDelegate.$getByHandle('accommodations').getScrollPosition().top < 0){
+                filterBarInstance = $ionicFilterBar.show({
+                    items: $scope.data.accommodations,
+                    update: function (filteredItems) {
+                        $scope.data.accommodations = filteredItems;
+                    },
+                    filterProperties: 'name',
+                    cancelText: $scope.text['cancel'],
+                });
+            }
+        }
 
-        $scope.data.showSearch = true;
 
 
         $scope.addAccommodation = function () {
             $state.go('app.addAccommodation');
         }
-        $scope.cancel = function () {
-            $timeout( function() {
-                $location.hash('accommodation_list');
-                var delegate = $ionicScrollDelegate.$getByHandle('accommodations');
-                delegate.anchorScroll(true);
-            }, 200);
-            $scope.data.searchQuery = '';
-        }
 
         $scope.delete = function (id) {
-            alert(id);
+            AccommodationSvc.deleteAccommodation(id);
         }
 
         $scope.edit = function (id) {
-            alert(id);
+            $state.go('app.addAccommodation', {id: id});
         }
 
     }

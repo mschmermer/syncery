@@ -1,25 +1,46 @@
 <ion-view view-title="{{'settings' | translate}}">
     <ion-content>
         <div class="list">
-            <ion-item class="item item-icon-right settings" href="#/app/settings/general">
-                <b>{{"general" | translate}}</b>
-                <i class="icon ion-chevron-right"></i>
+            <div class="item item-divider divider-input"></div>
+            <ion-item class="item item-icon-right" href="#/app/settings/general">
+                {{"general" | translate}}
+                <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
-            <ion-item class="item item-icon-right settings" href="#/app/settings/account">
-                <b>Account</b>
-                <i class="icon ion-chevron-right"></i>
+            <ion-item class="item item-icon-right" href="#/app/settings/agreement">
+                {{"agreement" | translate}}
+                <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
-            <ion-item class="item item-icon-right settings" href="#/app/settings/agreement">
-                <b>{{"agreement" | translate}}</b>
-                <i class="icon ion-chevron-right"></i>
+            <div class="item item-divider divider-input">Account</div>
+            <ion-item class="item item-icon-right" href="#/app/settings/accountData">
+                {{"account_data" | translate}}
+                <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
-            <ion-item class="item item-icon-right settings" href="#/app/settings/informations">
-                <b>{{"informations" | translate}}</b>
-                <i class="icon ion-chevron-right"></i>
+            <ion-item class="item item-icon-right" href="#/app/settings/invoices">
+                {{"invoices" | translate}}
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+
+            <ion-item class="item item-icon-right" href="#/app/settings/inviteUser">
+                {{"invite_user" | translate}}
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <div class="item item-divider divider-input">Support & {{"help" | translate}}</div>
+            <ion-item class="item item-icon-right" href="#/app/settings/informations">
+                {{"informations" | translate}}
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item item-icon-right" href="#/app/settings/faq">
+                {{"FAQ" | translate}}
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item item-icon-right" href="#/app/settings/contact">
+                {{"contact" | translate}}
+                <i class="icon ion-ios-arrow-right"></i>
             </ion-item>
         </div>
-        <button class="button button-assertive button-last icon-left ion-log-out" ng-click="signOff()">
+        <button class="button button-assertive button-full icon-left ion-log-out" ng-click="signOff()">
             {{"sign_off" | translate}}
         </button>
+        <div class="item item-divider divider-input"></div>
     </ion-content>
 </ion-view>

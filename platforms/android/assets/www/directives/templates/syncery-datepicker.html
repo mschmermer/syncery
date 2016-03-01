@@ -1,11 +1,9 @@
 <div class="syncery-datepicker">
-    <div class="row">
-        <div class="col col-33">
-            <ion-item class="name">
+    <div class="row responsive-sm">
+        <div class="col col-33 name">
                 <b>{{name}}:</b>
-            </ion-item>
         </div>
-        <div class="col col-67" ng-click="showCalendar('{{name}}')">
+        <div class="col col-67 name" ng-click="showCalendar('{{name}}')">
             <ion-item class="item-icon-right date">
                     {{day}}//{{month}}//{{year}}
                 <i class="icon ion-calendar"></i>
@@ -13,10 +11,11 @@
         </div>
     </div>
     <style>
-        div.syncery-datepicker ion-item.name{
+        div.syncery-datepicker div.name{
             font-size: 90%;
             padding-left: 0;
             padding-right: 0;
+            margin-bottom: 0px;
         }
 
         div.syncery-datepicker ion-item.item-icon-right.date{

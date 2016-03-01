@@ -87,9 +87,9 @@
         };
 
         $scope.selector['number_format'] = {
-            items: ['0.000,00','0,000.00'],
+            items: ['#.###,##','#,###.##'],
             name: 'number_format',
-            selected: '0.000,00'
+            selected: '#.###,##'
         };
 
         $ionicModal.fromTemplateUrl('templates/selector.html', {

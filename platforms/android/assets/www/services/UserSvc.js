@@ -22,8 +22,21 @@
             img_url: 'https://yt3.ggpht.com/-zPvOjYvipv8/AAAAAAAAAAI/AAAAAAAAAAA/3kRkURdYIgk/s900-c-k-no/photo.jpg',
             username: 'ma.schmermer',
             password: '********',
-            language: 'de'
+            language: 'de',
+            settings: {beginng: 'monday'}
         };
+
+        vm.profiles = [
+            {   id: 1,
+                first_name: 'Max',
+                name: 'Mustermann'},
+            {   id: 2,
+                first_name: 'Andrea',
+                name: 'Anderst'},
+            {   id: 3,
+                first_name: 'Bert',
+                name: 'Butta'},
+        ]
 
         service = {
             setUser: setUser,
@@ -32,7 +45,10 @@
             setLanguage: setLanguage,
             logout: logout,
             isLogged: isLogged,
-            setLogged: setLogged
+            setLogged: setLogged,
+            getProfiles: getProfiles,
+            setWeekBeginning: setWeekBeginning,
+            getWeekBeginning: getWeekBeginning
         };
         return service;
 
@@ -62,6 +78,18 @@
 
         function setLogged(){
             vm.login=true;
+        }
+
+        function getProfiles(){
+            return vm.profiles;
+        }
+
+        function setWeekBeginning(beginnig){
+            vm.user.settings.beginng = beginnig;
+        }
+
+        function getWeekBeginning(){
+            return vm.user.settings.beginng;
         }
 
     }
