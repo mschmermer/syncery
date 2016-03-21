@@ -7,24 +7,7 @@
 
     function BookingCtrl($scope, $ionicSlideBoxDelegate, $ionicModal, $ionicTabsDelegate,
                          language, $ionicScrollDelegate, $timeout, $location, $state,
-                         $stateParams, UserSvc) {
-        $scope.standard_class = 'item item-stacked-label';
-        $scope.hide = {
-            customer: {
-                hide: true,
-                class: $scope.standard_class
-            },
-            date: {
-                hide: true,
-                class: $scope.standard_class
-            },
-            accommodation: {
-                hide: true,
-                class: $scope.standard_class
-            }
-        };
-
-        $scope.beginning = UserSvc.getWeekBeginning();
+                         $stateParams, UserSvc, BookingSvc, AccommodationSvc, CustomerSvc) {
 
         init();
 
@@ -34,6 +17,14 @@
 
         $scope.$on('$ionicView.enter', function(){
             $scope.tab_id = parseInt($stateParams.tab_id);
+            $scope.bookings = BookingSvc.getBookingData();
+            for (var id in $scope.bookings ) {
+                $scope.bookings[id].accommodation = AccommodationSvc.getAccommodationById($scope.bookings[id].accommodation_id).name;
+                $scope.bookings[id].customer = CustomerSvc.getCustomersById($scope.bookings[id].customer_id);
+                var moments = moment().locale(UserSvc.getLanguage());
+                $scope.bookings[id].arrival = moment($scope.bookings[id].arrival, "YYYY-MM-DD").locale(UserSvc.getLanguage()).format('DD. MMM YYYY');
+                $scope.bookings[id].departure = moment($scope.bookings[id].departure, "YYYY-MM-DD").locale(UserSvc.getLanguage()).format('DD. MMM YYYY');
+            }
             if($scope.tab_id){
                 $ionicTabsDelegate.$getByHandle('bookingtabs').select($scope.tab_id);
             }
@@ -41,11 +32,6 @@
                 $scope.filter($stateParams.filter);
             }
         });
-
-        $scope.filter_class={};
-        $scope.filter_class.date="button-assertive";
-        $scope.filter_class.open="button-royal button-outline";
-        $scope.filter_class.unpaid="button-royal button-outline";
 
         $scope.filter = function(filter){
             switch (filter) {
@@ -106,6 +92,9 @@
             if (day.booking_id) {
                 $scope.booking_id = day.booking_id;
                 $scope.bookingView = false;
+                $scope.selected_booking = BookingSvc.getBookingDataById($scope.booking_id);
+                $scope.selected_booking.accommodation = AccommodationSvc.getAccommodationById($scope.selected_booking.accommodation_id).name;
+                $scope.selected_booking.customer = CustomerSvc.getCustomersById($scope.selected_booking.customer_id);
                 $timeout(function () {
                     $ionicScrollDelegate.resize();
                     $location.hash('BookingView');
@@ -130,19 +119,37 @@
             alert('goto show booking for ' + $scope.booking_id);
         }
 
-        $scope.close = function () {
-            $scope.bookingView = true;
-            $timeout(function () {
-                $ionicScrollDelegate.resize();
-                $ionicScrollDelegate.scrollTop(true);
-            }, 200);
-        }
-
         $scope.addBooking = function(){
             $state.go('app.addBooking');
         }
 
+        window.addEventListener('resize', function(event){
+            if(window.innerWidth<605){
+                $scope.hideCal1 = false;
+                $scope.hideCal2 = false;
+                $scope.jumper = 1;
+                $scope.col = "col-100";
+            }
+            if(window.innerWidth>=605){
+                $scope.hideCal1 = true;
+                $scope.hideCal2 = false;
+                $scope.col = "col-50";
+                $scope.jumper = 2;
+            }
+            if(window.innerWidth>=910){
+                $scope.hideCal2 = true;
+                $scope.col = "col-33";
+                $scope.jumper = 3;
+            }
+        });
+
+
         function init() {
+
+            $scope.filter_class={};
+            $scope.filter_class.date="button-assertive";
+            $scope.filter_class.open="button-royal button-outline";
+            $scope.filter_class.unpaid="button-royal button-outline";
 
             $scope.selector={};
             $scope.selector['accommodations'] = {
@@ -151,6 +158,25 @@
                 selected: 'Unterkunft 1'
             };
 
+            $scope.standard_class = 'item item-stacked-label';
+            $scope.hide = {
+                customer: {
+                    hide: true,
+                    class: $scope.standard_class
+                },
+                date: {
+                    hide: true,
+                    class: $scope.standard_class
+                },
+                accommodation: {
+                    hide: true,
+                    class: $scope.standard_class
+                }
+            };
+
+            $scope.beginning = UserSvc.getWeekBeginning();
+
+            $scope.selected_booking = {};
 
             $scope.myActiveSlide = 0;
 
@@ -178,7 +204,7 @@
             $scope.bookingView = true;
 
 
-            var moments = moment().locale(language);
+            var moments = moment().locale(UserSvc.getLanguage());
 
             if (!$scope.monthnumber) {
                 $scope.monthnumber = moment().month() + 1;
@@ -239,24 +265,12 @@
                 case 0:
                     switch ($scope.myActiveSlide) {
                         case 1:
-                            $scope.monthnumber2 = $scope.monthnumber2 - 3  * $scope.jumper;
-                            if ($scope.monthnumber2 <= 0) {
-                                $scope.monthnumber2 = $scope.monthnumber2 + 12;
-                                $scope.year2 = $scope.year2 - 1;
-                            }
-
-                            $scope.date_actual = $scope.month[$scope.monthnumber-1] + ' ' + $scope.year1;
+                            $scope.date_actual = $scope.month[$scope.monthnumber-1] + ' ' + $scope.year;
                             $scope.selector.month.selected = $scope.date_actual;
 
                             break;
                         case 2:
-                            $scope.monthnumber1 = $scope.monthnumber1 + 3  * $scope.jumper;
-                            if ($scope.monthnumber1 > 12) {
-                                $scope.monthnumber1 = $scope.monthnumber1 - 12;
-                                $scope.year1 = $scope.year1 + 1;
-                            }
-
-                            $scope.date_actual = $scope.month[$scope.monthnumber-1] + ' ' + $scope.year1;
+                            $scope.date_actual = $scope.month[$scope.monthnumber-1] + ' ' + $scope.year;
                             $scope.selector.month.selected = $scope.date_actual;
                             break;
                     }
@@ -264,20 +278,10 @@
                 case 1:
                     switch ($scope.myActiveSlide) {
                         case 0:
-                            $scope.monthnumber2 = $scope.monthnumber2 + 3 * $scope.jumper;
-                            if ($scope.monthnumber2 > 12) {
-                                $scope.monthnumber2 = $scope.monthnumber2 - 12;
-                                $scope.year2 = $scope.year2 + 1;
-                            }
                             $scope.date_actual = $scope.month[$scope.monthnumber1-1] + ' ' + $scope.year1;
                             $scope.selector.month.selected = $scope.date_actual;
                             break;
                         case 2:
-                            $scope.monthnumber = $scope.monthnumber - 3 * $scope.jumper;
-                            if ($scope.monthnumber <= 0) {
-                                $scope.monthnumber = $scope.monthnumber + 12;
-                                $scope.year = $scope.year - 1;
-                            }
                             $scope.date_actual = $scope.month[$scope.monthnumber1 -1] + ' ' + $scope.year1;
                             $scope.selector.month.selected = $scope.date_actual;
                             break;
@@ -287,13 +291,11 @@
                 case 2:
                     switch ($scope.myActiveSlide) {
                         case 1:
-
-                            $scope.date_actual = $scope.month[$scope.monthnumber2 - 1] + ' ' + $scope.year1;
+                            $scope.date_actual = $scope.month[$scope.monthnumber2 - 1] + ' ' + $scope.year2;
                             $scope.selector.month.selected = $scope.date_actual;
                             break;
                         case 0:
-
-                            $scope.date_actual = $scope.month[$scope.monthnumber2 -1] + ' ' + $scope.year1;
+                            $scope.date_actual = $scope.month[$scope.monthnumber2 -1] + ' ' + $scope.year2;
                             $scope.selector.month.selected = $scope.date_actual;
                             break;
                     }
@@ -304,7 +306,6 @@
         }
 
         $scope.selectMonth = function (month) {
-            console.log($scope.monthnumber2, $scope.monthnumber, $scope.monthnumber1);
             var moments = moment().locale(language);
             month = month.split(" ");
             actual_month = parseInt(moments.month(month[0]).format('M'));
@@ -383,7 +384,6 @@
                     }
                     break;
             }
-            console.log($scope.monthnumber2, $scope.year2, $scope.monthnumber, $scope.year, $scope.monthnumber1, $scope.year1);
         }
     }
 })();

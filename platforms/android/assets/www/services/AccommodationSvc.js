@@ -18,11 +18,7 @@
                 thumbnail: 'img/house1.jpg',
                 images: {
                     1:{url:'img/house1-large.jpg',
-                        name:'Haus 1'},
-                    2:{url:'img/house2-large.jpg',
-                        name:'Haus 2'},
-                    3:{url:'img/house3-large.jpg',
-                        name:'Haus 3'}
+                        name:'Haus 1'}
                 }
             },
             {id: '2', name: 'Berlin Appartment',

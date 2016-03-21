@@ -5,7 +5,7 @@
         .controller('SelectPortalCtrl', SelectPortalCtrl);
 
 
-    function SelectPortalCtrl($scope, UserSvc, PortalSvc, $state,$timeout, $location,$ionicScrollDelegate ) {
+    function SelectPortalCtrl($scope, $translate, PortalSvc, $state,$timeout, $location,$ionicScrollDelegate, $ionicFilterBar ) {
         $scope.addPortal = function(){
             $state.go();
         }
@@ -25,13 +25,24 @@
 
         $scope.data.showSearch = true;
 
-        $scope.cancel = function () {
-            $timeout( function() {
-                $location.hash('add_portal_list');
-                var delegate = $ionicScrollDelegate.$getByHandle('addPortal');
-                delegate.anchorScroll(true);
-            }, 200);
-            $scope.data.searchQuery = '';
+        $scope.text={};
+
+        $translate('cancel')
+            .then(function (translatedValue) {
+                $scope.text['cancel'] = translatedValue;
+            });
+
+        $scope.getScrollPosition = function(){
+            if($ionicScrollDelegate.$getByHandle('selectPortal').getScrollPosition().top < 0){
+                filterBarInstance = $ionicFilterBar.show({
+                    items: $scope.portals,
+                    update: function (filteredItems) {
+                        $scope.portals = filteredItems;
+                    },
+                    filterProperties: ['name'],
+                    cancelText: $scope.text['cancel'],
+                });
+            }
         }
     }
 })();

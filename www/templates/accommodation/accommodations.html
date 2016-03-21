@@ -7,13 +7,8 @@
       <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
       </button>
     </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-      <button ng-click="addAccommodation()"
-              class="button button-icon icon ion-ios-plus-outline">
-      </button>
-    </ion-nav-buttons>
   </ion-nav-bar>
-  <ion-content scroll-sista="header" delegate-handle="accommodations" on-scroll="getScrollPosition()">
+  <ion-content class="has-tabs" delegate-handle="accommodations" on-scroll="getScrollPosition()">
 
     <ion-list id="accommodation_list" can-swipe="listCanSwipe">
       <ion-item class="item list-item item-remove-animate item-thumbnail-left item-icon-right"
@@ -37,4 +32,9 @@
     </ion-list>
 
   </ion-content>
+  <div class="bar bar-footer">
+    <button ng-click="addAccommodation()"
+            class="button button-icon icon ion-ios-plus-outline">
+    </button>
+  </div>
 </ion-view>

@@ -3,14 +3,8 @@
         <ion-nav-back-button class="button-clear">
             <i class="ion-chevron-left"></i> {{"back" | translate }}
         </ion-nav-back-button>
-        <ion-nav-buttons side="right">
-        <button ng-click="save()"
-                class="button button-icon icon ion-android-done">
-        </button>
-    </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content overflow-scroll="false">
-        <div class="item item-divider divider-input"></div>
         <label class="item item-input">
             <span class="input-label">Accountname</span>
             <input type="text" value="{{user.username}}">
@@ -19,15 +13,16 @@
             <span class="input-label">E-Mail</span>
             <input type="text" value="{{user.email}}">
         </label>
-        <div class="item item-divider divider-input"></div>
         <ion-item class="item item-icon-right" href="#/app/settings/invoiceAdress">
             {{"invoice_address" | translate}}
             <i class="icon ion-ios-arrow-right"></i>
         </ion-item>
-        <div class="item item-divider divider-input"></div>
         <ion-item class="item item-icon-right" href="#/app/settings/passwordChange">
             {{"change_password" | translate}}
             <i class="icon ion-ios-arrow-right"></i>
         </ion-item>
     </ion-content>
+    <div class="bar bar-footer save-button">
+        <button class="button button-full mark-cyan" ng-click="save()">{{'save' | translate}}</button>
+    </div>
 </ion-view>

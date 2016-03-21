@@ -12,14 +12,21 @@
                     month: '=',
                     year: '=',
                     booking_id: '=',
-                    beginning: '='
+                    beginning: '=',
+                    rangepicker: '='
                 },
                 controller: function ($scope, $timeout, BookingSvc, $element, UserSvc) {
 
+                    var picker = 0;
+                    var selected_day = 0;
                     $element.bind('click', function (element) {
                         if (element.srcElement.attributes['data-position']) {
+                            if(selected_day > parseInt(element.toElement.innerText)){
+                                angular.element(document.querySelector('div.selected')).remove();
+                                picker= 0;
+                            }
                             var position = element.srcElement.attributes['data-position'].value;
-                            var selected_day = element.toElement.innerText;
+                            selected_day = parseInt(element.toElement.innerText);
                             if (element.srcElement.attributes['data-booking-id']) {
                                 var booking_id = element.srcElement.attributes['data-booking-id'].value;
                                 if (booking_id.length > 1) {
@@ -27,8 +34,17 @@
                                 }
                             }
 
-                            angular.element(document.querySelector('div.selected')).remove();
+                            if($scope.rangepicker){
+                                if(picker > 1){
+                                    angular.element(document.querySelector('div.selected')).remove();
+                                    angular.element(document.querySelector('div.selected')).remove();
+                                    picker= 0;
+                                }
+                            }else{
+                                angular.element(document.querySelector('div.selected')).remove();
+                            }
                             var td = angular.element(document.querySelector('table#' + $scope.calendarid + ' td[data-position="' + position + '"]'));
+                            picker++;
 
                             if (!td.hasClass('other_month')) {
                                 td.append('<div class="selected"></div>');
@@ -41,7 +57,7 @@
 
                     $scope.initCalendarData = function (month, year, beginning) {
 
-                        if(month < 0){
+                        if(month <= 0){
                             month+=12;
                             year-=1;
                         }
@@ -49,8 +65,6 @@
                             month-=12;
                             year+=1;
                         }
-
-
                         $scope.day = [];
 
                         var cid = 0;
@@ -87,6 +101,8 @@
 
                         calendarData['positions'] = {};
 
+                        calendarData.title = $scope.months[month]+' '+year;
+
                         calendarData['values'] = BookingSvc.getReservationData(month);
 
                         calendarClass = {};
@@ -100,11 +116,12 @@
                         }
 
                         var firstIsoweekdayForThisMounth = moment([year, month, 01], "YYYY-MM-DD").isoWeekday();
+
                         if (firstIsoweekdayForThisMounth == 0 && beginning == 'monday') {
                             firstIsoweekdayForThisMounth = 7;
                         }
-                        if (firstIsoweekdayForThisMounth == 1 && beginning == 'sunday') {
-                            firstIsoweekdayForThisMounth = 2;
+                        if (beginning == 'sunday') {
+                            firstIsoweekdayForThisMounth++;
                         }
 
                         var day = 1;
@@ -183,9 +200,6 @@
                                     calendarData['values'][date]['class'] = calendarData['values'][date]['class'] + ' today';
                                 }
                             }
-                        }
-                        if(month == 1 && year == 2016){
-                            console.log(calendarData);
                         }
                         return calendarData;
                     }

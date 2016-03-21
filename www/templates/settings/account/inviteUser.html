@@ -3,15 +3,9 @@
         <ion-nav-back-button class="button-clear">
             <i class="ion-chevron-left"></i> {{"back" | translate }}
         </ion-nav-back-button>
-        <ion-nav-buttons side="right">
-            <button ng-click="save()"
-                    class="button button-icon icon ion-ios-paperplane-outline">
-            </button>
-        </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>
         <ion-list>
-            <div class="item item-divider divider-input"></div>
             <label class="item item-input">
                 <span class="input-label">{{'first_name' | translate}}</span>
                 <input type="text" placeholder="{{'required' | translate}}">
@@ -50,4 +44,7 @@
         </ion-list>
 
     </ion-content>
+    <div class="bar bar-footer save-button">
+        <button class="button button-full mark-cyan" ng-click="save()">{{'save' | translate}}</button>
+    </div>
 </ion-view>

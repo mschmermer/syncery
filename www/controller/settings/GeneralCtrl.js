@@ -5,7 +5,7 @@
         .controller('GeneralCtrl', GeneralCtrl);
 
 
-    function GeneralCtrl($scope, UserSvc, $ionicModal, $translate, language) {
+    function GeneralCtrl($scope, UserSvc, $ionicModal, $translate, language, $ionicHistory) {
         $scope.data = {};
 
         $scope.selector={};
@@ -40,13 +40,16 @@
 
         $scope.$watch('selector.language.selected', function (newvalue) {
             switch (newvalue){
-                case 'german': $translate.use('de'); break;
-                case 'english': $translate.use('en'); break;
+                case 'german': $translate.use('de'); UserSvc.setLanguage('de');break;
+                case 'english': $translate.use('en'); UserSvc.setLanguage('en'); break;
             }
+
+            $ionicHistory.clearCache();
         });
 
         $scope.$watch('selector.week_beginning.selected', function (newvalue) {
             UserSvc.setWeekBeginning(newvalue);
+            $ionicHistory.clearCache();
             console.log(UserSvc.getWeekBeginning());
         });
 
@@ -71,8 +74,13 @@
         $scope.selector['language'] = {
             items: ['german','english'],
             name: 'language',
-            selected: 'german'
+            selected: ''
         };
+
+        switch (UserSvc.getLanguage()){
+            case 'de': $scope.selector.language.selected ='german';break;
+            case 'en': $scope.selector.language.selected ='english';break;
+        }
 
         $scope.selector['date_format'] = {
             items: ['dd/mm/yyyy','yyyy/mm/dd'],

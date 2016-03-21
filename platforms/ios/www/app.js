@@ -143,6 +143,20 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
                 }
             })
 
+            .state('app.bookingDeatils', {
+                url: '/bookingDetails:id',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/booking/bookingDetails.html',
+                        controller: 'BookingDetailsCtrl'
+                    }
+                },
+                params: {
+                    'id': null,
+                    'customer_id': null
+                }
+            })
+
             .state('app.searchCustomer', {
                 url: '/bookings/add/search',
                 views: {

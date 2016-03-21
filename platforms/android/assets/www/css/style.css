@@ -309,7 +309,17 @@ ion-item.item.center{
     color: white;
 }
 
-.date-picker div.popup div.popup-body button{
-    width: 48%;
-    margin: 1%;
+.date-picker button:first-child {
+    min-width: 10%;
 }
+
+.date-picker button:last-child {
+    min-width: 10%;
+}
+
+.date-picker button {
+    min-width: 35%;
+    font-size: small;
+    margin-bottom: 5px;
+}
+

@@ -14,7 +14,7 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="accommodationDetails">
+    <ion-content delegate-handle="accommodationDetails" data-tap-disabled="true">
         <div class="list card">
             <div class="item item-divider">
                 {{accommodation.name}}
@@ -23,6 +23,8 @@
                 {{accommodation.description}}
             </ion-item>
         </div>
+
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
 
         <ion-slide-box>
             <ion-slide ng-repeat="image in accommodation.images">

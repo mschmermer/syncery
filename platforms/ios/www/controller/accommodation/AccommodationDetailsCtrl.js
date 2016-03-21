@@ -8,7 +8,6 @@
     function AccommodationDetailsCtrl($scope,$location,$timeout, $state, $stateParams,
                                       AccommodationSvc, $ionicScrollDelegate, MappingSvc) {
 
-
         $scope.id = $stateParams.id;
         $scope.accommodation = {};
 

@@ -13,7 +13,7 @@
                     name: "=",
                     methodToCall: '&method',
                 },
-                controller: function ($scope, $ionicPopup) {
+                controller: function ($scope, $ionicPopup, UserSvc, language) {
 
                     if(!$scope.day){
                         $scope.day='--'
@@ -25,16 +25,26 @@
                         $scope.year='----'
                     }
 
+                    var moments = moment().locale(language);
+
                     $scope.date = {
-                        month: 1,
-                        year: 2016,
+                        month: moment().month() + 1,
+                        year: moment().year(),
                     };
+
+                    $scope.beginning = UserSvc.getWeekBeginning();
 
                     $scope.showCalendar = function (name) {
                         $scope.clickCalendar = function(select){
                             $scope.day2 = select.day;
                             $scope.month2 = select.month;
                             $scope.year2 = select.year;
+                            if($scope.selectedDate1 || ($scope.selectedDate2 && $scope.selectedDate1)){
+                                $scope.selectedDate2=$scope.day2+'.'+$scope.month2+'.'+$scope.year2;
+                            }else{
+                                $scope.selectedDate1=$scope.day2+'.'+$scope.month2+'.'+$scope.year2;
+                                $scope.selectedDate2=false;
+                            }
                             $scope.booking_id = select.booking_id;
                         }
 
@@ -59,18 +69,24 @@
                         // An elaborate, custom popup
                         var myPopup = $ionicPopup.show({
                             cssClass: "date-picker",
-                            template: '<syncery-calendar data-method="clickCalendar" ' +
-                            'month="date.month" year="date.year"></syncery-calendar>' +
-                            '<button class="button button-positive button-back" ng-click="back()">' +
-                            '<i class="icon ion-chevron-left"></i> </button>' +
-                            '<button class="button button-positive button-next" ng-click="next()">' +
-                            '<i class="icon ion-chevron-right"></i> </button>',
+                            template:
+                            '<ion-item class="item item-icon-left" ng-if="selectedDate1"><i class="icon ion-calendar"></i>' +
+                            '<h2>{{selectedDate1}} - {{selectedDate2}}</h2></ion-item>' +
+                            '<syncery-calendar data-method="clickCalendar" ' +
+                            'month="date.month" year="date.year" beginning="beginning" rangepicker="true"></syncery-calendar>',
                             title: name,
                             scope: $scope,
                             buttons: [
-                                {text: 'Cancel',},
+                                {text: '<i class="icon ion-chevron-left"></i>',
+                                    type: 'button-royal',
+                                    onTap: function (e) {
+                                        e.preventDefault();
+                                        $scope.back();
+                                    },
+                                },
+                                {text: 'Abbrechen'},
                                 {
-                                    text: '<b>Save</b>',
+                                    text: '<b>Speichern</b>',
                                     type: 'button-positive',
                                     onTap: function (e) {
                                         if ($scope.day2 == '--' || $scope.booking_id != '') {
@@ -86,7 +102,14 @@
                                             return true;
                                         }
                                     }
-                                }
+                                },
+                                {text: '<i class="icon ion-chevron-right"></i>',
+                                    type: 'button-royal',
+                                    onTap: function (e) {
+                                        e.preventDefault();
+                                        $scope.next();
+                                    },
+                                },
                             ]
                         });
                     }

@@ -1,0 +1,86 @@
+<ion-view view-title="{{'booking_details' | translate}}">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input ">
+                <span class="input-label">{{'customer' | translate}}</span>
+                <p>{{booking.customer.first_name}} {{booking.customer.name}}</p>
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">{{'accommodation' | translate}}</span>
+                <p>{{booking.accommodation}}</p>
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">{{'travel_data' | translate}}</span>
+                <p>{{booking.arrival}} - {{booking.departure}}</p>
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">{{'adult' | translate}}</span>
+                <p>{{booking.adult}}</p>
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">{{'children' | translate}}</span>
+                <p>{{booking.children}}</p>
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">{{'animals' | translate}}</span>
+                <p>{{booking.animals}}</p>
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">{{'Channel' | translate}}</span>
+                <p>{{booking.channel}}</p>
+            </label>
+            <label class="item item-input ">
+                <span class="input-label">{{'Status' | translate}}</span>
+                <p>{{booking.status}}</p>
+            </label>
+            <div class="item item-divider divider-input">{{"payment_data" | translate}}</div>
+            <label class="item item-input item-icon-right">
+                <span class="input-label">{{"deposit" | translate}}</span>
+                <p>{{booking.deposit}}</p>
+                <i class="icon ion-social-euro" style="font-size: 15px;"></i>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{"target_date" | translate}}</span>
+                <p>{{booking.target_date}}</p>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{"payment_date" | translate}}</span>
+                <p>{{booking.payment_date}}</p>
+            </label>
+            <label class="item item-input item-icon-right">
+                <span class="input-label">{{"final_payment" | translate}}</span>
+                <p>{{booking.final_payment}}</p>
+                <i class="icon ion-social-euro" style="font-size: 15px;"></i>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{"target_date" | translate}}</span>
+                <p>{{booking.target_date}}</p>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{"payment_date" | translate}}</span>
+                <p>{{booking.payment_date}}</p>
+            </label>
+            <div class="item item-divider divider-input">Extras</div>
+            <ion-list>
+
+                <ion-checkbox class="royal" ng-model="booking.bedding">Bettwäche</ion-checkbox>
+                <ion-checkbox ng-model="booking.towels">Handtücher</ion-checkbox>
+                <ion-checkbox ng-model="booking.cleaning">Endreinigung</ion-checkbox>
+
+            </ion-list>
+            <label class="item item-input">
+                <span class="input-label">{{'notes' | translate}}</span>
+                <textarea rows="4" cols="5" ng-model="booking.message"></textarea>
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

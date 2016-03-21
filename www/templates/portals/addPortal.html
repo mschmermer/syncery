@@ -1,7 +1,6 @@
 <ion-view view-title="{{portal.name}}">
-    <ion-content has-footer="true" delegate-handle="addPortal">
+    <ion-content class="has-tabs" delegate-handle="addPortal">
         <div class="list">
-            <div class="item item-divider divider-input">{{"portal_data" | translate}}</div>
             <label class="item item-input">
                 <span class="input-label">{{'E-Mail' | translate}}</span>
                 <input type="text" placeholder="{{'required' | translate}}" ng-model="input.mail">
@@ -19,9 +18,8 @@
                 <input type="text" placeholder="{{'required' | translate}}" ng-model="input.sync_id">
             </label>
         </div>
-        <button class="button button-full button-positive" ng-click="save()">{{'save' | translate}}</button>
     </ion-content>
-    <!--<ion-footer-bar>
-        <div class="validation-error">{{'validation_error' | translate}}</div>
-    </ion-footer-bar>-->
+    <div class="bar bar-footer save-button">
+        <button class="button button-full mark-cyan" ng-click="save()">{{'save' | translate}}</button>
+    </div>
 </ion-view>

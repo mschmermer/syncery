@@ -123,7 +123,7 @@ angular.module('syncery')
                 testphase_time: "Ihre Testphase endet in {{lastdays}} Tagen.",
                 unpaid_bookings: "Sie haben noch {{unpaid}} unbezahlte Buchungen.",
                 unfinished_bookings: "Sie haben noch {{unfinished}} unfertige Buchungen.",
-                extend_contract: "Jetzt vertrag verlängern",
+                extend_contract: "Jetzt Vertrag verlängern",
                 messages: "Nachrichten",
                 accommodation_capacity: "Die Auslastung Ihrer Unterkünfte",
                 // Syncery Contract Days Directive

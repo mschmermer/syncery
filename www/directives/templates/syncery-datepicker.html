@@ -1,31 +1,7 @@
-<div class="syncery-datepicker">
-    <div class="row responsive-sm">
-        <div class="col col-33 name">
-                <b>{{name}}:</b>
-        </div>
-        <div class="col col-67 name" ng-click="showCalendar('{{name}}')">
-            <ion-item class="item-icon-right date">
-                    {{day}}//{{month}}//{{year}}
-                <i class="icon ion-calendar"></i>
-            </ion-item>
-        </div>
-    </div>
-    <style>
-        div.syncery-datepicker div.name{
-            font-size: 90%;
-            padding-left: 0;
-            padding-right: 0;
-            margin-bottom: 0px;
-        }
-
-        div.syncery-datepicker ion-item.item-icon-right.date{
-            background-color: rgb(247, 247, 247);
-            border-bottom: 2px black solid;
-            line-height: 80%;
-            font-size: 100%;
-        }
-        div.syncery-datepicker ion-item.item-icon-right.date i.icon.ion-calendar{
-            color: rgb(91, 188, 220);
-        }
-    </style>
+<div class="syncery-datepicker" ng-click="showCalendar()">
+    <h2>{{name}}:</h2>
+    <ion-item class="item-icon-right date">
+        <b>{{'from' | translate}}:</b> {{day1}}//{{month1}}//{{year1}} <b>{{'to' | translate}}:</b> {{day2}}//{{month2}}//{{year2}}
+        <i class="icon ion-calendar"></i>
+    </ion-item>
 </div>

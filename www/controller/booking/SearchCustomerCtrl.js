@@ -5,23 +5,23 @@
         .controller('SearchCustomerCtrl', SearchCustomerCtrl);
 
 
-    function SearchCustomerCtrl($scope, $state,$location,$timeout,
-                          $ionicScrollDelegate, $ionicFilterBar, CustomerSvc, $translate) {
+    function SearchCustomerCtrl($scope, $state, $ionicHistory, BookingSvc,
+                                $ionicScrollDelegate, $ionicFilterBar, CustomerSvc, $translate) {
 
         $scope.listCanSwipe = true;
 
         $scope.data = {};
         $scope.data.showSearch = true;
 
-        $scope.text={};
+        $scope.text = {};
 
         $translate('cancel')
             .then(function (translatedValue) {
                 $scope.text['cancel'] = translatedValue;
             });
 
-        $scope.getScrollPosition = function(){
-            if($ionicScrollDelegate.$getByHandle('customer').getScrollPosition().top < 0){
+        $scope.getScrollPosition = function () {
+            if ($ionicScrollDelegate.$getByHandle('customer').getScrollPosition().top < 0) {
                 filterBarInstance = $ionicFilterBar.show({
                     items: $scope.data.customers,
                     update: function (filteredItems) {
@@ -48,8 +48,10 @@
             $state.go('app.addCustomer');
         }
 
-        $scope.selectCustomer = function(id){
-            alert(id);
+        $scope.selectCustomer = function (id) {
+
+            BookingSvc.setSelectedCustomer(id);
+            $ionicHistory.goBack();
 
         }
 

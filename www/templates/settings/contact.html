@@ -3,11 +3,6 @@
         <ion-nav-back-button class="button-clear">
             <i class="ion-chevron-left"></i> {{"back" | translate }}
         </ion-nav-back-button>
-        <ion-nav-buttons side="right">
-            <button ng-click="send()"
-                    class="button button-icon icon ion-ios-paperplane-outline">
-            </button>
-        </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>
         <label class="item item-input">
@@ -19,9 +14,14 @@
             <p>{{selector.category.selected}}</p>
             <i class="icon ion-ios-arrow-right"></i>
         </label>
-        <label class="item item-input">
+        <label class="item item-input textarea">
 
             <textarea rows="12" cols="5" ng-model="formData.message"></textarea>
         </label>
     </ion-content>
+    <div class="bar bar-footer">
+        <button ng-click="send()"
+                class="button button-icon icon ion-ios-paperplane-outline">
+        </button>
+    </div>
 </ion-view>

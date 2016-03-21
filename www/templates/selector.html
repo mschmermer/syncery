@@ -20,7 +20,6 @@
         <h1 class="title" style="color: white">{{modal_data.name | translate}}</h1>
     </ion-header-bar>
     <ion-content>
-        <div class="item item-divider divider-input"></div>
         <ion-list>
             <ion-radio ng-model="modal_data.selected" ng-repeat="item in modal_data.items" ng-value="item"
                        ng-click="modal.hide()">

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
 angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.translate', 'chart.js', 'ngCordova',
-    'jett.ionic.filter.bar', 'ionic.service.core', 'ionic.service.analytics'])
+    'jett.ionic.filter.bar', 'ionic.service.core', 'ionic.service.analytics', 'uiGmapgoogle-maps'])
 
     .run(function ($ionicPlatform, $ionicLoading,$rootScope){ //, $ionicAnalytics) {
         $ionicPlatform.ready(function () {

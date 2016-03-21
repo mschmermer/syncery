@@ -26,6 +26,7 @@ $dark:                            #444 !default;
   used under CC BY http://creativecommons.org/licenses/by/4.0/
   Modified icons to fit ionicon’s grid from original.
 */
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 @font-face {
   font-family: "Ionicons";
   src: url("../lib/ionic/fonts/ionicons.eot?v=2.0.1");
@@ -9719,3 +9720,363 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.item.item-divider {
+  background-color: #878E9E;
+  color: white;
+  height: 40px;
+  line-height: 22px;
+  padding-left: 20px;
+  font-size: 10pt;
+  text-transform: uppercase; }
+
+ion-item.item.item-avatar.customer-list {
+  height: 115px; }
+  ion-item.item.item-avatar.customer-list img {
+    max-height: 75px;
+    max-width: 75px;
+    margin-bottom: 15px; }
+  ion-item.item.item-avatar.customer-list h2 {
+    padding-left: 15%;
+    padding-bottom: 2%; }
+  ion-item.item.item-avatar.customer-list p {
+    padding-left: 15%; }
+
+.bar-footer {
+  background-color: #38445E;
+  height: 50px; }
+  .bar-footer button.button {
+    color: white;
+    margin-left: auto;
+    margin-right: auto; }
+
+div.bar-footer.save-button {
+  padding: 0; }
+
+button.button.mark-cyan {
+  margin: 0;
+  color: white;
+  font-size: 10pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #00bcbc; }
+  button.button.mark-cyan i {
+    position: absolute;
+    right: 18px; }
+
+button.button.mark-red {
+  margin: 0;
+  color: white;
+  font-size: 10pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #FF6764; }
+
+.input-label {
+  width: 40%; }
+
+label.item.item-input {
+  background-color: #EBECEE;
+  padding-top: 0;
+  padding-bottom: 0; }
+  label.item.item-input p {
+    background-color: white;
+    width: 100%;
+    padding-left: 4%;
+    margin-bottom: 0;
+    height: 50px;
+    line-height: 50px; }
+  label.item.item-input input {
+    background-color: white;
+    width: 100%;
+    padding-left: 4%;
+    height: 50px;
+    margin-bottom: 0; }
+
+label.item.item-input.textarea {
+  padding: 0; }
+  label.item.item-input.textarea textarea {
+    padding: 4%; }
+
+ion-slide img {
+  width: 100%; }
+
+ion-side-menu ion-content {
+  background-color: #38445E; }
+
+ion-item.item.side-menu a {
+  background-color: #38445E;
+  color: #9BA1AE; }
+  ion-item.item.side-menu a div.badge-syncery {
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: #FF6764;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 8%;
+    font-size: larger; }
+
+ion-item.item.side-menu.selected a {
+  background-color: #1A2540;
+  color: white; }
+  ion-item.item.side-menu.selected a i {
+    color: #FF6764; }
+
+ion-item.item.side-menu {
+  background-color: #878E9E;
+  color: white;
+  border: 0px;
+  font-weight: bold; }
+  ion-item.item.side-menu a {
+    background-color: #38445E;
+    color: #9BA1AE; }
+
+ion-item.item.side-menu.item-avatar a {
+  background-color: #1A2540;
+  color: white; }
+  ion-item.item.side-menu.item-avatar a i {
+    background-color: #C3C6CE;
+    top: 0;
+    right: 0px;
+    width: 20%; }
+  ion-item.item.side-menu.item-avatar a :before {
+    right: 0;
+    margin-left: auto;
+    margin-right: auto; }
+
+img.logo-menu {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 85%;
+  margin-top: 2%; }
+
+ion-header-bar.bar.side-menu {
+  background-color: #38445E;
+  color: white;
+  border-bottom: 0; }
+
+ion-header-bar.bar.syncery-header {
+  background-color: #38445E;
+  color: white; }
+  ion-header-bar.bar.syncery-header button.button {
+    color: white; }
+
+div.syncery-calendar-card {
+  width: 292px;
+  margin-left: auto;
+  margin-right: auto; }
+  div.syncery-calendar-card table.syncery-calendar {
+    text-align: center;
+    border-spacing: 0px;
+    border-collapse: inherit;
+    min-width: 294px;
+    /*ausgewählte Zelle*/ }
+    div.syncery-calendar-card table.syncery-calendar .befor {
+      display: none; }
+    div.syncery-calendar-card table.syncery-calendar .after {
+      display: none; }
+    div.syncery-calendar-card table.syncery-calendar div.selected {
+      z-index: 1;
+      background-color: transparent;
+      height: 40px;
+      width: 40.5px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border: 2px solid black; }
+    div.syncery-calendar-card table.syncery-calendar tbody tr {
+      display: block;
+      float: left;
+      height: 41px;
+      border-bottom: 1px solid #C3C6CE;
+      /*Abreise Dreieck*/
+      /* Anreise Dreieck*/
+      /*Anzeige f�r belegten Tag*/
+      /*vorheriger oder nächster Monat*/ }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td {
+        font-size: 14px;
+        line-height: 40px;
+        position: relative;
+        padding: 0px;
+        width: 42px;
+        height: 40px;
+        z-index: 1;
+        background-color: white;
+        border-right: 1px solid #C3C6CE;
+        /* Today */ }
+        div.syncery-calendar-card table.syncery-calendar tbody tr td div.today {
+          border-radius: 25px;
+          background-color: #878E9E;
+          height: 30px;
+          width: 30px;
+          color: white;
+          font-weight: bold;
+          z-index: 5;
+          position: absolute;
+          line-height: 30px;
+          top: 5px;
+          left: 5px; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td:last-child {
+        width: 40px;
+        border-right: 0px; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.arrival {
+        position: relative;
+        font-weight: bold;
+        border-right: 2px solid #FF6764; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.arrival:before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-top: 40px solid transparent;
+        border-right: 36px solid #FF6764;
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        right: 0px; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.arrival.selected {
+        position: relative;
+        font-weight: bold;
+        border-right: 2px solid #00bcbc; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.arrival.selected:before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-top: 40px solid transparent;
+        border-right: 36px solid #00bcbc;
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        right: 0px; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.departure {
+        position: relative;
+        font-weight: bold; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.departure:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-bottom: 40px solid transparent;
+        border-left: 36px solid #FF6764;
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 0px; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.departure.selected {
+        position: relative;
+        font-weight: bold; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.departure.selected:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-bottom: 40px solid transparent;
+        border-left: 36px solid #00bcbc;
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 0px; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.departure.arrival.dselected:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-bottom: 40px solid transparent;
+        border-left: 36px solid #00bcbc;
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 0px; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.arrival.departure.aselected:before {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-top: 40px solid transparent;
+        border-right: 36px solid #00bcbc;
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        right: 0px; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.arrival.departure.aselected {
+        border-right: 2px solid #00bcbc; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.occupied {
+        background-color: #FF6764;
+        color: white;
+        border-right: 2px solid #FF6764; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.occupied.selected {
+        background-color: #00bcbc;
+        color: white;
+        border-right: 2px solid #00bcbc; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.occupied:first-child:before {
+        background-color: transparent; }
+      div.syncery-calendar-card table.syncery-calendar tbody tr td.other_month {
+        background-color: #EBECEE;
+        color: grey; }
+    div.syncery-calendar-card table.syncery-calendar thead tr {
+      display: block;
+      float: left; }
+      div.syncery-calendar-card table.syncery-calendar thead tr th {
+        width: 42px; }
+      div.syncery-calendar-card table.syncery-calendar thead tr th:last-child {
+        border-right: 0px solid #C3C6CE; }
+    div.syncery-calendar-card table.syncery-calendar thead th {
+      color: black;
+      font-size: small;
+      background-color: #EBECEE;
+      border-right: 1px solid #C3C6CE;
+      border-bottom: 1px solid #C3C6CE; }
+  div.syncery-calendar-card div.item.item-divider {
+    text-align: center; }
+
+div.tab-nav.tabs {
+  padding: 0; }
+
+.tab-item {
+  max-width: 51%;
+  height: 100%;
+  left: 0;
+  margin-right: 2px;
+  background-color: #878E9E;
+  font-weight: bold;
+  color: white; }
+
+.tab-item.tab-item-active {
+  background-color: #00bcbc; }
+
+.tab-item:last-child {
+  margin-right: -6px; }
+
+/* Datepicker */
+.date-picker div.popup {
+  width: 312px; }
+  .date-picker div.popup div.popup-head {
+    display: none; }
+  .date-picker div.popup div.popup-body {
+    padding: 2px; }
+  .date-picker div.popup div.popup-head h3 {
+    color: white; }
+
+div.syncery-datepicker div.name {
+  font-size: 90%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0px; }
+
+div.syncery-datepicker {
+  background-color: #EBECEE; }
+  div.syncery-datepicker ion-item.item-icon-right.date {
+    background-color: #f7f7f7;
+    border-bottom: 2px black solid;
+    line-height: 80%;
+    font-size: 100%;
+    text-align: center; }
+    div.syncery-datepicker ion-item.item-icon-right.date i.icon.ion-calendar {
+      color: #5bbcdc; }
+  div.syncery-datepicker h2 {
+    font-size: 16px;
+    padding: 7px 10px 0px 0px;
+    color: #444;
+    text-align: center; }

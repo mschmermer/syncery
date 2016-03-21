@@ -8,29 +8,23 @@
             <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
             </button>
         </ion-nav-buttons>
-        <ion-nav-buttons side="right">
-            <button ng-click="edit(accommodation.id)"
-                    class="button button-icon icon ion-edit">
-            </button>
-        </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="accommodationDetails">
-        <div class="list card">
+    <ion-content class="has-tabs" delegate-handle="accommodationDetails" data-tap-disabled="true">
+        <div class="list">
             <div class="item item-divider">
                 {{accommodation.name}}
             </div>
             <ion-item ng-class="descriptionClass" ng-click="showMoreDescription()">
                 {{accommodation.description}}
             </ion-item>
-        </div>
-
-        <ion-slide-box>
-            <ion-slide ng-repeat="image in accommodation.images">
-                <img ng-src="{{image.url}}" style="width:300px;height:300px;margin:auto;display:block">
-            </ion-slide>
-        </ion-slide-box>
-
-        <div class="list card">
+            <ion-slide-box>
+                <ion-slide ng-repeat="image in accommodation.images">
+                    <img ng-src="{{image.url}}">
+                </ion-slide>
+                <ion-slide>
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=New+York,NY&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794">
+                </ion-slide>
+            </ion-slide-box>
             <div class="item item-divider item-icon-right" ng-click="showMore('contact')"
                  id="contact">
                 {{"contact" | translate}}
@@ -61,15 +55,15 @@
                     <i class="icon ion-ios-arrow-right"></i>
                 </ion-item>
             </ion-list>
-        </div>
-
-        <div class="card">
             <div id="Mapping" class="item item-divider item-icon-right" ng-click="showMore('Mapping')">
                 Mapping
                 <i ng-class="icon['Mapping']"></i>
             </div>
             <ion-list can-swipe="true" ng-hide="hide['Mapping']">
-                    <button class="button button-positive button-last" ng-click="addMapping(accommodation.id)">{{'add_mapping' | translate}}</button>
+                <button class="button mark-cyan button-full icon-right" ng-click="addMapping(accommodation.id)">
+                    {{'add_mapping' | translate}}
+                    <i class="icon ion-ios-plus-outline"></i>
+                </button>
                 <ion-item ng-repeat="mapping in mappings">
                     <b>{{mapping.portal_name}}</b>
                     <p>ID: {{mapping.sync_id}}</p>
@@ -81,9 +75,8 @@
                     </ion-option-button>
                 </ion-item>
             </ion-list>
-        </div>
-        <div class="card">
-            <div id="accommodation_capacity" class="item item-divider item-icon-right" ng-click="showMore('accommodation_capacity')">
+            <div id="accommodation_capacity" class="item item-divider item-icon-right"
+                 ng-click="showMore('accommodation_capacity')">
                 Auslastung
                 <i ng-class="icon['accommodation_capacity']"></i>
             </div>
@@ -95,4 +88,7 @@
             </ion-item>
         </div>
     </ion-content>
+    <div class="bar bar-footer save-button">
+        <button class="button button-full mark-cyan" ng-click="edit(accommodation.id)">{{'edit' | translate}}</button>
+    </div>
 </ion-view>

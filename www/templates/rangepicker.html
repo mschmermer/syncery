@@ -1,0 +1,9 @@
+<ion-view view-title="{{'rangepicker' | translate}}" hide-nav-bar="hide_navbar">
+    <ion-content delegate-handle="datepicker" on-scroll="getScrollPosition()">
+        <div ng-repeat="(key, value) in dates">
+            <syncery-calendar data-method="clickCalendar" id="{{key}}"
+                              month="value.month" year="value.year" beginning="beginning" rangepicker="true">
+            </syncery-calendar>
+        </div>
+    </ion-content>
+</ion-view>

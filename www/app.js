@@ -143,6 +143,30 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
                 }
             })
 
+            .state('app.rangepicker', {
+                url: '/bookings/add/rangepicker',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/rangepicker.html',
+                        controller: 'RangepickerCtrl'
+                    }
+                }
+            })
+
+            .state('app.bookingDeatils', {
+                url: '/bookingDetails:id',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/booking/bookingDetails.html',
+                        controller: 'BookingDetailsCtrl'
+                    }
+                },
+                params: {
+                    'id': null,
+                    'customer_id': null
+                }
+            })
+
             .state('app.searchCustomer', {
                 url: '/bookings/add/search',
                 views: {
