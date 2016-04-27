@@ -17,6 +17,7 @@
         if ($stateParams.id) {
             $scope.id = $stateParams.id;
             $scope.customer = CustomerSvc.getCustomersById($scope.id);
+            console.log($scope.customer);
         }
 
         if ($stateParams.selector) {

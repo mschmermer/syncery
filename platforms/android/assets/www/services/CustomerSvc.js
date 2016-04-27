@@ -29,12 +29,30 @@
             addCustomers: addCustomers,
             getCustomers: getCustomers,
             getCustomersById: getCustomersById,
-            deleteCustomer: deleteCustomer
+            deleteCustomer: deleteCustomer,
+            getAlphaCustomers: getAlphaCustomers
         };
         return service;
 
         function addCustomers(customer){
             vm.customers.put(customer);
+        }
+
+        function getAlphaCustomers(){
+            vm.customers = vm.customers.sort(function(a, b){
+                if(a.name < b.name) return -1;
+                if(a.name > b.name) return 1;
+                return 0;
+            });
+            var alphaCustomers = {};
+            for(id in vm.customers){
+                var letter = vm.customers[id].name[0];
+                if(!alphaCustomers[letter]){
+                    alphaCustomers[letter] = [];
+                }
+                alphaCustomers[letter].push(vm.customers[id]);
+            }
+            return alphaCustomers;
         }
 
         function getCustomers(){

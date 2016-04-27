@@ -33,7 +33,7 @@
             }
         }
 
-        $scope.data.customers = CustomerSvc.getCustomers();
+        $scope.data.customers = CustomerSvc.getAlphaCustomers();
 
         $scope.addCutomer = function () {
             $state.go('app.addCustomer');

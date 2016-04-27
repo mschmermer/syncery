@@ -1,6 +1,10 @@
 <ion-view view-title="{{'agreement' | translate}}">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button class="button-clear">
+        </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content class="has-tabs" delegate-handle="agreement">
-        <div class="card">
+
             <ion-item class="item item-divider">
                 {{ 'testphase_time' | translate:translationData }}
             </ion-item>
@@ -8,9 +12,9 @@
             <syncery-contract-days
                     remaining="contract_remaining" total="contract_total">
             </syncery-contract-days>
-        </div>
+        <ion-item class="item item-divider">{{"change_package" | translate}}</ion-item>
 
-        <syncery-extend-contract number="'1'" payment="'monthly'" data-method="switchContract">
+        <syncery-extend-contract number="number" payment="payment" data-method="switchContract">
         </syncery-extend-contract>
     </ion-content>
     <div class="bar bar-footer save-button">

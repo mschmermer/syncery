@@ -7,35 +7,39 @@
             <button style="color: white" class="button button-icon button-clear ion-navicon" menu-toggle="left">
             </button>
         </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button ng-click="addCutomer()"
+                    class="button button-icon icon ion-ios-plus-outline">
+            </button>
+        </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content class="has-tabs" delegate-handle="customer" on-scroll="getScrollPosition()" overflow-scroll="false">
-        <ion-list id="customer_list" can-swipe="listCanSwipe">
-            <ion-item class="item list-item item-remove-animate customer-list item-avatar item-icon-right"
-                      ng-repeat="customer in data.customers | orderBy:'name'"
-                      href="#/app/customer/details{{customer.id}}">
-                <!--<i class="icon ion-person-stalker"></i>-->
-                <img ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
-                <img ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+    <ion-content ion-sticky delegate-handle="customer" on-scroll="getScrollPosition()" overflow-scroll="false">
+        <div ng-repeat="(letter, customers) in data.customers">
+            <div class="item item-divider">{{letter}}</div>
+            <ion-list id="customer_list" can-swipe="listCanSwipe">
+                <ion-item class="item list-item item-remove-animate customer-list item-avatar item-icon-right"
+                          ng-repeat="customer in customers"
+                          href="#/app/customer/details{{customer.id}}">
+                    <!--<i class="icon ion-person-stalker"></i>-->
+                    <img ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+                    <img ng-if="!customer.avatar" ng-src="img/avatar.jpg">
 
-                <h2>{{customer.first_name}} {{customer.name}}</h2>
-                        <p>{{customer.open_bill | currency: "€"}}</p>
-                        <p>{{customer.last_booking}}</p>
+                    <h2>{{customer.first_name}} {{customer.name}}</h2>
+                    <p>{{customer.open_bill | currency: "€ "}}</p>
+                    <p>{{customer.last_booking}}</p>
 
-                <ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
-                                   ng-click="edit(customer.id)">
-                    {{"edit" | translate}}
-                </ion-option-button>
-                <ion-option-button class="button button-assertive ion-ios7-heart button-options"
-                                   ng-click="delete(customer.id)">
-                    {{"delete" | translate}}
-                </ion-option-button>
-                <i class="icon icon-small ion-ios-arrow-right"></i>
-            </ion-item>
-        </ion-list>
+                    <ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
+                                       ng-click="edit(customer.id)">
+                        {{"edit" | translate}}
+                    </ion-option-button>
+                    <ion-option-button class="button button-assertive ion-ios7-heart button-options"
+                                       ng-click="delete(customer.id)">
+                        {{"delete" | translate}}
+                    </ion-option-button>
+                    <i class="icon icon-small ion-ios-arrow-right"></i>
+                </ion-item>
+            </ion-list>
+        </div>
+
     </ion-content>
-    <div class="bar bar-footer">
-        <button ng-click="addCutomer()"
-                class="button button-icon icon ion-ios-plus-outline">
-        </button>
-    </div>
 </ion-view>

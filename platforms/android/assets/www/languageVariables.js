@@ -14,6 +14,8 @@ angular.module('syncery')
                 selection: "Auswahl",
                 open: "offen",
                 unpaid: "unbezahlt",
+                calendar: "Kalender",
+                list: "Liste",
                 /*Buchung hinzufügen */
                 add_booking: "Buchung hinzufügen",
                 travel_data: "Reisedaten",
@@ -28,6 +30,8 @@ angular.module('syncery')
                 adult: 'Erwachsene',
                 children: 'Kinder',
                 animals: "Tiere",
+                /* Buchungsübersicht*/
+                booking_details: "Buchungsübersicht",
                 /* Unterkünfte*/
                 back: "Zurück",
                 last_booking: "letzte Buchung",
@@ -77,7 +81,7 @@ angular.module('syncery')
                 all_invited_user: "Alle eingeladenen User",
                 old_pw: "Altes Passwort",
                 new_pw: "Neues passwort",
-                pw_repeat: "Passwort wiederholen",
+                repeat: "Wiederholen",
                 // Allgemein
                 timezone: 'Zeitzone',
                 currency: 'Währung',
@@ -100,7 +104,7 @@ angular.module('syncery')
                 //Kontakt
                 category: 'Kategorie',
                 regard: 'Betreff',
-                select_category: "Wähle eine Kategorie aus",
+                select_category: "Kategorie",
                 // Vetrag
                 invoice_address: "Rechnungsanschrift",
                 change_data: "Daten bearbeiten",
@@ -142,7 +146,7 @@ angular.module('syncery')
                 save: "Speichern",
                 validation_error: "Bitte eingabe überprüfen.",
                 // login
-                forgot_password: "Haben Sie Ihr Passwort vergessen?",
+                forgot_password: "Passwort vergessen?",
                 dont_account: "Haben Sie keinen Account?",
                 create_account: "Account erstellen",
                 password: "Passwort",
@@ -164,6 +168,8 @@ angular.module('syncery')
                 selection: "Selection",
                 open: "open",
                 unpaid: "unpaid",
+                calendar: "Calendar",
+                list: "List",
                 /*Add Booking */
                 add_booking: "Add booking",
                 travel_data: "Traveldata",
@@ -178,6 +184,8 @@ angular.module('syncery')
                 adult: 'Adult',
                 children: 'Children',
                 animals: "Animals",
+                /* Booking Details*/
+                booking_details: "Booking details",
                 /* Accommodations */
                 back: "Back",
                 last_booking: "Last booking",
@@ -226,7 +234,7 @@ angular.module('syncery')
                 all_invited_user: "All invited users",
                 old_pw: "Old password",
                 new_pw: "new password",
-                pw_repeat: "Repeat password",
+                repeat: "Repeat",
                 //General
                 timezone: 'Timezone',
                 currency: 'Currency',
@@ -281,7 +289,7 @@ angular.module('syncery')
                 change_package: "Change your package",
                 numbers_accommodations: "Number of their apartments",
                 monthly: "monthly",
-                month: "month",
+                month: "Month",
                 annually: "annually",
                 // Portals
                 portals: "Portals",
@@ -291,7 +299,7 @@ angular.module('syncery')
                 save: "Save",
                 validation_error: "Please check your input.",
                 // login
-                forgot_password: "Forgot your Password?",
+                forgot_password: "Forgot Password?",
                 dont_account: "You don't have an account?",
                 create_account: "Create account",
                 password: "password",

@@ -13,7 +13,7 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="portals" class="slideInBothWays" on-scroll="getScrollPosition()">
+    <ion-content class="has-tabs" delegate-handle="portals" class="slideInBothWays" on-scroll="getScrollPosition()">
         <ion-list ng-if="portals" id="portal_list" can-swipe="listCanSwipe">
             <ion-item ng-repeat="portal in portals | filter: data.searchQuery | orderBy:'portal_name'"
                       class="item list-item item-remove-animate item-icon-left"

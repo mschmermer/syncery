@@ -1,24 +1,13 @@
-<ion-view  view-title="{{'add_accommodation' | translate}}">
+<ion-view  view-title="{{'accommodations' | translate}}">
     <ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        <ion-nav-back-button>
         </ion-nav-back-button>
-        <ion-nav-buttons side="right">
-            <button ng-click="save()"
-                    class="button button-icon icon ion-android-done">
-            </button>
-        </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content overflow-scroll="false">
+    <ion-content class="has-tabs" overflow-scroll="false">
         <div class="list">
-            <div class="item item-divider divider-input">{{"enter_accommodation_data" | translate}}</div>
             <label class="item item-input">
-                <span class="input-label">{{'name' | translate}}</span>
+                <span class="input-label">{{'accommodation' | translate}}</span>
                 <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'description' | translate}}</span>
-                <textarea rows="4" cols="5" ng-model="formData.message"></textarea>
             </label>
             <label class="item item-input item-icon-right" ng-click="select('gender')">
                 <span class="input-label">{{'gender' | translate}}</span>
@@ -53,6 +42,10 @@
                 <span class="input-label">{{'country' | translate}}</span>
                 <input type="text" placeholder="{{'required' | translate}}">
             </label>
+            <div class="item item-divider divider-input">{{"description" | translate}}</div>
+            <label class="item item-input textarea">
+                <textarea rows="6" cols="5" ng-model="formData.message"></textarea>
+            </label>
             <div class="item item-divider divider-input">{{"contact_data" | translate}}</div>
             <label class="item item-input">
                 <span class="input-label">{{'telephone' | translate}}</span>
@@ -66,72 +59,9 @@
                 <span class="input-label">E-Mail</span>
                 <input type="text" placeholder="{{'required' | translate}}">
             </label>
-            <!--<ion-item>
-                <syncery-input title="'name' | translate" type="'text'" input="accommodation.name">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'description' | translate" type="'textarea'" input="accommodation.description">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-dropdown name="'gender'"
-                                  attribute="'gender' | translate"
-                                  attributes="['Herr', 'Frau']">
-                </syncery-dropdown>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'title' | translate" type="'text'">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'first_name' | translate" type="'text'">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'name' | translate" type="'text'">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'adress' | translate" type="'text'">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'PLZ'" type="'plz'">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'city' | translate" type="'text'">
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'country' | translate" type="'text'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'telephone' | translate" type="'tel'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'mobile' | translate" type="'tel'">
-
-                </syncery-input>
-            </ion-item>
-            <ion-item>
-                <syncery-input title="'E-Mail'" type="'mail'">
-
-                </syncery-input>
-            </ion-item>
         </div>
-        <button class="button button-last button-positive" ng-click="ShowPictures()">
-            {{"add_picture" | translate}}
-        </button>
-        <button class="button button-last button-positive">
-            {{"save_accommodation" | translate}}
-        </button>-->
-
-
     </ion-content>
+    <div class="bar bar-footer save-button">
+        <button class="button button-full mark-cyan" ng-click="save()">{{'save' | translate}}</button>
+    </div>
 </ion-view>

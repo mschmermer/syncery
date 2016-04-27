@@ -44,5 +44,33 @@
             [28, 48, 40, 19, 86, 27, 90]
         ];
 
+        $scope.timeline = [{
+            date: new Date(),
+            title: "Awesome picture",
+            author:"John Mybeweeg",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            type: "picture"
+        },{
+            date: new Date(),
+            title: "Look at my video!",
+            author:"Miranda Smith",
+            text: "Lorem ipsum dolor sit amet",
+            type: "video"
+
+        },{
+            date: new Date(),
+            title: "I am here",
+            author:"Ludo Anderson",
+            text: "Lorem ipsum dolor sit amet",
+            type: "location"
+
+        },{
+            date: new Date(),
+            title: "For my friends",
+            author:"Sara Orwell",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            type: "text"
+
+        }]
     }
 })();

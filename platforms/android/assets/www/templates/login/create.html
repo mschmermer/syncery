@@ -1,5 +1,22 @@
-<ion-view view-title="{{'create_account' | translate}}">
-    <ion-nav-bar class="bar syncery-header">
+<ion-view view-title="{{'create_account' | translate}}" can-swipe-back="false" drag-content="false" hide-nav-bar="true">
+    <ion-slide-box class="login" style="height: 100%" on-slide-changed="slideHasChanged($index)">
+        <ion-slide>
+            <div class="header" > <img src="img/syncery-logo-white.png" class="logo"> </div>
+            <div class="content"></div>
+            <div class="footer"></div>
+        </ion-slide>
+        <ion-slide>
+            <div class="header" > <img src="img/syncery-logo-white.png" class="logo"> </div>
+            <div class="content"></div>
+            <div class="footer"></div>
+        </ion-slide>
+        <ion-slide>
+            <div class="header" > <img src="img/syncery-logo-white.png" class="logo"> </div>
+            <div class="content"></div>
+            <div class="footer"></div>
+        </ion-slide>
+    </ion-slide-box>
+    <!--<ion-nav-bar class="bar syncery-header">
         <ion-nav-back-button class="button-clear">
             <i class="ion-chevron-left"></i> {{"back" | translate }}
         </ion-nav-back-button>

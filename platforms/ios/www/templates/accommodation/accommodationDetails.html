@@ -1,15 +1,20 @@
-<ion-view view-title="{{'accommodation' | translate}}">
+<ion-view view-title="{{'accommodations' | translate}}">
     <ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        <ion-nav-back-button>
         </ion-nav-back-button>
 
         <ion-nav-buttons side="left">
             <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
             </button>
         </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-icon button-clear" ng-click="edit(accommodation.id)">
+                <i class="icon ion-ios-compose-outline"></i>
+            </button>
+        </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content class="has-tabs" delegate-handle="accommodationDetails" data-tap-disabled="true">
+    <ion-content delegate-handle="accommodationDetails" >
         <div class="list">
             <div class="item item-divider">
                 {{accommodation.name}}
@@ -60,7 +65,7 @@
                 <i ng-class="icon['Mapping']"></i>
             </div>
             <ion-list can-swipe="true" ng-hide="hide['Mapping']">
-                <button class="button mark-cyan button-full icon-right" ng-click="addMapping(accommodation.id)">
+                <button class="button button-icon mark-cyan button-full icon-right" ng-click="addMapping(accommodation.id)">
                     {{'add_mapping' | translate}}
                     <i class="icon ion-ios-plus-outline"></i>
                 </button>
@@ -88,7 +93,4 @@
             </ion-item>
         </div>
     </ion-content>
-    <div class="bar bar-footer save-button">
-        <button class="button button-full mark-cyan" ng-click="edit(accommodation.id)">{{'edit' | translate}}</button>
-    </div>
 </ion-view>

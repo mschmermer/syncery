@@ -1,14 +1,20 @@
-<ion-view  view-title="{{'add_accommodation' | translate}}">
+<ion-view view-title="{{'accommodations' | translate}}">
     <ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        <ion-nav-back-button>
         </ion-nav-back-button>
     </ion-nav-bar>
-    <ion-content class="has-tabs" overflow-scroll="false">
+    <ion-content ng-class="{'has-footer': (show_save)}" overflow-scroll="false">
         <div class="list">
+            <ion-item class="item item-text-wrap">
+                <img class="accommodation_img" ng-show="data.ImageURI" ng-src="{{data.ImageURI}}" height="200"
+                     width="200" ng-click="ShowPictures()">
+                <button ng-hide="data.ImageURI" class="button icon add-img ion-image" ng-click="ShowPictures()">
+                    <p>{{'set_image' | translate}}</p>
+                </button>
+            </ion-item>
             <label class="item item-input">
-                <span class="input-label">{{'name' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <span class="input-label">{{'accommodation' | translate}}</span>
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.acc_name">
             </label>
             <label class="item item-input item-icon-right" ng-click="select('gender')">
                 <span class="input-label">{{'gender' | translate}}</span>
@@ -17,31 +23,31 @@
             </label>
             <label class="item item-input">
                 <span class="input-label">{{'title' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.title">
             </label>
             <label class="item item-input">
                 <span class="input-label">{{'first_name' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.first_name">
             </label>
             <label class="item item-input">
                 <span class="input-label">{{'name' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.name">
             </label>
             <label class="item item-input">
                 <span class="input-label">{{'address' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.address">
             </label>
             <label class="item item-input">
                 <span class="input-label">PLZ</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.plz">
             </label>
             <label class="item item-input">
                 <span class="input-label">{{'city' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.cityl">
             </label>
             <label class="item item-input">
                 <span class="input-label">{{'country' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.country">
             </label>
             <div class="item item-divider divider-input">{{"description" | translate}}</div>
             <label class="item item-input textarea">
@@ -50,19 +56,19 @@
             <div class="item item-divider divider-input">{{"contact_data" | translate}}</div>
             <label class="item item-input">
                 <span class="input-label">{{'telephone' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}"  ng-model="acc.tel">
             </label>
             <label class="item item-input">
                 <span class="input-label">{{'mobile' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}" ng-model="acc.mobile">
             </label>
             <label class="item item-input">
                 <span class="input-label">E-Mail</span>
-                <input type="text" placeholder="{{'required' | translate}}">
+                <input type="text" placeholder="{{'required' | translate}}" ng-model="acc.mail">
             </label>
         </div>
     </ion-content>
-    <div class="bar bar-footer save-button">
+    <div class="bar bar-footer save-button" ng-if="show_save">
         <button class="button button-full mark-cyan" ng-click="save()">{{'save' | translate}}</button>
     </div>
 </ion-view>

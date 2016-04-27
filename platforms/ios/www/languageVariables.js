@@ -70,6 +70,7 @@ angular.module('syncery')
                 enter_accommodation_data: "Unterkunftsdaten eintragen",
                 add_picture: "Bild hinzufügen",
                 save_accommodation: "Unterkunft speichern",
+                set_image: "Hier klicken um ein Bild auszuwählen.",
                 // Einstellungen
                 settings: "Einstellungen",
                 general: "Allgemein",
@@ -146,7 +147,7 @@ angular.module('syncery')
                 save: "Speichern",
                 validation_error: "Bitte eingabe überprüfen.",
                 // login
-                forgot_password: "Haben Sie Ihr Passwort vergessen?",
+                forgot_password: "Passwort vergessen?",
                 dont_account: "Haben Sie keinen Account?",
                 create_account: "Account erstellen",
                 password: "Passwort",
@@ -223,6 +224,7 @@ angular.module('syncery')
                 enter_accommodation_data: "Enter accommodationdata",
                 add_picture: "Add Picture",
                 save_accommodation: "Save Accommodation",
+                set_image: "Click here to select a Picture.",
                 // Settings
                 settings: "Settings",
                 general: "General",
@@ -299,7 +301,7 @@ angular.module('syncery')
                 save: "Save",
                 validation_error: "Please check your input.",
                 // login
-                forgot_password: "Forgot your Password?",
+                forgot_password: "Forgot Password?",
                 dont_account: "You don't have an account?",
                 create_account: "Create account",
                 password: "password",

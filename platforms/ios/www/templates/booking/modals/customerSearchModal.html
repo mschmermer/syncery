@@ -1,0 +1,41 @@
+<ion-modal-view>
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-light" ng-click="modal_customer_search.hide()">
+                <i class="icon icon-large ion-ios-undo-outline">
+                </i>
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button ng-click="addCutomer()"
+                    class="button button-icon icon ion-ios-plus-outline">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header" ion-sticky>
+        <!--<ion-alpha-scroll ng-model="contacts" key="name">
+            <div>{{item.name}}</div>
+            <div>{{item.first_name}}</div>
+        </ion-alpha-scroll>-->
+        <!--<div data-ng-repeat="(letter, customers) in sorted_users" class="alpha_list">
+            <ion-item class="item item-divider" id="index_{{letter}}">
+                {{letter}}
+            </ion-item>
+            <ion-item ng-repeat="customer in customers">
+                {{customer.first_name}} {{customer.name}}
+            </ion-item>
+        </div>-->
+        <ion-list>
+            <div ng-repeat="(letter, customers) in customers">
+                <div class="item item-divider">{{letter}}</div>
+                <ion-item ng-repeat="customer in customers" class="item item-icon-left">
+                    <i class="icon ion-ios-people-outline"></i>
+                    {{customer.first_name}} {{customer.name}}
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

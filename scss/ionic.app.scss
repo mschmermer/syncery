@@ -32,6 +32,10 @@ $mark-red: #FF6764 !default;
 $mark-cyan: #00bcbc !default;
 $mark-green: #22C7AA !default;
 
+$energized: $mark-cyan !default;
+
+$bar-subheader-height: 111px;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
@@ -42,6 +46,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 $font-family-base: "Roboto", sans-serif !default;
+
+div.title.title-center.header-item {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+}
 
 .item.item-divider {
   background-color: $background3;
@@ -90,6 +101,7 @@ button.button.mark-cyan {
   text-transform: uppercase;
   font-weight: bold;
   background-color: $mark-cyan;
+  letter-spacing: 1px;
   i {
     position: absolute;
     right: 18px;
@@ -107,8 +119,18 @@ button.button.mark-red {
 
 // inputs
 
+i.radio-icon.disable-pointer-events.icon.ion-checkmark {
+  font-size: 20px;
+}
+
+label.item.item-input.item-icon-right i.icon.ion-ios-arrow-right {
+  font-size: 20px;
+  font-weight: 300;
+}
+
 .input-label {
   width: 40%;
+  font-size: 13px;
 }
 
 label.item.item-input {
@@ -122,6 +144,7 @@ label.item.item-input {
     margin-bottom: 0;
     height: 50px;
     line-height: 50px;
+    font-size: 13px;
   }
   input {
     background-color: white;
@@ -129,6 +152,7 @@ label.item.item-input {
     padding-left: 4%;
     height: 50px;
     margin-bottom: 0;
+    font-size: 13px;
   }
 }
 
@@ -153,6 +177,9 @@ ion-side-menu ion-content {
 ion-item.item.side-menu a {
   background-color: $background1;
   color: $font-color2;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
   div.badge-syncery {
     width: 20%;
     height: 100%;
@@ -161,12 +188,11 @@ ion-item.item.side-menu a {
     top: 0;
     text-align: center;
     color: white;
-    font-weight: bold;
     background-color: $mark-red;
     margin-top: auto;
     margin-bottom: auto;
     padding-top: 8%;
-    font-size: larger;
+
   }
 }
 
@@ -397,6 +423,10 @@ div.syncery-calendar-card {
 
       /*Anzeige f�r belegten Tag*/
 
+      td.picked {
+        background-color: $mark-green;
+      }
+
       td.occupied {
         background-color: $mark-red;
         color: white;
@@ -470,6 +500,22 @@ div.tab-nav.tabs {
   margin-right: -6px;
 }
 
+/* Booking-List */
+
+ion-item.syncery-bar.item {
+  padding: 5px;
+  background-color: white;
+  button {
+    width: 32%;
+    text-transform: uppercase;
+    border-radius: 0;
+    background-color: $background5;
+  }
+  button.selected {
+    background-color: $mark-cyan;
+  }
+}
+
 /* Datepicker */
 .date-picker div.popup {
   width: 312px;
@@ -509,4 +555,190 @@ div.syncery-datepicker {
     color: #444;
     text-align: center;
   }
+}
+
+// Login Screen
+
+ion-content.login{
+  background-color: $background1;
+}
+
+ion-content.login img.logo{
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 20%;
+  margin-bottom: 10%;
+}
+
+ion-content.login label{
+  margin-right: auto;
+  margin-left: auto;
+  width: 85%;
+  height: 50px;
+  margin-bottom: 2%;
+  padding: 0%;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+ion-content.login button.button-login{
+  display: block;
+  background-color: $mark-cyan;
+  border-radius: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 85%;
+  height: 50px;
+  margin-bottom: 2%;
+}
+
+ion-content.login a{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: grey;
+  text-decoration: none;
+}
+
+ion-content.login button.button.button-outline.button-assertive.icon-left.ion-social-google{
+  border-radius: 0;
+  width: 44%;
+  margin-left: 5%;
+
+}
+
+ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook{
+  border-radius: 0;
+  width: 44%;
+  margin-right: 5%;
+}
+
+h2.login.h1{
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  font-size: x-large;
+}
+
+h2.login.h2{
+  text-align: center;
+  color: white;
+
+  font-size: large;
+}
+
+ion-slide-box.login {
+  height: 100%;
+}
+
+ion-slide div.header {
+  height: 15%;
+  background-color: $background1;
+  img.logo{
+    display: table-cell;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 7.5%;
+  }
+}
+
+ion-slide div.content {
+  height: 75%;
+  background-color: $background5;
+}
+
+ion-slide div.footer {
+  height: 10%;
+  background-color: $background1;
+}
+
+.slider-pager{
+  bottom: 4%;
+}
+
+.slider-pager .slider-pager-page{
+  color: white;
+  opacity: 1;
+}
+
+.slider-pager-page.active{
+  color: black;
+  opacity: 1;
+}
+
+div.bar.bar-footer{
+  background-color: white;
+}
+
+%button-half {
+  width: 49.5%;
+  height: 95%;
+  position: absolute;
+  border-radius: 0;
+  bottom: 0;
+  top: auto;
+};
+
+div.bar.bar-footer button.button.login.mark-cyan{
+  @extend %button-half;
+  left: 0;
+}
+
+div.bar.bar-footer button.button.signup.mark-cyan{
+  @extend %button-half;
+  right: 0;
+}
+
+// Add Accommodation
+
+img.accommodation_img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+button.button.icon.add-img.ion-image{
+  height: 200px;
+  width: 200px;
+  box-shadow: black;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 0;
+  p{
+    position: absolute;
+    margin-left: 0;
+    bottom: 5%;
+    width: 100%;
+    text-align: center;
+    line-height: 100%;
+  }
+}
+
+button.button.icon.add-img.ion-image::before{
+  font-size: 100px;
+}
+
+// FAQ
+
+i.icon.faq-plus{
+  background-color: $background3;
+  color: white;
+  height: 100%;
+  padding: 15px;
+  margin-right: 5px;
+  text-align: center;
+  left: 0;
+}
+
+ion-item.item.item-text-wrap.item-icon-left.item-faq{
+  background-color: $background5;
+  padding-left: 85px;
 }

@@ -14,6 +14,12 @@
             $ionicSideMenuDelegate.canDragContent(true);
         });
 
+        $scope.create = function(){
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $state.go('app.create');
+        }
 
         $scope.dologin = function(){
             UserSvc.setLogged(true);

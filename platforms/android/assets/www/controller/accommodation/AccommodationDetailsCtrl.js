@@ -8,8 +8,6 @@
     function AccommodationDetailsCtrl($scope,$location,$timeout, $state, $stateParams,
                                       AccommodationSvc, $ionicScrollDelegate, MappingSvc) {
 
-        $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-
         $scope.id = $stateParams.id;
         $scope.accommodation = {};
 
@@ -61,8 +59,8 @@
             }, 200);
         }
 
-        $scope.edit = function(id){
-            alert(id);
+        $scope.edit = function (id) {
+            $state.go('app.addAccommodation', {id: id});
         }
 
         $scope.addMapping = function(){

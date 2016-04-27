@@ -5,7 +5,7 @@
         .controller('AccommodationsCtrl', AccommodationsCtrl);
 
 
-    function AccommodationsCtrl($scope, $timeout,$location, $ionicScrollDelegate, $state, AccommodationSvc,
+    function AccommodationsCtrl($scope, $ionicScrollDelegate, $state, AccommodationSvc,
                                 $ionicFilterBar, $translate) {
         $scope.listCanSwipe = true;
 
@@ -46,6 +46,8 @@
         $scope.edit = function (id) {
             $state.go('app.addAccommodation', {id: id});
         }
+
+        /*$ionicContentBanner.show({icon: 'ion-ios-close-empty',transition: 'vertical',type: 'error', text:'test',interval: 15, autoClose: 5});*/
 
     }
 })();

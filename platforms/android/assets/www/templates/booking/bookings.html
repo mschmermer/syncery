@@ -4,7 +4,7 @@
         </ion-nav-back-button>
 
         <ion-nav-buttons side="left">
-            <button style="color: white" class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
             </button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
@@ -14,10 +14,10 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-pane >
-        <ion-tabs class="tabs-striped tabs-background-royal tabs-color-light" delegate-handle="bookingtabs">
+        <ion-tabs class="tabs-syncery" delegate-handle="bookingtabs">
 
             <!-- Tab 1 -->
-            <ion-tab title="Kalender">
+            <ion-tab title="{{'calendar' | translate}}">
                 <ion-view name="calendartab">
                     <ion-content delegate-handle="bookings">
                         <div class="list">
@@ -34,7 +34,7 @@
                             </label>
                         </div>
                         <div>
-                            <ion-slide-box id="slidebox" active-slide="myActiveSlide" on-slide-changed="slideHasChanged($index)" show-pager="false"
+                            <ion-slide-box id="slidebox" active-slide="false" on-slide-changed="slideHasChanged($index)" show-pager="false"
                                            does-continue="true">
                                 <ion-slide>
                                     <div class="row">
@@ -89,7 +89,7 @@
                             </ion-slide-box>
                         </div>
 
-                        <div id="BookingView" ng-hide="bookingView" class="list card">
+                        <!--<div id="BookingView" ng-hide="bookingView" class="list card">
 
                             <ion-item class="item item-icon-right item-divider">
                                 {{"booking" | translate}}
@@ -150,7 +150,32 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
+
+                        <ion-list id="BookingView" ng-hide="bookingView">
+                            <ion-item class="item item-divider">
+                                {{"booking" | translate}}
+
+                            </ion-item>
+                                <label class="item item-input">
+                                    <span class="input-label">Name:</span>
+                                    <p>{{selected_booking.customer.first_name}} {{selected_booking.customer.name}}</p>
+                                </label>
+                            <label class="item item-input">
+                                <span class="input-label">{{'accommodation' | translate}}:</span>
+                                <p>{{selected_booking.accommodation}}</p>
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">{{'travel_data' | translate}}:</span>
+                                <p>{{selected_booking.arrival | date:'dd-M-yyyy'}} - {{selected_booking.departure | date:'dd-M-yyyy'}}</p>
+                            </label>
+                            <button class="button button-full button-royal" ng-click="showBooking()">
+                                {{"show_booking" | translate}}
+                            </button>
+                            <button class="button button-full button-royal" ng-click="showBooking()">
+                                {{"change_booking" | translate}}
+                            </button>
+                        </ion-list>
                     </ion-content>
 
                 </ion-view>
@@ -158,24 +183,43 @@
 
 
             <!-- Tab 2 -->
-            <ion-tab title="Liste" >
+            <ion-tab title="{{'list' | translate}}" >
                 <ion-nav-view name="listtab">
-                    <ion-content>
-                        <div class="bar bar-header" style="height: 45px">
-                            <div class="button-bar">
-                                <a class="button button-small"
-                                    ng-click="filter('date')" ng-class="filter_class.date">{{'date' | translate}}</a>
-                                <a class="button button-small"
-                                    ng-click="filter('open')" ng-class="filter_class.open">{{'open' | translate}}</a>
-                                <a class="button button-small"
-                                    ng-click="filter('unpaid')" ng-class="filter_class.unpaid">{{'unpaid' | translate}}</a>
-                            </div>
-                        </div>
-                        <ion-list>
-                            <ion-item ng-repeat="booking in bookings">
+                    <ion-content class="has-header">
+                            <!--<div class="bar bar-header">
+                                <div class="button-bar">
+                                    <a class="button button-small"
+                                        ng-click="filter('date')" ng-class="filter_class.date">{{'date' | translate}}</a>
+                                    <a class="button button-small"
+                                        ng-click="filter('open')" ng-class="filter_class.open">{{'open' | translate}}</a>
+                                    <a class="button button-small"
+                                        ng-click="filter('unpaid')" ng-class="filter_class.unpaid">{{'unpaid' | translate}}</a>
+                                </div>
+                            </div>-->
+                        <ion-item class="syncery-bar">
+                            <button class="button button-small"
+                               ng-click="filter('date')" ng-class="filter_class.date">{{'date' | translate}}</button>
+                            <button class="button button-small"
+                               ng-click="filter('open')" ng-class="filter_class.open">{{'open' | translate}}</button>
+                            <button class="button button-small"
+                               ng-click="filter('unpaid')" ng-class="filter_class.unpaid">{{'unpaid' | translate}}</button>
+                        </ion-item>
+                        <ion-list can-swipe="true">
+                            <ion-item ng-repeat="(id, booking) in bookings | orderBy: 'name'" class="item list-item item-remove-animate item-icon-right"
+                                      href="#/app/bookingDetails{{id}}">
                                 <h2>{{booking.accommodation}}</h2>
-                                <p>von: {{booking.arrival}}</p>
-                                <p>bis: {{booking.departure}}</p>
+                                <p>Name: {{booking.customer.first_name}} {{booking.customer.name}}</p>
+                                <p>{{'travel_data' | translate}}: {{booking.arrival}} - {{booking.departure}}</p>
+
+                            <ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
+                                               >
+                                {{"edit" | translate}}
+                            </ion-option-button>
+                            <ion-option-button class="button button-assertive ion-ios7-heart button-options"
+                                               >
+                                {{"delete" | translate}}
+                            </ion-option-button>
+                            <i class="icon icon-small ion-ios-arrow-right"></i>
                             </ion-item>
                         </ion-list>
                     </ion-content>

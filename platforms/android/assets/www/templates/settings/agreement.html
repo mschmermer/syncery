@@ -1,11 +1,10 @@
 <ion-view view-title="{{'agreement' | translate}}">
-    <ion-nav-buttons side="right">
-        <button ng-click="save()"
-                class="button button-icon icon ion-android-done">
-        </button>
-    </ion-nav-buttons>
-    <ion-content delegate-handle="agreement">
-        <div class="card">
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button class="button-clear">
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content class="has-tabs" delegate-handle="agreement">
+
             <ion-item class="item item-divider">
                 {{ 'testphase_time' | translate:translationData }}
             </ion-item>
@@ -13,24 +12,12 @@
             <syncery-contract-days
                     remaining="contract_remaining" total="contract_total">
             </syncery-contract-days>
-        </div>
+        <ion-item class="item item-divider">{{"change_package" | translate}}</ion-item>
 
-        <syncery-extend-contract number="'1'" payment="'monthly'" data-method="switchContract">
+        <syncery-extend-contract number="number" payment="payment" data-method="switchContract">
         </syncery-extend-contract>
-
-        <!--<div id="invoices" class="list card">
-            <div class="item item-divider item-icon-right" ng-click="showMore('invoices')">
-                {{"invoices" | translate}}
-                <i ng-class="icon['invoices']"></i>
-            </div>
-            <ion-item class="item item-icon-left" ng-hide="hide['invoices']"
-                    href="#">
-                <i class="icon ion-document"></i> Rechnung von Oktober 2015 als PDF
-            </ion-item>
-            <ion-item class="item item-icon-left" ng-hide="hide['invoices']"
-                      href="#">
-                <i class="icon ion-document"></i> Rechnung von September 2015
-            </ion-item>
-        </div>-->
     </ion-content>
+    <div class="bar bar-footer save-button">
+        <button class="button button-full mark-cyan" ng-click="save()">{{'save' | translate}}</button>
+    </div>
 </ion-view>

@@ -2,14 +2,13 @@
     <h3>{{customer.first_name}}
         {{customer.name}}</h3>
 </ion-header-bar>-->
-<ion-view view-title="{{'customer' | translate}}">
+<ion-view view-title="{{'customers' | translate}}">
     <ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        <ion-nav-back-button>
         </ion-nav-back-button>
-
-        <ion-nav-buttons side="left">
-            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        <ion-nav-buttons side="right">
+            <button class="button button-icon button-clear" ng-click="edit(id)">
+                <i class="icon ion-ios-compose-outline"></i>
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
@@ -75,7 +74,4 @@
             </ion-list>
         </div>
     </ion-content>
-    <div class="bar bar-footer save-button">
-        <button class="button button-full mark-cyan" ng-click="edit(customer.id)">{{'edit' | translate}}</button>
-    </div>
 </ion-view>

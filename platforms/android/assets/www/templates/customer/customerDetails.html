@@ -2,77 +2,26 @@
     <h3>{{customer.first_name}}
         {{customer.name}}</h3>
 </ion-header-bar>-->
-<ion-view view-title="{{'customer' | translate}}">
+<ion-view view-title="{{'customers' | translate}}">
     <ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        <ion-nav-back-button>
         </ion-nav-back-button>
-
-        <ion-nav-buttons side="left">
-            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-            </button>
-        </ion-nav-buttons>
         <ion-nav-buttons side="right">
-            <button ng-click="edit(customer.id)"
-                    class="button button-icon icon ion-edit">
+            <button class="button button-icon button-clear" ng-click="edit(id)">
+                <i class="icon ion-ios-compose-outline"></i>
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="customerDetails">
-        <div class="list card">
-            <div class="item item-divider item-icon-right center">
-                <!--{{"master_data" | translate}}-->
-                {{customer.title}}
-                {{customer.first_name}}
-                {{customer.name}}
-            </div>
-            <div class="row ">
-                <div class="col col-50">
-                    <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
-                    <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
-                </div>
-                <div class="col col-50">
-                    <ion-item class="item-text-wrap padding10">
-                        Erieseering 22<br>
-                        10319 Berlin<br>
-                        Deutschland
-                    </ion-item>
-                </div>
-            </div>
-        </div>
-
-        <!--<img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
-        <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
-
-        <div class="row">
-            <div class="col">
-                <b>{{"payment" | translate}}</b>
-
-                <p>5 {{"bookings" | translate}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col two-item-border col-50">
-                <b>{{"profit" | translate}}:</b>
-
-                <p>{{customer.profit | currency: '€ '}}</p>
-            </div>
-            <div class="col two-item-border col-50">
-                <b>{{"open_bill" | translate}}:</b>
-
-                <p>{{customer.open_bill | currency: '€ '}}</p>
-            </div>
-        </div>
-        </ion-item>
-        <ion-item class="item item-icon-right" href="#/app/customer/bookings{{customer.id}}">
-            <b>{{"last_booking" | translate}}:</b>
-            {{customer.last_booking}}
-            <i class="icon ion-chevron-right"></i>
-        </ion-item>
-    </div>-->
-
-
-        <div class="list card">
+    <ion-content class="has-tabs" delegate-handle="customerDetails">
+        <div class="list">
+            <div class="item item-divider">{{customer.first_name}} {{customer.name}}</div>
+            <ion-item class="item item-avatar customer-list">
+                <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+                <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+                <p>Erieseering 22</p>
+                <p>10319 Berlin</p>
+                <p>Deutschland</p>
+            </ion-item>
             <div class="item item-divider item-icon-right" ng-click="showMore('contact')"
                  id="contact">
                 {{"contact" | translate}}
@@ -97,91 +46,31 @@
 
                     0151 63 42 68 41
                 </ion-item>
-                <!--<div class="row ">
-                    <div class="col">
-                        <p>Herr Dr. Prof.</p>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col col-50">
-                        <p>Marcus</p>
-                    </div>
-                    <div class="col col-50">
-                        <p>Schmermer</p>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col col-50">
-                        <p>Erieseering 22</p>
-                    </div>
-                    <div class="col col-50">
-                        <p>10319 Berlin</p>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col">
-                        <b>{{"contact" | translate}}:</b>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col col-50">
-                        <p>030 94399851</p>
-                    </div>
-                    <div class="col col-50">
-                        <p>0151 63 42 68 41</p>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col">
-                        <p>ma.schmermer@gmail.com</p>
-                    </div>
-                </div>-->
             </ion-list>
-        </div>
-
-        <div class="list card">
             <div class="item item-divider item-icon-right" ng-click="showMore('bookings')"
                  id="bookings">
                 {{"bookings" | translate}}
                 <i ng-class="icon['bookings']"></i>
             </div>
             <ion-list ng-hide="hide['bookings']">
-                <div class="row">
-                    <div class="col col-50">
-                        <ion-item class=" item item-text-wrap decide">{{"bookings" | translate}}:</ion-item>
-                    </div>
-                    <div class="col col-50">
-                        <ion-item class="item item-text-wrap  decide">5</ion-item>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-50">
-                        <ion-item class="item item-text-wrap decide">{{"open_bill" | translate}}:</ion-item>
-                    </div>
-                    <div class="col col-50">
-                        <ion-item ng-if="customer.open_bill>0" class="item-text-wrap decide green">{{customer.open_bill | number: 2}} €
-                        </ion-item>
-                        <ion-item ng-if="customer.open_bill<0" class="item-text-wrap decide red">{{customer.open_bill | number: 2}} €
-                        </ion-item>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-50">
-                        <ion-item class="item item-text-wrap  decide">{{"profit" | translate}}:</ion-item>
-                    </div>
-                    <div class="col col-50">
-                        <ion-item ng-if="customer.profit>0" class="item item-text-wrap decide green">{{customer.profit | number: 2}} €
-                        </ion-item>
-                        <ion-item ng-if="customer.profit<0" class="item item-text-wrap decide red">{{customer.profit | number: 2}} €
-                        </ion-item>
-                    </div>
-                </div>
-                <ion-item class="item item-icon-right" href="#/app/customer/bookings{{customer.id}}">
-                    <b>{{"last_booking" | translate}}:</b>
-                    {{customer.last_booking}}
-                    <i class="icon ion-chevron-right"></i>
-                </ion-item>
+                <label class="item item-input">
+                    <span class="input-label">{{'bookings' | translate}}</span>
+                    <p>5</p>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{'open_bill' | translate}}</span>
+                    <p ng-if="customer.open_bill>0" class="item-text-wrap decide green">{{customer.open_bill | number: 2}} €</p>
+                    <p ng-if="customer.open_bill<0" class="item-text-wrap decide red">{{customer.open_bill | number: 2}} €</p>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{'profit' | translate}}</span>
+                    <p ng-if="customer.open_bill>0" class="item-text-wrap decide green">{{customer.profit | number: 2}} €</p>
+                    <p ng-if="customer.open_bill<0" class="item-text-wrap decide red">{{customer.profit | number: 2}} €</p>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{'last_booking' | translate}}</span>
+                    <p>{{customer.last_booking}}</p>
+                </label>
             </ion-list>
         </div>
     </ion-content>

@@ -1,11 +1,11 @@
 <ion-side-menus enable-menu-with-back-views="false">
-    <ion-side-menu-content>
-        <ion-nav-bar class="syncery-header" >
-            <ion-nav-back-button class="button-clear">
-                <i class="ion-chevron-left" style="color: white"></i> {{"back" | translate }}
-            </ion-nav-back-button>
-            <ion-nav-buttons side="left">
-                <button class="button button-icon button-clear ion-navicon" style="color: white" menu-toggle="left">
+            <ion-side-menu-content>
+                <ion-nav-bar class="syncery-header" >
+                    <ion-nav-back-button class="button-clear">
+                        <i class="ion-chevron-left"></i> {{"back" | translate }}
+                    </ion-nav-back-button>
+                    <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
@@ -24,7 +24,7 @@
                     {{data.user.name}}
                     <i class="icon ion-ios-gear-outline" ng-click="settings()"></i>
                 </ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.search"
+                <ion-item class="item item-icon-right side-menu" menu-close ng-class="menu_class.search"
                           ng-click=changeView('search') >
                     <i class="icon ion-ios-search"></i>{{'search_menu' | translate}}
                 </ion-item>
@@ -35,7 +35,7 @@
                 <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.booking"
                           ng-click=changeView('booking') href="#/app/bookings">
                     <i class="icon ion-ios-calendar-outline"></i>{{"bookings_menu" | translate}}
-                    <span class="badge badge-assertive">{{data.open_bookings}}</span>
+                    <div class="badge-syncery">{{data.open_bookings}}</div>
                 </ion-item>
                 <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.accommodations"
                           ng-click=changeView('accommodations') href="#/app/accommodations">
@@ -49,10 +49,6 @@
                           ng-click=changeView('portals') href="#/app/portals">
                     <i class="icon ion-android-sync"></i>{{"portals_menu" | translate}}
                 </ion-item>
-                <!--<ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.settings"
-                          ng-click=changeView('settings') href="#/app/settings">
-                    <i class="icon ion-ios-gear-outline"></i>{{"settings_menu" | translate}}
-                </ion-item>-->
             </ion-list>
         </ion-content>
     </ion-side-menu>

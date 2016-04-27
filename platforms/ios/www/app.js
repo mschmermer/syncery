@@ -4,10 +4,18 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.translate', 'chart.js', 'ngCordova',
-    'jett.ionic.filter.bar', 'ionic.service.core', 'ionic.service.analytics'])
+var app = angular.module('syncery', ['ionic',
+        'ionic.ion.headerShrink',
+        'pascalprecht.translate',
+        'chart.js',
+        'ngCordova',
+        'jett.ionic.filter.bar',
+        'ionic.service.core',
+        'ionic.service.analytics',
+        'ion-alpha-scroll',
+        'ion-sticky'])
 
-    .run(function ($ionicPlatform, $ionicLoading,$rootScope){ //, $ionicAnalytics) {
+    .run(function ($ionicPlatform, $ionicLoading, $rootScope) { //, $ionicAnalytics) {
         $ionicPlatform.ready(function () {
             //$ionicAnalytics.register();
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -26,25 +34,25 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
             }
 
             /*$rootScope.$on('$ionicView.beforeLeave', function(){
-                $ionicLoading.show();
-            });
+             $ionicLoading.show();
+             });
 
-            $rootScope.$on('$ionicView.afterEnter', function(){
-                $ionicLoading.hide();
-            })*/
+             $rootScope.$on('$ionicView.afterEnter', function(){
+             $ionicLoading.hide();
+             })*/
         });
     })
 
-        .constant({'language': 'de'})
-            .constant({'currency': '€'})
+    .constant({'language': 'de'})
+    .constant({'currency': '€'})
 
-            .constant('$ionicLoadingConfig', {
-                template: '<ion-spinner class="spinner light" icon="bubbles"></ion-spinner>'
-            })
+    .constant('$ionicLoadingConfig', {
+        template: '<ion-spinner class="spinner light" icon="bubbles"></ion-spinner>'
+    })
 
 
-            .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language,
-                              languageVariables, $ionicFilterBarConfigProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language,
+                      languageVariables, $ionicFilterBarConfigProvider, $ionicConfigProvider) {
 
         $translateProvider.translations('en', languageVariables['en']);
         $translateProvider.translations('de', languageVariables['de']);
@@ -52,6 +60,8 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
 
         $ionicFilterBarConfigProvider.theme('royal');
         $ionicFilterBarConfigProvider.placeholder(languageVariables['de']['search']);
+
+        $ionicConfigProvider.backButton.text(' ').previousTitleText('').icon('ion-ios-arrow-back');
 
         $stateProvider
 
@@ -143,6 +153,16 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
                 }
             })
 
+            .state('app.rangepicker', {
+                url: '/bookings/add/rangepicker',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/rangepicker.html',
+                        controller: 'RangepickerCtrl'
+                    }
+                }
+            })
+
             .state('app.bookingDeatils', {
                 url: '/bookingDetails:id',
                 views: {
@@ -178,7 +198,7 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
             })
 
             .state('app.addAccommodation', {
-                url: '/addAccommodation',
+                url: '/accommodation/add',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/accommodation/addAccommodation.html',
@@ -191,7 +211,7 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
             })
 
             .state('app.accommodationDetails', {
-                url: '/accommodationDetails:id',
+                url: '/accommodation/details:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/accommodation/accommodationDetails.html',
@@ -201,7 +221,7 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
             })
 
             .state('app.accommodationMapping', {
-                url: '/accommodationMapping',
+                url: '/accommodation/mapping',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/accommodation/accommodationMapping.html',
@@ -215,7 +235,7 @@ angular.module('syncery', ['ionic','ionic.ion.headerShrink', 'pascalprecht.trans
             })
 
             .state('app.accommodationMasterData', {
-                url: '/accommodationMasterData:id',
+                url: '/accommodation/masterData:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/accommodation/accommodationMasterData.html',

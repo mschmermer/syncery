@@ -59,8 +59,8 @@
             }, 200);
         }
 
-        $scope.edit = function(id){
-            alert(id);
+        $scope.edit = function (id) {
+            $state.go('app.addAccommodation', {id: id});
         }
 
         $scope.addMapping = function(){

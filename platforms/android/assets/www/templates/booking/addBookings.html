@@ -1,27 +1,17 @@
-<ion-view view-title="{{'add_booking' | translate}}">
+<ion-view view-title="{{'bookings' | translate}}">
     <ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-chevron-left"></i> {{"back" | translate }}
+        <ion-nav-back-button>
         </ion-nav-back-button>
-        <ion-nav-buttons side="right">
-            <button ng-click="save()"
-                    class="button button-icon icon ion-android-done">
-            </button>
-        </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="addBookings" overflow-scroll="false">
+    <ion-content class="has-tabs" delegate-handle="addBookings" overflow-scroll="false">
         <div class="list">
-            <div class="item item-divider divider-input">{{"travel_data" | translate}}</div>
             <label class="item item-input item-icon-right" ng-click="select('accommodations')">
                 <span class="input-label">{{'accommodation' | translate}}</span>
                 <p>{{selector.accommodations.selected}}</p>
-                <i class="icon ion-ios-arrow-right"></i>
+                <i class="icon icon-small ion-ios-arrow-right"></i>
             </label>
-            <ion-item>
-                <syncery-datepicker name="'arrival_date' | translate" data-method="selectDate">
-
-                </syncery-datepicker>
-            </ion-item>
+            <syncery-datepicker name="'travel_date'" data-method="selectDate" rangepicker="true">
+            </syncery-datepicker>
             <label class="item item-input item-icon-right" ng-click="select('adult')">
                 <span class="input-label">{{'adult' | translate}}</span>
                 <p>{{selector.adult.selected}}</p>
@@ -49,105 +39,43 @@
             </label>
             <label class="item item-input item-icon-right" ng-click="searchCustomer()">
                 <span class="input-label">{{'customer' | translate}}</span>
-                <p>{{customer.first_name}} {{customer.name}}</p>
+                <p>{{customer}}</p>
                 <i class="icon ion-ios-arrow-right"></i>
             </label>
-            <!--<div class="item item-divider divider-input">{{"master_data" | translate}}</div>
-            <label class="item item-input item-icon-right" ng-click="select('gender')">
-                <span class="input-label">{{'gender' | translate}}</span>
-                <p>{{selector.gender.selected}}</p>
-                <i class="icon ion-ios-arrow-right"></i>
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'title' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'first_name' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'name' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'address' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'address' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">PLZ</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'city' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'country' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Firma</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <div class="item item-divider divider-input">{{"contact_data" | translate}}</div>
-            <label class="item item-input">
-                <span class="input-label">{{'telephone' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'mobile' | translate}}</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">E-Mail</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Fax</span>
-                <input type="text" placeholder="{{'required' | translate}}">
-            </label>-->
             <div class="item item-divider divider-input">{{"payment_data" | translate}}</div>
-                <label class="item item-input item-icon-right">
-                    <span class="input-label">{{"deposit" | translate}}</span>
-                    <input type="tel" ng-change="changeMoney('deposit')" ng-model="data.deposit" maxlength="21">
-                    <i class="icon ion-social-euro" style="font-size: 15px;"></i>
-                </label>
-            <ion-item>
-                <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
+            <label class="item item-input item-icon-right">
+                <span class="input-label">{{"deposit" | translate}}</span>
+                <input type="tel" ng-change="changeMoney('deposit')" ng-model="data.deposit" maxlength="21">
+                <i class="icon ion-social-euro" style="font-size: 15px;"></i>
+            </label>
 
-                </syncery-datepicker>
-                <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
-                </syncery-datepicker>
-            </ion-item>
+            <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
+
+            </syncery-datepicker>
+
             <label class="item item-input item-icon-right">
                 <span class="input-label">{{"final_payment" | translate}}</span>
                 <input type="tel" ng-change="changeMoney('final_payment')" ng-model="data.final_payment" maxlength="21">
                 <i class="icon ion-social-euro" style="font-size: 15px;"></i>
             </label>
-            <ion-item>
-                <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
 
-                </syncery-datepicker>
-                <syncery-datepicker name="'payment_date' | translate" data-method="selectDate">
-                </syncery-datepicker>
-            </ion-item>
+            <syncery-datepicker name="'target_date' | translate" data-method="selectDate">
+            </syncery-datepicker>
             <div class="item item-divider divider-input">Extras</div>
             <ion-list>
 
-                <ion-checkbox class="royal" ng-model="extra.bedding">Bettwäche</ion-checkbox>
-                <ion-checkbox ng-model="extra.towels">Handtücher</ion-checkbox>
-                <ion-checkbox ng-model="extra.cleaning">Endreinigung</ion-checkbox>
+                <ion-checkbox class="checkbox-royal" ng-model="extra.bedding">Bettwäche</ion-checkbox>
+                <ion-checkbox class="checkbox-royal" ng-model="extra.towels">Handtücher</ion-checkbox>
+                <ion-checkbox class="checkbox-royal" ng-model="extra.cleaning">Endreinigung</ion-checkbox>
 
             </ion-list>
-            <label class="item item-input">
-                <span class="input-label">{{'notes' | translate}}</span>
-                <textarea rows="4" cols="5" ng-model="formData.message"></textarea>
+            <div class="item item-divider divider-input">{{'notes' | translate}}</div>
+            <label class="item item-input textarea">
+                <textarea rows="8" ng-model="formData.message"></textarea>
             </label>
         </div>
     </ion-content>
+    <div class="bar bar-footer save-button">
+        <button class="button button-full mark-cyan" ng-click="save()">{{'save' | translate}}</button>
+    </div>
 </ion-view>

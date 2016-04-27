@@ -5,11 +5,12 @@
         .controller('AgreementCtrl', AgreementCtrl);
 
 
-    function AgreementCtrl($scope, UserSvc, LoginFactory, $state, $stateParams, CustomerSvc, $location, $timeout, $ionicScrollDelegate) {
+    function AgreementCtrl($scope, $location, $timeout, $ionicScrollDelegate) {
         $scope.contract_remaining = 15;
         $scope.contract_total = 30;
 
-        $scope.test= '1';
+        $scope.number= '1';
+        $scope.payment = 'monthly';
 
         $scope.icon = {
             invoice_address: 'icon ion-chevron-down',

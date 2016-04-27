@@ -11,22 +11,14 @@
                     methodToCall: '&method',
                     month: '=',
                     year: '=',
-                    booking_id: '=',
-                    beginning: '=',
-                    rangepicker: '='
+                    booking_id: '='
                 },
                 controller: function ($scope, $timeout, BookingSvc, $element, UserSvc) {
 
-                    var picker = 0;
-                    var selected_day = 0;
                     $element.bind('click', function (element) {
                         if (element.srcElement.attributes['data-position']) {
-                            if(selected_day > parseInt(element.toElement.innerText)){
-                                angular.element(document.querySelector('div.selected')).remove();
-                                picker= 0;
-                            }
                             var position = element.srcElement.attributes['data-position'].value;
-                            selected_day = parseInt(element.toElement.innerText);
+                            var selected_day = element.toElement.innerText;
                             if (element.srcElement.attributes['data-booking-id']) {
                                 var booking_id = element.srcElement.attributes['data-booking-id'].value;
                                 if (booking_id.length > 1) {
@@ -34,17 +26,8 @@
                                 }
                             }
 
-                            if($scope.rangepicker){
-                                if(picker > 1){
-                                    angular.element(document.querySelector('div.selected')).remove();
-                                    angular.element(document.querySelector('div.selected')).remove();
-                                    picker= 0;
-                                }
-                            }else{
-                                angular.element(document.querySelector('div.selected')).remove();
-                            }
-                            var td = angular.element(document.querySelector('table#' + $scope.calendarid + ' td[data-position="' + position + '"]'));
-                            picker++;
+                            angular.element(document.querySelector('div.selected')).remove();
+                            var td = angular.element(element.target);//document.querySelector('table#' + $scope.calendarid + ' td[data-position="' + position + '"]'));
 
                             if (!td.hasClass('other_month')) {
                                 td.append('<div class="selected"></div>');
@@ -55,7 +38,9 @@
                         }
                     });
 
-                    $scope.initCalendarData = function (month, year, beginning) {
+                    $scope.initCalendarData = function (month, year) {
+
+                        var beginning = UserSvc.getWeekBeginning();
 
                         if(month <= 0){
                             month+=12;
@@ -74,7 +59,7 @@
                                 cid++;
                             } while (!(angular.element(document.querySelector('#calendar' + cid)).length === 0));
                             $scope.calendarid = 'calendar' + cid;
-                        }, 2);
+                        }, 40);
 
                         //set locale
                         var moments = moment().locale(UserSvc.getLanguage());
@@ -204,15 +189,15 @@
                         return calendarData;
                     }
                     //console.log($scope.month, $scope.year, $scope.beginning);
-                    $scope.calendarData = $scope.initCalendarData($scope.month, $scope.year, $scope.beginning);
+                    $scope.calendarData = $scope.initCalendarData($scope.month, $scope.year);
 
                 },
 
-                link: function (scope, timeout) {
+                link: function (scope) {
 
                     scope.$watch('month', function (newMonth) {
                         angular.element(document.querySelector('div.today')).remove();
-                        scope.calendarData = scope.initCalendarData(newMonth, scope.year, scope.beginning);
+                        scope.calendarData = scope.initCalendarData(newMonth, scope.year);
                         var position = angular.element(document.querySelector('td.today')).attr('data-position');
                         var booking_id = angular.element(document.querySelector('td.today')).attr('data-booking-id');
                         var date = angular.element(document.querySelector('td.today')).attr('data-date');

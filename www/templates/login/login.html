@@ -1,39 +1,31 @@
 <ion-view view-title="Login" can-swipe-back="false" drag-content="false" hide-nav-bar="true">
-    <ion-content>
-        <img src="img/syncery-logo.svg" class="logo">
+    <ion-content class="login">
 
-        <div class="card">
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>E-Mail</b></span>
-                <input type="email" placeholder="E-Mail">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'password' | translate}}</b></span>
-                <input type="password" placeholder="{{'password' | translate}}">
-            </label>
-        </div>
 
+    <!--<img src="img/syncery-logo-white.png" class="logo">-->
+
+        <h2 class="login h1">LOGIN</h2>
+
+        <label class="item item-input">
+            <input type="email" placeholder="Email">
+        </label>
+
+        <label class="item item-input">
+            <input type="password" placeholder="{{'password' | translate}}">
+        </label>
 
         <button ng-click="dologin()"
-                class="button button-last button-positive">Login
+                class="button button-login mark-cyan">Login
         </button>
-        <div class="item forget-password">
-            <div class="row responsive-sm">
-                <div class="col col-50">
-                    {{"dont_account" | translate}} <a href="#/app/login/create">{{"create_account" |
-                    translate}}</a>
-                </div>
-                <div class="col col-50">
-                    <a href="#/app/login/forgot">{{"forgot_password" | translate}}</a>
-                </div>
-            </div>
-        </div>
 
+        <a href="#/app/login/forgot">{{"forgot_password" | translate}}</a>
 
-        <button class="button button-decide1 button-outline button-assertive icon-left ion-social-google">
+        <h2 class="login h2">Login mit:</h2>
+
+        <button class="button button-outline button-assertive icon-left ion-social-google">
             Google+
         </button>
-        <button class="button button-decide2 button-outline button-positive icon-left ion-social-facebook">
+        <button class="button button-outline button-positive icon-left ion-social-facebook">
             Facebook
         </button>
     </ion-content>
