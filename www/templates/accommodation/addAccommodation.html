@@ -3,7 +3,7 @@
         <ion-nav-back-button>
         </ion-nav-back-button>
     </ion-nav-bar>
-    <ion-content ng-class="{'has-footer': (show_save)}" overflow-scroll="false">
+    <ion-content class="has-footer" overflow-scroll="false">
         <div class="list">
             <ion-item class="item item-text-wrap">
                 <img class="accommodation_img" ng-show="data.ImageURI" ng-src="{{data.ImageURI}}" height="200"
@@ -68,7 +68,8 @@
             </label>
         </div>
     </ion-content>
-    <div class="bar bar-footer save-button" ng-if="show_save">
-        <button class="button button-full mark-cyan" ng-click="save()">{{'save' | translate}}</button>
+    <div class="bar bar-footer save-button">
+        <button class="button button-full mark-cyan" ng-if="show_save" ng-click="save()">{{'save' | translate}}</button>
+        <button class="button button-full grey"ng-if="!show_save" >{{'save' | translate}}</button>
     </div>
 </ion-view>

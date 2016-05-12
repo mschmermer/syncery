@@ -315,7 +315,7 @@
         }
 
         $scope.selectMonth = function (month) {
-            var moments = moment().locale(language);
+            var moments = moment().locale(UserSvc.getLanguage());
             month = month.split(" ");
             actual_month = parseInt(moments.month(month[0]).format('M'));
             actual_year = parseInt(month[1]);

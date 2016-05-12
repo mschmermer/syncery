@@ -11,7 +11,7 @@
                         methodToCall: '&method',
                         rangepicker: '='
                     },
-                    controller: function ($scope, $state, language, $ionicModal, $ionicScrollDelegate, $timeout, BookingSvc) {
+                    controller: function ($scope, $state, language, $ionicModal, $ionicScrollDelegate, $timeout, BookingSvc, UserSvc) {
 
                         $scope.show_date1 = '--/--/----';
                         $scope.show_date2 = '--/--/----';
@@ -67,13 +67,17 @@
                             $scope.$broadcast('scroll.infiniteScrollComplete');
                         };
 
-                        $scope.$on('$stateChangeSuccess', function () {
+                        /*$scope.$on('$stateChangeSuccess', function () {
                             $scope.loadMore();
-                        });
+                        });*/
 
                         $scope.clickCalendar = function (data) {
                             if($scope.rangepicker){
                                 selectRange(data);
+                            }else{
+                                $scope.date1 = moment(new Date(data.year, data.month - 1, data.day));
+                                $scope.show_date1 = $scope.date1.locale(UserSvc.getLanguage()).format('D. MMM YYYY');
+                                $scope.is_reserved = false;
                             }
                             $state.reload();
                         }
@@ -87,13 +91,13 @@
                                 if (diff <= 0) {
                                     BookingSvc.disselected();
                                     $scope.date1 = $scope.date2;
-                                    $scope.show_date1 = $scope.date1.locale("de").format('D. MMM YYYY');
+                                    $scope.show_date1 = $scope.date1.locale(UserSvc.getLanguage()).format('D. MMM YYYY');
                                     $scope.show_date2 = '--/--/----';
                                     $scope.date2 = false;
                                     $scope.is_reserved = true;
                                 } else {
-                                    $scope.show_date1 = $scope.date1.locale("de").format('D. MMM YYYY');
-                                    $scope.show_date2 = $scope.date2.locale("de").format('D. MMM YYYY');
+                                    $scope.show_date1 = $scope.date1.locale(UserSvc.getLanguage()).format('D. MMM YYYY');
+                                    $scope.show_date2 = $scope.date2.locale(UserSvc.getLanguage()).format('D. MMM YYYY');
                                     $scope.arrival = $scope.date1;
                                     $scope.departure = $scope.date2;
                                     $scope.is_reserved = BookingSvc.setRangepick($scope.date1, $scope.date2);
@@ -104,7 +108,7 @@
                                 BookingSvc.disselected();
                                 $scope.is_reserved = true;
                                 $scope.date1 = moment(new Date(data.year, data.month - 1, data.day));
-                                $scope.show_date1 = $scope.date1.locale("de").format('D. MMM YYYY');
+                                $scope.show_date1 = $scope.date1.locale(UserSvc.getLanguage()).format('D. MMM YYYY');
                                 $scope.show_date2 = '--/--/----';
                             }
 
@@ -129,13 +133,13 @@
                         }
 
                         $scope.save = function () {
-                            console.log($scope.is_reserved, $scope.show_date2);
-                            if (!$scope.is_reserved && $scope.show_date2 != '--/--/----') {
+                            /*console.log($scope.is_reserved, $scope.show_date2);
+                            if (!$scope.is_reserved && $scope.show_date2 != '--/--/----') {*/
                                 BookingSvc.disselected();
                                 $scope.modal.hide();
-                            } else {
+                            /*} else {
                                 alert('fehler');
-                            }
+                            }*/
 
                         }
 

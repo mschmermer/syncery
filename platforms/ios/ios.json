@@ -17,6 +17,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"ImagePicker\"><param name=\"ios-package\" value=\"SOSPicker\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -37,7 +41,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"ImagePicker\"><param name=\"ios-package\" value=\"SOSPicker\" /></feature>",
+                            "xml": "<feature name=\"UniversalAnalytics\"><param name=\"ios-package\" value=\"UniversalAnalyticsPlugin\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -52,6 +56,9 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.syncery501620"
         },
+        "cordova-plugin-image-picker": {
+            "PACKAGE_NAME": "com.ionicframework.syncery501620"
+        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.syncery501620"
         },
@@ -64,7 +71,7 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.syncery501620"
         },
-        "cordova-plugin-image-picker": {
+        "cordova-plugin-google-analytics": {
             "PACKAGE_NAME": "com.ionicframework.syncery501620"
         }
     },
@@ -95,6 +102,14 @@
             ]
         },
         {
+            "file": "plugins/cordova-plugin-image-picker/www/imagepicker.js",
+            "id": "cordova-plugin-image-picker.ImagePicker",
+            "pluginId": "cordova-plugin-image-picker",
+            "clobbers": [
+                "plugins.imagePicker"
+            ]
+        },
+        {
             "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
             "id": "cordova-plugin-splashscreen.SplashScreen",
             "pluginId": "cordova-plugin-splashscreen",
@@ -120,21 +135,22 @@
             "runs": true
         },
         {
-            "file": "plugins/cordova-plugin-image-picker/www/imagepicker.js",
-            "id": "cordova-plugin-image-picker.ImagePicker",
-            "pluginId": "cordova-plugin-image-picker",
+            "file": "plugins/cordova-plugin-google-analytics/www/analytics.js",
+            "id": "cordova-plugin-google-analytics.UniversalAnalytics",
+            "pluginId": "cordova-plugin-google-analytics",
             "clobbers": [
-                "plugins.imagePicker"
+                "analytics"
             ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-console": "1.0.2",
         "cordova-plugin-device": "1.1.1",
+        "cordova-plugin-image-picker": "1.0.8",
         "cordova-plugin-splashscreen": "3.2.0",
         "cordova-plugin-statusbar": "2.1.1",
         "cordova-plugin-whitelist": "1.2.1",
         "ionic-plugin-keyboard": "1.0.8",
-        "cordova-plugin-image-picker": "1.0.8"
+        "cordova-plugin-google-analytics": "0.8.1"
     }
 }

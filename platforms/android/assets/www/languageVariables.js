@@ -70,6 +70,7 @@ angular.module('syncery')
                 enter_accommodation_data: "Unterkunftsdaten eintragen",
                 add_picture: "Bild hinzufügen",
                 save_accommodation: "Unterkunft speichern",
+                set_image: "Hier klicken um ein Bild auszuwählen.",
                 // Einstellungen
                 settings: "Einstellungen",
                 general: "Allgemein",
@@ -223,6 +224,7 @@ angular.module('syncery')
                 enter_accommodation_data: "Enter accommodationdata",
                 add_picture: "Add Picture",
                 save_accommodation: "Save Accommodation",
+                set_image: "Click here to select a Picture.",
                 // Settings
                 settings: "Settings",
                 general: "General",

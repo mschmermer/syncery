@@ -4,7 +4,7 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-var app = angular.module('syncery', ['ionic',
+angular.module('syncery', ['ionic',
         'ionic.ion.headerShrink',
         'pascalprecht.translate',
         'chart.js',
@@ -13,10 +13,13 @@ var app = angular.module('syncery', ['ionic',
         'ionic.service.core',
         'ionic.service.analytics',
         'ion-alpha-scroll',
-        'ion-sticky'])
+        'ion-sticky',
+        'ngOpenFB'])
 
-    .run(function ($ionicPlatform, $ionicLoading, $rootScope) { //, $ionicAnalytics) {
+    .run(function ($ionicPlatform, $ionicLoading, $rootScope, ngFB) { //, $ionicAnalytics) {
         $ionicPlatform.ready(function () {
+
+
             //$ionicAnalytics.register();
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -32,6 +35,8 @@ var app = angular.module('syncery', ['ionic',
                 StatusBar.backgroundColorByHexString("#38445e");
                 StatusBar.styleBlackOpaque();
             }
+
+            ngFB.init({appId: '1024690994292025'});
 
             /*$rootScope.$on('$ionicView.beforeLeave', function(){
              $ionicLoading.show();

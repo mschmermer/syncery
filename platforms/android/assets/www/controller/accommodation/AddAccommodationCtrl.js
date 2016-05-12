@@ -10,13 +10,17 @@
             $state.go('app.accommodations');
         }
 
+        $scope.acc = {};
+
         $scope.id = $stateParams.id;
 
         $scope.accommodation = AccommodationSvc.getAccommodationById($scope.id);
 
-        console.log($scope.accommodation);
+        $scope.data.ImageURI = false;
 
-        $scope.upload = function() {
+        $scope.show_save = false;
+
+        /*$scope.upload = function() {
             var options = {
                 fileKey: "avatar",
                 fileName: "image.png",
@@ -38,23 +42,20 @@
 
             $scope.data.ImageURI =  imageURI;
             alert($scope.data.ImageURI );
-        }
+        }*/
 
 
         $scope.ShowPictures = function(){
             var options = {
-                maximumImagesCount: 10,
-                width: 800,
-                height: 800,
+                maximumImagesCount: 1,
+                width: 200,
+                height: 200,
                 quality: 80
             };
 
             $cordovaImagePicker.getPictures(options)
                 .then(function (results) {
-                    for (var i = 0; i < results.length; i++) {
-                        console.log('Image URI: ' + results[i]);
-                        alert('Image URI: ' + results[i]);
-                    }
+                    $scope.data.ImageURI = results[0];
                 }, function(error) {
                     // error getting photos
                 });
@@ -73,13 +74,19 @@
             scope: $scope,
             animation: 'fade-in'
         }).then(function(modal) {
-            $scope.modal = modal
+            $scope.modal_selector = modal
         })
+
+        $scope.$watch('acc', function (acc) {
+            if(Object.keys(acc).length == 11){
+                $scope.show_save = true;
+            }
+        }, true);
 
 
         $scope.select = function (name) {
             $scope.modal_data = $scope.selector[name];
-            $scope.modal.show();
+            $scope.modal_selector.show();
             //$state.go('app.selector', {'selector': $scope.selector['gender'], 'view': 'addCustomer'});
         }
 

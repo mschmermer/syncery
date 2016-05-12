@@ -31,7 +31,7 @@
 
                             if (!td.hasClass('other_month')) {
                                 td.append('<div class="selected"></div>');
-                                BookingSvc.selectReservation($scope.month, booking_id, position);
+                                BookingSvc.selectReservation($scope.year,$scope.month, booking_id, position);
                                 var func = $scope.methodToCall();
                                 func({booking_id: booking_id, day: selected_day, month: $scope.month, year: $scope.year});
                             }
@@ -88,7 +88,7 @@
 
                         calendarData.title = $scope.months[month]+' '+year;
 
-                        calendarData['values'] = BookingSvc.getReservationData(month);
+                        calendarData['values'] = BookingSvc.getReservationData(year, month);
 
                         calendarClass = {};
 

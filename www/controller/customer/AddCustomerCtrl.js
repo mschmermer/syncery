@@ -29,13 +29,13 @@
             scope: $scope,
             animation: 'fade-in'
         }).then(function(modal) {
-            $scope.modal = modal
+            $scope.modal_selector = modal
         })
 
 
         $scope.select = function (name) {
             $scope.modal_data = $scope.selector[name];
-            $scope.modal.show();
+            $scope.modal_selector.show();
             //$state.go('app.selector', {'selector': $scope.selector['gender'], 'view': 'addCustomer'});
         }
 

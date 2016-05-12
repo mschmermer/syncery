@@ -1,6 +1,7 @@
 {
   "name": "Syncery",
   "app_id": "795df598",
+  "defaultBrowser": "google chrome",
   "gulpStartupTasks": [
     "sass",
     "watch"

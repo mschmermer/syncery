@@ -1,7 +1,7 @@
 <ion-modal-view>
     <ion-header-bar class="bar syncery-header">
         <button class="button button-icon button-light" ng-click="modal_selector.hide()">
-            <i class="icon icon-large ion-ios-undo-outline">
+            <i class="icon icon-large ion-ios-arrow-back">
             </i>
         </button>
         <h1 class="title" style="color: white">{{modal_data.name | translate}}</h1>
@@ -9,7 +9,7 @@
     <ion-content>
         <ion-list>
             <ion-radio ng-model="modal_data.selected" ng-repeat="item in modal_data.items" ng-value="item"
-                       ng-click="modal.hide()">
+                       ng-click="modal_selector.hide()">
                 {{item | translate}}
             </ion-radio>
         </ion-list>

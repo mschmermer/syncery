@@ -24,7 +24,7 @@ angular.module('ion-sticky', ['ionic'])
                         left: 0,
                         right: 0
                     });
-                    $attr.ionStickyClass = ($attr.ionStickyClass) ? $attr.ionStickyClass : 'assertive';
+                    $attr.ionStickyClass = ($attr.ionStickyClass) ? $attr.ionStickyClass : '';
                     cloneVal($element[0], clone[0]);
                     clone[0].className += ' ' + $attr.ionStickyClass;
 

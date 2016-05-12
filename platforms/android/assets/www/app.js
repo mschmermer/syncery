@@ -4,7 +4,7 @@
 // 'syncery' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'syncery.controllers' is found in controllers.js
-var app = angular.module('syncery', ['ionic',
+angular.module('syncery', ['ionic',
         'ionic.ion.headerShrink',
         'pascalprecht.translate',
         'chart.js',
@@ -17,6 +17,8 @@ var app = angular.module('syncery', ['ionic',
 
     .run(function ($ionicPlatform, $ionicLoading, $rootScope) { //, $ionicAnalytics) {
         $ionicPlatform.ready(function () {
+
+
             //$ionicAnalytics.register();
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -61,7 +63,7 @@ var app = angular.module('syncery', ['ionic',
         $ionicFilterBarConfigProvider.theme('royal');
         $ionicFilterBarConfigProvider.placeholder(languageVariables['de']['search']);
 
-        $ionicConfigProvider.backButton.text(' ').previousTitleText('').icon('ion-ios-undo-outline');
+        $ionicConfigProvider.backButton.text(' ').previousTitleText('').icon('ion-ios-arrow-back');
 
         $stateProvider
 

@@ -1,82 +1,29 @@
 <ion-view view-title="{{'create_account' | translate}}" can-swipe-back="false" drag-content="false" hide-nav-bar="true">
+    <ion-content class="has-tabs">
     <ion-slide-box class="login" style="height: 100%" on-slide-changed="slideHasChanged($index)">
-        <ion-slide>
-            <div class="header" > <img src="img/syncery-logo-white.png" class="logo"> </div>
-            <div class="content"></div>
-            <div class="footer"></div>
+        <ion-slide id="homecontent">
+            <img src="img/syncery-logo-white.png" class="logo">
+
+            <div class="welcome-context">  Buchungen<br> zentral verwalten<br> und Zeit sparen. </div>
+
         </ion-slide>
-        <ion-slide>
-            <div class="header" > <img src="img/syncery-logo-white.png" class="logo"> </div>
-            <div class="content"></div>
-            <div class="footer"></div>
+        <ion-slide id="homecontent">
+            <img src="img/syncery-logo-white.png" class="logo">
+
+            <div class="welcome-context">f wehfugwehjfb ehjwbf sdbf sdfsd  fwefwehf wef</div>
+
         </ion-slide>
-        <ion-slide>
-            <div class="header" > <img src="img/syncery-logo-white.png" class="logo"> </div>
-            <div class="content"></div>
-            <div class="footer"></div>
+        <ion-slide id="homecontent">
+            <img src="img/syncery-logo-white.png" class="logo">
+
+            <div class="welcome-context"> fwehjf ewbhcbwehj fsdfb sdjkfsdfssc webc wehj ew</div>
+
         </ion-slide>
     </ion-slide-box>
-    <!--<ion-nav-bar class="bar syncery-header">
-        <ion-nav-back-button class="button-clear">
-            <i class="ion-chevron-left"></i> {{"back" | translate }}
-        </ion-nav-back-button>
-        <ion-nav-buttons side="right">
-            <button ng-click="create()"
-                    class="button button-icon icon ion-ios-compose-outline">
-            </button>
-        </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-content>
-        <div class="list">
-            <div class="item item-divider divider-input"></div>
-            <label class="item item-input">
-                <span class="input-label">{{'first_name' | translate}}</span>
-                <input type="text">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'name' | translate}}</span>
-                <input type="text">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">E-Mail</span>
-                <input type="text">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'repeat_mail' | translate}}</span>
-                <input type="text">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'password' | translate}}</span>
-                <input type="password">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{'repeat_password' | translate}}</span>
-                <input type="password">
-            </label>
-            <!--<label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{"first_name" | translate}}</b></span>
-                <input type="email" placeholder="{{'first_name' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{"name" | translate}}</b></span>
-                <input type="email" placeholder="{{'name' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>E-Mail</b></span>
-                <input type="email" placeholder="E-Mail">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'repeat_mail' | translate}}</b></span>
-                <input type="password" placeholder="{{'repeat_mail' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'password' | translate}}</b></span>
-                <input type="password" placeholder="{{'password' | translate}}">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>{{'repeat_password' | translate}}</b></span>
-                <input type="password" placeholder="{{'repeat_password' | translate}}">
-            </label>-->
         </div>
     </ion-content>
+    <div class="bar bar-footer">
+        <button class="button login mark-cyan" ng-click="login()">{{'LOGIN' | translate}}</button>
+        <button class="button signup mark-cyan" ng-click="singup()">{{'SIGN UP' | translate}}</button>
+    </div>
 </ion-view>

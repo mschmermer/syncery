@@ -9721,6 +9721,13 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+#homecontent {
+  background: url("../img/house3-large.jpg");
+  background-size: auto 100% !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
 div.title.title-center.header-item {
   text-transform: uppercase;
   font-size: 14px;
@@ -9777,6 +9784,14 @@ button.button.mark-red {
   text-transform: uppercase;
   font-weight: bold;
   background-color: #FF6764; }
+
+button.button.grey {
+  margin: 0;
+  color: white;
+  font-size: 10pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: grey; }
 
 i.radio-icon.disable-pointer-events.icon.ion-checkmark {
   font-size: 20px; }
@@ -9853,12 +9868,15 @@ ion-item.item.side-menu {
   ion-item.item.side-menu a {
     background-color: #38445E;
     color: #9BA1AE; }
+  ion-item.item.side-menu i {
+    color: white; }
 
 ion-item.item.side-menu.item-avatar a {
   background-color: #1A2540;
-  color: white; }
+  color: white;
+  border-bottom: 4px solid #38445E; }
   ion-item.item.side-menu.item-avatar a i {
-    background-color: #C3C6CE;
+    background-color: #878E9E;
     top: 0;
     right: 0px;
     width: 20%; }
@@ -9874,10 +9892,24 @@ img.logo-menu {
   height: 85%;
   margin-top: 2%; }
 
+div.welcome-context {
+  position: absolute;
+  bottom: 8%;
+  background-color: #FF6764;
+  border-bottom-right-radius: 80px;
+  color: white;
+  width: 80%;
+  padding: 4%;
+  font-size: large;
+  line-height: 130%;
+  text-transform: uppercase;
+  font-weight: bold; }
+
 ion-header-bar.bar.side-menu {
   background-color: #38445E;
   color: white;
-  border-bottom: 0; }
+  border-bottom: 0;
+  background-size: 100% 0; }
 
 ion-header-bar.bar.syncery-header {
   background-color: #38445E;
@@ -10115,10 +10147,10 @@ div.syncery-datepicker {
 ion-content.login {
   background-color: #38445E; }
 
-ion-content.login img.logo {
-  width: 70%;
-  margin-left: 15%;
-  margin-top: 20%;
+img.logo {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 10%;
   margin-bottom: 10%; }
 
 ion-content.login label {
@@ -10126,7 +10158,8 @@ ion-content.login label {
   margin-left: auto;
   width: 85%;
   height: 50px;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
+  margin-top: 5%;
   padding: 0%;
   font-size: 14px;
   letter-spacing: 1px;
@@ -10140,7 +10173,7 @@ ion-content.login button.button-login {
   margin-left: auto;
   width: 85%;
   height: 50px;
-  margin-bottom: 2%; }
+  margin-bottom: 5%; }
 
 ion-content.login a {
   margin-top: 30px;
@@ -10155,13 +10188,19 @@ ion-content.login a {
 
 ion-content.login button.button.button-outline.button-assertive.icon-left.ion-social-google {
   border-radius: 0;
-  width: 44%;
-  margin-left: 5%; }
+  width: 41%;
+  left: 7.5%;
+  display: block;
+  position: absolute;
+  bottom: 60px; }
 
 ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook {
   border-radius: 0;
-  width: 44%;
-  margin-right: 5%; }
+  width: 41%;
+  right: 7.5%;
+  display: block;
+  position: absolute;
+  bottom: 60px; }
 
 h2.login.h1 {
   text-align: center;
@@ -10171,9 +10210,12 @@ h2.login.h1 {
   font-size: x-large; }
 
 h2.login.h2 {
-  text-align: center;
+  left: 40%;
   color: white;
-  font-size: large; }
+  font-size: large;
+  display: block;
+  position: absolute;
+  bottom: 110px; }
 
 ion-slide-box.login {
   height: 100%; }

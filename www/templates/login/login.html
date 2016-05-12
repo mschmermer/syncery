@@ -1,10 +1,9 @@
-<ion-view view-title="Login" can-swipe-back="false" drag-content="false" hide-nav-bar="true">
+<ion-view view-title="Login" can-swipe-back="false" drag-content="false" >
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content class="login">
-
-
-    <!--<img src="img/syncery-logo-white.png" class="logo">-->
-
-        <h2 class="login h1">LOGIN</h2>
 
         <label class="item item-input">
             <input type="email" placeholder="Email">
@@ -20,12 +19,14 @@
 
         <a href="#/app/login/forgot">{{"forgot_password" | translate}}</a>
 
+
+
         <h2 class="login h2">Login mit:</h2>
 
         <button class="button button-outline button-assertive icon-left ion-social-google">
             Google+
         </button>
-        <button class="button button-outline button-positive icon-left ion-social-facebook">
+        <button class="button button-outline button-positive icon-left ion-social-facebook" ng-click="facebookLogin()">
             Facebook
         </button>
     </ion-content>
