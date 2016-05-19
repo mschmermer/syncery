@@ -260,13 +260,13 @@
             scope: $scope,
             animation: 'fade-in'
         }).then(function(modal) {
-            $scope.modal = modal
+            $scope.modal_selector = modal
         })
 
 
         $scope.select = function (name) {
             $scope.modal_data = $scope.selector[name];
-            $scope.modal.show();
+            $scope.modal_selector.show();
         }
 
         $scope.slideHasChanged = function (index) {

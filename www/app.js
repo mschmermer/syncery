@@ -14,7 +14,8 @@ angular.module('syncery', ['ionic',
         'ionic.service.analytics',
         'ion-alpha-scroll',
         'ion-sticky',
-        'ngOpenFB'])
+        'ngOpenFB',
+        'googleplus'])
 
     .run(function ($ionicPlatform, $ionicLoading, $rootScope, ngFB) { //, $ionicAnalytics) {
         $ionicPlatform.ready(function () {
@@ -57,7 +58,7 @@ angular.module('syncery', ['ionic',
 
 
     .config(function ($stateProvider, $urlRouterProvider, $translateProvider, language,
-                      languageVariables, $ionicFilterBarConfigProvider, $ionicConfigProvider) {
+                      languageVariables, $ionicFilterBarConfigProvider, $ionicConfigProvider, GooglePlusProvider) {
 
         $translateProvider.translations('en', languageVariables['en']);
         $translateProvider.translations('de', languageVariables['de']);
@@ -67,6 +68,11 @@ angular.module('syncery', ['ionic',
         $ionicFilterBarConfigProvider.placeholder(languageVariables['de']['search']);
 
         $ionicConfigProvider.backButton.text(' ').previousTitleText('').icon('ion-ios-arrow-back');
+
+        GooglePlusProvider.init({
+            clientId: '715824371232-7lrmcrivtd1nsi41glkeuash22d1d99k.apps.googleusercontent.com',
+            apiKey: '715824371232-7lrmcrivtd1nsi41glkeuash22d1d99k.apps.googleusercontent.com'
+        });
 
         $stateProvider
 
@@ -105,6 +111,17 @@ angular.module('syncery', ['ionic',
                     'menuContent': {
                         templateUrl: 'templates/login/forgot.html',
                         controller: 'ForgotCtrl'
+                    }
+                }
+
+            })
+
+            .state('app.signup', {
+                url: '/login/signup',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/login/signup.html',
+                        controller: 'SignUpCtrl'
                     }
                 }
 

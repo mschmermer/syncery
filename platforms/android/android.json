@@ -35,6 +35,10 @@
                         {
                             "xml": "<feature name=\"UniversalAnalytics\"><param name=\"android-package\" value=\"com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -78,7 +82,13 @@
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "application": []
+                }
+            },
+            "res/values/facebookconnect.xml": {
+                "parents": {
+                    "/*": []
                 }
             }
         }
@@ -107,6 +117,9 @@
         },
         "cordova-plugin-google-analytics": {
             "PACKAGE_NAME": "com.ionicframework.syncery501620"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.syncery.app"
         }
     },
     "dependent_plugins": {},
@@ -165,6 +178,15 @@
             "clobbers": [
                 "analytics"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+            "id": "cordova-plugin-inappbrowser.inappbrowser",
+            "pluginId": "cordova-plugin-inappbrowser",
+            "clobbers": [
+                "cordova.InAppBrowser.open",
+                "window.open"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -175,6 +197,7 @@
         "cordova-plugin-whitelist": "1.2.1",
         "ionic-plugin-keyboard": "1.0.8",
         "cordova-plugin-image-picker": "1.0.8",
-        "cordova-plugin-google-analytics": "0.8.1"
+        "cordova-plugin-google-analytics": "0.8.1",
+        "cordova-plugin-inappbrowser": "1.4.0"
     }
 }

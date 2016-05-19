@@ -13,9 +13,10 @@ angular.module('syncery', ['ionic',
         'ionic.service.core',
         'ionic.service.analytics',
         'ion-alpha-scroll',
-        'ion-sticky'])
+        'ion-sticky',
+        'ngOpenFB'])
 
-    .run(function ($ionicPlatform, $ionicLoading, $rootScope) { //, $ionicAnalytics) {
+    .run(function ($ionicPlatform, $ionicLoading, $rootScope, ngFB) { //, $ionicAnalytics) {
         $ionicPlatform.ready(function () {
 
 
@@ -34,6 +35,8 @@ angular.module('syncery', ['ionic',
                 StatusBar.backgroundColorByHexString("#38445e");
                 StatusBar.styleBlackOpaque();
             }
+
+            ngFB.init({appId: '1024690994292025'});
 
             /*$rootScope.$on('$ionicView.beforeLeave', function(){
              $ionicLoading.show();

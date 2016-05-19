@@ -9892,23 +9892,52 @@ img.logo-menu {
   height: 85%;
   margin-top: 2%; }
 
-div.welcome-context {
+/*.trapezoid {
   position: absolute;
   bottom: 8%;
-  background-color: #FF6764;
-  border-bottom-right-radius: 80px;
-  color: white;
-  width: 80%;
-  padding: 4%;
-  font-size: large;
+  height: 15%;
+  overflow: hidden;
+  width: 70%;
+  overflow: hidden;
+  transform: rotate(180deg);
+}*/
+/*div.trapeztext{
   line-height: 130%;
   text-transform: uppercase;
-  font-weight: bold; }
+  font-weight: bold;
+  padding: 4%;
+  font-size: large;
+  position: absolute;
+  bottom: 8%;
+  color: white;
+  width: 70%;
+}
 
+.trapezoid:after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 110%;
+  height: 170%;
+  background: $mark-red;
+  border-radius: 20px 0 0 0;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  -webkit-transform: perspective(500px) rotateX(45deg);
+  -moz-transform:  perspective(500px) rotateX(45deg);
+  -ms-transform: perspective(500px) rotateX(45deg);
+  -o-transform: perspective(500px) rotateX(45deg);
+  transform: perspective(500px) rotateX(45deg);
+}*/
 ion-header-bar.bar.side-menu {
   background-color: #38445E;
   color: white;
-  border-bottom: 0; }
+  border-bottom: 0;
+  background-size: 100% 0; }
 
 ion-header-bar.bar.syncery-header {
   background-color: #38445E;
@@ -9919,7 +9948,8 @@ ion-header-bar.bar.syncery-header {
 div.syncery-calendar-card {
   width: 292px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  padding-bottom: 0; }
   div.syncery-calendar-card table.syncery-calendar {
     text-align: center;
     border-spacing: 0px;

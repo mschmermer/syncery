@@ -5,7 +5,7 @@
         .controller('LoginCtrl', LoginCtrl);
 
 
-    function LoginCtrl($scope, UserSvc, LoginFactory, $state, $ionicSideMenuDelegate, $ionicHistory, $ionicNavBarDelegate) {
+    function LoginCtrl($scope, UserSvc, LoginFactory, $state, $ionicSideMenuDelegate, $ionicHistory, ngFB) {
 
         $scope.$on('$ionicView.enter', function () {
             $ionicSideMenuDelegate.canDragContent(false);
@@ -27,6 +27,18 @@
                 disableBack: true
             });
             $state.go('app.home');
+        }
+
+        $scope.facebookLogin = function(){
+            ngFB.login({scope: 'email'}).then(
+                function (response) {
+                    if (response.status === 'connected') {
+                        console.log('Facebook login succeeded');
+                        $scope.closeLogin();
+                    } else {
+                        alert('Facebook login failed');
+                    }
+                });
         }
     }
 })();

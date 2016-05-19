@@ -39,6 +39,10 @@
 		BCF86E68C63D4F388EF7BD5D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68E81F2454245C09FF7723A /* CoreData.framework */; };
 		F7292CB5FDB44539A455AF6B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B59146548A584733AB596750 /* libz.dylib */; };
 		005D75C6E2594657BFC6E2C4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 679AF36A71F14F009A0D2E33 /* libsqlite3.dylib */; };
+		78075E93E46B4783820C22F3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566184ADD3B4C8D9B90B296 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FA43911E9CDB4D1D8B16F3BC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6758CEA60774AA9B9F6FA1F /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		97ED3BD4BA7D41F0B85D799F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED1E8223365423CAEC8FB8D /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AD420091EE2A42CD9DBDDB7E /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2642331F56EA4E5A9D290B10 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +132,11 @@
 		F68E81F2454245C09FF7723A /* CoreData.framework */ = {isa = PBXFileReference; name = "CoreData.framework"; path = "System/Library/Frameworks/CoreData.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		B59146548A584733AB596750 /* libz.dylib */ = {isa = PBXFileReference; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
 		679AF36A71F14F009A0D2E33 /* libsqlite3.dylib */ = {isa = PBXFileReference; name = "libsqlite3.dylib"; path = "usr/lib/libsqlite3.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		A566184ADD3B4C8D9B90B296 /* Social.framework */ = {isa = PBXFileReference; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		C6758CEA60774AA9B9F6FA1F /* Accounts.framework */ = {isa = PBXFileReference; name = "Accounts.framework"; path = "System/Library/Frameworks/Accounts.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		BED1E8223365423CAEC8FB8D /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		2642331F56EA4E5A9D290B10 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8C9D8FC2C2E04736B30FB775 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +150,9 @@
 				BCF86E68C63D4F388EF7BD5D /* CoreData.framework in Frameworks */,
 				F7292CB5FDB44539A455AF6B /* libz.dylib in Frameworks */,
 				005D75C6E2594657BFC6E2C4 /* libsqlite3.dylib in Frameworks */,
+				78075E93E46B4783820C22F3 /* Social.framework in Frameworks */,
+				FA43911E9CDB4D1D8B16F3BC /* Accounts.framework in Frameworks */,
+				97ED3BD4BA7D41F0B85D799F /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +232,9 @@
 				F68E81F2454245C09FF7723A /* CoreData.framework */,
 				B59146548A584733AB596750 /* libz.dylib */,
 				679AF36A71F14F009A0D2E33 /* libsqlite3.dylib */,
+				A566184ADD3B4C8D9B90B296 /* Social.framework */,
+				C6758CEA60774AA9B9F6FA1F /* Accounts.framework */,
+				BED1E8223365423CAEC8FB8D /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -285,6 +300,8 @@
 				6FD9CBA5DA024A74B3D0DFB9 /* GAIEcommerceProduct.h */,
 				238B08EC3ECE4405BAC5224F /* GAIEcommerceProductAction.h */,
 				6F84E6BC346247A49931B554 /* GAIEcommercePromotion.h */,
+				2642331F56EA4E5A9D290B10 /* CDVInAppBrowser.m */,
+				8C9D8FC2C2E04736B30FB775 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "Syncery/Plugins";
@@ -418,6 +435,7 @@
 				BFB306E3B08A4BF2B71F704E /* IonicKeyboard.m in Sources */,
 				1E75B81D0C6A42F99B72B48E /* UIWebViewExtension.m in Sources */,
 				42692F3A57D84BD7B270BAFE /* UniversalAnalyticsPlugin.m in Sources */,
+				AD420091EE2A42CD9DBDDB7E /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +473,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Syncery/Plugins/cordova-plugin-google-analytics\"",
 				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Syncery/Plugins/phonegap-facebook-plugin\"",
+				);
 			};
 			name = Debug;
 		};
@@ -477,6 +499,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Syncery/Plugins/cordova-plugin-google-analytics\"",
+				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Syncery/Plugins/phonegap-facebook-plugin\"",
 				);
 			};
 			name = Release;

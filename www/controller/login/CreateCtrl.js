@@ -6,11 +6,23 @@
 
 
     function CreateCtrl($scope, UserSvc, LoginFactory, $state, $ionicSideMenuDelegate, $ionicHistory) {
-        $scope.signup = function(){
 
+        $scope.signup = function(){
+            alert('dsf');
+            $state.go('app.signup');
         }
         $scope.login = function(){
             $state.go('app.login');
+        }
+
+        if (window.StatusBar) {
+            $scope.$on('$ionicView.beforeEnter', function(){
+                StatusBar.hide();
+            });
+
+            $scope.$on('$ionicView.beforeLeave', function(){
+                StatusBar.show();
+            });
         }
     }
 })();

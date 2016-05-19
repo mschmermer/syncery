@@ -1,0 +1,31 @@
+<ion-view view-title="SIGN UP" can-swipe-back="false" drag-content="false" >
+    <ion-nav-bar class="bar syncery-header">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content class="login">
+
+        <label class="item item-input">
+            <input type="password" placeholder="{{'first_name' | translate}}">
+        </label>
+
+        <label class="item item-input">
+            <input type="password" placeholder="{{'name' | translate}}">
+        </label>
+
+        <label class="item item-input">
+            <input type="email" placeholder="Email">
+        </label>
+
+        <div class="checkbox-signup" ng-click="agb()">
+            <div class="checkbox" ><i class="icon ion-checkmark" ng-hide="agb_check"></i></div>
+            <div class="checkbox-text">Ich akzeptiere die AGB und Datenschutzbestimmungen</div>
+        </div>
+
+        <button ng-click="signup()"
+                class="button button-login mark-cyan button-icon-right">SIGN UP
+            <i class="icon ion-ios-arrow-right"></i>
+        </button>
+
+    </ion-content>
+</ion-view>
