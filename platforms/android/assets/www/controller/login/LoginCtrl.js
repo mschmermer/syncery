@@ -5,7 +5,7 @@
         .controller('LoginCtrl', LoginCtrl);
 
 
-    function LoginCtrl($scope, UserSvc, LoginFactory, $state, $ionicSideMenuDelegate, $ionicHistory, ngFB) {
+    function LoginCtrl($scope, UserSvc, $state, $ionicSideMenuDelegate, $ionicHistory, ngFB, GooglePlus) {
 
         $scope.$on('$ionicView.enter', function () {
             $ionicSideMenuDelegate.canDragContent(false);
@@ -33,12 +33,35 @@
             ngFB.login({scope: 'email'}).then(
                 function (response) {
                     if (response.status === 'connected') {
-                        console.log('Facebook login succeeded');
-                        $scope.closeLogin();
+                        ngFB.api({
+                            path: '/me',
+                            params: {fields: 'id,name'}
+                        }).then(
+                            function (user) {
+                                $scope.user = user;
+                                $state.go('app.home');
+                            },
+                            function (error) {
+                                alert('Facebook error: ' + error.error_description);
+                            });
+
                     } else {
                         alert('Facebook login failed');
                     }
-                });
+                }
+            );
         }
+
+        $scope.googleLogin = function () {
+            GooglePlus.login().then(function (authResult) {
+                console.log(authResult);
+
+                GooglePlus.getUser().then(function (user) {
+                    console.log(user);
+                });
+            }, function (err) {
+                console.log(err);
+            });
+        };
     }
 })();

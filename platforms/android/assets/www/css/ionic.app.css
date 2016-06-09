@@ -9854,6 +9854,12 @@ ion-item.item.side-menu a {
     margin-bottom: auto;
     padding-top: 8%; }
 
+ion-item.item.side-menu a:hover {
+  background-color: #1A2540;
+  color: white; }
+  ion-item.item.side-menu a:hover i {
+    color: #FF6764; }
+
 ion-item.item.side-menu.selected a {
   background-color: #1A2540;
   color: white; }
@@ -10182,17 +10188,54 @@ img.logo {
   margin-top: 10%;
   margin-bottom: 10%; }
 
+.trapezid {
+  position: absolute;
+  bottom: 10%;
+  background-color: #FF6764;
+  height: 100px;
+  width: 280px;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: larger;
+  line-height: 150%;
+  border-bottom-right-radius: 50px;
+  box-shadow: 5px 5px 15px black; }
+
+.trapezid:after {
+  content: '';
+  position: absolute;
+  right: -7%;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 72px solid #FF6764;
+  border-right: 25px solid transparent; }
+
+.trapezid:before {
+  content: '';
+  position: absolute;
+  right: -9%;
+  top: 2%;
+  width: 0;
+  height: 0;
+  border-top: 72px solid rgba(0, 0, 0, 0.2);
+  border-right: 25px solid transparent; }
+
 ion-content.login label {
   margin-right: auto;
   margin-left: auto;
   width: 85%;
   height: 50px;
-  margin-bottom: 5%;
-  margin-top: 5%;
+  margin-bottom: 1%;
+  margin-top: 1%;
   padding: 0%;
   font-size: 14px;
   letter-spacing: 1px;
   font-weight: 500; }
+
+ion-content.login label:first-child {
+  margin-top: 10%; }
 
 ion-content.login button.button-login {
   display: block;
@@ -10200,9 +10243,11 @@ ion-content.login button.button-login {
   border-radius: 0;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 5%;
   width: 85%;
   height: 50px;
-  margin-bottom: 5%; }
+  margin-bottom: 5%;
+  text-align: left; }
 
 ion-content.login a {
   margin-top: 30px;
@@ -10225,11 +10270,17 @@ ion-content.login button.button.button-outline.button-assertive.icon-left.ion-so
 
 ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook {
   border-radius: 0;
+  color: #4267b2;
+  border-color: #4267b2;
   width: 41%;
   right: 7.5%;
   display: block;
   position: absolute;
   bottom: 60px; }
+
+ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook:hover {
+  background-color: #4267b2;
+  color: white; }
 
 h2.login.h1 {
   text-align: center;
@@ -10248,6 +10299,30 @@ h2.login.h2 {
 
 ion-slide-box.login {
   height: 100%; }
+
+.checkbox-signup {
+  height: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 85%;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+  .checkbox-signup .checkbox {
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    float: left; }
+    .checkbox-signup .checkbox i {
+      font-size: 30px;
+      position: absolute;
+      top: calc(50% - 15px);
+      left: calc(50% - 12px); }
+  .checkbox-signup div.checkbox-text {
+    position: relative;
+    top: 0;
+    right: 0;
+    color: white;
+    text-align: right; }
 
 ion-slide div.header {
   height: 15%;

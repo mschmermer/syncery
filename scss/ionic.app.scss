@@ -36,6 +36,8 @@ $energized: $mark-cyan !default;
 
 $bar-subheader-height: 111px;
 
+$base-color: $font-color1;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
@@ -63,14 +65,31 @@ div.title.title-center.header-item {
 
 }
 
+.input-label, .item p, label.item.item-input input{
+  color: $font-color1;
+}
+
+.icon.faq-plus.ion-plus{
+  font-size: 22px;
+}
+
 .item.item-divider {
   background-color: $background3;
   color: white;
-  height: 40px;
-  line-height: 22px;
-  padding-left: 20px;
+  height: 50px;
+  line-height: 20px;
+  padding: 15px 49px 15px 15px;
   font-size: 10pt;
   text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before, .bar button.button-clear .icon:before, .bar button.button-clear.icon:before, .bar button.button-clear.icon-left:before, .bar button.button-clear.icon-right:before{
+  font-size: 25px;
+}
+
+ .icon, .item-icon-right .icon{
+  font-size: 22px;
 }
 
 ion-item.item.item-avatar.customer-list {
@@ -135,6 +154,16 @@ button.button.grey {
   background-color: grey;
 }
 
+// button bar
+
+.bar .button.button-clear, .bar button.button-clear{
+  padding-left: 7px;
+}
+.card{
+  border-right: 1px solid #C3C6CE;
+  border-left: 1px solid #C3C6CE;
+  box-shadow: none;
+}
 // inputs
 
 i.radio-icon.disable-pointer-events.icon.ion-checkmark {
@@ -196,10 +225,13 @@ ion-item.item.side-menu a {
   background-color: $background1;
   color: $font-color2;
   font-size: 14px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   font-weight: 500;
+
   div.badge-syncery {
     width: 20%;
+    font-size: 15px;
+    font-weight: 700;
     height: 100%;
     position: absolute;
     right: 0;
@@ -214,7 +246,23 @@ ion-item.item.side-menu a {
   }
 }
 
-ion-item.item.side-menu.selected a {
+ion-item.item.side-menu a:active {
+  background-color: $background2;
+  color: white;
+  i {
+    color: $mark-red;
+  }
+}
+
+ion-item.item.side-menu a:hover {
+  background-color: $background2;
+  color: white;
+  i {
+    color: white;
+  }
+}
+
+.item.active.item-complex > .item-content, .item.activated.item-complex > .item-content, .item-complex.active .item-content.item-complex > .item-content, .item-complex.activated .item-content.item-complex > .item-content, .item .item-content.active.item-complex > .item-content, .item .item-content.activated.item-complex > .item-content {
   background-color: $background2;
   color: white;
   i {
@@ -226,7 +274,7 @@ ion-item.item.side-menu {
   background-color: $background3;
   color: white;
   border: 0px;
-  font-weight: bold;
+  font-weight: normal;
   a {
     background-color: $background1;
     color: $font-color2;
@@ -240,6 +288,12 @@ ion-item.item.side-menu.item-avatar a {
   background-color: $background2;
   color: white;
   border-bottom: 4px solid $background1;
+  img{
+    max-height: 50px;
+    max-width: 50px;
+    top: 10px;
+    left: 10px;
+  }
   i {
     background-color: $background3;
     top: 0;
@@ -492,6 +546,7 @@ div.syncery-calendar-card {
 
       td.picked {
         background-color: $mark-green;
+        color: white;
       }
 
       td.occupied {
@@ -574,9 +629,9 @@ ion-item.syncery-bar.item {
   background-color: white;
   button {
     width: 32%;
-    text-transform: uppercase;
     border-radius: 0;
-    background-color: $background5;
+    color: white;
+    background-color: #878E9E;
   }
   button.selected {
     background-color: $mark-cyan;
@@ -637,6 +692,44 @@ img.logo {
   margin-bottom: 10%;
 }
 
+.trapezid{
+  position: absolute;
+  bottom: 10%;
+  background-color: $mark-red;
+  height: 100px;
+  width: 280px;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: larger;
+  line-height: 150%;
+  border-bottom-right-radius: 50px;
+  box-shadow: 5px 5px 15px black;
+
+}
+
+.trapezid:after{
+  content: '';
+  position: absolute;
+  right: -7%;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 72px solid #FF6764;
+  border-right: 25px solid transparent;
+}
+
+.trapezid:before{
+  content: '';
+  position: absolute;
+  right: -9%;
+  top: 2%;
+  width: 0;
+  height: 0;
+  border-top: 72px solid rgba(0, 0, 0, .2);
+  border-right: 25px solid transparent;
+}
+
 ion-content.login label {
   margin-right: auto;
   margin-left: auto;
@@ -649,6 +742,7 @@ ion-content.login label {
   letter-spacing: 1px;
   font-weight: 500;
 }
+
 ion-content.login label:first-child {
   margin-top: 10%;
 }
@@ -659,6 +753,7 @@ ion-content.login button.button-login {
   border-radius: 0;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 5%;
   width: 85%;
   height: 50px;
   margin-bottom: 5%;
@@ -688,13 +783,19 @@ ion-content.login button.button.button-outline.button-assertive.icon-left.ion-so
 
 ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook {
   border-radius: 0;
-
-
+  color: #4267b2;
+  border-color: #4267b2;
   width: 41%;
   right: 7.5%;
   display: block;
   position: absolute;
   bottom: 60px;
+}
+
+ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook:hover {
+  background-color: #4267b2;
+  color: white;
+
 }
 
 h2.login.h1 {
@@ -708,7 +809,7 @@ h2.login.h1 {
 h2.login.h2 {
   left: 40%;
   color: white;
-  font-size: large;
+  font-size: 16px;
   display: block;
   position: absolute;
   bottom: 110px;
@@ -728,13 +829,15 @@ ion-slide-box.login {
   margin-top: 5%;
   margin-bottom: 5%;
   .checkbox{
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     background-color: white;
     float: left;
     i{
       font-size: 30px;
-      margin: 6px;
+      position: absolute;
+      top: calc(50% - 15px);
+      left: calc(50% - 12px);
      }
   }
   div.checkbox-text{

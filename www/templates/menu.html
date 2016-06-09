@@ -22,14 +22,13 @@
                     <img ng-src="img/avatar.jpg">
                     {{data.user.first_name}}<br>
                     {{data.user.name}}
-                    <i class="icon ion-ios-gear-outline" ng-click="settings()"></i>
                 </ion-item>
                 <ion-item class="item item-icon-right side-menu" menu-close ng-class="menu_class.search"
                           ng-click=changeView('search') >
                     <i class="icon ion-ios-search"></i>{{'search_menu' | translate}}
                 </ion-item>
                 <ion-item class="item item-icon-left side-menu" href="#"></ion-item>
-                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.dashboard"
+                <ion-item class="item item-icon-left side-menu activated" menu-close ng-class="menu_class.dashboard"
                           ng-click=changeView('dashboard') href="#/app/home">
                     <i class="icon ion-ios-speedometer-outline"></i>DASHBOARD
                 </ion-item>
@@ -49,6 +48,10 @@
                 <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.portals"
                           ng-click=changeView('portals') href="#/app/portals">
                     <i class="icon ion-android-sync"></i>{{"portals_menu" | translate}}
+                </ion-item>
+                <ion-item class="item item-icon-left side-menu" menu-close ng-class="menu_class.settings"
+                          ng-click=changeView('settings') href="#/app/settings">
+                    <i class="icon ion-ios-gear-outline"></i>{{"settings_menu" | translate}}
                 </ion-item>
             </ion-list>
         </ion-content>

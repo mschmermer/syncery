@@ -28,6 +28,11 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
+    <feature name="GooglePlus">
+        <param name="android-package" value="nl.xservices.plugins.GooglePlus" />
+        <param name="onload" value="true" />
+    </feature>
+    <access origin="https://accounts.google.com/*" />
     <name>Syncery</name>
     <description>
         An Ionic Framework and Cordova project.
@@ -36,6 +41,7 @@
       Ionic Framework Team
     </author>
     <content src="index.html" />
+    <allow-navigation href="*" />
     <access origin="*" />
     <access launch-external="yes" origin="tel:*" />
     <access launch-external="yes" origin="mailto:*" />

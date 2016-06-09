@@ -53,7 +53,7 @@
         }
 
         $scope.googleLogin = function () {
-            GooglePlus.login().then(function (authResult) {
+            /*GooglePlus.login().then(function (authResult) {
                 console.log(authResult);
 
                 GooglePlus.getUser().then(function (user) {
@@ -61,7 +61,27 @@
                 });
             }, function (err) {
                 console.log(err);
-            });
+            });*/
+            window.plugins.googleplus.login(
+                {},
+                function (user_data) {
+                    // For the purpose of this example I will store user data on local storage
+                    UserService.setUser({
+                        userID: user_data.userId,
+                        name: user_data.displayName,
+                        email: user_data.email,
+                        picture: user_data.imageUrl,
+                        accessToken: user_data.accessToken,
+                        idToken: user_data.idToken
+                    });
+
+                    $ionicLoading.hide();
+                    $state.go('app.home');
+                },
+                function (msg) {
+
+                }
+            );
         };
     }
 })();

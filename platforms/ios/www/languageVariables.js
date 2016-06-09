@@ -53,7 +53,7 @@ angular.module('syncery')
                 telephone: "Telefon",
                 mobile: "Mobil Telefon",
                 // Menü
-                search_menu: "SUCHE",
+                search_menu: "Suche",
                 bookings_menu: "BUCHUNGEN",
                 accommodations_menu: "UNTERKÜNFTE",
                 customer_menu: "KUNDEN",
@@ -207,7 +207,7 @@ angular.module('syncery')
                 country: "Country",
                 telephone: "Telephone",
                 mobile: "Mobile",
-                search_menu: "SEARCH",
+                search_menu: "Search",
                 bookings_menu: "BOOKINGS",
                 accommodations_menu: "ACCOMMODATIONS",
                 customer_menu: "CUSTOMER",

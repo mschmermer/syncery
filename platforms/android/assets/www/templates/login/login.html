@@ -14,7 +14,8 @@
         </label>
 
         <button ng-click="dologin()"
-                class="button button-login mark-cyan">Login
+                class="button button-login mark-cyan button-icon-right">Login
+            <i class="icon ion-ios-arrow-right"></i>
         </button>
 
         <a href="#/app/login/forgot">{{"forgot_password" | translate}}</a>
@@ -23,7 +24,7 @@
 
         <h2 class="login h2">Login mit:</h2>
 
-        <button class="button button-outline button-assertive icon-left ion-social-google">
+        <button class="button button-outline button-assertive icon-left ion-social-google" ng-click="googleLogin()">
             Google+
         </button>
         <button class="button button-outline button-positive icon-left ion-social-facebook" ng-click="facebookLogin()">

@@ -71,7 +71,7 @@ angular.module('syncery', ['ionic',
 
         GooglePlusProvider.init({
             clientId: '715824371232-7lrmcrivtd1nsi41glkeuash22d1d99k.apps.googleusercontent.com',
-            apiKey: '715824371232-7lrmcrivtd1nsi41glkeuash22d1d99k.apps.googleusercontent.com'
+            apiKey: 'AIzaSyAOThQU06a9agxiwABt-eFFuj1FVdQLxjk'
         });
 
         $stateProvider

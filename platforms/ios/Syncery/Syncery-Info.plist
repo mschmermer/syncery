@@ -38,6 +38,43 @@
     <dict>
       <key>NSAllowsArbitraryLoads</key>
       <true/>
+      <key>NSExceptionDomains</key>
+      <dict>
+        <key>accounts.google.com</key>
+        <dict/>
+      </dict>
     </dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>com.syncery.app</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.syncery.app</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>REVERSED_CLIENT_ID</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.googleusercontent.apps.715824371232-2m34nlept4bcrjpp7do4dj9e88mr640k</string>
+        </array>
+      </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>com.syncery.app</string>
+      <string>com.googleusercontent.apps.715824371232-2m34nlept4bcrjpp7do4dj9e88mr640k</string>
+      <string>com-google-gidconsent</string>
+      <string>com-google-gidconsent-google</string>
+      <string>com.google.gppconsent.2.4.0</string>
+      <string>com.google.gppconsent.2.4.1</string>
+    </array>
   </dict>
 </plist>
