@@ -9722,7 +9722,7 @@ a.button {
   transition-duration: 0s; }
 
 #homecontent {
-  background: url("../img/house3-large.jpg");
+  background: url("../img/login.jpg");
   background-size: auto 100% !important;
   background-position: center center;
   background-repeat: no-repeat;
@@ -9749,23 +9749,88 @@ div.title.title-center.header-item {
   text-transform: uppercase;
   letter-spacing: 1px; }
 
+.item.item-divider.customer {
+  height: 20px;
+  line-height: 5px; }
+
 .bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before, .bar button.button-clear .icon:before, .bar button.button-clear.icon:before, .bar button.button-clear.icon-left:before, .bar button.button-clear.icon-right:before {
   font-size: 25px; }
 
 .icon, .item-icon-right .icon {
   font-size: 22px; }
 
+ion-item.item.booking-detail {
+  margin-left: 4%;
+  margin-right: 4%;
+  border-left: 0px;
+  border-right: 0px;
+  border-color: #c8ccd6;
+  border-bottom-width: 1px;
+  padding: 10px; }
+  ion-item.item.booking-detail h2 {
+    color: #3f4766;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 1%; }
+  ion-item.item.booking-detail h3 {
+    padding-left: 2%;
+    text-align: left; }
+  ion-item.item.booking-detail p {
+    padding-left: 15%;
+    margin-bottom: 0px;
+    color: #a7a5a6; }
+  ion-item.item.booking-detail div.row {
+    padding: 0; }
+  ion-item.item.booking-detail div.col {
+    text-align: center;
+    line-height: 20px;
+    border-right: 2px solid #c8ccd6; }
+    ion-item.item.booking-detail div.col i {
+      padding-right: 10px; }
+  ion-item.item.booking-detail div.col.secound p {
+    padding-left: 2%;
+    text-align: left; }
+  ion-item.item.booking-detail div.col.secound i {
+    padding-left: 10px;
+    float: left;
+    font-size: 200%; }
+  ion-item.item.booking-detail div.col:last-child {
+    border-right: 0px; }
+
+ion-item.item.booking-detail.money {
+  margin-left: 0%;
+  margin-right: 0%;
+  background-color: #e6e8ec;
+  text-align: center;
+  padding: 4%; }
+  ion-item.item.booking-detail.money h3 {
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+    text-align: center; }
+
 ion-item.item.item-avatar.customer-list {
-  height: 115px; }
+  height: 115px;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom-width: 2px; }
   ion-item.item.item-avatar.customer-list img {
     max-height: 75px;
     max-width: 75px;
     margin-bottom: 15px; }
   ion-item.item.item-avatar.customer-list h2 {
+    color: #3f4766;
+    font-size: 18px;
+    font-weight: 600;
     padding-left: 15%;
-    padding-bottom: 2%; }
+    padding-bottom: 1%; }
   ion-item.item.item-avatar.customer-list p {
-    padding-left: 15%; }
+    padding-left: 15%;
+    margin-bottom: 0px;
+    color: #a7a5a6; }
 
 .bar-footer {
   background-color: #38445E;
@@ -9877,22 +9942,16 @@ ion-item.item.side-menu a {
     margin-bottom: auto;
     padding-top: 8%; }
 
-ion-item.item.side-menu a:active {
+.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
   background-color: #1A2540;
   color: white; }
-  ion-item.item.side-menu a:active i {
-    color: #FF6764; }
-
-ion-item.item.side-menu a:hover {
-  background-color: #1A2540;
-  color: white; }
-  ion-item.item.side-menu a:hover i {
+  .item.active i, .item.activated i, .item-complex.active .item-content i, .item-complex.activated .item-content i, .item .item-content.active i, .item .item-content.activated i {
     color: white; }
 
-.item.active.item-complex > .item-content, .item.activated.item-complex > .item-content, .item-complex.active .item-content.item-complex > .item-content, .item-complex.activated .item-content.item-complex > .item-content, .item .item-content.active.item-complex > .item-content, .item .item-content.activated.item-complex > .item-content {
+ion-item.item.side-menu.selected a {
   background-color: #1A2540;
   color: white; }
-  .item.active.item-complex > .item-content i, .item.activated.item-complex > .item-content i, .item-complex.active .item-content.item-complex > .item-content i, .item-complex.activated .item-content.item-complex > .item-content i, .item .item-content.active.item-complex > .item-content i, .item .item-content.activated.item-complex > .item-content i {
+  ion-item.item.side-menu.selected a i {
     color: #FF6764; }
 
 ion-item.item.side-menu {
@@ -9985,11 +10044,22 @@ ion-header-bar.bar.syncery-header {
   ion-header-bar.bar.syncery-header button.button {
     color: white; }
 
+.bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before, .bar button.button-icon .icon:before, .bar button.button-icon:before, .bar button.button-icon.icon-left:before, .bar button.button-icon.icon-right:before {
+  font-size: 25px;
+  padding-left: 1px; }
+
 div.syncery-calendar-card {
   width: 292px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding-bottom: 0; }
+  div.syncery-calendar-card div.item.item-divider {
+    line-height: 20px;
+    height: 40px;
+    padding: 0;
+    padding-top: 10px; }
   div.syncery-calendar-card table.syncery-calendar {
     text-align: center;
     border-spacing: 0px;
@@ -10295,23 +10365,23 @@ ion-content.login a {
   color: grey;
   text-decoration: none; }
 
-ion-content.login button.button.button-outline.button-assertive.icon-left.ion-social-google {
+ion-footer-bar.login button.button.button-outline.button-assertive.icon-left.ion-social-google {
   border-radius: 0;
   width: 41%;
   left: 7.5%;
+  height: 33px;
   display: block;
-  position: absolute;
-  bottom: 60px; }
+  position: absolute; }
 
-ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook {
+ion-footer-bar.login button.button.button-outline.button-positive.icon-left.ion-social-facebook {
   border-radius: 0;
   color: #4267b2;
   border-color: #4267b2;
   width: 41%;
   right: 7.5%;
+  height: 33px;
   display: block;
-  position: absolute;
-  bottom: 60px; }
+  position: absolute; }
 
 ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook:hover {
   background-color: #4267b2;
@@ -10383,6 +10453,8 @@ ion-slide div.footer {
 .slider-pager .slider-pager-page {
   color: white;
   opacity: 1; }
+  .slider-pager .slider-pager-page i {
+    font-size: 12px; }
 
 .slider-pager-page.active {
   color: black;

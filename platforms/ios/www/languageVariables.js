@@ -125,12 +125,12 @@ angular.module('syncery')
                 save_customer: "Kunde speichern",
                 add_customer: "Kunde hinzufügen",
                 // Home
-                testphase_time: "Ihre Testphase endet in {{lastdays}} Tagen.",
+                testphase_time: "Testphase",
                 unpaid_bookings: "Sie haben noch {{unpaid}} unbezahlte Buchungen.",
                 unfinished_bookings: "Sie haben noch {{unfinished}} unfertige Buchungen.",
                 extend_contract: "Jetzt Vertrag verlängern",
                 messages: "Nachrichten",
-                accommodation_capacity: "Die Auslastung Ihrer Unterkünfte",
+                accommodation_capacity: "Auslastung",
                 // Syncery Contract Days Directive
                 days: "Tage",
                 // Syncery Extend Contract Directive
@@ -279,12 +279,12 @@ angular.module('syncery')
                 add_cutomer: "Add customer",
                 save_customer: "Save Cutomer",
                 // Home
-                testphase_time: "Your Testphase ends in {{lastdays}} days.",
+                testphase_time: "Testphase",
                 unpaid_bookings: "You have {{unpaid}} unpaid bookings.",
                 unfinished_bookings: "You have {{unfinished}} unfinished bookings.",
                 extend_contract: "Now extend contract",
                 messages: "Messages",
-                accommodation_capacity: "The capacity utilization of your accommodations",
+                accommodation_capacity: "Capacity",
                 // Syncery Contract Days Directive
                 days: "days",
                 // Syncery Extend Contract Directive

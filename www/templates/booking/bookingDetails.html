@@ -13,7 +13,53 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>
-        <div class="list">
+        <ion-item class="item item-avatar customer-list">
+            <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+            <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+            <h2>Andreas Gallien</h2>
+            <p>Erieseering 22</p>
+            <p>10319 Berlin</p>
+            <p>Deutschland</p>
+        </ion-item>
+        <ion-item class="item booking-detail">
+             <h2>Haus Sonne</h2>
+            <p>01.07.2016 - 16.07.2016 (14 Tage)</p>
+        </ion-item>
+        <ion-item class="item booking-detail">
+            <div class="row">
+                <div class="col"><i class="icon ion-person"></i>2</div>
+                <div class="col"><i class="icon ion-person-stalker"></i>1</div>
+                <div class="col"><i class="icon ion-ios-paw"></i>0</div>
+            </div>
+        </ion-item>
+        <ion-item class="item booking-detail">
+            <div class="row">
+                <div class="col secound">
+                    <i class="icon ion-loop"></i>
+                    <h3>CHANNEL</h3>
+                    <p>Fewo Direkt</p>
+                </div>
+                <div class="col secound">
+                    <i class="icon ion-calendar"></i>
+                    <h3>STATUS</h3>
+                    <p>reserviert</p>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item class="item booking-detail money">
+                <h3>1.265,65 €</h3>
+        </ion-item>
+        <ion-item class="item booking-detail money">
+            <div class="row">
+                <div class="col">
+                    <p>100 € / 25.05</p>
+                </div>
+                <div class="col">
+                    <p><span class="danger">1.165,65 € </span>/ 28.06</p>
+                </div>
+            </div>
+        </ion-item>
+        <!--<div class="list">
             <label class="item item-input ">
                 <span class="input-label">{{'customer' | translate}}</span>
                 <p>{{booking.customer.first_name}} {{booking.customer.name}}</p>
@@ -85,6 +131,6 @@
                 <span class="input-label">{{'notes' | translate}}</span>
                 <textarea rows="4" cols="5" ng-model="booking.message"></textarea>
             </label>
-        </div>
+        </div>-->
     </ion-content>
 </ion-view>

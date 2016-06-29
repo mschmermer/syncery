@@ -31,6 +31,7 @@
             }
         }
 
+        /*
         $scope.settings = function(){
             $ionicHistory.nextViewOptions({
                 disableBack: true

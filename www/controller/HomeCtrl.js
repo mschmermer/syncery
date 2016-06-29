@@ -7,7 +7,7 @@
 
     function HomeCtrl($scope, $state, $ionicHistory) {
 
-        $scope.contract_remaining = 15;
+        $scope.contract_remaining = 13;
         $scope.contract_total = 30;
 
         $scope.translationData = {

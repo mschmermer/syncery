@@ -54,31 +54,6 @@
 
                     0151 63 42 68 41
                 </ion-item>
-                <ion-item class="item-icon-left item-icon-right" href="#/accomodation/accomodationMasterData">
-                    <i class="icon ion-ios-bookmarks-outline"></i>
-                    {{'master_data' | translate}}
-                    <i class="icon ion-ios-arrow-right"></i>
-                </ion-item>
-            </ion-list>
-            <div id="Mapping" class="item item-divider item-icon-right" ng-click="showMore('Mapping')">
-                Mapping
-                <i ng-class="icon['Mapping']"></i>
-            </div>
-            <ion-list can-swipe="true" ng-hide="hide['Mapping']">
-                <button class="button button-icon mark-cyan button-full icon-right" ng-click="addMapping(accommodation.id)">
-                    {{'add_mapping' | translate}}
-                    <i class="icon ion-ios-plus-outline"></i>
-                </button>
-                <ion-item ng-repeat="mapping in mappings">
-                    <b>{{mapping.portal_name}}</b>
-                    <p>ID: {{mapping.sync_id}}</p>
-                    <ion-option-button class="button button-dark ion-ios7-heart button-options">
-                        {{"edit" | translate}}
-                    </ion-option-button>
-                    <ion-option-button class="button button-assertive ion-ios7-heart button-options">
-                        {{"delete" | translate}}
-                    </ion-option-button>
-                </ion-item>
             </ion-list>
             <div id="accommodation_capacity" class="item item-divider item-icon-right"
                  ng-click="showMore('accommodation_capacity')">
@@ -91,6 +66,25 @@
                         chart-click="onClick">
                 </canvas>
             </ion-item>
+            <div id="Mapping" class="item item-divider item-icon-right" ng-click="showMore('Mapping')">
+                Mapping
+                <i ng-class="icon['Mapping']"></i>
+            </div>
+            <ion-list can-swipe="true" ng-hide="hide['Mapping']">
+                <ion-item ng-repeat="mapping in mappings">
+                    <b>{{mapping.portal_name}}</b>
+                    <p>ID: {{mapping.sync_id}}</p>
+                    <ion-option-button class="button button-dark ion-ios7-heart button-options">
+                        {{"edit" | translate}}
+                    </ion-option-button>
+                    <ion-option-button class="button button-assertive ion-ios7-heart button-options">
+                        {{"delete" | translate}}
+                    </ion-option-button>
+                </ion-item>
+                <button class="button button-icon mark-cyan button-full icon-right" ng-click="addMapping(accommodation.id)">
+                    {{'add_mapping' | translate}}
+                </button>
+            </ion-list>
         </div>
     </ion-content>
 </ion-view>

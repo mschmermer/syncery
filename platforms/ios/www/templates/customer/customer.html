@@ -15,7 +15,7 @@
     </ion-nav-bar>
     <ion-content ion-sticky delegate-handle="customer" on-scroll="getScrollPosition()" overflow-scroll="false">
         <div ng-repeat="(letter, customers) in data.customers">
-            <div class="item item-divider">{{letter}}</div>
+            <div class="item item-divider customer">{{letter}}</div>
             <ion-list id="customer_list" can-swipe="listCanSwipe">
                 <ion-item class="item list-item item-remove-animate customer-list item-avatar item-icon-right"
                           ng-repeat="customer in customers"

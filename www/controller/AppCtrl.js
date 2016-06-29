@@ -15,7 +15,7 @@
 
         $scope.data.open_bookings = 5;
 
-        /*$scope.menu_class = {};
+        $scope.menu_class = {};
         $scope.menu_class.dashboard = 'selected';
         $scope.menu_class.selected = "dashboard";
 
@@ -39,7 +39,7 @@
             $state.go('app.settings');
             $ionicSideMenuDelegate.toggleLeft();
             $scope.menu_class[$scope.menu_class.selected] = "";
-        }*/
+        }
 
 
         /*if(!UserSvc.isLogged()){
