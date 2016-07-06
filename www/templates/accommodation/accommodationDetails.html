@@ -1,21 +1,129 @@
-<ion-view view-title="{{'accommodations' | translate}}">
+<ion-view view-title="{{'accommodation' | translate}}">
     <ion-nav-bar class="bar syncery-header">
         <ion-nav-back-button>
         </ion-nav-back-button>
-
-        <ion-nav-buttons side="left">
-            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-            </button>
-        </ion-nav-buttons>
-
         <ion-nav-buttons side="right">
-            <button class="button button-icon button-clear" ng-click="edit(accommodation.id)">
-                <i class="icon ion-ios-compose-outline"></i>
+            <button ng-click="showActionsheet()" class="button button-icon button-clear ion-ios-more-outline">
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content delegate-handle="accommodationDetails" >
-        <div class="list">
+    <ion-content class="accomodation-detail" delegate-handle="accommodationDetails" >
+        <ion-slide-box>
+            <ion-slide ng-repeat="image in accommodation.images">
+                <img ng-src="{{image.url}}">
+            </ion-slide>
+        </ion-slide-box>
+        <ion-item class="item item-text-wrap">
+            <h3>{{accommodation.name}}</h3>
+            <p>{{accommodation.description}}</p>
+        </ion-item>
+        <ion-item class="item number">
+            <div class="row">
+                <div class="col"><i class="icon ion-ios-telephone-outline"></i>030 94 39 98 51</div>
+                <div class="col"><i class="icon ion-iphone"></i>0151 63 42 68 41</div>
+            </div>
+        </ion-item>
+        <ion-item class="item mail">
+            <i class="icon ion-ios-email-outline"></i>
+            ma.schmermer@googlemail.com
+        </ion-item>
+        <ion-item class="item">
+        </ion-item>
+        <ion-item class="item detail">
+            <div class="row">
+                <div class="col">
+                    <i class="icon ion-calendar"></i>
+                    <h3>Einnahmen</h3>
+                    <p class="green">200,00 €</p>
+                </div>
+                <div class="col">
+                    <i class="icon ion-cash"></i>
+                    <h3>Buchungen</h3>
+                    <p class="red">23,60 €</p>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item class="item">
+        </ion-item>
+        <ion-item class="item detail">
+            <h1>Buchungen</h1>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item">
+        </ion-item>
+        <ion-item class="item detail">
+            <h1>Lage</h1>
+        </ion-item>
+        <ion-item class="item location">
+            <i class="icon ion-ios-location-outline">
+            </i>
+            <p>Weißmeerstr. 89, 10319 Ammeer<br>Deutschland</p>
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=New+York,NY&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794">
+        </ion-item>
+        <ion-item class="item detail">
+            <h1>Eigentümer</h1>
+        </ion-item>
+        <ion-item class="item item-text-wrap">
+            <h3>Tim Schranutze</h3>
+            <p>Weißmeerstr. 89, 10319 Ammeer</p>
+        </ion-item>
+        <ion-item class="item number">
+            <div class="row">
+                <div class="col"><i class="icon ion-ios-telephone-outline"></i>030 94 39 98 51</div>
+                <div class="col"><i class="icon ion-iphone"></i><0151 63 42 68 41</div>
+            </div>
+        </ion-item>
+        <ion-item class="item mail">
+            <i class="icon ion-ios-email-outline"></i>
+            ma.schmermer@googlemail.com
+        </ion-item>
+        <ion-item></ion-item>
+        <ion-item class="item detail">
+            <h1>Auslastung</h1>
+        </ion-item>
+        <ion-item>
+            <canvas id="line" class="chart chart-line" chart-data="data"
+                    chart-labels="labels" chart-legend="true" chart-series="series"
+                    chart-click="onClick">
+            </canvas>
+        </ion-item>
+        <ion-item class="item detail">
+            <h1>Mapping</h1>
+        </ion-item>
+        <ion-item ng-repeat="mapping in mappings">
+            <b>{{mapping.portal_name}}</b>
+            <p>ID: {{mapping.sync_id}}</p>
+            <ion-option-button class="button button-dark ion-ios7-heart button-options">
+                {{"edit" | translate}}
+            </ion-option-button>
+            <ion-option-button class="button button-assertive ion-ios7-heart button-options">
+                {{"delete" | translate}}
+            </ion-option-button>
+        </ion-item>
+        <button class="button button-icon mark-cyan button-full icon-right" ng-click="addMapping(accommodation.id)">
+            <i class="icon ion-plus"></i>
+            {{'add_mapping' | translate}}
+        </button>
+        <!--<div class="list">
             <div class="item item-divider">
                 {{accommodation.name}}
             </div>
@@ -27,7 +135,7 @@
                     <img ng-src="{{image.url}}">
                 </ion-slide>
                 <ion-slide>
-                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=New+York,NY&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794">
+
                 </ion-slide>
             </ion-slide-box>
             <div class="item item-divider item-icon-right" ng-click="showMore('contact')"
@@ -85,6 +193,6 @@
                     {{'add_mapping' | translate}}
                 </button>
             </ion-list>
-        </div>
+        </div>-->
     </ion-content>
 </ion-view>

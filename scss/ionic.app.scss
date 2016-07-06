@@ -17,6 +17,7 @@ $dark:                            #444 !default;
 
 $royal: #38445E !default;
 $assertive: #FF6666 !default;
+$energized: #00bcbc !default;
 $ios-statusbar-height: 1px;
 $background1: #38445E !default;
 $background2: #1A2540 !default;
@@ -76,8 +77,8 @@ div.title.title-center.header-item {
 .item.item-divider {
   background-color: $background3;
   color: white;
-  height: 50px;
-  line-height: 20px;
+  height: 40px;
+  line-height: 10px;
   padding: 15px 49px 15px 15px;
   font-size: 10pt;
   text-transform: uppercase;
@@ -86,7 +87,8 @@ div.title.title-center.header-item {
 
 .item.item-divider.customer{
   height: 20px;
-  line-height: 5px;
+  line-height: 1px;
+  padding-left: 20px;
 }
 
 .bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before, .bar button.button-clear .icon:before, .bar button.button-clear.icon:before, .bar button.button-clear.icon-left:before, .bar button.button-clear.icon-right:before{
@@ -97,96 +99,527 @@ div.title.title-center.header-item {
   font-size: 22px;
 }
 
-ion-item.item.booking-detail{
-  margin-left: 4%;
-  margin-right: 4%;
-  border-left: 0px;
-  border-right: 0px;
-  border-color: rgb(200,204,214);
-  border-bottom-width: 1px;
-  padding: 10px;
-  h2 {
-    color: rgb(63,71,102);
-    font-size: 18px;
-    font-weight: 600;
-    text-align: center;
-    padding-bottom: 1%;
-  }
-  h3{
-    padding-left: 2%;
-    text-align: left;
-  }
-  p {
-    padding-left: 15%;
-    margin-bottom: 0px;
-    color: rgb(167,165,166);
-  }
-  div.row{
+ /* Booking Short View Popup */
+
+div.bookingShortView div.popup{
+  min-width: 300px;
+  div.popup-head{
     padding: 0;
   }
-  div.col{
+  div.popup-body{
+    padding: 0;
+    background-color: white;
+  }
+  div.popup-buttons{
+    padding: 0;
+    min-height: 50px;
+    button{
+      border-radius: 0;
+      margin-right: 2px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    button:last-child{
+      margin-right: 0;
+    }
+    button.button-default{
+      background-color: $background3;
+      color: white;
+    }
+  }
+}
+
+// Booking Deatail View
+
+ion-content.booking-details, ion-list.booking-details{
+  ion-item.item{
+    padding: 0%;
+    margin-left: 4%;
+    margin-right: 4%;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: rgb(200, 204, 214);
+    border-bottom-width: 1px;
+    color: rgb(167,165,166);
+    font-size: 14px;
+    div.row{
+      padding: 0;
+    }
+    div.col{
+      text-align: center;
+      line-height: 20px;
+      border-right: 2px solid rgb(200,204,214);
+      i{
+        padding-right: 10px;
+
+      }
+    }
+    div.col:last-child{
+      border-right: 0px;
+    }
+
+  }
+  ion-item.item.item-avatar{
+    padding: 12px;
+    img{
+      max-height: 80px;
+      max-width: 80px;
+      margin-right: 20px;
+      position: static;
+      float: left;
+    }
+    h2{
+      color: rgb(63,71,102);
+      font-size: 18px;
+      font-weight: 600;
+      text-align: left;
+      padding-bottom: 1%;
+    }
+    p {
+      line-height: 18px;
+      margin-bottom: 0px;
+      color: rgb(167,165,166);
+    }
+  }
+  ion-item.item.detail{
+    padding: 12px;
+    h2{
+      color: rgb(63,71,102);
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      padding-bottom: 1%;
+    }
+    p {
+      line-height: 1.2;
+      text-align: center;
+      color: rgb(167,165,166);
+    }
+  }
+  ion-item.item.person{
+    padding: 0;
+    color: rgb(63,71,102);
+  }
+  ion-item.item.status{
+    h3, p {
+      text-align: left;
+      line-height: 1;
+      color: rgb(167,165,166);
+      span.red{
+        color: rgb(242,78,100);
+      }
+      span.green{
+        color: rgb(137, 209,192);
+      }
+    }
+    h3{
+      color: rgb(68,64,65);
+      font-weight: 800;
+      padding-top: 8px;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+    i{
+      float: left;
+      font-size: 35px;
+      margin: 6px;
+    }
+  }
+  ion-item.money{
+    background-color: rgb(230,232,236);
+    padding: 0px;
+    margin: 0;
+    h3{
+      color: rgb(68,64,65);
+      font-weight: 500;
+      font-size: 25px;
+      text-align: center;
+      padding: 14px;
+    }
+    p{
+      color: rgb(167,165,166);
+    }
+    div.col{
+      padding: 0;
+      line-height: 56px;
+    }
+    span{
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: 0px;
+    }
+    span.red{
+      color: rgb(242,78,100);
+    }
+    span.green{
+      color: rgb(137, 209,192);
+    }
+  }
+  ion-item.item.extra{
+    div.col{
+      border: 0;
+      line-height: 30px;
+      font-size: 12px;
+      i{
+        font-size: 12px;
+        padding-right: 10px;
+      }
+      i.ion-checkmark{
+        color: rgb(137, 209,192);
+      }
+      i.ion-close{
+        color: rgb(242,78,100);
+      }
+    }
+  }
+  ion-item.item.notes{
+    background-color: rgb(230,232,236);
     text-align: center;
-    line-height: 20px;
-    border-right: 2px solid rgb(200,204,214);
+    margin: 0;
+    line-height: 23px;
+    color: rgb(68,64,65);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+}
+
+ /* Customer Detail View */
+
+ion-content.customer-details{
+  ion-item.item {
+    padding: 0%;
+    margin-left: 4%;
+    margin-right: 4%;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: rgb(200, 204, 214);
+    border-bottom-width: 1px;
+    color: rgb(167, 165, 166);
+    font-size: 14px;
+    min-height: 35px;
     i{
       padding-right: 10px;
-
+      font-size: 16px;
+    }
+    div.row{
+      padding: 0;
+    }
+    div.col{
+      padding: 12px;
+      text-align: center;
+      border-right: 2px solid rgb(200,204,214);
+    }
+    div.col:last-child{
+      border-right: 0px;
+    }
+    h3{
+      text-transform: uppercase;
+      font-size: 12px;
     }
   }
-  div.col.secound{
-    p{
-      padding-left: 2%;
-      text-align: left;
-    }
-    i{
-      padding-left: 10px;
+  ion-item.item.item-avatar{
+    padding: 12px;
+    img{
+      max-height: 90px;
+      max-width: 90px;
+      margin-right: 20px;
+      position: static;
       float: left;
-      font-size: 200%;
+    }
+    h2{
+      color: rgb(63,71,102);
+      font-size: 18px;
+      font-weight: 600;
+      text-align: left;
+      padding-bottom: 1%;
+    }
+    p {
+      line-height: 18px;
+      margin-bottom: 0px;
+      color: rgb(167,165,166);
     }
   }
-  div.col:last-child{
-    border-right: 0px;
+  ion-item.item.number{
+    padding: 0;
   }
-}
-
-ion-item.item.booking-detail.money{
-  margin-left: 0%;
-  margin-right: 0%;
-  background-color: rgb(230,232,236);
-  text-align: center;
-  padding: 4%;
-  h3{
-    color: black;
-    font-weight: 500;
-    font-size: 25px;
+  ion-item.item.mail{
     text-align: center;
+    padding: 2%;
   }
+  ion-item.item.detail{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(230,232,236);
+    i{
+      float: left;
+      color: rgb(68,64,65);
+      font-size: 250%;
+      margin-left: 5%;
 
+    }
+    p, h3{
+      color: rgb(68,64,65);
+      text-align: left;
+      padding-left: 4%;
+      line-height: 1;
+    }
+    h3{
+      padding-top: 5px;
+    }
+    p.red{
+      color: rgb(242,78,100);
+    }
+    p.green{
+      color: rgb(137, 209,192);
+    }
+    h1{
+      color: rgb(68,64,65);
+      text-transform: uppercase;
+      line-height: 35px;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+  ion-item.booking{
+    padding: 8px;
+    span{
+      position: absolute;
+      right: 12px;
+    }
+    span.red{
+      color: rgb(242,78,100);
+    }
+    span.green{
+      color: rgb(137, 209,192);
+    }
+  }
 }
 
-ion-item.item.item-avatar.customer-list {
-  height: 115px;
-  margin-left: 4%;
-  margin-right: 4%;
-  border-left: 0px;
-  border-right: 0px;
-  border-bottom-width: 2px;
-  img {
-    max-height: 75px;
-    max-width: 75px;
-    margin-bottom: 15px;
+/* Accomodation Detail View*/
+
+ion-content.accomodation-detail{
+  ion-item.item{
+    margin-left: 4%;
+    margin-right: 4%;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: rgb(200, 204, 214);
+    border-bottom-width: 1px;
+    color: rgb(167, 165, 166);
+    font-size: 14px;
+    min-height: 35px;
+    i{
+      padding-right: 10px;
+      font-size: 16px;
+    }
+    div.row{
+      padding: 0;
+    }
+    div.col{
+      padding: 12px;
+      text-align: center;
+      border-right: 2px solid rgb(200,204,214);
+    }
+    div.col:last-child{
+      border-right: 0px;
+    }
+    h3{
+      color: rgb(68,64,65);
+      font-size: 16px;
+      text-align: center;
+      padding-bottom: 12px;
+    }
+    p{
+      text-align: center;
+      color: rgb(167, 165, 166);
+    }
   }
-  h2 {
-    color: rgb(63,71,102);
-    font-size: 18px;
-    font-weight: 600;
-    padding-left: 15%;
-    padding-bottom: 1%;
+  ion-item.item.number{
+    padding: 0;
   }
-  p {
-    padding-left: 15%;
-    margin-bottom: 0px;
-    color: rgb(167,165,166);
+  ion-item.item.mail{
+    text-align: center;
+    padding: 2%;
+  }
+  ion-item.detail{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(230,232,236);
+    i{
+      float: left;
+      color: rgb(68,64,65);
+      font-size: 270%;
+      margin-left: 5%;
+
+    }
+    p, h3{
+      color: rgb(68,64,65);
+      text-align: left;
+      padding-left: 4%;
+      line-height: 1;
+      font-size: 14px;
+      padding-bottom: 2px;
+    }
+    h3{
+      padding-top: 5px;
+    }
+    p.red{
+      color: rgb(242,78,100);
+    }
+    p.green{
+      color: rgb(137, 209,192);
+    }
+    h1{
+      color: rgb(68,64,65);
+      text-transform: uppercase;
+      line-height: 35px;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+  ion-item.booking{
+    padding: 8px;
+    span{
+      position: absolute;
+      right: 12px;
+    }
+    span.red{
+      color: rgb(242,78,100);
+    }
+    span.green{
+      color: rgb(137, 209,192);
+    }
+  }
+  ion-item.item.location{
+    padding: 4% 0 0 0;
+    margin: 0;
+    border: 0;
+    i {
+      position: relative;
+      top: calc(50% - 10px);
+      left: calc(50% - 5px);
+      font-size: 32px;
+      color: rgb(68,64,65);
+    }
+    p{
+      text-align: center;
+    }
+    img{
+      padding-top: 4%;
+      padding-bottom: 4%;
+      width: 100%;
+    }
+  }
+}
+
+/* Customer List View */
+
+ion-content.customer-list{
+  ion-item.item-avatar a{
+    padding-left: 110px;
+    height: 70px;
+    div.status{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 15px;
+    }
+    div.red{
+      background-color: rgb(242, 78,100);
+    }
+    div.green{
+      background-color: rgb(79, 195,163);
+    }
+    div.cyan{
+      background-color: rgb(83,189,204);
+    }
+    div.grey{
+      background-color: rgb(230,232,236);
+    }
+    img.avatar-img{
+      top: 9px;
+      left: 30px;
+      max-height: 50px;
+      max-width: 50px;
+    }
+    p span.date{
+      position: absolute;
+      right: 50px;
+    }
+  }
+}
+
+/* Timeline */
+
+ion-item.timeline{
+  border-bottom: 0;
+  div.row {
+    padding: 0;
+
+    div.col.symbols{
+      padding: 0;
+      i {
+        font-size: 45px;
+        position: relative;
+        left: calc(50% - 19px);
+      }
+      i.ion-checkmark-circled{
+        color: rgb(79, 195,163);
+      }
+      i.ion-close-circled{
+        color: rgb(242, 78,100);
+      }
+      i.ion-ios-download{
+        left: calc(50% - 13px);
+      }
+      i.ion-ios-upload{
+        left: calc(50% - 13px);
+      }
+      div.line{
+        width: 2px;
+        height: 75px;
+        position: relative;
+        background-color: rgb(209,212,220);
+        left: 50%;
+        top: -3px;
+      }
+      div.line:first-child{
+        height: 22px;
+        top: 2px;
+      }
+      div.no-line{
+        height: 22px;
+        top: 2px;
+        color: white;
+      }
+    }
+    div.col.col-75{
+      border-bottom: 2px solid rgb(209,212,220);
+      padding-bottom: 15px;
+      h3{
+        margin-top: 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      p{
+        color: rgb(117,114,115);
+        font-size: 14px;
+      }
+      p.portal{
+        color: rgb(147,155,176);
+        font-style: oblique;
+        font-size: 12px;
+      }
+      span.date{
+        color: rgb(167,165,166);
+        position: absolute;
+        right: 15px;
+        font-size: 14px;
+      }
+    }
   }
 }
 
@@ -206,15 +639,20 @@ div.bar-footer.save-button {
 
 button.button.mark-cyan {
   margin: 0;
+  text-align: center;
   color: white;
   font-size: 10pt;
   text-transform: uppercase;
   font-weight: bold;
   background-color: $mark-cyan;
   letter-spacing: 1px;
+
   i {
     position: absolute;
-    right: 18px;
+    right: 14px;
+  }
+  i:before{
+    font-size: 22px;
   }
 }
 
@@ -388,49 +826,6 @@ img.logo-menu {
   height: 85%;
   margin-top: 2%;
 }
-
-
-/*.trapezoid {
-  position: absolute;
-  bottom: 8%;
-  height: 15%;
-  overflow: hidden;
-  width: 70%;
-  overflow: hidden;
-  transform: rotate(180deg);
-}*/
-/*div.trapeztext{
-  line-height: 130%;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 4%;
-  font-size: large;
-  position: absolute;
-  bottom: 8%;
-  color: white;
-  width: 70%;
-}
-
-.trapezoid:after{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 110%;
-  height: 170%;
-  background: $mark-red;
-  border-radius: 20px 0 0 0;
-  -webkit-transform-origin: 100% 100%;
-  -moz-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
-  -o-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  -webkit-transform: perspective(500px) rotateX(45deg);
-  -moz-transform:  perspective(500px) rotateX(45deg);
-  -ms-transform: perspective(500px) rotateX(45deg);
-  -o-transform: perspective(500px) rotateX(45deg);
-  transform: perspective(500px) rotateX(45deg);
-}*/
 
 ion-header-bar.bar.side-menu {
   background-color: $background1;
@@ -771,6 +1166,7 @@ div.syncery-datepicker {
 
 ion-content.login {
   background-color: $background1;
+  padding-top: 20px;
 }
 
 img.logo {
@@ -824,15 +1220,10 @@ ion-content.login label {
   width: 85%;
   height: 50px;
   margin-bottom: 1%;
-  margin-top: 1%;
   padding: 0%;
   font-size: 14px;
   letter-spacing: 1px;
   font-weight: 500;
-}
-
-ion-content.login label:first-child {
-  margin-top: 10%;
 }
 
 ion-content.login button.button-login {
@@ -844,7 +1235,7 @@ ion-content.login button.button-login {
   margin-top: 5%;
   width: 85%;
   height: 50px;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
   text-align: left;
 }
 
@@ -860,16 +1251,16 @@ ion-content.login a {
   text-decoration: none;
 }
 
-ion-footer-bar.login button.button.button-outline.button-assertive.icon-left.ion-social-google {
+button.button.button-outline.button-assertive.icon-left.ion-social-google {
   border-radius: 0;
   width: 41%;
   left: 7.5%;
   height: 33px;
   display: block;
   position: absolute;
+  bottom: 20px;
 }
-
-ion-footer-bar.login button.button.button-outline.button-positive.icon-left.ion-social-facebook {
+button.button.button-outline.button-positive.icon-left.ion-social-facebook {
   border-radius: 0;
   color: #4267b2;
   border-color: #4267b2;
@@ -878,12 +1269,12 @@ ion-footer-bar.login button.button.button-outline.button-positive.icon-left.ion-
   height: 33px;
   display: block;
   position: absolute;
+  bottom: 20px;
 }
 
 ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook:hover {
   background-color: #4267b2;
   color: white;
-
 }
 
 h2.login.h1 {
@@ -894,13 +1285,14 @@ h2.login.h1 {
   font-size: x-large;
 }
 
+
 h2.login.h2 {
   left: 40%;
   color: white;
   font-size: 16px;
   display: block;
   position: absolute;
-  bottom: 110px;
+  bottom: 70px;
 }
 
 ion-slide-box.login {
@@ -964,7 +1356,7 @@ ion-slide div.footer {
 }
 
 .slider-pager .slider-pager-page {
-  color: white;
+  color: rgb(185,190,202);
   opacity: 1;
   i{
     font-size: 12px;

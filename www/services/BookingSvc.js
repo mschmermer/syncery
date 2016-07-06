@@ -9,56 +9,56 @@
         var vm = this;
         vm.reservationData = {
             2016: {
-                4: {
-                    "2016-4-7": {
+                7: {
+                    "2016-7-7": {
                         class: 'arrival', 'booking-id': 1
                     },
-                    '2016-4-8': {
+                    '2016-7-8': {
                         class: 'occupied', 'booking-id': 1
                     },
-                    '2016-4-9': {
+                    '2016-7-9': {
                         class: 'occupied', 'booking-id': 1
                     },
-                    '2016-4-10': {
+                    '2016-7-10': {
                         class: 'occupied', 'booking-id': 1
                     },
-                    '2016-4-11': {
+                    '2016-7-11': {
                         class: 'departure arrival', 'booking-id': '1 2'
                     },
-                    '2016-4-12': {
+                    '2016-7-12': {
                         class: 'occupied', 'booking-id': 2
                     },
-                    '2016-4-13': {
+                    '2016-7-13': {
                         class: 'occupied', 'booking-id': 2
                     },
-                    '2016-4-14': {
+                    '2016-7-14': {
                         class: 'occupied', 'booking-id': 2
                     },
-                    '2016-4-15': {
+                    '2016-7-15': {
                         class: 'occupied', 'booking-id': 2
                     },
-                    '2016-4-16': {
+                    '2016-7-16': {
                         class: 'departure', 'booking-id': 2
                     },
-                    '2016-4-21': {
+                    '2016-7-21': {
                         class: 'arrival', 'booking-id': 3
                     },
-                    '2016-4-22': {
+                    '2016-7-22': {
                         class: 'occupied', 'booking-id': 3
                     },
-                    '2016-4-23': {
+                    '2016-7-23': {
                         class: 'occupied', 'booking-id': 3
                     },
-                    '2016-4-24': {
+                    '2016-7-24': {
                         class: 'departure', 'booking-id': 3
                     },
-                    '2016-4-26': {
+                    '2016-7-26': {
                         class: 'arrival', 'booking-id': 4
                     },
-                    '2016-4-27': {
+                    '2016-7-27': {
                         class: 'occupied', 'booking-id': 4
                     },
-                    '2016-4-28': {
+                    '2016-7-28': {
                         class: 'departure', 'booking-id': 4
                     }
                 }
@@ -67,18 +67,18 @@
 
         vm.bookingData = {
             1: {
-                customer_id: 1, arrival: '2016-3-7', departure: '2016-3-11', accommodation_id: 1
+                customer_id: 1, arrival: '2016-7-7', departure: '2016-7-11', accommodation_id: 1
             },
 
             2: {
-                customer_id: 2, arrival: '2016-3-11', departure: '2016-3-16', accommodation_id: 2
+                customer_id: 2, arrival: '2016-7-11', departure: '2016-7-16', accommodation_id: 2
             },
 
             3: {
-                customer_id: 3, arrival: '2016-3-21', departure: '2016-3-24', accommodation_id: 3
+                customer_id: 3, arrival: '2016-7-21', departure: '2016-7-24', accommodation_id: 3
             },
             4: {
-                customer_id: 4, arrival: '2016-3-26', departure: '2016-3-28', accommodation_id: 4
+                customer_id: 4, arrival: '2016-7-26', departure: '2016-7-28', accommodation_id: 4
             }
         }
 

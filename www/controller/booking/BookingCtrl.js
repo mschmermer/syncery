@@ -6,7 +6,7 @@
 
 
     function BookingCtrl($scope, $ionicSlideBoxDelegate, $ionicModal, $ionicTabsDelegate,
-                         language, $ionicScrollDelegate, $timeout, $location, $state,
+                         $ionicScrollDelegate, $timeout, $location, $state, $translate, $ionicPopup,
                          $stateParams, UserSvc, BookingSvc, AccommodationSvc, CustomerSvc) {
 
         init();
@@ -28,24 +28,6 @@
                 name: 'accommodations',
                 selected: 'Unterkunft 1'
             };
-
-            /*$scope.standard_class = 'item item-stacked-label';
-            $scope.hide = {
-                customer: {
-                    hide: true,
-                    class: $scope.standard_class
-                },
-                date: {
-                    hide: true,
-                    class: $scope.standard_class
-                },
-                accommodation: {
-                    hide: true,
-                    class: $scope.standard_class
-                }
-            };*/
-
-            //$scope.beginning = UserSvc.getWeekBeginning();
 
             $scope.selected_booking = {};
 
@@ -119,6 +101,10 @@
                 name: 'month',
                 selected: $scope.date_actual
             };
+
+            $translate('booking').then(function (booking) {
+                $scope.booking = booking;
+            });
         }
 
         $scope.$watch('selector.month.selected', function (newvalue) {
@@ -131,9 +117,6 @@
             for (var id in $scope.bookings ) {
                 $scope.bookings[id].accommodation = AccommodationSvc.getAccommodationById($scope.bookings[id].accommodation_id).name;
                 $scope.bookings[id].customer = CustomerSvc.getCustomersById($scope.bookings[id].customer_id);
-                //var moments = moment().locale(UserSvc.getLanguage());
-                //$scope.bookings[id].arrival = moment($scope.bookings[id].arrival, "YYYY-MM-DD").locale(UserSvc.getLanguage()).format('DD. MMM YYYY');
-                //$scope.bookings[id].departure = moment($scope.bookings[id].departure, "YYYY-MM-DD").locale(UserSvc.getLanguage()).format('DD. MMM YYYY');
             }
             if($scope.tab_id){
                 $ionicTabsDelegate.$getByHandle('bookingtabs').select($scope.tab_id);
@@ -205,12 +188,21 @@
                 $scope.selected_booking = BookingSvc.getBookingDataById($scope.booking_id);
                 $scope.selected_booking.accommodation = AccommodationSvc.getAccommodationById($scope.selected_booking.accommodation_id).name;
                 $scope.selected_booking.customer = CustomerSvc.getCustomersById($scope.selected_booking.customer_id);
-                $timeout(function () {
-                    $ionicScrollDelegate.resize();
-                    $location.hash('BookingView');
-                    var delegate = $ionicScrollDelegate.$getByHandle('bookings');
-                    delegate.anchorScroll(true);
-                }, 200);
+                var bookingView = $ionicPopup.show({
+                    templateUrl: 'templates/bookingShortView.html',
+                    cssClass: 'bookingShortView',
+                    scope: $scope,
+                    buttons: [
+                        {
+                            text: '<b>Buchung zeigen</b>',
+                            type: 'button-energized',
+                            onTap: function(e) {
+
+                            }
+                        },
+                        { text: 'Abbrechen' }
+                    ]
+                });
             } else {
                 $scope.booking_id = false;
                 $scope.bookingView = true;

@@ -29,25 +29,30 @@
             <ion-item class="item item-divider">
                 <b>{{"timeline" | translate}}</b>
             </ion-item>
-            <section id="cd-timeline" class="cd-container">
-                <div ng-repeat="activity in timeline">
-                    <div class="cd-timeline-block">
-                        <!-- CUSTOMIZE YOUR STYLE USING DEFAULT IONIC VALUES SUCH AS POSITIVE, CALM, BALANCED,... -->
-                        <div class="cd-timeline-icon text-center royal">
-                            <i class="ion-image timelineIcon" ng-if="(activity.type=='picture')"></i>
-                            <i class="ion-ios-videocam timelineIcon" ng-if="activity.type=='video' "></i>
-                            <i class="ion-location timelineIcon" ng-if="activity.type=='location'"></i>
-                            <i class="ion-android-textsms timelineIcon" ng-if="activity.type=='text'"></i>
+            <ion-item class="timeline">
+                <div ng-repeat="event in timeline" class="row">
+                    <div class="col symbols">
+                        <div class="line" ng-if="!($index == 0)"></div>
+                        <div class="no-line" ng-if="$index == 0"></div>
+                        <div ng-switch="event.type">
+                            <i ng-switch-when="booking" class="icon ion-checkmark-circled"></i>
+                            <i ng-switch-when="cancel" class="icon ion-close-circled"></i>
+                            <i ng-switch-when="arrival" class="icon ion-ios-download"></i>
+                            <i ng-switch-when="departure" class="icon ion-ios-upload"></i>
+                            <div ng-switch-default></div>
                         </div>
-                        <!-- CUSTOMIZE YOUR STYLE USING DEFAULT IONIC VALUES SUCH AS POSITIVE, CALM, BALANCED,... -->
-                        <div class="cd-timeline-content padding royal">
-                            <h5 class="marginBottom0 marginTop0">{{activity.title}}</h5>
-                            <p class="marginTop5 cd-author">by {{activity.author}} on {{activity.date | date: "d MMM"}}</p>
-                            <p class="timelineText">{{activity.text}}</p>
-                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="col col-75">
+                        <span class="date">{{event.date}}</span>
+                        <h3>{{event.type}}</h3>
+                        <p>Buchung vom {{event.booking_date}}</p>
+                        <p>{{event.name}}</p>
+                        <p>{{event.accommodation}}</p>
+                        <p class="portal">{{event.portal}}</p>
                     </div>
                 </div>
-            </section>
+            </ion-item>
         </div>
     </ion-content>
 </ion-view>

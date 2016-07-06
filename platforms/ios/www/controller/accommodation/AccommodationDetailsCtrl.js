@@ -6,7 +6,8 @@
 
 
     function AccommodationDetailsCtrl($scope,$location,$timeout, $state, $stateParams,
-                                      AccommodationSvc, $ionicScrollDelegate, MappingSvc) {
+                                      AccommodationSvc, $ionicScrollDelegate, MappingSvc,
+                                      $ionicActionSheet) {
 
         $scope.id = $stateParams.id;
         $scope.accommodation = {};
@@ -66,5 +67,28 @@
         $scope.addMapping = function(){
             $state.go('app.accommodationMapping', {acc_id: $scope.id});
         }
+
+        $scope.showActionsheet = function() {
+
+            $ionicActionSheet.show({
+                buttons: [
+                    { text: '<i class="icon ion-edit"></i> Bearbeiten' },
+                    { text: '<i class="icon ion-checkmark"></i> Akzeptieren' },
+                ],
+                destructiveText: 'Löschen',
+                cancelText: 'Abbrechen',
+                cancel: function() {
+
+                },
+                buttonClicked: function(index) {
+
+                    return true;
+                },
+                destructiveButtonClicked: function() {
+
+                    return true;
+                }
+            });
+        };
     }
 })();

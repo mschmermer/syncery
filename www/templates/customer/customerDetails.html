@@ -12,8 +12,81 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content class="has-tabs" delegate-handle="customerDetails">
-        <div class="list">
+    <ion-content class="customer-details" delegate-handle="customerDetails">
+        <ion-item class="item item-avatar">
+            <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+            <img width="100%" class="customer-avatar" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+            <h2>Andreas Gallien</h2>
+            <p>Erieseering 22</p>
+            <p>10319 Berlin</p>
+            <p>Deutschland</p>
+        </ion-item>
+        <ion-item class="item number">
+            <div class="row">
+                <div class="col"><i class="icon ion-ios-telephone-outline"></i>030 94 39 98 51</div>
+                <div class="col"><i class="icon ion-iphone"></i>0151 63 42 68 41</div>
+            </div>
+        </ion-item>
+        <ion-item class="item mail">
+            <i class="icon ion-ios-email-outline"></i>
+            ma.schmermer@googlemail.com
+        </ion-item>
+        <ion-item class="item">
+        </ion-item>
+        <ion-item class="item detail">
+            <div class="row">
+                <div class="col secound">
+                    <i class="icon ion-calendar"></i>
+                    <h3>Buchungen</h3>
+                    <p>5</p>
+                </div>
+                <div class="col secound">
+                    <h3>letzte Buchung</h3>
+                    <p>23.05.2016</p>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item class="item detail">
+            <div class="row">
+                <div class="col secound">
+                    <i class="icon ion-cash"></i>
+                    <h3>Gewinn</h3>
+                    <p class="green">200,00 €</p>
+                </div>
+                <div class="col secound">
+                    <h3>offener Betrag</h3>
+                    <p class="red">23,60 €</p>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item class="item">
+        </ion-item>
+        <ion-item class="item detail">
+            <h1>Buchungen</h1>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+        <ion-item class="item booking">
+            Haus Sonne<br>
+            20.05.2016 - 30.05.2016 <span class="red">23,60 €</span>
+        </ion-item>
+
+
+        <!--<div class="list">
             <div class="item item-divider">{{customer.first_name}} {{customer.name}}</div>
             <ion-item class="item item-avatar customer-list">
                 <img width="100%" class="customer-avatar" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
@@ -72,6 +145,6 @@
                     <p>{{customer.last_booking}}</p>
                 </label>
             </ion-list>
-        </div>
+        </div>-->
     </ion-content>
 </ion-view>

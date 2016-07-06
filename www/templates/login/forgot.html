@@ -1,19 +1,21 @@
-<ion-view view-title="{{'forgot' | translate}}">
+<ion-view view-title="Login">
     <ion-nav-bar class="bar syncery-header">
         <ion-nav-back-button class="button-clear">
-            <i class="ion-chevron-left"></i> {{"back" | translate }}
         </ion-nav-back-button>
     </ion-nav-bar>
-    <ion-content>
-        <div class="card">
-            <label class="item item-input item-floating-label">
-                <span class="input-label"><b>E-Mail</b></span>
-                <input type="email" placeholder="E-Mail">
-            </label>
-        </div>
+    <ion-content class="login">
+        <label class="item item-input">
+            <input type="email" placeholder="Email">
+        </label>
 
-        <button ng-click="dologin()"
-                class="button button-last button-positive">{{"request_password" | translate}}
+        <label class="item item-input">
+            <input type="email" placeholder=" Repeat Email">
+        </label>
+
+        <button ng-click="send()"
+                class="button button-login mark-cyan button-icon-right">SEND
+            <i class="icon ion-ios-arrow-forward"></i>
         </button>
+
     </ion-content>
 </ion-view>

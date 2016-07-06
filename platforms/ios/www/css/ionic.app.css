@@ -9742,8 +9742,8 @@ div.title.title-center.header-item {
 .item.item-divider {
   background-color: #878E9E;
   color: white;
-  height: 50px;
-  line-height: 20px;
+  height: 40px;
+  line-height: 10px;
   padding: 15px 49px 15px 15px;
   font-size: 10pt;
   text-transform: uppercase;
@@ -9751,7 +9751,8 @@ div.title.title-center.header-item {
 
 .item.item-divider.customer {
   height: 20px;
-  line-height: 5px; }
+  line-height: 1px;
+  padding-left: 20px; }
 
 .bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before, .bar button.button-clear .icon:before, .bar button.button-clear.icon:before, .bar button.button-clear.icon-left:before, .bar button.button-clear.icon-right:before {
   font-size: 25px; }
@@ -9759,78 +9760,416 @@ div.title.title-center.header-item {
 .icon, .item-icon-right .icon {
   font-size: 22px; }
 
-ion-item.item.booking-detail {
+/* Booking Short View Popup */
+div.bookingShortView div.popup {
+  min-width: 300px; }
+  div.bookingShortView div.popup div.popup-head {
+    padding: 0; }
+  div.bookingShortView div.popup div.popup-body {
+    padding: 0;
+    background-color: white; }
+  div.bookingShortView div.popup div.popup-buttons {
+    padding: 0;
+    min-height: 50px; }
+    div.bookingShortView div.popup div.popup-buttons button {
+      border-radius: 0;
+      margin-right: 2px;
+      font-weight: bold;
+      font-size: 14px; }
+    div.bookingShortView div.popup div.popup-buttons button:last-child {
+      margin-right: 0; }
+    div.bookingShortView div.popup div.popup-buttons button.button-default {
+      background-color: #878E9E;
+      color: white; }
+
+ion-content.booking-details ion-item.item, ion-list.booking-details ion-item.item {
+  padding: 0%;
   margin-left: 4%;
   margin-right: 4%;
   border-left: 0px;
   border-right: 0px;
   border-color: #c8ccd6;
   border-bottom-width: 1px;
-  padding: 10px; }
-  ion-item.item.booking-detail h2 {
+  color: #a7a5a6;
+  font-size: 14px; }
+  ion-content.booking-details ion-item.item div.row, ion-list.booking-details ion-item.item div.row {
+    padding: 0; }
+  ion-content.booking-details ion-item.item div.col, ion-list.booking-details ion-item.item div.col {
+    text-align: center;
+    line-height: 20px;
+    border-right: 2px solid #c8ccd6; }
+    ion-content.booking-details ion-item.item div.col i, ion-list.booking-details ion-item.item div.col i {
+      padding-right: 10px; }
+  ion-content.booking-details ion-item.item div.col:last-child, ion-list.booking-details ion-item.item div.col:last-child {
+    border-right: 0px; }
+
+ion-content.booking-details ion-item.item.item-avatar, ion-list.booking-details ion-item.item.item-avatar {
+  padding: 12px; }
+  ion-content.booking-details ion-item.item.item-avatar img, ion-list.booking-details ion-item.item.item-avatar img {
+    max-height: 80px;
+    max-width: 80px;
+    margin-right: 20px;
+    position: static;
+    float: left; }
+  ion-content.booking-details ion-item.item.item-avatar h2, ion-list.booking-details ion-item.item.item-avatar h2 {
+    color: #3f4766;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    padding-bottom: 1%; }
+  ion-content.booking-details ion-item.item.item-avatar p, ion-list.booking-details ion-item.item.item-avatar p {
+    line-height: 18px;
+    margin-bottom: 0px;
+    color: #a7a5a6; }
+
+ion-content.booking-details ion-item.item.detail, ion-list.booking-details ion-item.item.detail {
+  padding: 12px; }
+  ion-content.booking-details ion-item.item.detail h2, ion-list.booking-details ion-item.item.detail h2 {
     color: #3f4766;
     font-size: 18px;
     font-weight: 600;
     text-align: center;
     padding-bottom: 1%; }
-  ion-item.item.booking-detail h3 {
-    padding-left: 2%;
-    text-align: left; }
-  ion-item.item.booking-detail p {
-    padding-left: 15%;
-    margin-bottom: 0px;
-    color: #a7a5a6; }
-  ion-item.item.booking-detail div.row {
-    padding: 0; }
-  ion-item.item.booking-detail div.col {
+  ion-content.booking-details ion-item.item.detail p, ion-list.booking-details ion-item.item.detail p {
+    line-height: 1.2;
     text-align: center;
-    line-height: 20px;
-    border-right: 2px solid #c8ccd6; }
-    ion-item.item.booking-detail div.col i {
-      padding-right: 10px; }
-  ion-item.item.booking-detail div.col.secound p {
-    padding-left: 2%;
-    text-align: left; }
-  ion-item.item.booking-detail div.col.secound i {
-    padding-left: 10px;
-    float: left;
-    font-size: 200%; }
-  ion-item.item.booking-detail div.col:last-child {
-    border-right: 0px; }
+    color: #a7a5a6; }
 
-ion-item.item.booking-detail.money {
-  margin-left: 0%;
-  margin-right: 0%;
+ion-content.booking-details ion-item.item.person, ion-list.booking-details ion-item.item.person {
+  padding: 0;
+  color: #3f4766; }
+
+ion-content.booking-details ion-item.item.status h3, ion-content.booking-details ion-item.item.status p, ion-list.booking-details ion-item.item.status h3, ion-list.booking-details ion-item.item.status p {
+  text-align: left;
+  line-height: 1;
+  color: #a7a5a6; }
+  ion-content.booking-details ion-item.item.status h3 span.red, ion-content.booking-details ion-item.item.status p span.red, ion-list.booking-details ion-item.item.status h3 span.red, ion-list.booking-details ion-item.item.status p span.red {
+    color: #f24e64; }
+  ion-content.booking-details ion-item.item.status h3 span.green, ion-content.booking-details ion-item.item.status p span.green, ion-list.booking-details ion-item.item.status h3 span.green, ion-list.booking-details ion-item.item.status p span.green {
+    color: #89d1c0; }
+
+ion-content.booking-details ion-item.item.status h3, ion-list.booking-details ion-item.item.status h3 {
+  color: #444041;
+  font-weight: 800;
+  padding-top: 8px;
+  font-size: 10px;
+  letter-spacing: 1px; }
+
+ion-content.booking-details ion-item.item.status i, ion-list.booking-details ion-item.item.status i {
+  float: left;
+  font-size: 35px;
+  margin: 6px; }
+
+ion-content.booking-details ion-item.money, ion-list.booking-details ion-item.money {
   background-color: #e6e8ec;
-  text-align: center;
-  padding: 4%; }
-  ion-item.item.booking-detail.money h3 {
-    color: black;
+  padding: 0px;
+  margin: 0; }
+  ion-content.booking-details ion-item.money h3, ion-list.booking-details ion-item.money h3 {
+    color: #444041;
     font-weight: 500;
     font-size: 25px;
-    text-align: center; }
+    text-align: center;
+    padding: 14px; }
+  ion-content.booking-details ion-item.money p, ion-list.booking-details ion-item.money p {
+    color: #a7a5a6; }
+  ion-content.booking-details ion-item.money div.col, ion-list.booking-details ion-item.money div.col {
+    padding: 0;
+    line-height: 56px; }
+  ion-content.booking-details ion-item.money span, ion-list.booking-details ion-item.money span {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0px; }
+  ion-content.booking-details ion-item.money span.red, ion-list.booking-details ion-item.money span.red {
+    color: #f24e64; }
+  ion-content.booking-details ion-item.money span.green, ion-list.booking-details ion-item.money span.green {
+    color: #89d1c0; }
 
-ion-item.item.item-avatar.customer-list {
-  height: 115px;
+ion-content.booking-details ion-item.item.extra div.col, ion-list.booking-details ion-item.item.extra div.col {
+  border: 0;
+  line-height: 30px;
+  font-size: 12px; }
+  ion-content.booking-details ion-item.item.extra div.col i, ion-list.booking-details ion-item.item.extra div.col i {
+    font-size: 12px;
+    padding-right: 10px; }
+  ion-content.booking-details ion-item.item.extra div.col i.ion-checkmark, ion-list.booking-details ion-item.item.extra div.col i.ion-checkmark {
+    color: #89d1c0; }
+  ion-content.booking-details ion-item.item.extra div.col i.ion-close, ion-list.booking-details ion-item.item.extra div.col i.ion-close {
+    color: #f24e64; }
+
+ion-content.booking-details ion-item.item.notes, ion-list.booking-details ion-item.item.notes {
+  background-color: #e6e8ec;
+  text-align: center;
+  margin: 0;
+  line-height: 23px;
+  color: #444041;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px; }
+
+/* Customer Detail View */
+ion-content.customer-details ion-item.item {
+  padding: 0%;
   margin-left: 4%;
   margin-right: 4%;
   border-left: 0px;
   border-right: 0px;
-  border-bottom-width: 2px; }
-  ion-item.item.item-avatar.customer-list img {
-    max-height: 75px;
-    max-width: 75px;
-    margin-bottom: 15px; }
-  ion-item.item.item-avatar.customer-list h2 {
+  border-color: #c8ccd6;
+  border-bottom-width: 1px;
+  color: #a7a5a6;
+  font-size: 14px;
+  min-height: 35px; }
+  ion-content.customer-details ion-item.item i {
+    padding-right: 10px;
+    font-size: 16px; }
+  ion-content.customer-details ion-item.item div.row {
+    padding: 0; }
+  ion-content.customer-details ion-item.item div.col {
+    padding: 12px;
+    text-align: center;
+    border-right: 2px solid #c8ccd6; }
+  ion-content.customer-details ion-item.item div.col:last-child {
+    border-right: 0px; }
+  ion-content.customer-details ion-item.item h3 {
+    text-transform: uppercase;
+    font-size: 12px; }
+
+ion-content.customer-details ion-item.item.item-avatar {
+  padding: 12px; }
+  ion-content.customer-details ion-item.item.item-avatar img {
+    max-height: 90px;
+    max-width: 90px;
+    margin-right: 20px;
+    position: static;
+    float: left; }
+  ion-content.customer-details ion-item.item.item-avatar h2 {
     color: #3f4766;
     font-size: 18px;
     font-weight: 600;
-    padding-left: 15%;
+    text-align: left;
     padding-bottom: 1%; }
-  ion-item.item.item-avatar.customer-list p {
-    padding-left: 15%;
+  ion-content.customer-details ion-item.item.item-avatar p {
+    line-height: 18px;
     margin-bottom: 0px;
     color: #a7a5a6; }
+
+ion-content.customer-details ion-item.item.number {
+  padding: 0; }
+
+ion-content.customer-details ion-item.item.mail {
+  text-align: center;
+  padding: 2%; }
+
+ion-content.customer-details ion-item.item.detail {
+  margin: 0;
+  padding: 0;
+  background-color: #e6e8ec; }
+  ion-content.customer-details ion-item.item.detail i {
+    float: left;
+    color: #444041;
+    font-size: 250%;
+    margin-left: 5%; }
+  ion-content.customer-details ion-item.item.detail p, ion-content.customer-details ion-item.item.detail h3 {
+    color: #444041;
+    text-align: left;
+    padding-left: 4%;
+    line-height: 1; }
+  ion-content.customer-details ion-item.item.detail h3 {
+    padding-top: 5px; }
+  ion-content.customer-details ion-item.item.detail p.red {
+    color: #f24e64; }
+  ion-content.customer-details ion-item.item.detail p.green {
+    color: #89d1c0; }
+  ion-content.customer-details ion-item.item.detail h1 {
+    color: #444041;
+    text-transform: uppercase;
+    line-height: 35px;
+    font-size: 12px;
+    text-align: center; }
+
+ion-content.customer-details ion-item.booking {
+  padding: 8px; }
+  ion-content.customer-details ion-item.booking span {
+    position: absolute;
+    right: 12px; }
+  ion-content.customer-details ion-item.booking span.red {
+    color: #f24e64; }
+  ion-content.customer-details ion-item.booking span.green {
+    color: #89d1c0; }
+
+/* Accomodation Detail View*/
+ion-content.accomodation-detail ion-item.item {
+  margin-left: 4%;
+  margin-right: 4%;
+  border-left: 0px;
+  border-right: 0px;
+  border-color: #c8ccd6;
+  border-bottom-width: 1px;
+  color: #a7a5a6;
+  font-size: 14px;
+  min-height: 35px; }
+  ion-content.accomodation-detail ion-item.item i {
+    padding-right: 10px;
+    font-size: 16px; }
+  ion-content.accomodation-detail ion-item.item div.row {
+    padding: 0; }
+  ion-content.accomodation-detail ion-item.item div.col {
+    padding: 12px;
+    text-align: center;
+    border-right: 2px solid #c8ccd6; }
+  ion-content.accomodation-detail ion-item.item div.col:last-child {
+    border-right: 0px; }
+  ion-content.accomodation-detail ion-item.item h3 {
+    color: #444041;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 12px; }
+  ion-content.accomodation-detail ion-item.item p {
+    text-align: center;
+    color: #a7a5a6; }
+
+ion-content.accomodation-detail ion-item.item.number {
+  padding: 0; }
+
+ion-content.accomodation-detail ion-item.item.mail {
+  text-align: center;
+  padding: 2%; }
+
+ion-content.accomodation-detail ion-item.detail {
+  margin: 0;
+  padding: 0;
+  background-color: #e6e8ec; }
+  ion-content.accomodation-detail ion-item.detail i {
+    float: left;
+    color: #444041;
+    font-size: 270%;
+    margin-left: 5%; }
+  ion-content.accomodation-detail ion-item.detail p, ion-content.accomodation-detail ion-item.detail h3 {
+    color: #444041;
+    text-align: left;
+    padding-left: 4%;
+    line-height: 1;
+    font-size: 14px;
+    padding-bottom: 2px; }
+  ion-content.accomodation-detail ion-item.detail h3 {
+    padding-top: 5px; }
+  ion-content.accomodation-detail ion-item.detail p.red {
+    color: #f24e64; }
+  ion-content.accomodation-detail ion-item.detail p.green {
+    color: #89d1c0; }
+  ion-content.accomodation-detail ion-item.detail h1 {
+    color: #444041;
+    text-transform: uppercase;
+    line-height: 35px;
+    font-size: 12px;
+    text-align: center; }
+
+ion-content.accomodation-detail ion-item.booking {
+  padding: 8px; }
+  ion-content.accomodation-detail ion-item.booking span {
+    position: absolute;
+    right: 12px; }
+  ion-content.accomodation-detail ion-item.booking span.red {
+    color: #f24e64; }
+  ion-content.accomodation-detail ion-item.booking span.green {
+    color: #89d1c0; }
+
+ion-content.accomodation-detail ion-item.item.location {
+  padding: 4% 0 0 0;
+  margin: 0;
+  border: 0; }
+  ion-content.accomodation-detail ion-item.item.location i {
+    position: relative;
+    top: calc(50% - 10px);
+    left: calc(50% - 5px);
+    font-size: 32px;
+    color: #444041; }
+  ion-content.accomodation-detail ion-item.item.location p {
+    text-align: center; }
+  ion-content.accomodation-detail ion-item.item.location img {
+    padding-top: 4%;
+    padding-bottom: 4%;
+    width: 100%; }
+
+/* Customer List View */
+ion-content.customer-list ion-item.item-avatar a {
+  padding-left: 110px;
+  height: 70px; }
+  ion-content.customer-list ion-item.item-avatar a div.status {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 15px; }
+  ion-content.customer-list ion-item.item-avatar a div.red {
+    background-color: #f24e64; }
+  ion-content.customer-list ion-item.item-avatar a div.green {
+    background-color: #4fc3a3; }
+  ion-content.customer-list ion-item.item-avatar a div.cyan {
+    background-color: #53bdcc; }
+  ion-content.customer-list ion-item.item-avatar a div.grey {
+    background-color: #e6e8ec; }
+  ion-content.customer-list ion-item.item-avatar a img.avatar-img {
+    top: 9px;
+    left: 30px;
+    max-height: 50px;
+    max-width: 50px; }
+  ion-content.customer-list ion-item.item-avatar a p span.date {
+    position: absolute;
+    right: 50px; }
+
+/* Timeline */
+ion-item.timeline {
+  border-bottom: 0; }
+  ion-item.timeline div.row {
+    padding: 0; }
+    ion-item.timeline div.row div.col.symbols {
+      padding: 0; }
+      ion-item.timeline div.row div.col.symbols i {
+        font-size: 45px;
+        position: relative;
+        left: calc(50% - 19px); }
+      ion-item.timeline div.row div.col.symbols i.ion-checkmark-circled {
+        color: #4fc3a3; }
+      ion-item.timeline div.row div.col.symbols i.ion-close-circled {
+        color: #f24e64; }
+      ion-item.timeline div.row div.col.symbols i.ion-ios-download {
+        left: calc(50% - 13px); }
+      ion-item.timeline div.row div.col.symbols i.ion-ios-upload {
+        left: calc(50% - 13px); }
+      ion-item.timeline div.row div.col.symbols div.line {
+        width: 2px;
+        height: 75px;
+        position: relative;
+        background-color: #d1d4dc;
+        left: 50%;
+        top: -3px; }
+      ion-item.timeline div.row div.col.symbols div.line:first-child {
+        height: 22px;
+        top: 2px; }
+      ion-item.timeline div.row div.col.symbols div.no-line {
+        height: 22px;
+        top: 2px;
+        color: white; }
+    ion-item.timeline div.row div.col.col-75 {
+      border-bottom: 2px solid #d1d4dc;
+      padding-bottom: 15px; }
+      ion-item.timeline div.row div.col.col-75 h3 {
+        margin-top: 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px; }
+      ion-item.timeline div.row div.col.col-75 p {
+        color: #757273;
+        font-size: 14px; }
+      ion-item.timeline div.row div.col.col-75 p.portal {
+        color: #939bb0;
+        font-style: oblique;
+        font-size: 12px; }
+      ion-item.timeline div.row div.col.col-75 span.date {
+        color: #a7a5a6;
+        position: absolute;
+        right: 15px;
+        font-size: 14px; }
 
 .bar-footer {
   background-color: #38445E;
@@ -9845,6 +10184,7 @@ div.bar-footer.save-button {
 
 button.button.mark-cyan {
   margin: 0;
+  text-align: center;
   color: white;
   font-size: 10pt;
   text-transform: uppercase;
@@ -9853,7 +10193,9 @@ button.button.mark-cyan {
   letter-spacing: 1px; }
   button.button.mark-cyan i {
     position: absolute;
-    right: 18px; }
+    right: 14px; }
+  button.button.mark-cyan i:before {
+    font-size: 22px; }
 
 button.button.mark-red {
   margin: 0;
@@ -9991,47 +10333,6 @@ img.logo-menu {
   height: 85%;
   margin-top: 2%; }
 
-/*.trapezoid {
-  position: absolute;
-  bottom: 8%;
-  height: 15%;
-  overflow: hidden;
-  width: 70%;
-  overflow: hidden;
-  transform: rotate(180deg);
-}*/
-/*div.trapeztext{
-  line-height: 130%;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 4%;
-  font-size: large;
-  position: absolute;
-  bottom: 8%;
-  color: white;
-  width: 70%;
-}
-
-.trapezoid:after{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 110%;
-  height: 170%;
-  background: $mark-red;
-  border-radius: 20px 0 0 0;
-  -webkit-transform-origin: 100% 100%;
-  -moz-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
-  -o-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  -webkit-transform: perspective(500px) rotateX(45deg);
-  -moz-transform:  perspective(500px) rotateX(45deg);
-  -ms-transform: perspective(500px) rotateX(45deg);
-  -o-transform: perspective(500px) rotateX(45deg);
-  transform: perspective(500px) rotateX(45deg);
-}*/
 ion-header-bar.bar.side-menu {
   background-color: #38445E;
   color: white;
@@ -10285,7 +10586,8 @@ div.syncery-datepicker {
     text-align: center; }
 
 ion-content.login {
-  background-color: #38445E; }
+  background-color: #38445E;
+  padding-top: 20px; }
 
 img.logo {
   width: 50%;
@@ -10333,14 +10635,10 @@ ion-content.login label {
   width: 85%;
   height: 50px;
   margin-bottom: 1%;
-  margin-top: 1%;
   padding: 0%;
   font-size: 14px;
   letter-spacing: 1px;
   font-weight: 500; }
-
-ion-content.login label:first-child {
-  margin-top: 10%; }
 
 ion-content.login button.button-login {
   display: block;
@@ -10351,7 +10649,7 @@ ion-content.login button.button-login {
   margin-top: 5%;
   width: 85%;
   height: 50px;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
   text-align: left; }
 
 ion-content.login a {
@@ -10365,15 +10663,16 @@ ion-content.login a {
   color: grey;
   text-decoration: none; }
 
-ion-footer-bar.login button.button.button-outline.button-assertive.icon-left.ion-social-google {
+button.button.button-outline.button-assertive.icon-left.ion-social-google {
   border-radius: 0;
   width: 41%;
   left: 7.5%;
   height: 33px;
   display: block;
-  position: absolute; }
+  position: absolute;
+  bottom: 20px; }
 
-ion-footer-bar.login button.button.button-outline.button-positive.icon-left.ion-social-facebook {
+button.button.button-outline.button-positive.icon-left.ion-social-facebook {
   border-radius: 0;
   color: #4267b2;
   border-color: #4267b2;
@@ -10381,7 +10680,8 @@ ion-footer-bar.login button.button.button-outline.button-positive.icon-left.ion-
   right: 7.5%;
   height: 33px;
   display: block;
-  position: absolute; }
+  position: absolute;
+  bottom: 20px; }
 
 ion-content.login button.button.button-outline.button-positive.icon-left.ion-social-facebook:hover {
   background-color: #4267b2;
@@ -10400,7 +10700,7 @@ h2.login.h2 {
   font-size: 16px;
   display: block;
   position: absolute;
-  bottom: 110px; }
+  bottom: 70px; }
 
 ion-slide-box.login {
   height: 100%; }
@@ -10451,7 +10751,7 @@ ion-slide div.footer {
   bottom: 4%; }
 
 .slider-pager .slider-pager-page {
-  color: white;
+  color: #b9beca;
   opacity: 1; }
   .slider-pager .slider-pager-page i {
     font-size: 12px; }

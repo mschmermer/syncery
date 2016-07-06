@@ -13,20 +13,20 @@
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content ion-sticky delegate-handle="customer" on-scroll="getScrollPosition()" overflow-scroll="false">
+    <ion-content class="customer-list" ion-sticky delegate-handle="customer" on-scroll="getScrollPosition()" overflow-scroll="false">
         <div ng-repeat="(letter, customers) in data.customers">
             <div class="item item-divider customer">{{letter}}</div>
             <ion-list id="customer_list" can-swipe="listCanSwipe">
-                <ion-item class="item list-item item-remove-animate customer-list item-avatar item-icon-right"
+                <ion-item class="item list-item customer-list item-avatar item-icon-right"
                           ng-repeat="customer in customers"
                           href="#/app/customer/details{{customer.id}}">
                     <!--<i class="icon ion-person-stalker"></i>-->
-                    <img ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
-                    <img ng-if="!customer.avatar" ng-src="img/avatar.jpg">
+                    <img class="avatar-img" ng-if="customer.avatar" ng-src="img/{{customer.avatar}}">
+                    <img class="avatar-img" ng-if="!customer.avatar" ng-src="img/avatar.jpg">
 
+                    <div class="status {{customer.status}}"></div>
                     <h2>{{customer.first_name}} {{customer.name}}</h2>
-                    <p>{{customer.open_bill | currency: "€ "}}</p>
-                    <p>{{customer.last_booking}}</p>
+                    <p>{{customer.open_bill | currency: "€ "}} <span class="date">{{customer.last_booking}}</span></p>
 
                     <ion-option-button class="button button-dark ion-ios7-compose-outline button-options"
                                        ng-click="edit(customer.id)">

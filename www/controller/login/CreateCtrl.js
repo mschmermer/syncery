@@ -8,7 +8,6 @@
     function CreateCtrl($scope, UserSvc, LoginFactory, $state, $ionicSideMenuDelegate, $ionicHistory) {
 
         $scope.signup = function(){
-            alert('dsf');
             $state.go('app.signup');
         }
         $scope.login = function(){
