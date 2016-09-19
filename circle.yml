@@ -9,5 +9,6 @@ test:
     - sleep 5
   override:
     - npm install -g cordova
+    - npm install -g ionic
     - ionic platform add ios
     - ionic build ios
