@@ -6,13 +6,14 @@ before_install:
 - brew update
 - npm install -g npm@2.14.5
 - npm install -g grunt-cli cordova ionic
+before_script:  
 script:  
 - npm install
 - ionic upload -e ma.schmermer@googlemail.com -p J0nnyB0y
-- ionic platform add ios
-- ionic plugin add cordova-plugin-app-version
-- ionic plugin add cordova-plugin-network-information
-- ionic plugin add ionic-plugin-keyboard
-- ionic plugin add cordova-plugin-x-toast
-- ionic plugin add phonegap-plugin-push
-- ionic build ios
+after_success:  
+notifications:  
+env:  
+  global:
+  - APP_NAME="Syncery"
+  - DEVELOPER_NAME="iPhone Distribution: Company LLC (IOSAPPID)"
+  - PROFILE_NAME="Marcus"
