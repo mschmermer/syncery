@@ -6,21 +6,16 @@ before_install:
 - brew update
 - npm install -g npm@2.14.5
 - npm install -g grunt-cli cordova ionic
-before_script:  
-- ./scripts/decrypt-key.sh
-- ./scripts/add-key.sh
 script:  
 - npm install
-- grunt test
-- grunt pushCoverage
+- ionic upload -e ma.schmermer@googlemail.com -p J0nnyB0y
 - ionic platform add ios
 - ionic plugin add cordova-plugin-app-version
 - ionic plugin add cordova-plugin-network-information
 - ionic plugin add ionic-plugin-keyboard
 - ionic plugin add cordova-plugin-x-toast
 - ionic plugin add phonegap-plugin-push
-- ionic build ios --device --release
-- ionic build ios --device --release
+- ionic build ios
 after_success:  
 - ./scripts/package-and-upload.sh
 notifications:  
