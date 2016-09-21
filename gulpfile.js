@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var exec = require('gulp-exec');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -49,3 +50,9 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task('upload', function() { 
+  var ionicEmail = process.env.IONIC_EMAIL; var ionicPassword = process.env.IONIC_PASSWORD;
+
+var ionicCommand = 'ionic upload -e ' + ionicEmail + ' -p ' + ionicPassword; return gulp.src('') .pipe(exec(ionicCommand)) .pipe(exec.reporter(reportOptions)) });
+var reportOptions = { err: true, stderr: true, stdout: true };
