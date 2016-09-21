@@ -29,5 +29,6 @@
   "cordovaPlatforms": [
     "android",
     "ios"
-  ]
+  ],
+  "gulp-exec": "^2.1.1"
 }
