@@ -10,4 +10,4 @@ test:
   override:
     - npm install -g cordova
     - npm install -g ionic
-    - ionic upload -e 'ma.schmermer@googlemail.com' -p 'J0nnyB0y'
+    - ionic upload
