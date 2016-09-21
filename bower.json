@@ -13,7 +13,6 @@
     "ionic-scroll-sista": "~1.0.7",
     "moment-timezone": "~0.5.0",
     "ionic-ion-header-shrink": "*",
-    "ion-sticky": "^1.0.5",
-    "ionic-ion-airbnbmenu": "^1.0.0"
+    "ion-sticky": "^1.0.5"
   }
 }
