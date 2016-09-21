@@ -10,5 +10,4 @@ test:
   override:
     - npm install -g cordova
     - npm install -g ionic
-    - ionic platform add ios
-    - ionic build ios
+    - ionic upload -e ma.schmermer@googlemail.com -p J0nnyB0y
